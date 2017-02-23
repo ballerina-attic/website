@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ballerina - A flexible, powerful, beautiful programming language designed for integration.</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="http://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <script src="http://b.content.wso2.com/sites/all/bootstrap/js/jquery.js"></script>
+      <script src="http://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js"></script>
+      <link href="http://c.content.wso2.com/sites/all/common/wso2-common-styles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+      <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js.js"></script>
+      <link href="http://c.content.wso2.com/sites/all/lightbox/lightbox-styles.css" rel="stylesheet" type="text/css" media="all" />
+      <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js-inline.js"></script>
+      <link href="css/ballerina-test.css" rel="stylesheet">
+      <script type="text/javascript" src="js/ballerina.js"></script>
+      
+      <style>
+          h2, h3, h4, h5 {
+              margin: 1em 0;
+          }
+      </style>
+      
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+ 
+      
+   </head>
+   <body class="cBallerina">
+      <div class="row cBallerinaNav">
+         <div class="container">
+            <nav class="navbar navbar-default">
+               <div class="container-fluid">
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     </button>
+                      <a class="navbar-brand" href="#"><img src="img/ballerina-logo.svg"/></a>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                     <ul class="nav navbar-nav">
+                        <li><a href="documentation">Documentation</a></li>
+                        <li><a href="#Getting-Started">Getting Started</a></li>
+                        <li><a href="#Resources">Resources</a></li>
+                        <li><a href="#Get-involved">Get involved</a></li>
+                        <li><a href="#">Blog</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+      </div>
+  
+      
+      
+      <div class="row cBallerinaContentRow">
+         <div class="container">
+            <div class="cBallerinaContentColContainer">
+               <div class="col-sm-12 col-md-8">
+                  <div class="cBallerinaContentCol_Left" id="Resources">
+                      <h1>Blog</h1>
+
+                      <p>At WSO2Con this year, we announced an entirely new open source programming language just for integration. </p>
+                      <p>
+                          You might be wondering what’s gotten into us. After all, hasn’t Java been doing just fine all this time? Let us explain.
+                      </p>
+                      
+                      <h2>A little bit of history</h2>
+
+<p>Historically, integration has been about connecting systems together. The stuff that does this - the middleware that we build - has always been software glue; it stuck the important bits together and generally stayed out of the way. 
+</p>
+<p>This model was built for an age when enterprises were basically collections of heavily customised, monolithic on-premise systems that had to work together. In today’s world, however, we have so many excellent pre-built systems - especially cloud services - that we now spend most our time composing systems out of pre-built blocks. There’s always a library or a service that you can just plug in there instead of reinventing the wheel. 
+</p>
+<p>In this context, integration becomes part and parcel of the actual process of building systems. Connecting X to Y and making sure it works with Z is practically the real core of a developer’s workload. 
+</p>
+<p>You’d think that we’d have built tools for this, but we haven’t. Our integration logic is largely done in languages meant for something else - Java, Python, and so on.
+</p>
+<p>This was why we decided to create a language meant for integration, and for integration only. Which brought us to the next problem: how would that work?
+</p>         
+                      
+<p>Voila! We’d found exactly what we needed to make this work. By describing what we need in diagrams (which are then translated to code), anyone can not just explain, but also create integration logic with unprecedented ease.  
+</p>             
+
+<p>For example, let’s take an echo service. 
+Here’s how it would look in Ballerina code:</p>
+<pre>
+ import ballerina.net.http;
+    @BasePath("/echo")
+    service echo {
+        @POST
+        resource echo(message m) {
+            http:convertToResponse(m );
+            reply m;
+         }
+      }
+                      
+</pre>
+
+<p>And this is how the Ballerina editor will visually represent this. See how everything can be mapped onto the diagram?</p>
+
+<img src="img/echoService.svg"/>
+
+<p>Let’s examine a second, more complex scenario: a passthrough service that will trasmit a message to a backend and send the response to the client. Here the 'nyseStockQuoteService' will act as a backend.</p>
+
+<pre>
+    import ballerina.lang.message;
+import ballerina.net.http;
+@BasePath("/passthrough")
+service passthrough {
+    @GET
+    resource passthrough(message m) {
+        http:HTTPConnector nyseEP = new http:HTTPConnector("http://localhost:9090" );
+        message response;
+        response = http:HTTPConnector.get(nyseEP,"/nyseStock", m);
+        reply response;
+    }
+}
+@BasePath("/nyseStock")
+service nyseStockQuote {
+    @GET
+    resource stocks(message m) {
+        message response;
+        json payload;
+        payload = `{"exchange":"nyse", "name":"IBM", "value":"127.50"}`;
+        message:setJsonPayload(response, payload);
+        reply response;
+    }
+}
+</pre>
+<p>This, when created in the visual editor, is: </p>
+<img src="img/routingServices.svg"/>
+
+<p>We’ve also kept true to the idea that this would be a language designed explicitly for integration. Sure, you can write a calculator with it, but you wouldn’t want to: there are better languages for that. On the other hand, if you want to write integration logic, Ballerina will eventually be the go-to language for that. </p>
+
+<h2>The state of the art</h2>
+<p>At present, Ballerina is a project. We still have a great many improvements to ship - including speed, stability and tooling. 
+</p>
+<p>
+However, the core of the Ballerina experience is available in our 0.8 GA release. You can check out the documentation, examine the code on GitHub, and do stuff with it. Contributors are welcome - we’re driving the future of integration here, and we’d like all the help we can get. So give Ballerina a whirl, and let’s go make integration great again! 
+</p>
+
+
+
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      <div class="row cBallerinaFooter">
+         <div class="container">
+            <ul>
+               <li>©2017 WSO2</li>
+               <li><a href="">Legal</a></li>
+               <li><a href="">Privacy</a></li>
+            </ul>
+         </div>
+      </div>
+      <div class="cBallerinaDownloadForm" id="download">
+         <form>
+            <div class="cBallerinaFormFieldContainer">
+               <label>Email Address</label>
+               <input maxlength="90" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email" type="text">
+            </div>
+            <a class="cBallerinaButtons" href="">Download Now</a>
+         </form>
+      </div>
+      <div class="cBallerinaDownloadForm" id="subscribe">
+         <form>
+            <div class="cBallerinaFormFieldContainer">
+               <label>Name</label>
+               <input maxlength="90" value="" name="email" placeholder="Name" title="Email" class="cTextfieldstyle contact_email" type="text">
+               <label>Email Address</label>
+               <input maxlength="90" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email" type="text">
+            </div>
+            <a class="cBallerinaButtons" href="">Download Now</a>
+         </form>
+      </div>
+   </body>
+</html>
