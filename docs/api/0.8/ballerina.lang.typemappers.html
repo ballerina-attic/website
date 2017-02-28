@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.typemappers</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-92163714-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KW2LLTW');
+    </script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                         
+                         
+                        
+                        
+                            <!-- TypeMappers -->
+                            <h2>TypeMappers of ballerina.lang.typemappers package</h2>
+                             
+                                <h3 id="jsonToString">
+                                    typemapper jsonToString(<a href="#json">json</a> j) (string )
+                                </h3>
+                                <p>Converts JSON to a string</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>j</td><td><a href="#json">json</a></td><td>JSON value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#string">string</a></td><td>String representation of the given JSON</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                             
+                                <h3 id="jsonToxml">
+                                    typemapper jsonToxml(<a href="#json">json</a> j) (xml )
+                                </h3>
+                                <p>Converts JSON to XML</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>j</td><td><a href="#json">json</a></td><td>JSON value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#xml">xml</a></td><td>XML representation of the given JSON</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                             
+                                <h3 id="stringToJSON">
+                                    typemapper stringToJSON(<a href="#string">string</a> value) (json )
+                                </h3>
+                                <p>Converts a string to JSON</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>value</td><td><a href="#string">string</a></td><td>String value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#json">json</a></td><td>JSON representation of the given string</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                             
+                                <h3 id="stringToXML">
+                                    typemapper stringToXML(<a href="#string">string</a> value) (xml )
+                                </h3>
+                                <p>Converts a string to XML</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>value</td><td><a href="#string">string</a></td><td>String value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#xml">xml</a></td><td>XML representation of the given string</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                             
+                                <h3 id="xmlToString">
+                                    typemapper xmlToString(<a href="#xml">xml</a> x) (string )
+                                </h3>
+                                <p>Converts XML to a string</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>x</td><td><a href="#xml">xml</a></td><td>value: XML value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#string">string</a></td><td>String representation of the given XML</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                             
+                                <h3 id="xmlTojson">
+                                    typemapper xmlTojson(<a href="#xml">xml</a> x) (json )
+                                </h3>
+                                <p>Converts XML to JSON</p>
+                                <p>
+                                    <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td>x</td><td><a href="#xml">xml</a></td><td>XML value to be converted</td>
+                                        </tr>
+                                    
+                                </table>
+                                </p>
+                                
+                                    <p>
+                                        <b>Return Parameters:</b>
+                                    <table>
+                                        <tr>
+                                            <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                        </tr>
+                                        
+                                            <tr>
+                                                <td></td><td><a href="#json">json</a></td><td>JSON representation of the given XML</td>
+                                            </tr>
+                                        
+                                    </table>
+                                    </p>
+                                
+                            
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                           
+                        <li>
+                            <span class="opener">TypeMappers</span>
+                            <ul>
+                                
+                                    <li>
+                                        <a href="#jsonToString ">jsonToString (json j) (string )</a>
+                                    </li>
+                                    <li>
+                                        <a href="#jsonToxml ">jsonToxml (json j) (xml )</a>
+                                    </li>
+                                    <li>
+                                        <a href="#stringToJSON ">stringToJSON (string value) (json )</a>
+                                    </li>
+                                    <li>
+                                        <a href="#stringToXML ">stringToXML (string value) (xml )</a>
+                                    </li>
+                                    <li>
+                                        <a href="#xmlToString ">xmlToString (xml x) (string )</a>
+                                    </li>
+                                    <li>
+                                        <a href="#xmlTojson ">xmlTojson (xml x) (json )</a>
+                                    </li>
+                            </ul>
+                        </li>
+                    
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

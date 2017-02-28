@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>File Server Connector - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "File Server Connector";
+    var mkdocs_page_input_path = "server-connectors/file-server.md";
+    var mkdocs_page_url = "/server-connectors/file-server/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+    <ul class="subnav">
+    <li><span>Get Started</span></li>
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Welcome</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../quick-tour/">Quick Tour</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../key-concepts/">Key Concepts</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tools/">Tools</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+
+<li>
+          
+            <li>
+
+    <ul class="subnav">
+    <li><span>Language Reference</span></li>
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/lang-overview/">Overview</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/packaging/">Packaging and Running Programs</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/services/">Services</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/resources/">Resources</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/functions/">Functions</a>
+        
+    </li>
+
+
+        
+            
+
+    <ul class="subnav">
+    <li><span>Connectors</span></li>
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/connectors/">Working with Connectors</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">File Server Connector</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#file-server-connector">File Server Connector</a></li>
+                
+                    <li><a class="toctree-l4" href="#defining-a-file-service">Defining a file service</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-5-add-dependency-jars">Step 5: Add dependency JARs</a></li>
+                
+                    <li><a class="toctree-l4" href="#native-ballerina-functions-for-file-processing">Native Ballerina functions for file processing</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../http2-server/">HTTP/2 Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../jms-client/">JMS Client Connector</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../jms-server/">JMS Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../websocket-server/">WebSocket Server Connector</a>
+        
+    </li>
+
+
+        
+    </ul>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/actions/">Actions</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/types-variables/">Types and Variables</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/statements/">Statements</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/exceptions/">Exception Handling</a>
+        
+    </li>
+
+
+        
+    </ul>
+
+<li>
+          
+            <li>
+
+    <ul class="subnav">
+    <li><span>Additional Reference</span></li>
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../native-functions/">API Documentation</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../spec/">Language Specification</a>
+        
+    </li>
+
+
+        
+            
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../architecture/">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+    </ul>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Language Reference &raquo;</li>
+        
+      
+        
+          <li>Connectors &raquo;</li>
+        
+      
+    
+    <li>File Server Connector</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/server-connectors/file-server.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="file-server-connector">File Server Connector</h1>
+<p>The File Server connector is used to process files in the specified source directory. Note that files cannot remain in the source directory after processing or they will be processed again. Therefore, after processing a file it will be deleted.</p>
+<h2 id="defining-a-file-service">Defining a file service</h2>
+<h3 id="step-1-create-the-service">Step 1: Create the service</h3>
+<p>Create a service with unique name.</p>
+<pre><code>service orderProcessService {
+
+}
+</code></pre>
+
+<h3 id="step-2-specify-service-parameters">Step 2: Specify service parameters</h3>
+<p>Add a service level annotation named "Source" and add the key-value pairs to specify the parameters. The following section describes each key that can be used with a file service. An example is provided after the tables.</p>
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Description</th>
+    <th>Required</th>
+    <th>Expected Value</th>
+    <th>Default value</th>
+  </tr>
+  <tr>
+    <td>protocol</td>
+    <td>The protocol to which this service is bound.</td>
+    <td>Yes</td>
+    <td>file</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>fileURI</td>
+    <td>The URI where the files you want to process are located. This can be a URI to a folder. If it is a folder, all the files in the folder will be processed, one at a time. If the URI points to a single file, the file will be processed when it becomes available at that location.</td>
+    <td>Yes</td>
+    <td>A valid file URI</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>pollingInterval</td>
+    <td>The polling interval at which the file URI location is polled for the file. The value is expressed in milliseconds.</td>
+    <td>No</td>
+    <td>A positive integer.</td>
+    <td>10000</td>
+  </tr>
+  <tr>
+    <td>acknowledgementTimeOut</td>
+    <td>The expected time in milliseconds that a file needs to stay open until the consumer has finished consuming it. When you develop the Ballerina service, if you are performing time-consuming operations that require the file to be kept open (for example, streaming the file content to a slow backend), this value needs to be set to a higher value accordingly.</td>
+    <td>No</td>
+    <td>A positive integer.</td>
+    <td>30000</td>
+  </tr>
+</table>
+
+<p>When the <code>fileURI</code> parameter points to a folder, the user has the option to sort the files, which are currently in this folder, before processing starts. Following are the parameters you can use to configure sorting operations.</p>
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Description</th>
+    <th>Required</th>
+    <th>Expected Value</th>
+    <th>Default value</th>
+  </tr>
+  <tr>
+    <td>fileSortAttribute</td>
+    <td>The attribute of the file by which the files will be sorted.</td>
+    <td>No</td>
+    <td>One of the following:
+name, size, lastModifiedTimestamp</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>fileSortAscending</td>
+    <td>A Boolean parameter that indicates whether to sort files in ascending order. If set to "true", files will be sorted in ascending order. If set to “false”, files will be sorted in descending order.</td>
+    <td>No</td>
+    <td>True or false</td>
+    <td>true</td>
+  </tr>
+</table>
+
+<h4 id="example">Example:</h4>
+<pre><code>@Source (
+  protocol = &quot;file&quot;,
+  fileURI = &quot;file:///home/user/orders&quot;,
+  pollingInterval = &quot;20000&quot;,
+  fileSortAttribute = &quot;Size&quot;,
+  fileSortAscending = &quot;false&quot;
+  )
+service orderProcessService {
+}
+</code></pre>
+
+<h3 id="step-3-add-a-resource">Step 3: Add a resource</h3>
+<p>Add a resource under the file service as below:</p>
+<pre><code>@Source (
+    protocol = &quot;file&quot;,
+    fileURI = &quot;file:///home/user/orders&quot;,
+    pollingInterval = &quot;20000&quot;,
+    fileSortAttribute = &quot;size&quot;,
+    fileSortAscending = &quot;false&quot;
+    )
+service orderProcessService { 
+    resource processOrder (message m) {
+        // file processing logic here.
+    }
+}
+</code></pre>
+
+<p>In general, a service can have multiple resources. However, a service of type File is <strong>required to have one and only one resource</strong>. </p>
+<h3 id="step-4-add-file-processing-logic">Step 4: Add file-processing logic</h3>
+<p>Within the <code>resource</code> block, specify the file-processing logic. In the example given below, Ballerina functions (<code>system:println</code>, <code>messages:getStringPayload(m)</code>, and <code>file:acknowledge(m)</code>) are being used to process the file.</p>
+<pre><code>import ballerina.lang.messages;
+import ballerina.lang.system;
+import ballerina.net.file;
+
+@Source (
+  protocol = &quot;file&quot;,
+  fileURI = &quot;file:///home/user/orders&quot;,
+  pollingInterval = &quot;20000&quot;,
+  fileSortAttribute = &quot;size&quot;,
+  fileSortAscending = &quot;false&quot;
+  )
+service orderProcessService {
+    resource processOrder (message m) {
+        system:println(messages:getStringPayload(m));
+        file:acknowledge(m);
+    }
+}
+</code></pre>
+
+<p><strong>Note:</strong>
+Here, <code>file:acknowledge(m)</code> is a function that is exclusive for file processing. See the function description below for details. </p>
+<h2 id="step-5-add-dependency-jars">Step 5: Add dependency JARs</h2>
+<p>When the <code>fileURI</code> parameter refers to a location in the local file system, you do not need to add any additional JARs for the file service to work. However, in other cases (for example, when the <code>fileURI</code> refers to a remote file or a folder that needs to be accessed via FTP), it may be required to add specific JARs to the <code>&lt;ballerina_home&gt;/bre/lib</code> folder. </p>
+<p>The following table indicates which dependency JARs are required for which file-access protocol.</p>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Required For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://commons.apache.org/compress/">Commons Compress</a> Version 1.9.</td>
+<td>TAR, Bzip2</td>
+</tr>
+<tr>
+<td><a href="http://commons.apache.org/net/">Commons Net</a> Version 3.3.</td>
+<td>FTP</td>
+</tr>
+<tr>
+<td><a href="http://commons.apache.org/httpclient/">Commons Httpclient</a> Version 3.1. Requires <a href="http://commons.apache.org/proper/commons-codec/">Commons Codec</a> Version 1.2.</td>
+<td>HTTP, URI Utils</td>
+</tr>
+<tr>
+<td><a href="http://www.jcraft.com/jsch/">JSch</a> Version 0.1.51.</td>
+<td>SFTP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="native-ballerina-functions-for-file-processing">Native Ballerina functions for file processing</h2>
+<h3 id="acknowledge">Acknowledge</h3>
+<p><strong>Function name:</strong> acknowledge</p>
+<p><strong>Package name:</strong> ballerina.net.file</p>
+<p><strong>Arguments:</strong> message</p>
+<p>The <code>acknowledge</code> function sends an acknowledgement to the sender of the message, saying that file processing has being finished. </p>
+<p>It is important to note that this function <strong>must</strong> be called after the service has finished consuming the message (that is, the file). See below for an example.</p>
+<pre><code>import ballerina.lang.messages;
+import ballerina.lang.system;
+import ballerina.net.file;
+
+@Source (
+  protocol = &quot;file&quot;,
+  fileURI = &quot;file:///home/user/orders&quot;,
+  pollingInterval = &quot;20000&quot;,
+  fileSortAttribute = &quot;size&quot;,
+  fileSortAscending = &quot;false&quot;
+  )
+service orderProcessService {
+    resource processOrder (message m) {
+        system:println(messages:getStringPayload(m));
+        file:acknowledge(m);
+    }
+}
+</code></pre>
+
+<p>In the above example, once a file is found at the given URI, <code>orderProcessService</code> will receive a message. This message contains a reference to the input stream of the file so the service can process the file.</p>
+<p>The service will then execute the statements given within the resource block. </p>
+<pre><code>system:println(messages:getStringPayload(m));
+</code></pre>
+
+<p>The above line will read the file content as a String and then print it on the console.</p>
+<pre><code>file:acknowledge(m);
+</code></pre>
+
+<p>The above line sends an acknowledgment to the sender of the message (this sender has the control to close the file input stream). As a result, the file input stream will be closed, and then the file will be deleted. </p>
+<p>Since this function makes the message sender close the input stream and delete the file, this function needs to be called only after message processing is done. </p>
+<p>In case the service does not call the <code>acknowledge</code> function, the message sender will wait for 30 seconds (the default wait time; you can specify a different wait time as the <code>acknowledgementTimeOut</code> service parameter) and assume that the file was not processed. Furthermore, following the same assumption, the message sender will not delete the file. As a result of this, the file will remain at the same URI to which the service listens, so the service will attempt to process it in the next polling cycle as well. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../http2-server/" class="btn btn-neutral float-right" title="HTTP/2 Server Connector">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../lang-ref/connectors/" class="btn btn-neutral" title="Working with Connectors"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../lang-ref/connectors/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../http2-server/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

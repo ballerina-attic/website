@@ -13,12 +13,15 @@
       <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js.js"></script>
       <link href="http://c.content.wso2.com/sites/all/lightbox/lightbox-styles.css" rel="stylesheet" type="text/css" media="all" />
       <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js-inline.js"></script>
-      <link href="css/ballerina-test.css" rel="stylesheet">
-      <script type="text/javascript" src="js/ballerina.js"></script>
+      <link href="../css/ballerina-test.css" rel="stylesheet">
+      <script type="text/javascript" src="../js/ballerina.js"></script>
       
       <style>
           h2, h3, h4, h5 {
               margin: 1em 0;
+          }
+          .cBallerinaContentColContainer {
+              background-image: none;
           }
       </style>
       
@@ -28,31 +31,8 @@
       
    </head>
    <body class="cBallerina">
-      <div class="row cBallerinaNav">
-         <div class="container">
-            <nav class="navbar navbar-default">
-               <div class="container-fluid">
-                  <div class="navbar-header">
-                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                     <span class="sr-only">Toggle navigation</span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     </button>
-                      <a class="navbar-brand" href="#"><img src="img/ballerina-logo.svg"/></a>
-                  </div>
-                  <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                     <ul class="nav navbar-nav">
-                        <li><a href="documentation">Documentation</a></li>
-                        <li><a href="#Getting-Started">Getting Started</a></li>
-                        <li><a href="#Resources">Resources</a></li>
-                        <li><a href="#Get-involved">Get involved</a></li>
-                        <li><a href="#">Blog</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </nav>
-         </div>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+         
       </div>
   
       
@@ -102,7 +82,7 @@ Here’s how it would look in Ballerina code:</p>
 
 <p>And this is how the Ballerina editor will visually represent this. See how everything can be mapped onto the diagram?</p>
 
-<img src="img/echoService.svg"/>
+<img src="../img/echoService.svg"/>
 
 <p>Let’s examine a second, more complex scenario: a passthrough service that will trasmit a message to a backend and send the response to the client. Here the 'nyseStockQuoteService' will act as a backend.</p>
 
@@ -132,7 +112,7 @@ service nyseStockQuote {
 }
 </pre>
 <p>This, when created in the visual editor, is: </p>
-<img src="img/routingServices.svg"/>
+<img src="../img/routingServices.svg"/>
 
 <p>We’ve also kept true to the idea that this would be a language designed explicitly for integration. Sure, you can write a calculator with it, but you wouldn’t want to: there are better languages for that. On the other hand, if you want to write integration logic, Ballerina will eventually be the go-to language for that. </p>
 
@@ -151,14 +131,8 @@ However, the core of the Ballerina experience is available in our 0.8 GA release
             </div>
          </div>
       </div>
-      <div class="row cBallerinaFooter">
-         <div class="container">
-            <ul>
-               <li>©2017 WSO2</li>
-               <li><a href="">Legal</a></li>
-               <li><a href="">Privacy</a></li>
-            </ul>
-         </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+         
       </div>
       <div class="cBallerinaDownloadForm" id="download">
          <form>
