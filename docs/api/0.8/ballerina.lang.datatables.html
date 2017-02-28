@@ -1,0 +1,1100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.datatables</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-92163714-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KW2LLTW');
+    </script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.datatables package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="close">
+                                function close(<a href="#datatable">datatable</a> dt) 
+                            </h3>
+                            <p>Releases the database connection.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getArray">
+                                function getArray(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (map )
+                            </h3>
+                            <p>Retrieves arrays values of a given column index.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>map): The column value as map</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getArray">
+                                function getArray(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (map )
+                            </h3>
+                            <p>Retrieves arrays values of a given column name.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>map): The column value as map</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBoolean">
+                                function getBoolean(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (boolean )
+                            </h3>
+                            <p>Retrieves the Boolean value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>The column value as a Boolean</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBoolean">
+                                function getBoolean(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (boolean )
+                            </h3>
+                            <p>Retrieves the Boolean value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>The column value as a Boolean</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getDouble">
+                                function getDouble(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (double )
+                            </h3>
+                            <p>Retrieves the double value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#double">double</a></td><td>The column value as a double</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getDouble">
+                                function getDouble(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (double )
+                            </h3>
+                            <p>Retrieves the double value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#double">double</a></td><td>The column value as a double</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getFloat">
+                                function getFloat(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (float )
+                            </h3>
+                            <p>Retrieves the float value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#float">float</a></td><td>The column value as a float</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getFloat">
+                                function getFloat(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (float )
+                            </h3>
+                            <p>Retrieves the float value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#float">float</a></td><td>The column value as a float</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getInt">
+                                function getInt(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (int )
+                            </h3>
+                            <p>Retrieves the integer value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>The column value as an integer</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getInt">
+                                function getInt(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (int )
+                            </h3>
+                            <p>Retrieves the integer value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>The column value as an integer</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getLong">
+                                function getLong(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (long )
+                            </h3>
+                            <p>Retrieves the long value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#long">long</a></td><td>The column value as a long</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getLong">
+                                function getLong(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> string, <a href="#string">string</a> type) (long )
+                            </h3>
+                            <p>Retrieves the long value of the designated column in the current row for the given column type: date, time, or timestamp</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>string</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>type</td><td><a href="#string">string</a></td><td>Database table column type. Supported values are date, time, timestamp</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#long">long</a></td><td>The column value as a long</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getLong">
+                                function getLong(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (long )
+                            </h3>
+                            <p>Retrieves the long value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#long">long</a></td><td>The column value as a long</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getLong">
+                                function getLong(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index, <a href="#string">string</a> type) (long )
+                            </h3>
+                            <p>Retrieves the long value of the designated column in the current row for the given column type: date, time, or timestamp</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>type</td><td><a href="#string">string</a></td><td>Database table column type. Supported values are date, time, timestamp</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#long">long</a></td><td>The column value as a long</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (string )
+                            </h3>
+                            <p>Retrieves the string value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> string, <a href="#string">string</a> type) (string )
+                            </h3>
+                            <p>Retrieves the base64encoded string value of the designated column in the current row for the given column type: blob, clob, nclob, or binary</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>string</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>type</td><td><a href="#string">string</a></td><td>Database table column type. Supported values are blob, clob, nclob, binary.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index, <a href="#string">string</a> type) (string )
+                            </h3>
+                            <p>Retrieves the base64encoded string value of the designated column in the current row for the given column type: blob, clob, nclob, or binary</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>type</td><td><a href="#string">string</a></td><td>Database table column type. Supported values are blob, clob, nclob, binary.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (string )
+                            </h3>
+                            <p>Retrieves the string value of the designated column in the current row</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getValueAsString">
+                                function getValueAsString(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> name) (string )
+                            </h3>
+                            <p>Retrieves the string value of the designated column in the current row. The value of type blob and binary columns will return as a Base64Encoded string.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>The column name of the output result.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getValueAsString">
+                                function getValueAsString(<a href="#datatable">datatable</a> dt, <a href="#int">int</a> index) (string )
+                            </h3>
+                            <p>Retrieves the string value of the designated column in the current row. The value of type blob and binary columns will return as a Base64Encoded string.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>index</td><td><a href="#int">int</a></td><td>The column index position of the result. The first column is 1, the second is 2, etc.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The column value as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="next">
+                                function next(<a href="#datatable">datatable</a> dt) (boolean )
+                            </h3>
+                            <p>Checks for a new row in the given datatable. If a new row is found, moves the cursor to it.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>True if there is a new row; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toJson">
+                                function toJson(<a href="#datatable">datatable</a> dt) (json )
+                            </h3>
+                            <p>Outputs the dataset in JSON format as a stream.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>The resulting dataset in JSON format</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toXml">
+                                function toXml(<a href="#datatable">datatable</a> dt, <a href="#string">string</a> rootWrapper, <a href="#string">string</a> rowWrapper) (xml )
+                            </h3>
+                            <p>Outputs the dataset in XML format as a stream. This function will add &#x27;results&#x27; and &#x27;result&#x27; if the root wrapper and row wrapper elements are not provided.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dt</td><td><a href="#datatable">datatable</a></td><td>The datatable object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>rootWrapper</td><td><a href="#string">string</a></td><td>The root wrapper element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>rowWrapper</td><td><a href="#string">string</a></td><td>The row wrapper element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>The resulting dataset in XML format with given root wrapper and row wrapper. The default will be results and result if the wrapper isn&#x27;t provided.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#close">close(datatable dt) </a>
+                                </li>
+                                <li><a href="#getArray">getArray(datatable dt, int index) (map )</a>
+                                </li>
+                                <li><a href="#getArray">getArray(datatable dt, string name) (map )</a>
+                                </li>
+                                <li><a href="#getBoolean">getBoolean(datatable dt, string name) (boolean )</a>
+                                </li>
+                                <li><a href="#getBoolean">getBoolean(datatable dt, int index) (boolean )</a>
+                                </li>
+                                <li><a href="#getDouble">getDouble(datatable dt, int index) (double )</a>
+                                </li>
+                                <li><a href="#getDouble">getDouble(datatable dt, string name) (double )</a>
+                                </li>
+                                <li><a href="#getFloat">getFloat(datatable dt, int index) (float )</a>
+                                </li>
+                                <li><a href="#getFloat">getFloat(datatable dt, string name) (float )</a>
+                                </li>
+                                <li><a href="#getInt">getInt(datatable dt, string name) (int )</a>
+                                </li>
+                                <li><a href="#getInt">getInt(datatable dt, int index) (int )</a>
+                                </li>
+                                <li><a href="#getLong">getLong(datatable dt, int index) (long )</a>
+                                </li>
+                                <li><a href="#getLong">getLong(datatable dt, string string, string type) (long )</a>
+                                </li>
+                                <li><a href="#getLong">getLong(datatable dt, string name) (long )</a>
+                                </li>
+                                <li><a href="#getLong">getLong(datatable dt, int index, string type) (long )</a>
+                                </li>
+                                <li><a href="#getString">getString(datatable dt, int index) (string )</a>
+                                </li>
+                                <li><a href="#getString">getString(datatable dt, string string, string type) (string )</a>
+                                </li>
+                                <li><a href="#getString">getString(datatable dt, int index, string type) (string )</a>
+                                </li>
+                                <li><a href="#getString">getString(datatable dt, string name) (string )</a>
+                                </li>
+                                <li><a href="#getValueAsString">getValueAsString(datatable dt, string name) (string )</a>
+                                </li>
+                                <li><a href="#getValueAsString">getValueAsString(datatable dt, int index) (string )</a>
+                                </li>
+                                <li><a href="#next">next(datatable dt) (boolean )</a>
+                                </li>
+                                <li><a href="#toJson">toJson(datatable dt) (json )</a>
+                                </li>
+                                <li><a href="#toXml">toXml(datatable dt, string rootWrapper, string rowWrapper) (xml )</a>
+                                </li>
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

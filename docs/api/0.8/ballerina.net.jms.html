@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.jms</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-92163714-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KW2LLTW');
+    </script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.net.jms package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="acknowledge">
+                                function acknowledge(<a href="#message">message</a> message, <a href="#string">string</a> deliveryStatus) 
+                            </h3>
+                            <p>Message acknowledgement action implementation for jms connector when using jms client acknowledgement mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>message</td><td><a href="#message">message</a></td><td>message</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>deliveryStatus</td><td><a href="#string">string</a></td><td>Specify whether message delivery is SUCCESS or ERROR</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="commit">
+                                function commit(<a href="#message">message</a> message) 
+                            </h3>
+                            <p>Session commit action implementation for jms connector when using jms session transaction mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>message</td><td><a href="#message">message</a></td><td>message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getMessageType">
+                                function getMessageType(<a href="#message">message</a> message) (string )
+                            </h3>
+                            <p>To get the jms message type</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>message</td><td><a href="#message">message</a></td><td>message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="rollback">
+                                function rollback(<a href="#message">message</a> message) 
+                            </h3>
+                            <p>Session rollback action implementation for jms connector when using jms session transaction mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>message</td><td><a href="#message">message</a></td><td>message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.jms package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> initialContextFactory, <a href="#string">string</a> jndiProviderUrl)
+                        </h3>
+                        <p>Native JMS Client Connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>initialContextFactory</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>jndiProviderUrl</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="sendClientConnector">action send()</h3>
+                        <p>SEND action implementation of the JMS Connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>jmsClientConnector</td><td><a href="#ClientConnector">ClientConnector</a></td><td>connector: Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectionFactoryName</td><td><a href="#string">string</a></td><td>Connection Factory Name</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>destinationName</td><td><a href="#string">string</a></td><td>Destination Name</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>destinationType</td><td><a href="#string">string</a></td><td>Destination Type</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msgType</td><td><a href="#string">string</a></td><td>Message Type</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>message</td><td><a href="#message">message</a></td><td>Message</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>properties</td><td><a href="#map">map</a></td><td>Properties</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#acknowledge">acknowledge(message message, string deliveryStatus) </a>
+                                </li>
+                                <li><a href="#commit">commit(message message) </a>
+                                </li>
+                                <li><a href="#getMessageType">getMessageType(message message) (string )</a>
+                                </li>
+                                <li><a href="#rollback">rollback(message message) </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string initialContextFactory, string jndiProviderUrl)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#sendClientConnector">send(ClientConnector jmsClientConnector, string connectionFactoryName, string destinationName, string destinationType, string msgType, message message, map properties)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>  
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
