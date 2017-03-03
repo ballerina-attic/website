@@ -567,6 +567,10 @@ h2, h3 ,h4 , h5 {
 .cNewtoBallerinaCol {
     text-align: center;
 }
+
+.cNewtoBallerinaCol img {
+    width: 60px;
+}
 .cSmallButtons {
     display: inline-block;
 /*    width: 100%;*/
@@ -628,6 +632,36 @@ p.Intro {
 /*.cSlackContainer a.cBallerinaButtons {
     
 }*/
+.cFloatingButton {
+     background-color: rgba(0,0,0,0.5);
+    color: #ffffff !important;
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: 700;
+    padding: 0.5em;
+    position: fixed;
+    right: -145px;
+    text-align: left;
+    top: 20%;
+    width: 140px;
+    transition: all 0.3s ease 0s;
+    
+    
+}
+.cFloatingButton:hover {
+     background-color: rgba(0,0,0,0.9);
+}
+.cFloatingButton img {
+    width: 70%;
+}
+a.cFloatingButton span {
+    
+}
+.cFloatingButton.cShowFloatingButton {
+    right:0;
+    padding-bottom: 0.5em;
+}
+
 
 @media screen and (max-width: 991px) {
    a.cTryitButton::before {
@@ -681,5 +715,8 @@ p.Intro {
     }
     .cBallerinaTryNowContainer {
         padding-bottom: 3em;
+    }
+    .cFloatingButton.cShowFloatingButton{
+        right: -140px;
     }
 }
