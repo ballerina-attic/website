@@ -465,7 +465,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Your service is now deployed and running on the Ballerina server. </p>
 <h3 id="send-the-request">Send the request</h3>
 <p>From a separate command prompt, use curl to send a request to your program:</p>
-<pre><code>curl -v http://localhost:9090/echo2 -d &quot;Hello World......&quot;
+<pre><code>curl -v http://localhost:9090/myecho -d &quot;Hello World......&quot;
 </code></pre>
 
 <p>The service receives the request, takes the text <code>Hello World......</code> from the incoming message, converts it into a response without the client headers, and sends it back to the command line where the request was sent.</p>
