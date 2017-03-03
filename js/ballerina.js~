@@ -1,0 +1,226 @@
+$(document).ready(function () {
+    $("select").change(function () {
+        $(this).find("option:selected").each(function () {
+            if ($(this).attr("value") == "sample_1") {
+                $(".cSampleBox").not(".sample_1").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_1").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample1").prop('readonly', false);
+            } else if ($(this).attr("value") == "sample_2") {
+                $(".cSampleBox").not(".sample_2").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_2").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample2").prop('readonly', true);
+                $('#arguments2').attr("placeholder", "Type your msg here");
+            } else if ($(this).attr("value") == "sample_3") {
+                $(".cSampleBox").not(".sample_3").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_3").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample3").prop('readonly', true);
+            } else if ($(this).attr("value") == "sample_4") {
+                $(".cSampleBox").not(".sample_4").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_4").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample4").prop('readonly', true);
+            } else if ($(this).attr("value") == "sample_5") {
+                $(".cSampleBox").not(".sample_5").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_5").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample5").prop('readonly', true);
+            } else if ($(this).attr("value") == "sample_6") {
+                $(".cSampleBox").not(".sample_6").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_6").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample6").prop('readonly', true);
+            } else if ($(this).attr("value") == "sample_7") {
+                $(".cSampleBox").not(".sample_4").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_7").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample7").prop('readonly', true);
+            } else if ($(this).attr("value") == "sample_8") {
+                $(".cSampleBox").not(".sample_4").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".sample_8").addClass('cShowSample').animate({opacity: "1"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $(".cResults").removeClass('cOutputWindowShow');
+                $("#txtSample8").prop('readonly', true);
+            } else {
+                $(".cSampleBox").removeClass('cShowSample').animate({opacity: "0"}, "fast");
+                $(".cTryitButton").removeClass('cGoback');
+                $(".cBallerinaCode").removeClass('cOutputWindowShowFullscreen');
+                $(".cBallerinaDaiagram").removeClass('cOutputWindowShowFullscreen');
+                $(".cResults").removeClass('cOutputWindowShow');
+
+            }
+        });
+    }).change();
+});
+
+
+
+$(document).ready(function () {
+    $(".cFullscreen").click(function () {
+        $(".cBallerinaTry").toggleClass('cFullscreenOption');
+        $(".cFullscreen").toggleClass('cBack');
+    });
+});
+
+$(document).ready(function () {
+    $(".cTrySample1").click(function () {
+        $(".cOutputWindow1").toggleClass('cOutputWindowShow');
+        $(".cOutputWindow1").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaCode1").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaDaiagram1").toggleClass('cOutputWindowShowFullscreen');
+        callBackend('#txtSample1', ".cOutputWindow1", "#arguments1", false);
+        $(".cTryitButton").toggleClass('cGoback');
+
+    });
+});
+
+$(document).ready(function () {
+    $(".cTrySample2").click(function () {
+        $(".cOutputWindow2").toggleClass('cOutputWindowShow');
+        $(".cOutputWindow2").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaCode2").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaDaiagram2").toggleClass('cOutputWindowShowFullscreen');
+        callService($('#arguments2').val(), ".cOutputWindow2", "http://localhost:9090/echo", "cTrySample2", "POST");
+        $(".cTryitButton").toggleClass('cGoback');
+    });
+});
+
+$(document).ready(function () {
+    $(".cTrySample3").click(function () {
+        $(".cOutputWindow3").toggleClass('cOutputWindowShow');
+        $(".cOutputWindow3").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaCode3").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaDaiagram3").toggleClass('cOutputWindowShowFullscreen');
+        callBackend('#txtSample1', ".cOutputWindow1", "#arguments2", false);
+        $(".cTryitButton").toggleClass('cGoback');
+    });
+});
+
+$(document).ready(function () {
+    $(".cTrySample4").click(function () {
+        $(".cOutputWindow4").toggleClass('cOutputWindowShow');
+        $(".cOutputWindow4").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaCode4").toggleClass('cOutputWindowShowFullscreen');
+        $(".cBallerinaDaiagram4").toggleClass('cOutputWindowShowFullscreen');
+        callBackend('#txtSample4', ".cOutputWindow4", "#arguments4", false);
+        $(".cTryitButton").toggleClass('cGoback');
+    });
+});
+
+
+function callBackend(input, output, argument, invalidToken) {
+    var content = window.getComputedStyle(
+            document.querySelector('.cTryitButton.cTrySample1'), ':before'
+            ).getPropertyValue('content');
+    if (content === "\"Run sample\"" || invalidToken) {
+        $(output).text("Waiting for response from server");
+        var jsonData = {"content": $(input).val(), "arguments": $(argument).val()};
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            headers: {
+                    "Authorization": "Bearer 5ff2cdce-a66e-35d6-b1e0-764b51767401"
+            },    
+            url: "http://gateway.api.cloud.wso2.com/t/tryballerina/executor/1.0.0/ballerina/executeAsProcess",
+            data: JSON.stringify(jsonData),
+            success: function (response) {
+                $(output).text(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+                if (textStatus === "timeout") {
+                    $(output).text("Process took too long.");
+                } else if (errorThrown === "Unauthorized") {
+                    $.ajax({
+                        type: 'POST',
+                        url: "page-node-km.php",
+                        success: function (response) {
+                            at = response;
+                            callBackend(input, output, argument, true);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            $(output).text("Error occured while getting a token " + errorThrown);
+                        }
+                    });
+                } else {
+                    $(output).text("Error " + errorThrown);
+                }
+            }
+        });
+    }
+}
+
+function callService(msg, output, url, inButton, type) {
+    var content = window.getComputedStyle(
+            document.querySelector('.cTryitButton.' + inButton), ':before'
+            ).getPropertyValue('content');
+    if (content === "\"Run sample\"") {
+        $(output).text("Waiting for response from server");
+        $.ajax({
+            type: type,
+            url: url,
+            data: msg,
+            success: function (response, status, xhr) {
+                var ct = xhr.getResponseHeader("content-type") || "";
+                if (ct == "application/json") {
+                    $(output).text(JSON.stringify(response));
+                } else {
+                    $(output).text(response);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.readyState == 0) {
+                    console.log("Network error. Please try again");
+                }
+                if (textStatus === "timeout") {
+                    $(output).text("Process took too long.");
+                } else if (errorThrown === "Unauthorized") {
+                    $.ajax({
+                        type: 'POST',
+                        url: "page-node-km.php",
+                        success: function (response) {
+                            at = response;
+                            callBackend(input, output, argument, true);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            $(output).text("Error occured while getting a token " + errorThrown);
+                        }
+                    });
+                } else {
+                    $(output).text("Error " + errorThrown);
+                }
+            }
+        });
+    }
+}
+
