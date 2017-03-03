@@ -289,8 +289,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                     <li><a class="toctree-l4" href="#if-else">If-else</a></li>
                 
-                    <li><a class="toctree-l4" href="#iterate">Iterate</a></li>
-                
                     <li><a class="toctree-l4" href="#while">While</a></li>
                 
                     <li><a class="toctree-l4" href="#break">Break</a></li>
@@ -404,18 +402,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <ul>
 <li>assignment</li>
 <li>if</li>
-<li>iterate</li>
 <li>while</li>
 <li>break</li>
 <li>fork/join</li>
+<li>try/catch and throw: see <a href="../exceptions/">Exception Handling</a></li>
 <li>return</li>
 <li>reply</li>
-<li>worker initiation</li>
-<li>worker join</li>
-<li>action invocation</li>
+<li>worker initiation/invocation/join: see <a href="../workers/">Workers</a></li>
+<li>action invocation: see <a href="../actions/">Actions</a></li>
 <li>comment</li>
 </ul>
-<p>There are also exception-handling statements: try/catch and throw. For more information on these statements, see <a href="../exceptions/">Exception Handling</a>.</p>
 <p>The rest of this page describes the statements you can use in your Ballerina program. </p>
 <h2 id="assignment">Assignment</h2>
 <p>An assignment statement allows you to assign a value to a variable accessor. In the Composer, you can drag the Assignment icon <img alt="alt-text" src="../../images/icons/assign.png" title="Assignment icon" /> from the tool palette to the canvas to add the statement to your program. </p>
@@ -430,7 +426,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 - VariableAccessor.FieldName</p>
 <h2 id="if-else">If-else</h2>
 <p>An <code>if-else</code> statement provides a way to perform conditional execution. In the Composer, you can drag the If-Else icon <img alt="alt-text" src="../../images/icons/if-else.png" title="If-Else icon" /> from the tool palette to the canvas to add the statement to your program. </p>
-<p>An if-else statement is defined as follows: </p>
+<p>An <code>if-else</code> statement is defined as follows: </p>
 <pre><code>if (BooleanExpression) {
     Statement;*
 }
@@ -441,22 +437,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }]
 </code></pre>
 
-<h2 id="iterate">Iterate</h2>
-<p>An <code>iterate</code> statement provides a way to iterate through an iterator.</p>
-<pre><code>iterate (VariableType VariableName : Iterator) {
-  Statement;+
-}
-</code></pre>
-
 <h2 id="while">While</h2>
 <p>A <code>while</code> statement provides a way to execute a series of statements as long as a Boolean expression is met. In the Composer, you can drag the While icon <img alt="alt-text" src="../../images/icons/while.png" title="While icon" /> from the tool palette to the canvas to add the statement to your program. </p>
+<p>A <code>while</code> statement is defined as follows:</p>
 <pre><code>while (BooleanExpression) {
     Statement;+
 }
 </code></pre>
 
 <h2 id="break">Break</h2>
-<p>A <code>break</code> statement allows you to terminate the immediately enclosing loop. This is only allowed within the <code>iterate</code> or <code>while</code> constructs.</p>
+<p>A <code>break</code> statement allows you to terminate the immediately enclosing loop. This is only allowed within the <code>while</code> construct. In the Composer, you can drag the Break icon <img alt="alt-text" src="../../images/icons/break.png" title="Break icon" /> from the tool palette to the canvas. </p>
+<p>A <code>break</code> statement is defined as follows:</p>
 <pre><code>break;
 </code></pre>
 
@@ -480,17 +471,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 - <code>any IntegerValue [(WorkerNameList)]</code>: wait for any k (i.e., the IntegerValue) of the given workers or any of the workers
 - <code>all [(WorkerNameList)]</code>: wait for all given workers or all of the workers</p>
 <p>where <code>WorkerNameList</code> is a list of comma-separated names of workers.</p>
+<blockquote>
+<p><strong>Note:</strong> The join condition "any k" where k != 1 is not yet implemented.</p>
+</blockquote>
 <p>When the <code>JoinCondition</code> has been satisfied, the corresponding slots of the message array will be filled with the returned messages from the workers in the workers' lexical order. If the condition asks for up to some number of results to be available to satisfy the condition, it may be the case that more than that number are available by the time the statements within the join condition are executed. If a particular worker has completed but not sent a response message, or not yet completed, the corresponding message slot will be null.</p>
-<p>The <code>timeout</code> clause allows one to specify a maximum time (in milliseconds) within which the join condition must be satisfied.</p>
+<p>The <code>timeout</code> clause allows one to specify a maximum time (in seconds) within which the join condition must be satisfied.</p>
 <h2 id="return">Return</h2>
 <p>The Return statement evaluates the expression, stops the current function, and returns the result of the expression to the caller. In the Composer, you can drag the Return icon <img alt="alt-text" src="../../images/icons/return.png" title="Return icon" /> from the tool palette to the canvas to add the statement to your program. </p>
-<p>The syntax of a <code>return</code> statement is as follows:</p>
+<p>A <code>return</code> statement is defined as follows:</p>
 <pre><code>return Expression*;
 </code></pre>
 
 <h2 id="reply">Reply</h2>
 <p>The Reply statement sends the request message back to the client. In the Composer, you can drag the Reply icon <img alt="alt-text" src="../../images/icons/reply.png" title="Reply icon" /> from the tool palette to the canvas to add the statement to your program. </p>
-<p>The syntax of a <code>reply</code> statement is as follows:</p>
+<p>A <code>reply</code> statement is defined as follows:</p>
 <pre><code>reply Message?;
 </code></pre>
 

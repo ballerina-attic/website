@@ -409,16 +409,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h3 id="add-a-service-and-resource">Add a service and resource</h3>
 <p>First, we add a <strong>service</strong> construct to the canvas in the Composer. A service is a container for all the other constructs and represents a single unit of functionality that can be accessed remotely.</p>
 <ol>
-<li>
-<p>If the Composer is not already running, run it as described in the <a href="../../quick-tour/">Quick Tour</a>.</p>
-</li>
-<li>
-<p>On the tool palette, click the service icon and drag it to the canvas. </p>
-</li>
+<li>If the Composer is not already running, run it as described in the <a href="../../quick-tour/">Quick Tour</a>.</li>
+<li>On the tool palette, click the service icon and drag it to the canvas. </li>
 </ol>
 <p>A box appears with the name <code>newService</code>, and inside it is another box called <code>newResource</code> with some content already created for you. </p>
 <p>A <strong>resource</strong> is a single request handler within a service. This is where we will program the logic describing how to handle certain types of requests from incoming messages to this service. </p>
-<p>By default, the resource is configured to accept a message <code>m</code>. You can see this by clicking the Arguments icon in the upper right corner of the resource box. When you click it, you'll see <code>message m</code> listed below the fields. Click the Arguments icon again to close its window.</p>
+<p>By default, the resource is configured to accept a message <code>m</code>. You can see this by clicking the Arguments icon in the upper right corner of the resource box: </p>
+<p><img alt="alt text" src="../../images/icons/arguments.png" title="Arguments icon" /></p>
+<p>When you click it, you'll see <code>message m</code> listed below the fields. Click the Arguments icon again to close its window.</p>
 <p>Let's rename both the service and resource. </p>
 <ol>
 <li>Highlight the name <code>newService</code> and type <code>myEchoService</code> in its place. </li>
@@ -427,28 +425,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h3 id="set-the-base-path">Set the base path</h3>
 <p>Now, let's set the base path for this service. This will be the context portion of the URL that clients will use to send requests to this service. </p>
 <ol>
-<li>In the upper right corner of the <strong>service</strong> box (not the resource box this time), click the Annotations (<code>@</code>) icon. </li>
-<li>Make sure BasePath is selected in the list, type <code>/myecho</code> in the text box, and then press Enter or click the + symbol to its right. </li>
+<li>In the upper right corner of the <strong>service</strong> box (not the resource box this time), click the Annotations (@) icon.</li>
+<li>Make sure <code>http:BasePath</code> is selected in the list, type <code>/myecho</code> in the text box, and then press Enter or click the + symbol to its right. </li>
 </ol>
 <p>The base path is now set, so that when you deploy this service, clients will be able to send requests to it using the URL http://localhost:9090/myecho.</p>
 <h3 id="change-get-to-post">Change GET to POST</h3>
 <p>When you added the service, Ballerina configured the resource to use the GET method by default. Because we are going to use the incoming message to post a reply, let's change it to POST. </p>
 <ol>
-<li>Click the <code>@</code> symbol in the upper right corner of the resource box, highlight <code>GET</code>, and type <code>POST</code>. </li>
-<li>Click the <code>@</code> symbol again to hide the box. </li>
+<li>Click the Annotations (@) icon in the upper right corner of the <strong>resource</strong> box (not the service box).</li>
+<li>Click <code>http:GET</code>, highlight <code>GET</code>, and type <code>POST</code>. </li>
+<li>Click the Annotations icon again to hide the box. </li>
 </ol>
-<p>You can click the symbol again to confirm that GET was in fact changed to POST. You can also click the Source View button in the lower right corner to see the changes that are being made to the Ballerina code as you work with the visual editor.</p>
+<p>You can click the symbol again to confirm that GET was in fact changed to POST. You can also click the <strong>Source View</strong> button in the lower right corner to see the changes that are being made to the Ballerina code as you work with the visual editor.</p>
 <h3 id="add-a-function">Add a function</h3>
 <p>Now, let's add a function that will take the incoming message and convert it to a response that gets sent back to the client. Because we are sending the original request back instead of composing a new message to send to the client, we need to strip its original headers before we reply, as those headers are intended for use in the client -&gt; server direction and not the other way around. The <code>ballerina.net.http</code> package includes a native function called <code>convertToResponse</code> that removes the incoming HTTP headers when replying to the client. Let's add that function to our flow.</p>
 <ol>
-<li>On the tool palette, go to the <strong>ballerina.net.http</strong> section, click the <strong>convertToResponse</strong> function, and drag it to the canvas below <strong>Start</strong>. </li>
-<li>Click in the parentheses of <code>convertToResponse()</code> and type <code>m</code>, which is the incoming message, so that it looks like this: <code>convertToResponse(m)</code></li>
+<li>On the tool palette, scroll down to the <strong>ballerina.net.http</strong> section, click the <strong>convertToResponse</strong> function, and drag it to the canvas below <strong>Start</strong>. </li>
+<li>Highlight <code>message</code> in <code>http:convertToResponse(message)</code> and replace it with <code>m</code>, which is the incoming message, so that it looks like this: <code>http:convertToResponse(m)</code></li>
 </ol>
 <h3 id="add-the-reply">Add the reply</h3>
-<p>Now that we've added the function that will convert the incoming message text to a response, we just need to instruct the program to send the response back to the client.</p>
+<p>Now that we've added the function that will convert the incoming message text to a response, we just need to instruct the program to send the response back to the client. We will use the Reply icon in the tool palette, which looks like this:</p>
+<p><img alt="alt text" src="../../images/icons/reply.png" title="Reply icon" /></p>
 <ol>
-<li>On the tool palette, click the Reply icon <img alt="alt text" src="../../images/icons/reply.png" title="Reply icon" /> and drag it to the canvas under the <code>convertToResponse</code> function you just added. You'll see that it appears as a box with an arrow going back to the client. </li>
-<li>Click the reply box you just added, click the Edit icon, and set the response message to <code>m</code>, which instructs the program to send the message processed by the <code>convertToResponse</code> function back to the client. </li>
+<li>
+<p>On the tool palette, click the Reply icon and drag it to the canvas under the <code>convertToResponse</code> function you just added. </p>
+<p>It appears as a box with an arrow pointing back to the client. </p>
+</li>
+<li>
+<p>Click the reply box you just added and type <code>m</code> to instruct the program to send the message processed by the <code>convertToResponse</code> function back to the client. Click outside of the box. </p>
+</li>
 </ol>
 <p>This completes the sequence, so you are now ready to save and run your integration program.</p>
 <h3 id="save-the-program">Save the program</h3>
@@ -457,15 +462,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Save it as <code>myEcho.bal</code> in your Ballerina <code>samples</code> directory. </li>
 </ol>
 <h3 id="run-the-program">Run the program</h3>
-<ol>
-<li>At the command prompt, navigate to your <code>&lt;ballerina_home&gt;/samples</code> directory. </li>
-<li>Enter the command to run the Ballerina server and deploy your myEcho program:</li>
-</ol>
-<p><code>ballerina run service ../samples/myEcho.bal</code></p>
+<p>You can run a Ballerina program from inside the Composer using the Run icon, which is to the left of the tool palette:</p>
+<p><img alt="alt text" src="../../images/icons/run.png" title="Run icon" /></p>
+<p>Click the Run icon now and click <strong>Service</strong>. </p>
+<p>If you were creating a Ballerina program with a <code>main()</code> function, you would click <strong>Application</strong> instead.</p>
 <p>Your service is now deployed and running on the Ballerina server. </p>
 <h3 id="send-the-request">Send the request</h3>
-<p>From a separate command prompt, use curl to send a request to your program:</p>
-<pre><code>curl -v http://localhost:9090/echo2 -d &quot;Hello World......&quot;
+<p>In a new command prompt, use curl to send a request to your program:</p>
+<pre><code>curl -v http://localhost:9090/myecho -d &quot;Hello World......&quot;
 </code></pre>
 
 <p>The service receives the request, takes the text <code>Hello World......</code> from the incoming message, converts it into a response without the client headers, and sends it back to the command line where the request was sent.</p>

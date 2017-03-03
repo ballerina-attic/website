@@ -456,7 +456,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <h2 id="creating-ballerina-archives">Creating Ballerina archives</h2>
 <p>While Ballerina programs can be executed directly from the program directory, if you want to create a self-contained package containing all the program code and third-party dependencies, you need to build the program into a packaged format. When a program is packaged using the <code>ballerina build</code> command, the resulting archive will contain not just the Ballerina files that contain the main function and/or services, but also all the Ballerina packages that are imported by all the code needed to execute the main function and/or services. </p>
-<p>Note: if you are running on UNIX/Linux, use <code>./ballerina build</code> instead of <code>ballerina build</code> in the following commands.</p>
 <p>A Ballerina executable archive containing a <code>main()</code> function is named with the extension “.bmz”. Use the following command to build an executable archive:</p>
 <pre><code>ballerina build main &lt;main-package-name&gt; [-o filename] 
 </code></pre>
@@ -465,8 +464,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <pre><code>ballerina build service &lt;pkg1&gt; [&lt;pkg2&gt; &lt;pkg3&gt; ...] [-o filename]
 </code></pre>
 
+<p><strong>Note:</strong> Package names should be delineated with slashes, such as <code>org/foo/bar</code> instead of <code>org.foo.bar</code>. If you do not specify a name for the archive file using the <code>-o</code> flag, the archive will be named after the last part of the package name.  </p>
 <h2 id="running-a-ballerina-program">Running a Ballerina program</h2>
-<p>The <code>ballerina</code> command runs a Ballerina program/service in its packaged or unpackaged format. (If you are using UNIX/Linux, type <code>./ballerina</code> instead of <code>ballerina</code>.)</p>
+<p>The <code>ballerina</code> command runs a Ballerina program/service in its packaged or unpackaged format.</p>
 <p>To execute <code>main()</code> from a <code>.bal</code> file or a package or archive file:</p>
 <pre><code>ballerina run main (filename | packagename | mainarchive)
 </code></pre>
@@ -482,7 +482,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="creating-and-running-a-docker-image-of-the-archive">Creating and running a Docker image of the archive</h2>
 <p>After you have built an archive, you can create a Docker image of it and run it in the container. </p>
 <p>To create a Docker image from a Ballerina package, you run <code>ballerina docker</code> and provide the package name as an argument:</p>
-<pre><code>$ ./ballerina docker helloWorld.bmz
+<pre><code>ballerina docker helloWorld.bmz
 ballerina: build docker image [helloworld:latest] in docker host [localhost]? (y/n): y
 
 ballerina: docker image helloworld:latest successfully built.
@@ -493,7 +493,7 @@ Use the following command to start a container.
 </code></pre>
 
 <p>You can additionally provide a customized image name:</p>
-<pre><code>./ballerina docker helloWorld.bmz -t myhelloworld:0.1
+<pre><code>ballerina docker helloWorld.bmz -t myhelloworld:0.1
 ballerina: build docker image [myhelloworld:0.1] in docker host [localhost]? (y/n): y
 
 ballerina: docker image myhelloworld:0.1 successfully built.
@@ -504,7 +504,7 @@ Use the following command to start a container.
 </code></pre>
 
 <p>If you want to use a remote Docker daemon, you can specify it using the -H flag so the Docker image is created at the remote end:</p>
-<pre><code>./ballerina docker helloWorld.bmz -H http://127.0.0.1:2375
+<pre><code>ballerina docker helloWorld.bmz -H http://127.0.0.1:2375
 ballerina: build docker image [myhelloworld:0.1] in docker host [http://127.0.0.1:2375]? (y/n): y
 
 ballerina: docker image helloworld:latest successfully built.
