@@ -401,7 +401,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <h2 id="run-helloworld">Run HelloWorld</h2>
 <p>The HelloWorld sample will show you how easy it is to run Ballerina, send it a request, and get a response. </p>
 <p>Let's take a look at what the sample looks like in the Ballerina programming language:</p>
-<pre><code>function main (string[] args) {
+<pre><code>import ballerina.lang.system;
+function main (string[] args) {
   system:println(&quot;Hello, World!&quot;);
 }
 </code></pre>
@@ -424,20 +425,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </li>
 <li>
 <p>Access the Composer from the following URL in your browser: http://localhost:9091</p>
-<p>The welcome page of Ballerina Composer appears. Let's open a sample and take a look around. </p>
+<p>The welcome page of Ballerina Composer appears. </p>
+<p><img alt="alt text" src="../images/WelcomePage.png" title="Welcome page" /></p>
+<p>Let's open a sample and take a look around. </p>
 </li>
 <li>
 <p>Click <strong>echoService</strong>.</p>
+<p>The Echo Service program displays in the Composer.</p>
+<p><img alt="alt text" src="../images/EchoDesign.png" title="Echo Service program" /></p>
 </li>
 </ol>
 <p>Notice that on the left you have a tool palette containing the various constructs that you'll use to build your integration. On the right, you have a visual editor with a canvas onto which you drag those constructs. This is where you build your sequence diagrams that define your integration logic. </p>
 <p>Also notice in the lower right corner the <strong>Source View</strong> and <strong>Swagger View</strong> buttons. </p>
 <ol>
 <li>
-<p>Click <strong>Source View</strong>. You'll see the source code editor that represents the sequence diagram as code in the Ballerina language. You can go back and forth between the visual editor and the source code and make your edits in either place. </p>
+<p>Click <strong>Source View</strong>. </p>
+<p><img alt="alt text" src="../images/EchoSource.png" title="Source view" /></p>
+<p>You'll see the source code editor that represents the sequence diagram as code in the Ballerina language. You can go back and forth between the visual editor and the source code and make your edits in either place. </p>
 </li>
 <li>
-<p>Click <strong>Swagger View</strong>. This editor allows you to write Swagger definitions to create services.</p>
+<p>Click <strong>Swagger View</strong>. </p>
+<p><img alt="alt text" src="../images/EchoSwagger.png" title="Swagger view" /></p>
+<p>This editor allows you to write Swagger definitions to create services.</p>
 </li>
 <li>
 <p>Click <strong>Design View</strong> to return to the visual editor. </p>

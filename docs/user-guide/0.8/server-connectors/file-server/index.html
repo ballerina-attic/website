@@ -211,8 +211,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                     <li><a class="toctree-l4" href="#defining-a-file-service">Defining a file service</a></li>
                 
-                    <li><a class="toctree-l4" href="#step-5-add-dependency-jars">Step 5: Add dependency JARs</a></li>
-                
                     <li><a class="toctree-l4" href="#native-ballerina-functions-for-file-processing">Native Ballerina functions for file processing</a></li>
                 
             
@@ -402,7 +400,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre>
 
 <h3 id="step-2-specify-service-parameters">Step 2: Specify service parameters</h3>
-<p>Add a service level annotation named "Source" and add the key-value pairs to specify the parameters. The following section describes each key that can be used with a file service. An example is provided after the tables.</p>
+<p>Add a service level annotation named <code>Source</code> and add the key-value pairs to specify the parameters. The following section describes each key that can be used with a file service. An example is provided after the tables.</p>
 <table>
   <tr>
     <th>Key</th>
@@ -422,7 +420,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <td>fileURI</td>
     <td>The URI where the files you want to process are located. This can be a URI to a folder. If it is a folder, all the files in the folder will be processed, one at a time. If the URI points to a single file, the file will be processed when it becomes available at that location.</td>
     <td>Yes</td>
-    <td>A valid file URI</td>
+    <td>A valid file URI. <br/><br/> If the file URI contains a user name or a password, make sure that it does not contain '#' or '?' character.</td>
     <td>-</td>
   </tr>
   <tr>
@@ -438,6 +436,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <td>No</td>
     <td>A positive integer.</td>
     <td>30000</td>
+  </tr>
+  <tr>
+    <td>deleteIfNotAcknowledged</td>
+    <td>If this parameter is set to "true", the file will be deleted in case the file consumer did not acknowledge. Otherwise (if set to "false") the file will be kept without deleting, so it will be retried to be processed again in the next polling cycle.</td>
+    <td>No</td>
+    <td>true or false</td>
+    <td>false</td>
   </tr>
 </table>
 
@@ -462,7 +467,7 @@ name, size, lastModifiedTimestamp</td>
     <td>fileSortAscending</td>
     <td>A Boolean parameter that indicates whether to sort files in ascending order. If set to "true", files will be sorted in ascending order. If set to “false”, files will be sorted in descending order.</td>
     <td>No</td>
-    <td>True or false</td>
+    <td>true or false</td>
     <td>true</td>
   </tr>
 </table>
@@ -472,7 +477,7 @@ name, size, lastModifiedTimestamp</td>
   protocol = &quot;file&quot;,
   fileURI = &quot;file:///home/user/orders&quot;,
   pollingInterval = &quot;20000&quot;,
-  fileSortAttribute = &quot;Size&quot;,
+  fileSortAttribute = &quot;size&quot;,
   fileSortAscending = &quot;false&quot;
   )
 service orderProcessService {
@@ -519,7 +524,7 @@ service orderProcessService {
 
 <p><strong>Note:</strong>
 Here, <code>file:acknowledge(m)</code> is a function that is exclusive for file processing. See the function description below for details. </p>
-<h2 id="step-5-add-dependency-jars">Step 5: Add dependency JARs</h2>
+<h3 id="step-5-add-dependency-jars">Step 5: Add dependency JARs</h3>
 <p>When the <code>fileURI</code> parameter refers to a location in the local file system, you do not need to add any additional JARs for the file service to work. However, in other cases (for example, when the <code>fileURI</code> refers to a remote file or a folder that needs to be accessed via FTP), it may be required to add specific JARs to the <code>&lt;ballerina_home&gt;/bre/lib</code> folder. </p>
 <p>The following table indicates which dependency JARs are required for which file-access protocol.</p>
 <table>
@@ -585,7 +590,7 @@ service orderProcessService {
 
 <p>The above line sends an acknowledgment to the sender of the message (this sender has the control to close the file input stream). As a result, the file input stream will be closed, and then the file will be deleted. </p>
 <p>Since this function makes the message sender close the input stream and delete the file, this function needs to be called only after message processing is done. </p>
-<p>In case the service does not call the <code>acknowledge</code> function, the message sender will wait for 30 seconds (the default wait time; you can specify a different wait time as the <code>acknowledgementTimeOut</code> service parameter) and assume that the file was not processed. Furthermore, following the same assumption, the message sender will not delete the file. As a result of this, the file will remain at the same URI to which the service listens, so the service will attempt to process it in the next polling cycle as well. </p>
+<p>In case the service does not call the <code>acknowledge</code> function, the message sender will wait for 30 seconds (30 seconds is the default wait time. This value can be overridden by specifying a different value as the <code>acknowledgementTimeOut</code> service parameter) and assume that the file was not processed. Following the same assumption, the message sender will not delete the file. As a result of this, the file will remain at the same URI to which the service listens, so it will be attempted to be processed in the next polling cycle as well. This behavior can be changed by setting <code>deleteIfNotAcknowledged</code> service parameter to "true". If it is set to "true" then, the file will be deleted anyway, regardless of whether the acknowledgement was made or not. </p>
               
             </div>
           </div>

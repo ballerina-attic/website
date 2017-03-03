@@ -421,7 +421,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 <p>Example:</p>
-<pre><code>jms:ClientConnector jmsConnector = create jms:ClientConnector(&quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;, &quot;jndi.properties&quot;);
+<pre><code>jms:ClientConnector jmsEP = create jms:ClientConnector(&quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;, &quot;jndi.properties&quot;);
 </code></pre>
 
 <h3 id="step-3">Step 3</h3>
@@ -522,17 +522,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 map dataMap;
 dataMap = {};
 messages:setStringPayload(queueMessage, &quot;Hello from ballerina&quot;);
-jms:JMSConnector.send(jmsEP, &quot;QueueConnectionFactory&quot;, &quot;MyQueue&quot;, &quot;queue&quot;, &quot;TextMessage&quot;, queueMessage, dataMap);
+jms:ClientConnector.send(jmsEP, &quot;QueueConnectionFactory&quot;, &quot;MyQueue&quot;, &quot;queue&quot;, &quot;TextMessage&quot;, queueMessage, dataMap);
 </code></pre>
 
 <p>Given below is a sample Ballerina function depicting the creation of a JMS client connector:</p>
-<pre><code>jms:JMSConnector jmsEP = create jms:JMSConnector(&quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;, &quot;jndi.properties&quot;);
+<pre><code>jms:ClientConnector jmsEP = create jms:ClientConnector(&quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;, &quot;jndi.properties&quot;);
 message queueMessage = {};
 map dataMap;
 dataMap = { &quot;country&quot; : &quot;US&quot;, &quot;currency&quot; : &quot;Dollar&quot; , &quot;states&quot; : &quot;50&quot;};
 map propertyMap;
 propertyMap = { &quot;MapData&quot; : dataMap};
-jms:JMSConnector.send(jmsEP, &quot;QueueConnectionFactory&quot;, &quot;MyQueue&quot;, &quot;queue&quot;, &quot;MapMessage&quot;, queueMessage, propertyMap);
+jms:ClientConnector.send(jmsEP, &quot;QueueConnectionFactory&quot;, &quot;MyQueue&quot;, &quot;queue&quot;, &quot;MapMessage&quot;, queueMessage, propertyMap);
 </code></pre>
               
             </div>

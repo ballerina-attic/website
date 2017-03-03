@@ -267,7 +267,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             
                 <li class="toctree-l3"><a href="#workers">Workers</a></li>
                 
+                    <li><a class="toctree-l4" href="#adding-a-worker">Adding a worker</a></li>
+                
                     <li><a class="toctree-l4" href="#initiating-the-worker">Initiating the worker</a></li>
+                
+                    <li><a class="toctree-l4" href="#replying-from-a-worker">Replying from a worker</a></li>
                 
             
             </ul>
@@ -384,28 +388,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="section">
               
                 <h1 id="workers">Workers</h1>
-<p>A worker is a thread that executes a <a href="../functions/">function</a>.</p>
-<p>A worker is defined and declared as follows:</p>
+<p>A worker is a thread of execution. It is represented on a sequence diagram as a vertical "lifeline" of logic to be executed. </p>
+<p><img alt="alt text" src="../../images/worker-lifeline.png" title="The default worker in a resource" /></p>
+<p>When you create a <a href="../resources/">resource</a>, <a href="../functions/">function</a>, or <a href="../actions/">action</a>, a default worker is created automatically that performs the logic for that entity. You can add more workers to a resource or function, giving each worker its own logic to execute. This approach allows you to program parallel threads of execution. You can also use the <a href="../statements/#forkjoin">fork/join</a> statement to easily create a set of workers and have them process in parallel.</p>
+<p>Workers do not share any state with each other. Upon invocation, the “parent” worker can pass a message to the new worker. Resource workers can also access the service's state.</p>
+<h2 id="adding-a-worker">Adding a worker</h2>
+<p>To add a worker in Design View in the Composer, drag the Worker icon from the tool palette to your sequence diagram:</p>
+<p><img alt="alt text" src="../../images/icons/worker.png" title="Worker icon" /></p>
+<p>To add a worker when working directly with the source code of your program, a worker is defined and declared as follows:</p>
 <pre><code>worker WorkerName (message m) {
-    VariableDeclaration;*
     Statement;+
     [reply MessageName;]
 }
 </code></pre>
 
+<p>If the <a href="../statements/#reply">Reply</a> statement is present, it must be at the end of the worker. The reply indicates what message will be returned to the initiator if the initiator requires a response from the worker. If no Reply statement is present, it has the same effect as having sent a null message.</p>
 <h2 id="initiating-the-worker">Initiating the worker</h2>
 <p>Workers initially come into existence when the enclosing entity-- a <a href="../resources/">resource</a>, <a href="../functions/">function</a>, or <a href="../actions/">action</a>--becomes active. However, similar to a resource, the worker does not execute until it has been sent a message.</p>
 <p>A worker is triggered when a message is sent to the worker as follows by the enclosing entity:</p>
 <pre><code>MessageName -&gt; WorkerName;
-Waiting for Worker Completion
 </code></pre>
 
-<p>When the worker replies, the response message (if any) is received by the enclosing entity from the worker as follows:</p>
+<h2 id="replying-from-a-worker">Replying from a worker</h2>
+<p>The worker can reply to the enclosing entity using a <a href="../statements/#reply">Reply</a> statement. When the worker replies, the response message (if any) is received by the enclosing entity from the worker as follows:</p>
 <pre><code>MessageName &lt;- WorkerName;
-Replying from a Worker
 </code></pre>
 
-<p>The worker can reply to the enclosing entity using a Reply statement.</p>
+<p>If the worker does not reply, the enclosing entity will wait until the named worker completes and return a null value for the message.</p>
+<p>If there is no wait for completion of a particular worker, and if the enclosing entity finishes execution, all active workers are immediately killed prior to returning from the enclosing context. </p>
               
             </div>
           </div>
