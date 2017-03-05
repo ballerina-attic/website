@@ -155,6 +155,46 @@ ul.cDownloadlinks li {
           
       </style>
       
+      <script>
+  $(document).ready(function() {
+
+    var menu = '<div class="container"> <nav class="navbar navbar-default"> <div class="container-fluid"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="http://ballerinalang.org/" id="Menu-Logo"><img src="http://ballerinalang.org/img/ballerina-logo.svg"/></a> </div> <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;"> <ul class="nav navbar-nav"> <li><a id="Menu-docs" href="http://ballerinalang.org/docs">Documentation</a></li> <li><a id="Menu-gettingstarted" href="http://ballerinalang.org/#Getting-Started">Getting Started</a></li> <li><a id="Menu-Get-involved" href="http://ballerinalang.org/#Get-involved">Get involved</a></li> <li><a id="Menu-blog" href="https://medium.com/ballerinalang" target=_blank>Blog</a></li> </ul> </div> </div> </nav> </div>';
+
+    var footer = '<div class="container"> <ul> <li>©2017 WSO2</li> <li><a id="footer-TOU" href="http://ballerinalang.org/terms-of-use">Terms of Use</a></li> <li><a id="footer-Privacy" href="http://ballerinalang.org/privacy-policy">Privacy Policy</a></li> </ul> <ul class="cPowerdby"><li>Powered by<a id="footer-wso2" href="http://wso2.com/"><img src="http://ballerinalang.org/img/wso2logo_white.svg"/></a></li></ul></div>';
+
+
+    $('#iBallerinaNavigation').append(menu);
+    $('#iBallerinaFooter').append(footer);
+    
+    
+    
+    $("body").ready(function() {
+
+        $("a").has("img").addClass("imagelink");
+    });
+    
+    
+    
+});
+
+
+//FLOATING BUTTON
+
+
+ $("document").ready(function($) {
+
+    var div_top = $(".cBallerinaIntro").offset().top;
+    div_top = div_top - 100;
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > div_top) {
+            $('.cFloatingButton').addClass('cShowFloatingButton');
+        }
+
+
+    });
+});
+      </script>
+      
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
  
@@ -183,13 +223,13 @@ ul.cDownloadlinks li {
 
                          <div class="col-sm-12 col-md-12">
 
-                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="DownloadTools"  href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip">Download Tools</a>
-                             <p style="font-weight: 600; font-size: 1.3em;">v0.8.1</p>
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="DownloadTools"  href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip">Download Tools</a>
+                             <p style="font-weight: 600; font-size: 1.3em;">v0.8.3</p>
                              
                              <ul class="cDownloadlinks">
-                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip.sha1">sha1</a></li>
-                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip.md5">md5</a></li>
-                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip.asc">Signature</a></li>
+                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip.sha1">sha1</a></li>
+                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip.md5">md5</a></li>
+                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip.asc">Signature</a></li>
 
                              </ul>
                          </div>
@@ -204,8 +244,9 @@ ul.cDownloadlinks li {
                          <div class="col-sm-12 col-md-12">
                              <h3>Previous download</h3>
                                <ul class="cDownloadlinks">
-                                 <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.0.zip">v0.8.0</a></li>
-                                 
+                                   <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip">v0.8.1</a></li>
+                                   <li><a href="/downloads/ballerina-tools/ballerina-tools-0.8.0.zip">v0.8.0</a></li>
+
                                </ul>
                          </div>
                      </div>
@@ -219,13 +260,13 @@ ul.cDownloadlinks li {
 
                          <div class="col-sm-12 col-md-12">
                              
-                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox"id="DownloadRuntime" href="/downloads/ballerina-runtime/ballerina-0.8.1.zip">Download Runtime</a>
-                             <p style="font-weight: 600; font-size: 1.3em;">v0.8.1</p>
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox"id="DownloadRuntime" href="/downloads/ballerina-runtime/ballerina-0.8.3.zip">Download Runtime</a>
+                             <p style="font-weight: 600; font-size: 1.3em;">v0.8.3</p>
 
                              <ul class="cDownloadlinks">
-                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.1.zip.sha1">sha1</a></li>
-                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.1.zip.md5">md5</a></li>
-                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.1.zip.asc">Signature</a></li>
+                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.3.zip.sha1">sha1</a></li>
+                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.3.zip.md5">md5</a></li>
+                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.3.zip.asc">Signature</a></li>
 
                              </ul>
 
@@ -236,6 +277,7 @@ ul.cDownloadlinks li {
                          <div class="col-sm-12 col-md-12">
                              <h3>Previous download</h3>
                                <ul class="cDownloadlinks">
+                                 <li><a href="/downloads/ballerina-runtime/ballerina-0.8.1.zip">v0.8.1</a></li>
                                  <li><a href="/downloads/ballerina-runtime/ballerina-0.8.0.zip">v0.8.0</a></li>
                                  
                                </ul>
@@ -259,27 +301,27 @@ ul.cDownloadlinks li {
                              <tr>
                                  <td>IntelliJ IDEA</td>
                                  <td><a id="DownloadIntelliJIDEA" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-intellij/releases/download/v0.8.0-RC1/Ballerina-Intellij-plugin.zip">Download</a></td>
-                                 <td><a id="RepoIntelliJIDEA" href="https://github.com/ballerinalang/plugin-intellij/">RepoURL</a></td>
+<!--                                 <td><a id="RepoIntelliJIDEA" href="https://github.com/ballerinalang/plugin-intellij/">RepoURL</a></td>-->
                              </tr>
                               <tr>
                                  <td>Atom</td>
                                  <td><a id="DownloadAtom" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-atom/archive/v0.8.0-RC1.zip">Download</a></td>
-                                 <td><a id="RepoAtom" href="https://github.com/ballerinalang/plugin-atom/">RepoURL</a></td>
+<!--                                 <td><a id="RepoAtom" href="https://github.com/ballerinalang/plugin-atom/">RepoURL</a></td>-->
                              </tr>
                               <tr>
                                  <td>VIM</td>
                                  <td><a id="RepoloadVIM" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-vim/releases/download/0.8.0-RC1/plugin-vim-0.8.0-RC1.zip">Download</a></td>
-                                 <td><a id="RepodVIM" href="https://github.com/ballerinalang/plugin-vim/">RepoURL</a></td>
+<!--                                 <td><a id="RepodVIM" href="https://github.com/ballerinalang/plugin-vim/">RepoURL</a></td>-->
                              </tr>
                               <tr>
                                  <td>Sublime Text 3</td>
                                  <td><a id="DownloadSublimeText3" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-sublimetext3/releases/download/0.8.0-RC1/plugin-sublimetext3-0.8.0-RC1.zip">Download</a></td>
-                                 <td><a id="RepodVIMSublimeText3" href="https://github.com/ballerinalang/plugin-sublimetext3/">RepoURL</a></td>
+<!--                                 <td><a id="RepodVIMSublimeText3" href="https://github.com/ballerinalang/plugin-sublimetext3/">RepoURL</a></td>-->
                              </tr>
                              <tr>
                                  <td>Visual Studio Code</td>
                                  <td><a id="DownloadVisualStudioCode"  class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-vscode/releases/download/v0.8.0-RC1/plugin-vscode-v0.8.0-RC1.zip">Download</a></td>
-                                 <td><a id="RepoVisualStudioCode"  href="https://github.com/ballerinalang/plugin-vscode/">RepoURL</a></td>
+<!--                                 <td><a id="RepoVisualStudioCode"  href="https://github.com/ballerinalang/plugin-vscode/">RepoURL</a></td>-->
                              </tr>
                          </table>
                          
@@ -293,6 +335,11 @@ ul.cDownloadlinks li {
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
          
       </div>
+       
+       <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
+        <img src="http://ballerinalang.org/img/fork-w.svg"/>
+        <span>Fork Ballerina on Github</span>
+    </a>
       
    </body>
 </html>
