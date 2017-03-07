@@ -661,7 +661,17 @@ a.cFloatingButton span {
     right:0;
     padding-bottom: 0.5em;
 }
-
+a.cGet-updates {
+    display: inline-block;
+    margin-top: 1em;
+    color: #929292;
+    font-weight: 700;
+    
+}
+a.cGet-updates:hover {
+    border: none;
+    color: #000000;
+}
 
 @media screen and (max-width: 991px) {
    a.cTryitButton::before {
