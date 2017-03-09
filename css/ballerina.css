@@ -60,10 +60,11 @@ a {
 }
 
 a.cBallerinaButtons {
-  background: transparent none repeat scroll 0 0;
+      background-color: #303030;
     border: 1px solid #E2E2E4;
     bottom: 0;
-    color: #303030;
+    color: #ffffff;
+    
     display: inline-block;
     font-size: 1.5em;
     padding: 0.8em 0;
@@ -74,8 +75,9 @@ a.cBallerinaButtons {
     cursor: pointer;
 }
 .cBallerinaButtons:hover {
-    background-color: #303030;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #303030;
+    
 }
 .cBallerinaTryNowContainer {
     padding: 1em;
