@@ -45,76 +45,112 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }
           .cBallerinaContentColContainer {
               background-image: none;
+              margin-top: 2em;
           }
+
+          .cBallerinaContentCol_Left {
+              padding-right: 1em;
+          }
+          .cBallerinaContentCol_Right {
+              padding-left: 1em;
+          }
+
           .cBallerinaContentCol_Left ul li {
-    background-image: none;
-    list-style: outside none disc;
-    padding: 0 0 0 1em;
+              background-image: none;
+              list-style: outside none disc;
+              padding: 0 0 0 1em;
           }
           .cBallerinaContentCol_Left ul {
               padding-left: 1em;
           }
           .cBallerinaButtons.cSubDownload {
               display: inline-block;
-              
+
               font-size: 1em;
               text-align: left;
               width: auto;
           }
           .cDownloadRow {
-/*            padding: 2em 0;
-            margin: 2em 0;*/
-/*              border-bottom: 1px solid*/
+              padding: 0em 0;/*
+              margin: 2em 0;*/
+              border-left: 1px solid #c5c5c5;
           }
           a.cBallerinaButtons.cBallerinaDownloadButtons {
-              margin-top: 1em;
+              margin-top: 0.5em;
           }
           
-          a.cBallerinaButtons {
-              background: transparent none repeat scroll 0 0;
-              border: 2px solid #E2E2E4;
-              bottom: 0;
+          h2 {
+              margin-top: 0;
+              margin-bottom: 0em;
+              font-size: 1.5em;
+              font-weight: 800;
+              font-size: 1.3em;
+          }
 
+          .cBallerinaContentCol_Left ul li {
+              padding: 0 0 0 1em;
+              margin-bottom: 0.5em;
+          }
+
+          .cPlugins li {
+              list-style: none;
+
+          }
+          .cBorderNone {
+              border: none;
+          }
+
+          .cBallerinaContentCol_Middle {
+              padding-left: 1em;
+              padding-right: 1em;
+          }
+
+          .cDownloadRow p {
+              min-height: 165px;
+          }
+          a.cGOButton {
+              background: transparent none repeat scroll 0 0;
+              border: 1px solid #E2E2E4;
+              bottom: 0;
               display: inline-block;
               font-size: 1.5em;
-              padding: 0.8em 0;
               text-align: center;
               text-transform: none;
               vertical-align: bottom;
-              width: 100%;
+              width: auto;
               cursor: pointer;
-              
-               background-color: #303030;
+              background-color: #303030;
               color: #ffffff;
-
+              background-image: url(../img/white-arrow.svg);
+              background-position: 55px center;
+              background-repeat: no-repeat; 
+              padding: 0.2em 1.5em 0.2em 1em;
 
           }
-          .cBallerinaButtons:hover {
+
+          a.cGOButton:hover {
               color: #303030;
               background: #ffffff;
-          }
-h2 {
-    margin-top: 0;
-    margin-bottom: 0em;
-    font-size: 1.5em;
-    font-weight: 700;
-}
-.cDownloadRow {
-    margin-bottom: 0em;
-    padding: 2em 0;
-}
-.cBallerinaContentCol_Left ul li {
-     padding: 0 0 0 1em;
-     margin-bottom: 0.5em;
-}
-
-.cPlugins li {
-    list-style: none;
-    
-}
-          
-          
-      </style>
+              background-position: 55px center;
+           }
+           
+           @media screen and (max-width: 991px) {
+               .cDownloadRow p {
+                   min-height: auto;
+               }
+               .cBallerinaContentCol_Left , .cBallerinaContentCol_Middle , .cBallerinaContentCol_Right {
+                   padding: 0;
+                   border: none;
+               }
+               .cDownloadRow {
+                  border: none;
+                  margin-bottom: 2em;
+                  border-bottom: 1px solid #c5c5c5;
+                  padding-bottom: 2em;
+               }
+           }
+           
+       </style>
       
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -138,34 +174,76 @@ h2 {
              </div>
              
              <div class="col-sm-12 col-md-12 cBallerinaContentColContainer">
-                 <div class="col-sm-12 col-md-6 cDownloadRow">
+                 <div class="col-sm-12 col-md-3 cDownloadRow cBorderNone">
                      <div class="cBallerinaContentCol_Left">
                          <div class="col-sm-12 col-md-12">
-<!--                             <h2>User Guide</h2>-->
+                             <h2>User Guide</h2>
+                             <p>Provides a quick tour of Ballerina, tutorials, and instructions for using the Ballerina language and tools. </p>
                          </div>
 
                          <div class="col-sm-12 col-md-12">
-                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="userguide" href="http://ballerinalang.org/docs/user-guide/0.8/">User Guide</a>
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox cGOButton" id="userguide" href="http://ballerinalang.org/docs/user-guide/0.8/">Go</a>
                          </div>
-                        
+
                      </div>
                  </div>
-                 
-                 <div class="col-sm-12 col-md-6 cDownloadRow">
+
+                 <div class="col-sm-12 col-md-3 cDownloadRow">
+                     <div class="cBallerinaContentCol_Middle">
+                         <div class="col-sm-12 col-md-12">
+                             <h2>API Reference</h2>
+                             <p>Describes the native functions in Ballerina that you can use in your programs.</p>
+                         </div>
+
+                         <div class="col-sm-12 col-md-12">
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox cGOButton" id="apidocs" href="http://ballerinalang.org/docs/api/0.8/">Go</a>
+                         </div>
+
+                     </div>
+                 </div>
+                 <div class="col-sm-12 col-md-3 cDownloadRow">
+                     <div class="cBallerinaContentCol_Middle">
+                         <div class="col-sm-12 col-md-12">
+                             <h2>Language Specification</h2>
+                             <p>Describes the inner workings of the Ballerina language, which is useful for developers who want to know the details of how Ballerina works.</p>
+                         </div>
+
+                         <div class="col-sm-12 col-md-12">
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox cGOButton" id="apidocs" href="https://github.com/ballerinalang/ballerina/blob/master/docs/specification/README.md">Go</a>
+                         </div>
+
+                     </div>
+                 </div>
+                 <div class="col-sm-12 col-md-3 cDownloadRow">
+                     <div class="cBallerinaContentCol_Right">
+                         <div class="col-sm-12 col-md-12">
+                             <h2>Architecture Design</h2>
+                             <p>If you want to understand how Ballerina was designed, the current architecture, and plans for the future, you can view the design and architecture documents, which are publicly available as Google docs.</p>
+                         </div>
+
+                         <div class="col-sm-12 col-md-12">
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox cGOButton" id="apidocs" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit">Go</a>
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
+<!--             <div class="col-sm-12 col-md-12 cBallerinaContentColContainer">
+                 <div class="col-sm-12 col-md-6 cDownloadRow cBorderNone">
                      <div>
                          <div class="col-sm-12 col-md-12">
-<!--                             <h2>API Documentation</h2>-->
+                             <h2>Architecture Design</h2>
+                             <p>If you want to understand how Ballerina was designed, the current architecture, and plans for the future, you can view the design and architecture documents, which are publicly available as Google docs.</p>
                          </div>
 
                          <div class="col-sm-12 col-md-12">
-                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="apidocs" href="http://ballerinalang.org/docs/api/0.8/">API Documentation</a>
+                             <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="apidocs" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit">Go ></a>
                          </div>
-                         
+
                      </div>
                  </div>
-                 
-                 
-             </div>
+
+             </div>-->
              
              
              
