@@ -1,9 +1,9 @@
 body {
-font-family: 'Cairo', sans-serif;
- background-image: url(../img/ballerina-bg.jpg);
- background-size: 100%;
- background-attachment: fixed;
-  transition: all 0.5s ease 0s;
+    font-family: 'Cairo', sans-serif;
+    background-image: url(../img/ballerina-bg.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    transition: all 0.5s ease 0s;
 }
 a {
     transition: all 0.5s ease 0s;
@@ -14,7 +14,7 @@ a {
     margin: 0;/*
     position: fixed;
     width: 100%;*/
-    
+
 }
 .cBallerinaNav .navbar.navbar-default {
     background: transparent;
@@ -35,7 +35,7 @@ a {
 .row.cBallerinaIntro {
     padding-top: 1em;
     padding-bottom: 1em;
-    
+
 }
 .row.cBallerinaIntro h1 {
     color: #BCBCC2;
@@ -44,7 +44,7 @@ a {
     padding-bottom: 0;
     margin-bottom: 0.5em;
     text-transform: none;
-    
+
 }
 .row.cBallerinaIntro h2 {
     font-size: 1.5em;
@@ -60,11 +60,11 @@ a {
 }
 
 a.cBallerinaButtons {
-      background-color: #303030;
+    background-color: #303030;
     border: 1px solid #E2E2E4;
     bottom: 0;
     color: #ffffff;
-    
+
     display: inline-block;
     font-size: 1.5em;
     padding: 0.8em 0;
@@ -77,7 +77,7 @@ a.cBallerinaButtons {
 .cBallerinaButtons:hover {
     background-color: #ffffff;
     color: #303030;
-    
+
 }
 .cBallerinaTryNowContainer {
     padding: 1em;
@@ -85,76 +85,76 @@ a.cBallerinaButtons {
     display: inline-block;
     width: 100%;
     position: relative;
-    
- }
- .row.cBallerinaTry {
-     transition: all 0.5s ease 0s;
- }
+
+}
+.row.cBallerinaTry {
+    transition: all 0.5s ease 0s;
+}
 .row.cBallerinaTry.cFullscreenOption {
-     position: fixed;
-     top: 0;
-    
-     right: 0;
-    
-     width: 100%;
-     background: #F0F0F1;
-     height: 100vh;
-     z-index: 999999999;
-     padding: 0;
-     margin: 0;
-      transition: all 0.1s ease 0s;
- }
- 
- .row.cBallerinaTry.cFullscreenOption .cFullscreenContainer{
-padding: 0;
-margin: 0;
- }
+    position: fixed;
+    top: 0;
+
+    right: 0;
+
+    width: 100%;
+    background: #F0F0F1;
+    height: 100vh;
+    z-index: 999999999;
+    padding: 0;
+    margin: 0;
+    transition: all 0.1s ease 0s;
+}
+
+.row.cBallerinaTry.cFullscreenOption .cFullscreenContainer{
+    padding: 0;
+    margin: 0;
+}
 .row.cBallerinaTry.cFullscreenOption .container{
-     width: 100%;
-     padding: 0;
-     margin: 0;
-      transition: all 0.5s ease 0s;
-     
- }
- 
- .row.cBallerinaTry.cFullscreenOption .cBallerinaCode, .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram {
-     height: 85vh;
-      transition: all 0.5s ease 0s;
- }
- 
- 
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s ease 0s;
+
+}
+
+.row.cBallerinaTry.cFullscreenOption .cBallerinaCode, .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram {
+    height: 85vh;
+    transition: all 0.5s ease 0s;
+}
+
+
 .row.cBallerinaTry.cFullscreenOption .cOutputWindow1.cOutputWindowShow.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaCode.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram.cOutputWindowShowFullscreen ,
 .row.cBallerinaTry.cFullscreenOption .cOutputWindow2.cOutputWindowShow.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaCode.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram.cOutputWindowShowFullscreen ,
 .row.cBallerinaTry.cFullscreenOption .cOutputWindow3.cOutputWindowShow.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaCode.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram.cOutputWindowShowFullscreen , 
 .row.cBallerinaTry.cFullscreenOption .cOutputWindow4.cOutputWindowShow.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaCode.cOutputWindowShowFullscreen , .row.cBallerinaTry.cFullscreenOption .cBallerinaDaiagram.cOutputWindowShowFullscreen 
- 
+
 
 {
-     height: 42vh;
- }
- 
- 
- 
- 
+    height: 42vh;
+}
+
+
+
+
 
 
 .cSampleBox {
 
 
- 
-   height: 0;
-display: none;
+
+    height: 0;
+    display: none;
 
 
 }
 .cSampleBox.cShowSample {
-    
-  display: block;
-  height: auto;
 
-    
+    display: block;
+    height: auto;
+
+
 } 
-            
+
 .row.cBallerinaTry {
     padding-top: 2em;
 }
@@ -163,7 +163,7 @@ display: none;
     margin: 0;
 }
 pre{
-/*    white-space: normal;*/
+    /*    white-space: normal;*/
     overflow: hidden;
     white-space: pre-wrap;
 }
@@ -183,14 +183,14 @@ code , pre , .cBallerinaCode textarea {
     display: block;
 }
 .cBallerinaCode input {
-   background-color: rgba(255,255,255,0.2);
-   padding: 0.5em;
-   color: #FFFFB1;
-   font-weight: 600;
-/*   height: 10%;*/
-   border: none;
-   bottom: 10px;
-   position: absolute;
+    background-color: rgba(255,255,255,0.2);
+    padding: 0.5em;
+    color: #FFFFB1;
+    font-weight: 600;
+    /*   height: 10%;*/
+    border: none;
+    bottom: 10px;
+    position: absolute;
 }
 
 .cBallerinaCode {
@@ -203,9 +203,9 @@ code , pre , .cBallerinaCode textarea {
     transition: all 0.5s ease 0s;
     visibility: hidden;
     border: 1px solid #b0b0b0;
-/*    width: 50%;*/
+    /*    width: 50%;*/
 
-    
+
 }
 
 .cBallerinaDaiagram {
@@ -218,14 +218,14 @@ code , pre , .cBallerinaCode textarea {
     transition: all 0.5s ease 0s;
     visibility: hidden;
     border: 1px solid #b0b0b0;
-/*    width: 50%;*/
+    /*    width: 50%;*/
 
-    
+
 }
 .cShowSample .cBallerinaCode , .cShowSample .cBallerinaDaiagram {
-     opacity: 1;
-     transition: all 0.5s ease 0s;
-     visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease 0s;
+    visibility: visible;
 }
 
 
@@ -234,8 +234,8 @@ code , pre , .cBallerinaCode textarea {
 .cBallerinaDaiagram {
     background-image: url(../img/ballerina-editor-bg.jpg);
     background-attachment: fixed;
-   
- 
+
+
 }
 
 .cBallerinaDaiagram img {
@@ -252,34 +252,34 @@ code , pre , .cBallerinaCode textarea {
 ::-webkit-scrollbar {
     width: 20px;
 }
- 
+
 ::-webkit-scrollbar-track {
-/*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    /*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
     background: #B0B0B7;
-/*    border-radius: 10px;*/
+    /*    border-radius: 10px;*/
 }
- 
+
 ::-webkit-scrollbar-thumb {
-/*    border-radius: 10px;*/
+    /*    border-radius: 10px;*/
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     background: #F0F0F1;
 }
 
 
 .cBallerinaTools {
-/*    width: 100%;
-    display: inline-block;*/
+    /*    width: 100%;
+        display: inline-block;*/
     margin-top: 1em;
     padding: 0;
 }
 .cBallerinaTools select {
     outline: none;
 
-    
-    
+
+
 }
 .cBallerinaTools h4 {
-     color: #808080;
+    color: #808080;
     font-size: 1em;
     margin: 0;
     padding: 0;
@@ -292,11 +292,11 @@ code , pre , .cBallerinaCode textarea {
 }
 .cBallerinaTools select {
     width: 20em;
-    
+
 }
 .cTryitButtonContainer {
     text-align: right;
-    
+
 }
 
 a.cTryitButton:before {
@@ -315,7 +315,7 @@ a.cTryitButton:before {
     transition: all 0.5s ease 0s;
 }
 a.cRUNitButton:before {
-       background: #303030 none repeat scroll 0 0;
+    background: #303030 none repeat scroll 0 0;
     bottom: 18px;
     color: #ffffff;
     cursor: pointer;
@@ -335,17 +335,17 @@ a.cRUNitButton:before {
 a.cTryitButton:hover {
     text-decoration: none;
     border: none;
-    
-   
-  
-  }
-  a.cTryitButton.cGoback:before {
-      content: "Run sample";
-      background: #ffffff;
-      color: #303030;
-      transition: all 0.5s ease 0s;
-      
-  }
+
+
+
+}
+a.cTryitButton.cGoback:before {
+    content: "Run sample";
+    background: #ffffff;
+    color: #303030;
+    transition: all 0.5s ease 0s;
+
+}
 
 
 .cOutputWindow1, .cOutputWindow2 , .cOutputWindow3 , .cOutputWindow4 ,.cOutputWindow5,.cOutputWindow6 ,.cOutputWindow7,.cOutputWindow8 {
@@ -353,7 +353,7 @@ a.cTryitButton:hover {
     background: black;
     opacity: 0;
     transition: all 0.5s ease 0s;
-     font-family: 'Source Code Pro', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.8em;
     padding: 0;
     line-height: 1.6em;
@@ -361,7 +361,7 @@ a.cTryitButton:hover {
     color: #79fa4c;
     white-space: pre-wrap;
     overflow: scroll;
-    
+
 }
 .cOutputWindow1.cOutputWindowShow , .cOutputWindow2.cOutputWindowShow ,.cOutputWindow3.cOutputWindowShow , .cOutputWindow4.cOutputWindowShow , .cOutputWindow5.cOutputWindowShow, .cOutputWindow6.cOutputWindowShow, .cOutputWindow7.cOutputWindowShow, .cOutputWindow8.cOutputWindowShow     {
     height: 320px;
@@ -383,8 +383,8 @@ a.cFullscreen {
     opacity: 0.4;
     text-decoration: none;
     border: none;
-    
-    
+
+
 }
 a.cFullscreen:hover {
     opacity: 1;
@@ -426,8 +426,8 @@ a.cFullscreen.cBack {
 .fancybox-skin {
     border-radius: 0;
     padding: 1em;
-   
-    
+
+
 }
 .cBallerinaDownloadForm .cBallerinaButtons {
     background: #303030;
@@ -439,10 +439,10 @@ a.cFullscreen.cBack {
 }
 
 .fancybox-overlay.fancybox-overlay-fixed {
-/*     background-image: url(../img/ballerina-bg-3.svg);
- background-size: 100%;
- background-attachment: fixed;*/
- background-color: rgba(240,240,241,0.8);
+    /*     background-image: url(../img/ballerina-bg-3.svg);
+     background-size: 100%;
+     background-attachment: fixed;*/
+    background-color: rgba(240,240,241,0.8);
 }
 
 
@@ -451,8 +451,8 @@ a.cFullscreen.cBack {
 h2, h3 ,h4 , h5 {
     padding: 0;
     margin: 0 0 1.5em 0;
-    
-    
+
+
 }
 .cBallerinaContentColContainer {
     display: inline-block;
@@ -461,7 +461,7 @@ h2, h3 ,h4 , h5 {
     background-image: url(../img/line.svg);
     background-position:center;
     background-repeat: repeat-y;
-    
+
 }
 .cBallerinaContentRow h2 {
     font-weight: 600 !important;
@@ -475,15 +475,15 @@ h2, h3 ,h4 , h5 {
 .cBallerinaContentCol_Right {
     display: inline-block;
     padding-left: 2em;
-     width: 100%;
+    width: 100%;
 }
 
 /*GETTING STARTED*/
 
 .row.cGrayRow {
-     background-image: url(../img/ballerina-bg-2.jpg);
- background-size: 100%;
- background-attachment: fixed;
+    background-image: url(../img/ballerina-bg-2.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
 }
 
 .cGettingStarted {
@@ -507,7 +507,7 @@ h2, h3 ,h4 , h5 {
     background-position: left;
     background-repeat: repeat-y;
     margin-bottom: 2em;
-    
+
 }
 .cBallerinaContentCol_Left ul li a {
     font-size: 1em;
@@ -534,9 +534,9 @@ h2, h3 ,h4 , h5 {
 
 
 .row.cBallerinaFooter {
- padding: 2em 0; 
- border-top: 1px solid #E2E2E5;
- background: #ffffff;
+    padding: 2em 0; 
+    border-top: 1px solid #E2E2E5;
+    background: #ffffff;
 }
 .row.cBallerinaFooter ul {
     padding: 0;
@@ -575,16 +575,16 @@ h2, h3 ,h4 , h5 {
 }
 .cSmallButtons {
     display: inline-block;
-/*    width: 100%;*/
-    
+    /*    width: 100%;*/
+
 }
 
 .cPowerdby {
     float: right;
-    
+
 }
 .cPowerdby img {
-      float: right;
+    float: right;
     height: 20px;
     margin-top: 5px;
     padding-left: 11px;
@@ -599,7 +599,7 @@ h2, h3 ,h4 , h5 {
 
 .cNewtoBallerinaCol.cMiddle {
     border-left: 1px solid #c5c5c5;
-     border-right: 1px solid #c5c5c5;
+    border-right: 1px solid #c5c5c5;
 }
 .cSlackContainer {
     display: inline-block;
@@ -618,12 +618,12 @@ h2, h3 ,h4 , h5 {
     margin: 0;
 }
 .cSlackContainer a.cBallerinaButtons {
-      background-color: #303030;
-              color: #ffffff;
+    background-color: #303030;
+    color: #ffffff;
 }
 .cSlackContainer a.cBallerinaButtons:hover {
-     color: #303030;
-              background: #ffffff;
+    color: #303030;
+    background: #ffffff;
 }
 
 p.Intro {
@@ -635,7 +635,7 @@ p.Intro {
     
 }*/
 .cFloatingButton {
-background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff !important;
     display: inline-block;
     font-size: 1.2em;
@@ -647,17 +647,17 @@ background-color: rgba(0, 0, 0, 0.5);
     top: 20%;
     transition: all 0.3s ease 0s;
     width: 100px;
-    
-    
+
+
 }
 .cFloatingButton:hover {
-     background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.9);
 }
 .cFloatingButton img {
     width: 70%;
 }
 a.cFloatingButton span {
-    
+
 }
 .cFloatingButton.cShowFloatingButton {
     right:0;
@@ -668,7 +668,7 @@ a.cGet-updates {
     margin-top: 1em;
     color: #929292;
     font-weight: 700;
-    
+
 }
 a.cGet-updates:hover {
     border: none;
@@ -676,13 +676,13 @@ a.cGet-updates:hover {
 }
 
 @media screen and (max-width: 991px) {
-   a.cTryitButton::before {
-     
-    position: relative;
-    right: 0;
-    top: 38px;
-    text-align: center;
-    width: 100%;
+    a.cTryitButton::before {
+
+        position: relative;
+        right: 0;
+        top: 38px;
+        text-align: center;
+        width: 100%;
 
     }
     .cBallerinaTools {
@@ -696,7 +696,7 @@ a.cGet-updates:hover {
     }
     .navbar-collapse.collapse {
         background: #F0F0F1;
-        
+
     }
     .cBallerinaTools select {
         width: 100%;
@@ -707,7 +707,7 @@ a.cGet-updates:hover {
     .cBallerinaDownload {
         padding-top: 40px;
     }
-    
+
     .cNewtoBallerinaCol.cMiddle {
         border: none;
     }
@@ -717,7 +717,7 @@ a.cGet-updates:hover {
     p.Intro {
         margin-top: 1em !important;
         font-size: 2em !important;
-        
+
     }
     iframe {
         width: 100% !important;
