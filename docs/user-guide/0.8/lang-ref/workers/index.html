@@ -297,9 +297,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                  <li><a class="toctree-l4" href="#adding-a-worker">Adding a worker</a></li>
                 
-                 <li><a class="toctree-l4" href="#initiating-the-worker">Initiating the worker</a></li>
+                 <li><a class="toctree-l4" href="#invoking-the-worker">Invoking the worker</a></li>
                 
-                 <li><a class="toctree-l4" href="#replying-from-a-worker">Replying from a worker</a></li>
+                 <li><a class="toctree-l4" href="#receiving-a-reply-from-a-worker">Receiving a reply from a worker</a></li>
+                
+                 <li><a class="toctree-l4" href="#examples">Examples</a></li>
                 
             
             </ul>
@@ -437,20 +439,143 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </code></pre>
 
-<p>If the <a href="../statements/#reply">Reply</a> statement is present, it must be at the end of the worker. The reply indicates what message will be returned to the initiator if the initiator requires a response from the worker. If no Reply statement is present, it has the same effect as having sent a null message.</p>
-<h2 id="initiating-the-worker">Initiating the worker</h2>
+<p>You then define the logic that you want the worker to reply. The worker can invoke any functions that are defined in the same package. </p>
+<p>If the <a href="../statements/#reply">Reply</a> statement is present, it must be at the end of the worker definition. The reply indicates what message will be returned to the initiator if the initiator requires a response from the worker (see "Receiving a reply from a worker" below). If no Reply statement is present, it has the same effect as having sent a null message.</p>
+<h2 id="invoking-the-worker">Invoking the worker</h2>
 <p>Workers initially come into existence when the enclosing entity-- a <a href="../resources/">resource</a>, <a href="../functions/">function</a>, or <a href="../actions/">action</a>--becomes active. However, similar to a resource, the worker does not execute until it has been sent a message.</p>
-<p>A worker is triggered when a message is sent to the worker as follows by the enclosing entity:</p>
-<pre><code>MessageName -&gt; WorkerName;
+<p>A worker is triggered when a message is sent to the worker. You can configure the enclosing entity to send a message to the worker by dragging the Worker Invoke icon to the enclosing entity and typing the message name:</p>
+<p><img alt="alt text" src="../../images/icons/worker-invoke.png" title="Worker Invoke icon" /></p>
+<p>Or type the following code in the Source View:</p>
+<pre><code>&lt;MessageName&gt; -&gt; &lt;WorkerName&gt;;
 </code></pre>
 
-<h2 id="replying-from-a-worker">Replying from a worker</h2>
-<p>The worker can reply to the enclosing entity using a <a href="../statements/#reply">Reply</a> statement. When the worker replies, the response message (if any) is received by the enclosing entity from the worker as follows:</p>
-<pre><code>MessageName &lt;- WorkerName;
+<p>For example, if the message is named <code>msg</code> and the worker is named <code>sampleWorker</code>, you would type:</p>
+<pre><code>msg -&gt; sampleWorker;
 </code></pre>
 
-<p>If the worker does not reply, the enclosing entity will wait until the named worker completes and return a null value for the message.</p>
+<h2 id="receiving-a-reply-from-a-worker">Receiving a reply from a worker</h2>
+<p>The worker can reply to the enclosing entity using a <a href="../statements/#reply">Reply</a> statement at the end of the worker defintion. You can configure the enclosing entity to receive the reply by dragging the Worker Receive icon to the point where you want the enclosing entity to receive the reply:</p>
+<p><img alt="alt text" src="../../images/icons/worker-receive.png" title="Worker Receive icon" /></p>
+<p>Or type the following code in the Source View:</p>
+<pre><code>&lt;MessageName&gt; &lt;- &lt;WorkerName&gt;;
+</code></pre>
+
+<p>For example, to receive a reply from <code>sampleWorker</code> as a message named <code>msg</code>:</p>
+<pre><code>msg &lt;- sampleWorker;
+</code></pre>
+
+<p>If the worker does not reply, the enclosing entity will wait until the named worker completes and will return a null value for the message.</p>
 <p>If there is no wait for completion of a particular worker, and if the enclosing entity finishes execution, all active workers are immediately killed prior to returning from the enclosing context. </p>
+<h2 id="examples">Examples</h2>
+<p>These examples show how to define, invoke, and receive a reply from a worker. </p>
+<h3 id="inside-the-main-function">Inside the main() function</h3>
+<pre><code>import ballerina.lang.system;
+import ballerina.lang.message;
+// Global constants are visible to worker
+const int index = 12;
+
+function main(string[] args) {
+  worker sampleWorker (message m)  {
+    json j;
+    j = `{&quot;name&quot;:&quot;chanaka&quot;}`;
+    message:setJsonPayload(m, j);
+    system:println(&quot;constant value is &quot; + index);
+    reply m;
+  }
+
+  message result;
+  message msg = {};
+  msg -&gt; sampleWorker;
+  system:println(&quot;After worker&quot;);
+  result &lt;- sampleWorker;
+  string s = message:getStringPayload(result);
+  system:println(s);
+
+}
+</code></pre>
+
+<p>When you run the above Ballerina program, the following output is printed to the console:</p>
+<pre><code>After worker
+constant value is 12
+{&quot;name&quot;:&quot;chanaka&quot;}
+</code></pre>
+
+<h3 id="inside-a-resource">Inside a resource</h3>
+<pre><code>import ballerina.lang.message;
+import ballerina.lang.system;
+
+// Global constants are visible to worker
+const int index = 12;
+
+@BasePath (&quot;/passthrough&quot;)
+service passthrough {
+
+    @POST
+    resource passthrough (message m) {
+      worker sampleWorker (message msg)  {
+    json j;
+    j = `{&quot;name&quot;:&quot;chanaka&quot;}`;
+    message:setJsonPayload(msg, j);
+    system:println(&quot;constant value is &quot; + index);
+    reply msg;
+      }
+    message result;
+    m -&gt; sampleWorker;
+    system:println(&quot;After worker&quot;);
+    result &lt;- sampleWorker;
+    string s = message:getStringPayload(result);
+    system:println(s);
+        reply result;
+    }
+}
+</code></pre>
+
+<p>When the above service is running and is sent a message, it will return the following response from the worker back to the client:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;chanaka&quot;
+}
+</code></pre>
+
+<h3 id="calling-a-function-from-the-worker">Calling a function from the worker</h3>
+<p>This example shows how a worker can call a function that's defined in the same package:</p>
+<pre><code>import ballerina.lang.system;
+import ballerina.lang.message;
+// Global constants are visible to worker
+const int index = 12;
+
+function main(string[] args) {
+  worker sampleWorker (message m)  {
+    json j;
+    j = `{&quot;name&quot;:&quot;chanaka&quot;}`;
+    message:setJsonPayload(m, j);
+    system:println(&quot;constant value is &quot; + index);
+    printHello(&quot;I'm worker&quot;);
+    reply m;
+  }
+
+  message result;
+  message msg = {};
+  msg -&gt; sampleWorker;
+  system:println(&quot;After worker&quot;);
+  printHello(&quot;I'm main function&quot;);
+  result &lt;- sampleWorker;
+  string s = message:getStringPayload(result);
+  system:println(s);
+
+}
+
+function printHello(string str) {
+  system:println(str);
+}
+</code></pre>
+
+<p>When you run this program, the following output is printed to the console:</p>
+<pre><code>After worker
+I'm main function
+constant value is 12
+I'm worker
+{&quot;name&quot;:&quot;chanaka&quot;}
+</code></pre>
               
             </div>
           </div>

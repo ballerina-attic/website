@@ -1,0 +1,302 @@
+#main p { text-align:left !important; }
+
+h1#title-heading  { font-size:24px !important; }  
+
+.wiki-content h2  { text-transform: none !important; font-weight:bold !important; margin-top:20px !important; font-size:22px !important; }  
+
+.wiki-content h3  { margin-top: 10px !important;  font-size:20px !important; text-transform: none !important; }  
+
+.wiki-content h4  { margin-top: 10px !important;  font-size:16px !important; text-transform: none !important; }  
+
+.wiki-content h5  { margin-top: 10px !important;  font-size:14px !important; text-transform: none !important; }  
+
+.wiki-content ol li {
+   margin: 0;
+   padding: 5px 0;
+} 
+
+.wiki-content ol ul li {
+   margin: 0;
+   padding: 0px 0;
+}
+
+.wiki-content li img { display: block; margin: 10px 0px 0px; }
+
+#header { height:90px; background-color:#91961f; border:0px; background-image:url(http://docs.wso2.org/wiki/download/attachments/28718536/api-manager-h-banner.png); background-repeat:no-repeat; background-position: left top; }
+
+#breadcrumbs { display: inline-block; list-style: none inside none; margin: 65px 0px 0px; padding: 6px 0 6px; position: absolute;  background-color:#91961f; } 
+
+#main-header:not(.doctheme-no-override) #breadcrumb-section #breadcrumbs li.first {display: none}
+
+.quick-search { margin: 10px 0px 0px; } 
+
+#header-menu-bar { margin-top: 10px; } 
+
+.vsplitbar { background-color:#dddddd; width: 3px; } 
+
+#main { background-color: #FFFFFF; border: 0 none; margin: 10px 10px 10px; min-height: 20em; padding: 10px 20px 0px; border:solid 1px #cccccc; border-radius: 7px; }  
+
+#splitter #splitter-content { background-color: #EDEDED; }
+
+#breadcrumbs li { position:relative; float: left; } 
+
+a.admin-guide{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/admin-guide.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.samples{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/samples.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.quick-start{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/quick-start.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.about { background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/about.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.user-guide{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/user-guide.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.server-config{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/server-config.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.published-apis{ background-image: url(http://docs.wso2.org/wiki/download/attachments/24970704/published-apis.png); background-repeat: no-repeat; background-position:left top; padding-left: 45px; line-height:34px; display:inline-block; text-decoration: none; }
+
+a.next { background-image: url(/wiki/download/attachments/24970704/next.png); background-repeat:no-repeat; background-position:right 7px top; padding: 2px 32px 0px 7px; font-size:14px; font-weight:bold; text-decoration:none !important; }
+
+a.previous { background-image: url(/wiki/download/attachments/24970704/previous.png); background-repeat:no-repeat; background-position: left top; padding: 2px 7px 0px 25px; font-size:14px; font-weight:bold; text-decoration:none !important; } 
+
+a.home{ background-image: url("/wiki/download/attachments/24970704/home.png"); background-position: 7px top; background-repeat: no-repeat; font-weight: bold; padding: 2px 0px 0px 32px; text-decoration: none !important; }
+
+p.options { margin: 0px  0px 0px 45px; }
+
+h3.sub-title { margin: 20px 0px 0px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h3 { font-size:20px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h3.sub-title a { text-decoration:none !important; }
+
+h4.sub-title { margin: 16px 0px 0px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h4 { font-size:16px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h4.sub-title a { text-decoration:none !important; }
+
+h5.sub-title { margin: 14px 0px 0px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h5 { font-size:14px; font-family:Arial, Verdana, Helvetica, sans-serif !important; }
+
+h5.sub-title a { text-decoration:none !important; } 
+
+#footer-logo { display: none; }
+
+#footer p.license { display:none; }
+
+#theme-footer { }
+
+#theme-footer ul { list-style:none; margin: 0px 5px 10px; padding:0px; }
+
+#theme-footer ul li { position:relative; float:left;  }
+
+#theme-footer ul li a { display: inline-block; background-color:#555555; padding: 5px 8px;  font-size:13px; margin: 0px 5px 10px; color:#ffffff; border-radius:4px; }
+
+#pagetreesearch input[type="submit"] { background-color:#666666; color:#ffffff; border:0px; padding: 2px 7px; border-radius:3px; }
+
+#pagetreesearch input[type="text"] { border:solid 1px #999999; border-radius:3px; }
+
+#navigation .ajs-menu-bar { margin: -10px 0px 0px; } 
+
+.page-metadata UL LI {              
+
+display: none;              
+}    
+
+#main { padding: 10px 20px 40px !important; }
+#main { padding: 10px 20px 40px !important; }  
+
+#theme-footer p {padding-right: 14px !important;  text-align: right !important;} 
+
+#title-text {line-height: 28px !important;}
+
+#splitter-button
+
+{
+display:none !important;
+
+}
+
+#comments-section .comment {  display:none;  } 
+
+/*START---- NEW STYLES 2014 April*/ 
+
+.aui-header.aui-dropdown2-trigger-group { 
+    background-color: transparent !important; 
+} 
+
+#header { 
+    height: 104px !important; 
+} 
+.aui-header-primary .aui-nav { 
+    margin-top: 65px !important; 
+    display: inline-block; 
+    float: left; 
+} 
+.aui-header .aui-header-logo img { 
+    display: none !important; 
+} 
+#main { 
+    padding-top: 40px !important; 
+} 
+#breadcrumbs { 
+    background-color: transparent !important; 
+    margin-top: -38px !important; 
+    line-height: normal !important; 
+} 
+.content-navigation { 
+    margin-top: -23px !important; 
+} 
+#header .aui-dd-parent, #header .aui-dropdown { 
+    display: none; 
+} 
+ 
+#pagetreesearch input[type="submit"]{ 
+    background: #555555 !important; 
+    border-radius:4px !important; 
+    color: #ffffff !important; 
+    font-size: 13px !important; 
+    margin: 0 5px 10px !important; 
+    padding: 5px 8px !important; 
+    text-shadow : none !important; 
+} 
+
+.aui-page-panel { 
+    width: auto !important; 
+} 
+ 
+.aui-header .aui-header-secondary .aui-nav { 
+    margin-top: 33px; 
+} 
+.aui-nav a { 
+    font-size: 12px !important; 
+}
+div.pag-nav3 {  
+    clear: both;  
+    display: block;  
+    float: right;  
+    margin-right: 0px;  
+    margin-top: 18px;  
+    padding: 10px 0 10px 20px;  
+    position: absolute;  
+    right: 28px;  
+    text-align: right;  
+    top: 44px;  
+    z-index: 1;  
+}
+
+
+div.pag-nav2 {
+     text-align:right;
+     clear:both;
+     float:right;
+     padding: 10px 0px 10px 20px;
+     margin-top: -62px;
+     margin-right: 28px;
+     position: absolute;
+     right: 0px;
+}  
+
+div.pag-nav {
+    clear: both;
+    float: right;
+    margin-right: 34px;
+    margin-top: 18px;
+    padding: 10px 0 10px 20px;
+    text-align: right;
+    z-index: 10;
+    position: absolute;
+    right: 0px;
+}
+
+.content-navigation.view { 
+    margin-right: 116px; 
+} 
+#breadcrumbs li { 
+    font-size: 12px; 
+} 
+ 
+#title-text { 
+   padding-top: 20px; 
+   border-top: 1px solid #e6e6e6; 
+      
+} 
+.mytable2, .mytableid2 {border:0px !important;}    
+  
+.mytable, .mytableid {border-top:solid 1px #cccccc; background-color: #ffffff; padding:5px 0;}  
+  
+.mytableid .icon { display: inline-block; float: left; margin-right: 15px; height: 80px;}  
+
+#splitter-sidebar li { padding: 0px; }    
+  
+.confluence-searchbox { margin-left: 10px; margin-top: 8px; }    
+  
+.plugin_pagetree_children_span {    
+  display: inline;    
+  float: none;    
+}    
+    
+.plugin_pagetree_expandcollapse {    
+   font-style: italic;    
+   padding-left: 3px;    
+}
+ 
+#doctheme-anchor
+{ display: none !important; }
+
+.aui-header .aui-header-logo { display: none; }
+/*NEW STYLES 2014 April ---END*/ 
+
+/*NEW STYLES 2016 Amal---END*/  
+.getstarted { padding: 30px 40px; }  
+.getstarted h3 { font-size: 24px !important; font-weight: normal !important; margin: 0 0 10px !important; }  
+.getstarted table { border: 0px; padding: 0px; margin: 30px 10px 0px; }  
+.getstarted table tr td { border-bottom: solid 1px #cccccc; border-top: 0; border-right: 0; border-left: 0; padding: 10px 10px; }   
+.getstarted table tr td.bottom { border-bottom: 0; }  
+  
+.getstartedtd {  border-left: solid 1px #999999 !important;}  
+  
+table.deepdive { border: 0; }  
+table.deepdive tr td { border: 0; height: 50px; vertical-align: middle; }  
+table.deepdive tr td.icon { padding-left: 20px; padding-right: 0; }  
+
+
+/*2017 Madhura*/
+.acs-side-bar-space-info.tipsy-enabled {
+display:none;}
+ul.cFooterButtons {
+    padding: 0;
+    position: absolute;
+    margin: 50px 0 0 0
+    
+    
+}
+ul.cFooterButtons li {
+    margin:  1em 0 0;
+    list-style: none;
+    float: left;
+    display: inline-block;
+    
+}
+ul.cFooterButtons li a {
+    background-color: #555555;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 5px 10px;
+    padding: 5px 8px;
+    cursor: pointer;
+    
+}
+ul.cFooterButtons li a:hover {
+    background-color: #ffffff;
+    color: #555555
+}
+#main {
+    margin-bottom: 50px;
+    border-radius: 0;
+    margin-right: 0;
+    border-left: none;
+    border-right: none;
+}
