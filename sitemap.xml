@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+  <loc>http://ballerinalang.org/</loc>
+  <lastmod>2017-03-17T02:44:03+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/downloads/</loc>
+  <lastmod>2017-03-17T02:43:20+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/</loc>
+  <lastmod>2017-03-17T02:36:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/</loc>
+  <lastmod>2017-03-17T02:39:06+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/</loc>
+  <lastmod>2017-03-17T02:36:50+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/.</loc>
+  <lastmod>2017-03-17T02:39:06+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/quick-tour/</loc>
+  <lastmod>2017-03-17T02:41:35+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/tutorials/first-program/</loc>
+  <lastmod>2017-03-17T02:43:13+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/key-concepts/</loc>
+  <lastmod>2017-03-17T02:39:27+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/tools/</loc>
+  <lastmod>2017-03-17T02:43:05+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/samples/</loc>
+  <lastmod>2017-03-17T02:41:42+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/lang-overview/</loc>
+  <lastmod>2017-03-17T02:40:05+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/packaging/</loc>
+  <lastmod>2017-03-17T02:40:13+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/services/</loc>
+  <lastmod>2017-03-17T02:40:28+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/resources/</loc>
+  <lastmod>2017-03-17T02:40:20+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/functions/</loc>
+  <lastmod>2017-03-17T02:39:58+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/connectors/</loc>
+  <lastmod>2017-03-17T02:39:43+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/server-connectors/file-server/</loc>
+  <lastmod>2017-03-17T02:41:53+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/server-connectors/http2-server/</loc>
+  <lastmod>2017-03-17T02:42:01+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/server-connectors/jms-client/</loc>
+  <lastmod>2017-03-17T02:42:08+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/server-connectors/jms-server/</loc>
+  <lastmod>2017-03-17T02:42:16+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/server-connectors/websocket-server/</loc>
+  <lastmod>2017-03-17T02:42:24+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/actions/</loc>
+  <lastmod>2017-03-17T02:39:35+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/workers/</loc>
+  <lastmod>2017-03-17T02:40:51+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/types-variables/</loc>
+  <lastmod>2017-03-17T02:40:43+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/statements/</loc>
+  <lastmod>2017-03-17T02:40:35+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/lang-ref/exceptions/</loc>
+  <lastmod>2017-03-17T02:39:50+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/native-functions/</loc>
+  <lastmod>2017-03-17T02:41:28+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/spec/</loc>
+  <lastmod>2017-03-17T02:42:34+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/user-guide/0.8/architecture/</loc>
+  <lastmod>2017-03-17T02:37:07+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/index.html</loc>
+  <lastmod>2017-03-17T02:36:50+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.data.sql.html</loc>
+  <lastmod>2017-03-17T02:34:49+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.arrays.html</loc>
+  <lastmod>2017-03-17T02:34:50+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.datatables.html</loc>
+  <lastmod>2017-03-17T02:34:52+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.exceptions.html</loc>
+  <lastmod>2017-03-17T02:34:53+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.jsons.html</loc>
+  <lastmod>2017-03-17T02:34:54+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.maps.html</loc>
+  <lastmod>2017-03-17T02:34:55+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.messages.html</loc>
+  <lastmod>2017-03-17T02:34:56+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.strings.html</loc>
+  <lastmod>2017-03-17T02:34:57+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.system.html</loc>
+  <lastmod>2017-03-17T02:34:58+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.type.html</loc>
+  <lastmod>2017-03-17T02:34:59+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.lang.typemappers.html</loc>
+  <lastmod>2017-03-17T02:34:59+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.mock.html</loc>
+  <lastmod>2017-03-17T02:35:01+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.net.file.html</loc>
+  <lastmod>2017-03-17T02:35:02+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.net.http.html</loc>
+  <lastmod>2017-03-17T02:35:03+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.net.jms.html</loc>
+  <lastmod>2017-03-17T02:35:04+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.net.uri.html</loc>
+  <lastmod>2017-03-17T02:35:05+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.net.ws.html</loc>
+  <lastmod>2017-03-17T02:35:06+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.test.html</loc>
+  <lastmod>2017-03-17T02:35:07+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>http://ballerinalang.org/docs/api/0.8/ballerina.utils.html</loc>
+  <lastmod>2017-03-17T02:35:08+00:00</lastmod>
+  <priority>0.50</priority>
+</url>
+</urlset>
