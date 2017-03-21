@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ballerina.net.jms</title>
+    <title>org.wso2.ballerina.connectors.soap</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="docerina-theme/css/main.css" />
@@ -47,13 +47,13 @@
                     <div class="content">
                         
                         <!-- Functions -->
-                        <h2>Functions of ballerina.net.jms package</h2>
+                        <h2>Functions of org.wso2.ballerina.connectors.soap package</h2>
                          
                         <div style="padding-bottom: 30px;">
-                            <h3 id="acknowledge">
-                                function acknowledge(<a href="#message">message</a> m, <a href="#string">string</a> deliveryStatus) 
+                            <h3 id="constructSoapRequest">
+                                function constructSoapRequest(<a href="#xml">xml</a> payload, <a href="#string">string</a> namespace, <a href="#xml[]">xml[]</a> headers) (xml )
                             </h3>
-                            <p>Message acknowledgement action implementation for jms connector when using jms client acknowledgement mode</p>
+                            <p></p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -63,55 +63,15 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td></td>
                                     </tr>
                                     
                                     <tr>
-                                        <td>deliveryStatus</td><td><a href="#string">string</a></td><td>Specify whether message delivery is SUCCESS or ERROR</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="commit">
-                                function commit(<a href="#message">message</a> m) 
-                            </h3>
-                            <p>Session commit action implementation for jms connector when using jms session transaction mode</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                        <td>namespace</td><td><a href="#string">string</a></td><td></td>
                                     </tr>
                                     
                                     <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="getMessageType">
-                                function getMessageType(<a href="#message">message</a> m) (string )
-                            </h3>
-                            <p>To get the jms message type</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td>headers</td><td><a href="#xml[]">xml[]</a></td><td></td>
                                     </tr>
                                     
                                 </table>
@@ -125,29 +85,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td></td><td><a href="#string">string</a></td><td></td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="rollback">
-                                function rollback(<a href="#message">message</a> m) 
-                            </h3>
-                            <p>Session rollback action implementation for jms connector when using jms session transaction mode</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td></td><td><a href="#xml">xml</a></td><td></td>
                                     </tr>
                                     
                                 </table>
@@ -159,12 +97,12 @@
                         <br> 
                         
                         <!-- Connectors -->
-                        <h2>Connectors of ballerina.net.jms package</h2>
+                        <h2>Connectors of org.wso2.ballerina.connectors.soap package</h2>
                          
                         <h3 id="ClientConnector">
-                            connector ClientConnector (<a href="#string">string</a> initialContextFactory, <a href="#string">string</a> jndiProviderUrl)
+                            connector ClientConnector (<a href="#string">string</a> url)
                         </h3>
-                        <p>Native JMS Client Connector</p>
+                        <p>The SOAP client connector</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -173,18 +111,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>initialContextFactory</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>jndiProviderUrl</td><td><a href="#string">string</a></td><td></td>
+                                    <td>url</td><td><a href="#string">string</a></td><td>The url</td>
                                 </tr>
                                 
                             </table>
                         </p>
                         <b>Actions:</b><br><br>  
                         <h3 id="sendClientConnector">action send()</h3>
-                        <p>SEND action implementation of the JMS Connector</p>
+                        <p>Call a soap endpoint</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -193,31 +127,27 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>jmsClientConnector</td><td><a href="#ClientConnector">ClientConnector</a></td><td>connector: Connector</td>
+                                    <td>s</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The soap Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>connectionFactoryName</td><td><a href="#string">string</a></td><td>Connection Factory Name</td>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Headers of the SOAP request</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>destinationName</td><td><a href="#string">string</a></td><td>Destination Name</td>
+                                    <td>payload</td><td><a href="#xml">xml</a></td><td>The payload to request</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>destinationType</td><td><a href="#string">string</a></td><td>Destination Type</td>
+                                    <td>soapAction</td><td><a href="#string">string</a></td><td>The soap action</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>msgType</td><td><a href="#string">string</a></td><td>Message Type</td>
+                                    <td>url</td><td><a href="#string">string</a></td><td>The soap endpoint url</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>m</td><td><a href="#message">message</a></td><td>connector: Connector</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>properties</td><td><a href="#map">map</a></td><td>Properties</td>
+                                    <td>soapVersion</td><td><a href="#string">string</a></td><td>The soap version</td>
                                 </tr>
                                 
                             </table>
@@ -231,7 +161,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response xml</td>
                                 </tr>
                                 
                             </table>
@@ -260,13 +190,7 @@
                             <span class="opener">Functions</span>
                             <ul>
                             
-                                <li><a href="#acknowledge">acknowledge(message m, string deliveryStatus) </a>
-                                </li>
-                                <li><a href="#commit">commit(message m) </a>
-                                </li>
-                                <li><a href="#getMessageType">getMessageType(message m) (string )</a>
-                                </li>
-                                <li><a href="#rollback">rollback(message m) </a>
+                                <li><a href="#constructSoapRequest">constructSoapRequest(xml payload, string namespace, xml[] headers) (xml )</a>
                                 </li>
                             </ul>
                         </li> 
@@ -274,10 +198,10 @@
                             <span class="opener">Connectors</span>
                             <ul>
                                 
-                                <li><a href="#ClientConnector ">ClientConnector (string initialContextFactory, string jndiProviderUrl)</a>
+                                <li><a href="#ClientConnector ">ClientConnector (string url)</a>
                                     <ul>
                                         
-                                        <li><a href="#sendClientConnector">send(ClientConnector jmsClientConnector, string connectionFactoryName, string destinationName, string destinationType, string msgType, message m, map properties)</a></li>
+                                        <li><a href="#sendClientConnector">send(ClientConnector s, xml[] headers, xml payload, string soapAction, string url, string soapVersion)</a></li>
                                         
                                     </ul>
                                 </li>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ballerina.data.sql</title>
+    <title>org.wso2.ballerina.connectors.etcd</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="docerina-theme/css/main.css" />
@@ -48,12 +48,12 @@
                          
                         
                         <!-- Connectors -->
-                        <h2>Connectors of ballerina.data.sql package</h2>
+                        <h2>Connectors of org.wso2.ballerina.connectors.etcd package</h2>
                          
                         <h3 id="ClientConnector">
-                            connector ClientConnector (<a href="#map">map</a> options)
+                            connector ClientConnector (<a href="#string">string</a> etcdURL, <a href="#string">string</a> username, <a href="#string">string</a> password, <a href="#string">string</a> apiVersion)
                         </h3>
-                        <p></p>
+                        <p>etcd client connector</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -62,14 +62,26 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>options</td><td><a href="#map">map</a></td><td></td>
+                                    <td>etcdURL</td><td><a href="#string">string</a></td><td>etcdURL : etcd Server URL</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>username</td><td><a href="#string">string</a></td><td>etcdURL : etcd Server URL</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>password</td><td><a href="#string">string</a></td><td>etcdURL : etcd Server URL</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>apiVersion</td><td><a href="#string">string</a></td><td>etcdURL : etcd Server URL</td>
                                 </tr>
                                 
                             </table>
                         </p>
                         <b>Actions:</b><br><br>  
-                        <h3 id="callClientConnector">action call()</h3>
-                        <p></p>
+                        <h3 id="createDirClientConnector">action createDir()</h3>
+                        <p>Create a directory</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -78,15 +90,11 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>dir</td><td><a href="#string">string</a></td><td>name of the directory</td>
                                 </tr>
                                 
                             </table>
@@ -100,14 +108,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#datatable">datatable</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="closeClientConnector">action close()</h3>
-                        <p></p>
+                        <h3 id="deleteDirClientConnector">action deleteDir()</h3>
+                        <p>Delete directory</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -116,31 +124,15 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
-                                </tr>
-                                
-                            </table>
-                        </p>
-                          
-                        <h3 id="selectClientConnector">action select()</h3>
-                        <p></p>
-                        <p>
-                            <b>Parameters:</b>
-                            <table>
-                                <tr>
-                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>dir</td><td><a href="#string">string</a></td><td>name of the directory</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>recursive</td><td><a href="#string">string</a></td><td>recursive&#x3D;true OR recursive&#x3D;false</td>
                                 </tr>
                                 
                             </table>
@@ -154,14 +146,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#datatable">datatable</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateClientConnector">action update()</h3>
-                        <p></p>
+                        <h3 id="deleteKeyClientConnector">action deleteKey()</h3>
+                        <p>Delete the key</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -170,15 +162,11 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>key</td><td><a href="#string">string</a></td><td>key to delete</td>
                                 </tr>
                                 
                             </table>
@@ -192,14 +180,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys()</h3>
-                        <p></p>
+                        <h3 id="getValueClientConnector">action getValue()</h3>
+                        <p>Get the value for given key</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -208,19 +196,11 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>keyColumns</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td>key</td><td><a href="#string">string</a></td><td>key to get the value</td>
                                 </tr>
                                 
                             </table>
@@ -234,18 +214,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td></td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys()</h3>
-                        <p></p>
+                        <h3 id="listDirClientConnector">action listDir()</h3>
+                        <p>List directory</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -254,15 +230,15 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
+                                    <td>dir</td><td><a href="#string">string</a></td><td>name of the directory</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>recursive</td><td><a href="#string">string</a></td><td>recursive&#x3D;true OR recursive&#x3D;false</td>
                                 </tr>
                                 
                             </table>
@@ -276,11 +252,83 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="setKeyValueClientConnector">action setKeyValue()</h3>
+                        <p>Set/Store key/value pair</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>key</td><td><a href="#string">string</a></td><td>key to set the value</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>value</td><td><a href="#string">string</a></td><td>value for the key</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateValueClientConnector">action updateValue()</h3>
+                        <p>Update the value for given key</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The etcd Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>key</td><td><a href="#string">string</a></td><td>key to update the value</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>value</td><td><a href="#string">string</a></td><td>value for the key</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
@@ -288,34 +336,6 @@
                           
                         <br> 
                         
-                        <!-- Structs -->
-                        <h2>Structs of ballerina.data.sql package</h2>
-                         
-                        <h3 id="Parameter">
-                            struct Parameter(<a href="">string</a> sqlType,<a href="">string</a> value,<a href="">int</a> direction)
-                        </h3>
-                        <p>
-                            <b>Fields:</b>
-                            <table>
-                                <tr>
-                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
-                                </tr>
-                                
-                                <tr>
-                                    <td>sqlType</td><td><a href="">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>value</td><td><a href="">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>direction</td><td><a href="">int</a></td><td></td>
-                                </tr>
-                                
-                            </table>
-                        </p>
-                        <br> 
                         
                     </div>
                 </section>
@@ -337,34 +357,27 @@
                             <span class="opener">Connectors</span>
                             <ul>
                                 
-                                <li><a href="#ClientConnector ">ClientConnector (map options)</a>
+                                <li><a href="#ClientConnector ">ClientConnector (string etcdURL, string username, string password, string apiVersion)</a>
                                     <ul>
                                         
-                                        <li><a href="#callClientConnector">call(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#createDirClientConnector">createDir(ClientConnector t, string dir)</a></li>
                                         
-                                        <li><a href="#closeClientConnector">close(ClientConnector c)</a></li>
+                                        <li><a href="#deleteDirClientConnector">deleteDir(ClientConnector t, string dir, string recursive)</a></li>
                                         
-                                        <li><a href="#selectClientConnector">select(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#deleteKeyClientConnector">deleteKey(ClientConnector t, string key)</a></li>
                                         
-                                        <li><a href="#updateClientConnector">update(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#getValueClientConnector">getValue(ClientConnector t, string key)</a></li>
                                         
-                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(ClientConnector c, string query, Parameter[] parameters, string[] keyColumns)</a></li>
+                                        <li><a href="#listDirClientConnector">listDir(ClientConnector t, string dir, string recursive)</a></li>
                                         
-                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#setKeyValueClientConnector">setKeyValue(ClientConnector t, string key, string value)</a></li>
+                                        
+                                        <li><a href="#updateValueClientConnector">updateValue(ClientConnector t, string key, string value)</a></li>
                                         
                                     </ul>
                                 </li>
                             </ul>
-                        </li> 
-                        <li>
-                            <span class="opener">Structs</span>
-                            <ul>
-                                
-                                <li>
-                                    <a href="#Parameter ">Parameter (string sqlType, string value, int direction)</a>
-                                </li>
-                            </ul>
-                        </li> 
+                        </li>  
                     </ul>
                 </nav>
 
