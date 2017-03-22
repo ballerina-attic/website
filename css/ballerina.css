@@ -7,6 +7,7 @@ body {
 }
 a {
     transition: all 0.5s ease 0s;
+    border-bottom: 1px solid transparent;
 }
 
 h1 {
