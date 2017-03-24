@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ballerina.data.sql</title>
+    <title>org.wso2.ballerina.connectors.medium</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="docerina-theme/css/main.css" />
@@ -48,12 +48,12 @@
                          
                         
                         <!-- Connectors -->
-                        <h2>Connectors of ballerina.data.sql package</h2>
+                        <h2>Connectors of org.wso2.ballerina.connectors.medium package</h2>
                          
                         <h3 id="ClientConnector">
-                            connector ClientConnector (<a href="#map">map</a> options)
+                            connector ClientConnector (<a href="#string">string</a> accessToken, <a href="#string">string</a> clientId, <a href="#string">string</a> clientSecret, <a href="#string">string</a> refreshToken)
                         </h3>
-                        <p></p>
+                        <p>Medium client connector</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -62,14 +62,26 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>options</td><td><a href="#map">map</a></td><td></td>
+                                    <td>accessToken</td><td><a href="#string">string</a></td><td>The access token of the Medium Application</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientId</td><td><a href="#string">string</a></td><td>Client Id of the Medium Application</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientSecret</td><td><a href="#string">string</a></td><td>Client Secret of the Medium Application</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>refreshToken</td><td><a href="#string">string</a></td><td>The refresh token of the Medium Application</td>
                                 </tr>
                                 
                             </table>
                         </p>
                         <b>Actions:</b><br><br>  
-                        <h3 id="callClientConnector">action call()</h3>
-                        <p></p>
+                        <h3 id="createProfilePostClientConnector">action createProfilePost()</h3>
+                        <p>Create Post in authenticated User&#x27;s profile</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -78,15 +90,15 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The medium Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
+                                    <td>userId</td><td><a href="#string">string</a></td><td>ID of authenticated user</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>json payload containing the post</td>
                                 </tr>
                                 
                             </table>
@@ -100,14 +112,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#datatable">datatable</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="closeClientConnector">action close()</h3>
-                        <p></p>
+                        <h3 id="createPublicationPostClientConnector">action createPublicationPost()</h3>
+                        <p>Get List of Contributors for a Publication</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -116,31 +128,15 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
-                                </tr>
-                                
-                            </table>
-                        </p>
-                          
-                        <h3 id="selectClientConnector">action select()</h3>
-                        <p></p>
-                        <p>
-                            <b>Parameters:</b>
-                            <table>
-                                <tr>
-                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The medium Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>publicationId</td><td><a href="#string">string</a></td><td>ID of relevant publication</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>json payload containing the post</td>
                                 </tr>
                                 
                             </table>
@@ -154,14 +150,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#datatable">datatable</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateClientConnector">action update()</h3>
-                        <p></p>
+                        <h3 id="getContributorsClientConnector">action getContributors()</h3>
+                        <p>Get List of Contributors for a Publication</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -170,15 +166,11 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The medium Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>publicationId</td><td><a href="#string">string</a></td><td>ID of relevant publication</td>
                                 </tr>
                                 
                             </table>
@@ -192,14 +184,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys()</h3>
-                        <p></p>
+                        <h3 id="getProfileInfoClientConnector">action getProfileInfo()</h3>
+                        <p>Get Profile Information</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -208,19 +200,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>keyColumns</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The medium Connector instance</td>
                                 </tr>
                                 
                             </table>
@@ -234,18 +214,14 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td></td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
                         </p>
                           
-                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys()</h3>
-                        <p></p>
+                        <h3 id="getPublicationsClientConnector">action getPublications()</h3>
+                        <p>Get List of Publications the user have contributed</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -254,15 +230,11 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>c</td><td><a href="#ClientConnector">ClientConnector</a></td><td></td>
+                                    <td>t</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The medium Connector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>query</td><td><a href="#string">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td></td>
+                                    <td>userId</td><td><a href="#string">string</a></td><td>ID of authenticated user</td>
                                 </tr>
                                 
                             </table>
@@ -276,11 +248,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#int">int</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td></td><td><a href="#string[]">string[]</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
@@ -288,34 +256,6 @@
                           
                         <br> 
                         
-                        <!-- Structs -->
-                        <h2>Structs of ballerina.data.sql package</h2>
-                         
-                        <h3 id="Parameter">
-                            struct Parameter(<a href="">string</a> sqlType,<a href="">string</a> value,<a href="">int</a> direction)
-                        </h3>
-                        <p>
-                            <b>Fields:</b>
-                            <table>
-                                <tr>
-                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
-                                </tr>
-                                
-                                <tr>
-                                    <td>sqlType</td><td><a href="">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>value</td><td><a href="">string</a></td><td></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>direction</td><td><a href="">int</a></td><td></td>
-                                </tr>
-                                
-                            </table>
-                        </p>
-                        <br> 
                         
                     </div>
                 </section>
@@ -337,34 +277,23 @@
                             <span class="opener">Connectors</span>
                             <ul>
                                 
-                                <li><a href="#ClientConnector ">ClientConnector (map options)</a>
+                                <li><a href="#ClientConnector ">ClientConnector (string accessToken, string clientId, string clientSecret, string refreshToken)</a>
                                     <ul>
                                         
-                                        <li><a href="#callClientConnector">call(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#createProfilePostClientConnector">createProfilePost(ClientConnector t, string userId, json payload)</a></li>
                                         
-                                        <li><a href="#closeClientConnector">close(ClientConnector c)</a></li>
+                                        <li><a href="#createPublicationPostClientConnector">createPublicationPost(ClientConnector t, string publicationId, json payload)</a></li>
                                         
-                                        <li><a href="#selectClientConnector">select(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#getContributorsClientConnector">getContributors(ClientConnector t, string publicationId)</a></li>
                                         
-                                        <li><a href="#updateClientConnector">update(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#getProfileInfoClientConnector">getProfileInfo(ClientConnector t)</a></li>
                                         
-                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(ClientConnector c, string query, Parameter[] parameters, string[] keyColumns)</a></li>
-                                        
-                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        <li><a href="#getPublicationsClientConnector">getPublications(ClientConnector t, string userId)</a></li>
                                         
                                     </ul>
                                 </li>
                             </ul>
-                        </li> 
-                        <li>
-                            <span class="opener">Structs</span>
-                            <ul>
-                                
-                                <li>
-                                    <a href="#Parameter ">Parameter (string sqlType, string value, int direction)</a>
-                                </li>
-                            </ul>
-                        </li> 
+                        </li>  
                     </ul>
                 </nav>
 

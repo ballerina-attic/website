@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ballerina.net.jms</title>
+    <title>org.wso2.ballerina.connectors.amazonauth</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="docerina-theme/css/main.css" />
@@ -47,13 +47,13 @@
                     <div class="content">
                         
                         <!-- Functions -->
-                        <h2>Functions of ballerina.net.jms package</h2>
+                        <h2>Functions of org.wso2.ballerina.connectors.amazonauth package</h2>
                          
                         <div style="padding-bottom: 30px;">
-                            <h3 id="acknowledge">
-                                function acknowledge(<a href="#message">message</a> m, <a href="#string">string</a> deliveryStatus) 
+                            <h3 id="generateSignature">
+                                function generateSignature(<a href="#message">message</a> msg, <a href="#string">string</a> accessKeyId, <a href="#string">string</a> secretAccessKey, <a href="#string">string</a> region, <a href="#string">string</a> serviceName, <a href="#string">string</a> terminationString, <a href="#string">string</a> httpVerb, <a href="#string">string</a> requestURI, <a href="#string">string</a> payload) (message )
                             </h3>
-                            <p>Message acknowledgement action implementation for jms connector when using jms client acknowledgement mode</p>
+                            <p></p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -63,55 +63,39 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td>msg</td><td><a href="#message">message</a></td><td></td>
                                     </tr>
                                     
                                     <tr>
-                                        <td>deliveryStatus</td><td><a href="#string">string</a></td><td>Specify whether message delivery is SUCCESS or ERROR</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="commit">
-                                function commit(<a href="#message">message</a> m) 
-                            </h3>
-                            <p>Session commit action implementation for jms connector when using jms session transaction mode</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                        <td>accessKeyId</td><td><a href="#string">string</a></td><td></td>
                                     </tr>
                                     
                                     <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="getMessageType">
-                                function getMessageType(<a href="#message">message</a> m) (string )
-                            </h3>
-                            <p>To get the jms message type</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                        <td>secretAccessKey</td><td><a href="#string">string</a></td><td></td>
                                     </tr>
                                     
                                     <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td>region</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>serviceName</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>terminationString</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>httpVerb</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>requestURI</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#string">string</a></td><td></td>
                                     </tr>
                                     
                                 </table>
@@ -125,29 +109,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td></td><td><a href="#string">string</a></td><td></td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="rollback">
-                                function rollback(<a href="#message">message</a> m) 
-                            </h3>
-                            <p>Session rollback action implementation for jms connector when using jms session transaction mode</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                        <td></td><td><a href="#message">message</a></td><td></td>
                                     </tr>
                                     
                                 </table>
@@ -159,12 +121,12 @@
                         <br> 
                         
                         <!-- Connectors -->
-                        <h2>Connectors of ballerina.net.jms package</h2>
+                        <h2>Connectors of org.wso2.ballerina.connectors.amazonauth package</h2>
                          
                         <h3 id="ClientConnector">
-                            connector ClientConnector (<a href="#string">string</a> initialContextFactory, <a href="#string">string</a> jndiProviderUrl)
+                            connector ClientConnector (<a href="#string">string</a> accessKeyId, <a href="#string">string</a> secretAccessKey, <a href="#string">string</a> region, <a href="#string">string</a> serviceName, <a href="#string">string</a> terminationString, <a href="#string">string</a> endpoint)
                         </h3>
-                        <p>Native JMS Client Connector</p>
+                        <p>Amazon Auth connector</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -173,18 +135,34 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>initialContextFactory</td><td><a href="#string">string</a></td><td></td>
+                                    <td>accessKeyId</td><td><a href="#string">string</a></td><td>The access key ID of the Amazon Account</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>jndiProviderUrl</td><td><a href="#string">string</a></td><td></td>
+                                    <td>secretAccessKey</td><td><a href="#string">string</a></td><td>The secret access key of the Amazon Account</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>region</td><td><a href="#string">string</a></td><td>The region to which the request is made</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>serviceName</td><td><a href="#string">string</a></td><td>The Amazon service that should be invoked</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>terminationString</td><td><a href="#string">string</a></td><td>The termination string for the request</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>endpoint</td><td><a href="#string">string</a></td><td>The Endpoint of the amazon service</td>
                                 </tr>
                                 
                             </table>
                         </p>
                         <b>Actions:</b><br><br>  
-                        <h3 id="sendClientConnector">action send()</h3>
-                        <p>SEND action implementation of the JMS Connector</p>
+                        <h3 id="requestClientConnector">action request()</h3>
+                        <p>Get List of Objects in a bucket</p>
                         <p>
                             <b>Parameters:</b>
                             <table>
@@ -193,31 +171,23 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td>jmsClientConnector</td><td><a href="#ClientConnector">ClientConnector</a></td><td>connector: Connector</td>
+                                    <td>amazonAuthConnector</td><td><a href="#ClientConnector">ClientConnector</a></td><td>The amazonAuthConnector instance</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>connectionFactoryName</td><td><a href="#string">string</a></td><td>Connection Factory Name</td>
+                                    <td>requestMsg</td><td><a href="#message">message</a></td><td>The request message object</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>destinationName</td><td><a href="#string">string</a></td><td>Destination Name</td>
+                                    <td>httpVerb</td><td><a href="#string">string</a></td><td>The HTTP verb</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>destinationType</td><td><a href="#string">string</a></td><td>Destination Type</td>
+                                    <td>requestURI</td><td><a href="#string">string</a></td><td>The URI of the service to be invoked</td>
                                 </tr>
                                 
                                 <tr>
-                                    <td>msgType</td><td><a href="#string">string</a></td><td>Message Type</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>m</td><td><a href="#message">message</a></td><td>connector: Connector</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>properties</td><td><a href="#map">map</a></td><td>Properties</td>
+                                    <td>payload</td><td><a href="#string">string</a></td><td>The payload to be sent</td>
                                 </tr>
                                 
                             </table>
@@ -231,7 +201,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
                                 </tr>
                                 
                             </table>
@@ -260,13 +230,7 @@
                             <span class="opener">Functions</span>
                             <ul>
                             
-                                <li><a href="#acknowledge">acknowledge(message m, string deliveryStatus) </a>
-                                </li>
-                                <li><a href="#commit">commit(message m) </a>
-                                </li>
-                                <li><a href="#getMessageType">getMessageType(message m) (string )</a>
-                                </li>
-                                <li><a href="#rollback">rollback(message m) </a>
+                                <li><a href="#generateSignature">generateSignature(message msg, string accessKeyId, string secretAccessKey, string region, string serviceName, string terminationString, string httpVerb, string requestURI, string payload) (message )</a>
                                 </li>
                             </ul>
                         </li> 
@@ -274,10 +238,10 @@
                             <span class="opener">Connectors</span>
                             <ul>
                                 
-                                <li><a href="#ClientConnector ">ClientConnector (string initialContextFactory, string jndiProviderUrl)</a>
+                                <li><a href="#ClientConnector ">ClientConnector (string accessKeyId, string secretAccessKey, string region, string serviceName, string terminationString, string endpoint)</a>
                                     <ul>
                                         
-                                        <li><a href="#sendClientConnector">send(ClientConnector jmsClientConnector, string connectionFactoryName, string destinationName, string destinationType, string msgType, message m, map properties)</a></li>
+                                        <li><a href="#requestClientConnector">request(ClientConnector amazonAuthConnector, message requestMsg, string httpVerb, string requestURI, string payload)</a></li>
                                         
                                     </ul>
                                 </li>
