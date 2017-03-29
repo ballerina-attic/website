@@ -187,9 +187,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="log">
-                                function log(<a href="#int">int</a> logLevel, <a href="#int">int</a> i) 
+                                function log(<a href="#int">int</a> logLevel, <a href="#boolean">boolean</a> b) 
                             </h3>
-                            <p>Logs an integer value</p>
+                            <p>Logs a Boolean value</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -203,7 +203,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>i</td><td><a href="#int">int</a></td><td>Integer value to be logged</td>
+                                        <td>b</td><td><a href="#boolean">boolean</a></td><td>Boolean value to be logged</td>
                                     </tr>
                                     
                                 </table>
@@ -239,6 +239,58 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="log">
+                                function log(<a href="#int">int</a> logLevel, <a href="#float">float</a> f) 
+                            </h3>
+                            <p>Logs a float value</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>logLevel</td><td><a href="#int">int</a></td><td>Log level: 1 - Trace, 2 - Debug, 3 - Info, 4 - Warn, 5 - Error</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>f</td><td><a href="#float">float</a></td><td>Float value to be logged</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="log">
+                                function log(<a href="#int">int</a> logLevel, <a href="#int">int</a> i) 
+                            </h3>
+                            <p>Logs an integer value</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>logLevel</td><td><a href="#int">int</a></td><td>Log level: 1 - Trace, 2 - Debug, 3 - Info, 4 - Warn, 5 - Error</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>i</td><td><a href="#int">int</a></td><td>Integer value to be logged</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="log">
                                 function log(<a href="#int">int</a> logLevel, <a href="#long">long</a> l) 
                             </h3>
                             <p>Logs a long value</p>
@@ -265,32 +317,6 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="log">
-                                function log(<a href="#int">int</a> logLevel, <a href="#boolean">boolean</a> b) 
-                            </h3>
-                            <p>Logs a Boolean value</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>logLevel</td><td><a href="#int">int</a></td><td>Log level: 1 - Trace, 2 - Debug, 3 - Info, 4 - Warn, 5 - Error</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>b</td><td><a href="#boolean">boolean</a></td><td>Boolean value to be logged</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="log">
                                 function log(<a href="#int">int</a> logLevel, <a href="#string">string</a> s) 
                             </h3>
                             <p>Logs a string value</p>
@@ -308,32 +334,6 @@
                                     
                                     <tr>
                                         <td>s</td><td><a href="#string">string</a></td><td>String value to be logged</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="log">
-                                function log(<a href="#int">int</a> logLevel, <a href="#float">float</a> f) 
-                            </h3>
-                            <p>Logs a float value</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>logLevel</td><td><a href="#int">int</a></td><td>Log level: 1 - Trace, 2 - Debug, 3 - Info, 4 - Warn, 5 - Error</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>f</td><td><a href="#float">float</a></td><td>Float value to be logged</td>
                                     </tr>
                                     
                                 </table>
@@ -375,9 +375,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="print">
-                                function print(<a href="#int">int</a> i) 
+                                function print(<a href="#boolean">boolean</a> b) 
                             </h3>
-                            <p>Prints an integer value to the STDOUT</p>
+                            <p>Prints a Boolean value to the STDOUT</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -387,117 +387,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>i</td><td><a href="#int">int</a></td><td>Integer value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="print">
-                                function print(<a href="#xml">xml</a> value) 
-                            </h3>
-                            <p>Prints an XML value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#xml">xml</a></td><td>XML value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="print">
-                                function print(<a href="#float">float</a> f) 
-                            </h3>
-                            <p>Prints a float value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>f</td><td><a href="#float">float</a></td><td>Float value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="print">
-                                function print(<a href="#json">json</a> value) 
-                            </h3>
-                            <p>Prints a JSON value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#json">json</a></td><td>JSON value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="print">
-                                function print(<a href="#string">string</a> s) 
-                            </h3>
-                            <p>Prints a string value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>s</td><td><a href="#string">string</a></td><td>String value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="print">
-                                function print(<a href="#long">long</a> l) 
-                            </h3>
-                            <p>Prints a long value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>l</td><td><a href="#long">long</a></td><td>Long value to be printed</td>
+                                        <td>b</td><td><a href="#boolean">boolean</a></td><td>Boolean value to be printed</td>
                                     </tr>
                                     
                                 </table>
@@ -529,97 +419,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="print">
-                                function print(<a href="#boolean">boolean</a> b) 
+                                function print(<a href="#float">float</a> f) 
                             </h3>
-                            <p>Prints a Boolean value to the STDOUT</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>b</td><td><a href="#boolean">boolean</a></td><td>Boolean value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#string">string</a> s) 
-                            </h3>
-                            <p>Prints a string value to the STDOUT in a new line</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>s</td><td><a href="#string">string</a></td><td>String value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#long">long</a> l) 
-                            </h3>
-                            <p>Prints a long value to the STDOUT in a new line</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>l</td><td><a href="#long">long</a></td><td>Long value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#json">json</a> value) 
-                            </h3>
-                            <p>Prints a JSON value to the STDOUT in a new line</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#json">json</a></td><td>JSON value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#float">float</a> f) 
-                            </h3>
-                            <p>Prints a float value to the STDOUT in a new line</p>
+                            <p>Prints a float value to the STDOUT</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -638,10 +440,98 @@
                         </div>
                          
                         <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#xml">xml</a> value) 
+                            <h3 id="print">
+                                function print(<a href="#int">int</a> i) 
                             </h3>
-                            <p>Prints an XML value to the STDOUT in a new line</p>
+                            <p>Prints an integer value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>i</td><td><a href="#int">int</a></td><td>Integer value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#json">json</a> value) 
+                            </h3>
+                            <p>Prints a JSON value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#json">json</a></td><td>JSON value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#long">long</a> l) 
+                            </h3>
+                            <p>Prints a long value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>l</td><td><a href="#long">long</a></td><td>Long value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#string">string</a> s) 
+                            </h3>
+                            <p>Prints a string value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>s</td><td><a href="#string">string</a></td><td>String value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#xml">xml</a> value) 
+                            </h3>
+                            <p>Prints an XML value to the STDOUT</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -652,28 +542,6 @@
                                     
                                     <tr>
                                         <td>value</td><td><a href="#xml">xml</a></td><td>XML value to be printed</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="println">
-                                function println(<a href="#double">double</a> d) 
-                            </h3>
-                            <p>Prints a double value to the STDOUT in a new line</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>d</td><td><a href="#double">double</a></td><td>Double value to be printed</td>
                                     </tr>
                                     
                                 </table>
@@ -705,6 +573,50 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="println">
+                                function println(<a href="#double">double</a> d) 
+                            </h3>
+                            <p>Prints a double value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>d</td><td><a href="#double">double</a></td><td>Double value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#float">float</a> f) 
+                            </h3>
+                            <p>Prints a float value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>f</td><td><a href="#float">float</a></td><td>Float value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
                                 function println(<a href="#int">int</a> i) 
                             </h3>
                             <p>Prints an integer value to the STDOUT in a new line</p>
@@ -718,6 +630,94 @@
                                     
                                     <tr>
                                         <td>i</td><td><a href="#int">int</a></td><td>Integer value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#json">json</a> value) 
+                            </h3>
+                            <p>Prints a JSON value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#json">json</a></td><td>JSON value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#long">long</a> l) 
+                            </h3>
+                            <p>Prints a long value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>l</td><td><a href="#long">long</a></td><td>Long value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#string">string</a> s) 
+                            </h3>
+                            <p>Prints a string value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>s</td><td><a href="#string">string</a></td><td>String value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#xml">xml</a> value) 
+                            </h3>
+                            <p>Prints an XML value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#xml">xml</a></td><td>XML value to be printed</td>
                                     </tr>
                                     
                                 </table>
@@ -758,51 +758,51 @@
                                 </li>
                                 <li><a href="#getEnv">getEnv(string key) (string )</a>
                                 </li>
-                                <li><a href="#log">log(int logLevel, int i) </a>
+                                <li><a href="#log">log(int logLevel, boolean b) </a>
                                 </li>
                                 <li><a href="#log">log(int logLevel, double d) </a>
                                 </li>
-                                <li><a href="#log">log(int logLevel, long l) </a>
+                                <li><a href="#log">log(int logLevel, float f) </a>
                                 </li>
-                                <li><a href="#log">log(int logLevel, boolean b) </a>
+                                <li><a href="#log">log(int logLevel, int i) </a>
+                                </li>
+                                <li><a href="#log">log(int logLevel, long l) </a>
                                 </li>
                                 <li><a href="#log">log(int logLevel, string s) </a>
                                 </li>
-                                <li><a href="#log">log(int logLevel, float f) </a>
-                                </li>
                                 <li><a href="#nanoTime">nanoTime() (long )</a>
-                                </li>
-                                <li><a href="#print">print(int i) </a>
-                                </li>
-                                <li><a href="#print">print(xml value) </a>
-                                </li>
-                                <li><a href="#print">print(float f) </a>
-                                </li>
-                                <li><a href="#print">print(json value) </a>
-                                </li>
-                                <li><a href="#print">print(string s) </a>
-                                </li>
-                                <li><a href="#print">print(long l) </a>
-                                </li>
-                                <li><a href="#print">print(double d) </a>
                                 </li>
                                 <li><a href="#print">print(boolean b) </a>
                                 </li>
-                                <li><a href="#println">println(string s) </a>
+                                <li><a href="#print">print(double d) </a>
                                 </li>
-                                <li><a href="#println">println(long l) </a>
+                                <li><a href="#print">print(float f) </a>
                                 </li>
-                                <li><a href="#println">println(json value) </a>
+                                <li><a href="#print">print(int i) </a>
                                 </li>
-                                <li><a href="#println">println(float f) </a>
+                                <li><a href="#print">print(json value) </a>
                                 </li>
-                                <li><a href="#println">println(xml value) </a>
+                                <li><a href="#print">print(long l) </a>
                                 </li>
-                                <li><a href="#println">println(double d) </a>
+                                <li><a href="#print">print(string s) </a>
+                                </li>
+                                <li><a href="#print">print(xml value) </a>
                                 </li>
                                 <li><a href="#println">println(boolean b) </a>
                                 </li>
+                                <li><a href="#println">println(double d) </a>
+                                </li>
+                                <li><a href="#println">println(float f) </a>
+                                </li>
                                 <li><a href="#println">println(int i) </a>
+                                </li>
+                                <li><a href="#println">println(json value) </a>
+                                </li>
+                                <li><a href="#println">println(long l) </a>
+                                </li>
+                                <li><a href="#println">println(string s) </a>
+                                </li>
+                                <li><a href="#println">println(xml value) </a>
                                 </li>
                             </ul>
                         </li>   

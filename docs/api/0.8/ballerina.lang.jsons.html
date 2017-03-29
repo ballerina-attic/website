@@ -81,39 +81,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> value) 
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#boolean">boolean</a> value) 
                             </h3>
-                            <p>Inserts an element to a JSON array. This function will add a new string element to the end of the JSON array identified by the given JSONPath.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#string">string</a> value) 
-                            </h3>
-                            <p>Inserts a named element to a JSON object. This function will add a new string element with the given name (key)</p>
+                            <p>Inserts a named element to a JSON object. This function will add a new Boolean element with the given name (key) to the location identified by the given JSONPath.</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -135,135 +105,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#int">int</a> value) 
-                            </h3>
-                            <p>Inserts an integer element to a JSON array. This function will add a new integer element to the end of the JSON array identified by the given JSONPath.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#json">json</a> value) 
-                            </h3>
-                            <p>Inserts a named element to a JSON object. This method will add a new JSON element with the given name (key)</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>key</td><td><a href="#string">string</a></td><td>The name of the element to be added</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#json">json</a></td><td>A JSON value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#int">int</a> value) 
-                            </h3>
-                            <p>Inserts a named element to a JSON object. This function will add a new integer element with the given name (key)</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>key</td><td><a href="#string">string</a></td><td>The name of the element to be added</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#float">float</a> value) 
-                            </h3>
-                            <p>Inserts a float to a JSON array. This function will add a new float element to the end of the JSON array identified by the given JSONPath.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#float">float</a></td><td>A float value</td>
+                                        <td>value</td><td><a href="#boolean">boolean</a></td><td>A Boolean value</td>
                                     </tr>
                                     
                                 </table>
@@ -337,9 +179,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#json">json</a> value) 
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#float">float</a> value) 
                             </h3>
-                            <p>Inserts a JSON element to a JSON array. This function will add a new JSON element to the end of the JSON array identified by the given JSONPath.</p>
+                            <p>Inserts a float to a JSON array. This function will add a new float element to the end of the JSON array identified by the given JSONPath.</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -357,7 +199,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>value</td><td><a href="#json">json</a></td><td>The JSON element to be added</td>
+                                        <td>value</td><td><a href="#float">float</a></td><td>A float value</td>
                                     </tr>
                                     
                                 </table>
@@ -401,9 +243,39 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="add">
-                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#boolean">boolean</a> value) 
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#int">int</a> value) 
                             </h3>
-                            <p>Inserts a named element to a JSON object. This function will add a new Boolean element with the given name (key) to the location identified by the given JSONPath.</p>
+                            <p>Inserts an integer element to a JSON array. This function will add a new integer element to the end of the JSON array identified by the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="add">
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#int">int</a> value) 
+                            </h3>
+                            <p>Inserts a named element to a JSON object. This function will add a new integer element with the given name (key)</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -425,7 +297,135 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>value</td><td><a href="#boolean">boolean</a></td><td>A Boolean value</td>
+                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="add">
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#json">json</a> value) 
+                            </h3>
+                            <p>Inserts a JSON element to a JSON array. This function will add a new JSON element to the end of the JSON array identified by the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#json">json</a></td><td>The JSON element to be added</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="add">
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#json">json</a> value) 
+                            </h3>
+                            <p>Inserts a named element to a JSON object. This method will add a new JSON element with the given name (key)</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The name of the element to be added</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#json">json</a></td><td>A JSON value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="add">
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Inserts an element to a JSON array. This function will add a new string element to the end of the JSON array identified by the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="add">
+                                function add(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Inserts a named element to a JSON object. This function will add a new string element with the given name (key)</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The name of the element to be added</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
                                     </tr>
                                     
                                 </table>
@@ -735,6 +735,36 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="set">
+                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#boolean">boolean</a> value) 
+                            </h3>
+                            <p>Sets the Boolean value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#boolean">boolean</a></td><td>A Boolean value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="set">
                                 function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#double">double</a> value) 
                             </h3>
                             <p>Sets the double value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
@@ -756,96 +786,6 @@
                                     
                                     <tr>
                                         <td>value</td><td><a href="#double">double</a></td><td>A double value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="set">
-                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#int">int</a> value) 
-                            </h3>
-                            <p>Sets the integer value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="set">
-                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> value) 
-                            </h3>
-                            <p>Sets the string value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
-                                    </tr>
-                                    
-                                </table>
-                            </p>
-                            
-                        </div>
-                         
-                        <div style="padding-bottom: 30px;">
-                            <h3 id="set">
-                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#json">json</a> value) 
-                            </h3>
-                            <p>Sets the JSON value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
-
-                            <p>
-                                <b>Parameters:</b>
-                                <table>
-                                    <tr>
-                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>value</td><td><a href="#json">json</a></td><td>A JSON value</td>
                                     </tr>
                                     
                                 </table>
@@ -885,9 +825,9 @@
                          
                         <div style="padding-bottom: 30px;">
                             <h3 id="set">
-                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#boolean">boolean</a> value) 
+                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#int">int</a> value) 
                             </h3>
-                            <p>Sets the Boolean value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
+                            <p>Sets the integer value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
 
                             <p>
                                 <b>Parameters:</b>
@@ -905,7 +845,67 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td>value</td><td><a href="#boolean">boolean</a></td><td>A Boolean value</td>
+                                        <td>value</td><td><a href="#int">int</a></td><td>An integer value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="set">
+                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#json">json</a> value) 
+                            </h3>
+                            <p>Sets the JSON value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#json">json</a></td><td>A JSON value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="set">
+                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Sets the string value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
                                     </tr>
                                     
                                 </table>
@@ -976,27 +976,27 @@
                             
                                 <li><a href="#add">add(json j, string jsonPath, boolean value) </a>
                                 </li>
-                                <li><a href="#add">add(json j, string jsonPath, string value) </a>
-                                </li>
-                                <li><a href="#add">add(json j, string jsonPath, string key, string value) </a>
-                                </li>
-                                <li><a href="#add">add(json j, string jsonPath, int value) </a>
-                                </li>
-                                <li><a href="#add">add(json j, string jsonPath, string key, json value) </a>
-                                </li>
-                                <li><a href="#add">add(json j, string jsonPath, string key, int value) </a>
-                                </li>
-                                <li><a href="#add">add(json j, string jsonPath, float value) </a>
+                                <li><a href="#add">add(json j, string jsonPath, string key, boolean value) </a>
                                 </li>
                                 <li><a href="#add">add(json j, string jsonPath, double value) </a>
                                 </li>
                                 <li><a href="#add">add(json j, string jsonPath, string key, double value) </a>
                                 </li>
-                                <li><a href="#add">add(json j, string jsonPath, json value) </a>
+                                <li><a href="#add">add(json j, string jsonPath, float value) </a>
                                 </li>
                                 <li><a href="#add">add(json j, string jsonPath, string key, float value) </a>
                                 </li>
-                                <li><a href="#add">add(json j, string jsonPath, string key, boolean value) </a>
+                                <li><a href="#add">add(json j, string jsonPath, int value) </a>
+                                </li>
+                                <li><a href="#add">add(json j, string jsonPath, string key, int value) </a>
+                                </li>
+                                <li><a href="#add">add(json j, string jsonPath, json value) </a>
+                                </li>
+                                <li><a href="#add">add(json j, string jsonPath, string key, json value) </a>
+                                </li>
+                                <li><a href="#add">add(json j, string jsonPath, string value) </a>
+                                </li>
+                                <li><a href="#add">add(json j, string jsonPath, string key, string value) </a>
                                 </li>
                                 <li><a href="#getBoolean">getBoolean(json j, string jsonPath) (boolean )</a>
                                 </li>
@@ -1014,17 +1014,17 @@
                                 </li>
                                 <li><a href="#rename">rename(json j, string jsonPath, string oldKey, string newKey) </a>
                                 </li>
+                                <li><a href="#set">set(json j, string jsonPath, boolean value) </a>
+                                </li>
                                 <li><a href="#set">set(json j, string jsonPath, double value) </a>
-                                </li>
-                                <li><a href="#set">set(json j, string jsonPath, int value) </a>
-                                </li>
-                                <li><a href="#set">set(json j, string jsonPath, string value) </a>
-                                </li>
-                                <li><a href="#set">set(json j, string jsonPath, json value) </a>
                                 </li>
                                 <li><a href="#set">set(json j, string jsonPath, float value) </a>
                                 </li>
-                                <li><a href="#set">set(json j, string jsonPath, boolean value) </a>
+                                <li><a href="#set">set(json j, string jsonPath, int value) </a>
+                                </li>
+                                <li><a href="#set">set(json j, string jsonPath, json value) </a>
+                                </li>
+                                <li><a href="#set">set(json j, string jsonPath, string value) </a>
                                 </li>
                                 <li><a href="#toString">toString(json j) (string )</a>
                                 </li>
