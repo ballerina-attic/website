@@ -53,63 +53,7 @@
         (function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:442732,hjsv:5}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv='); 
         </script>
         <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
-        <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#subscribeButton").click(function (event) {
-                            event.preventDefault();
-                            var email = $("#email").val();
-
-                            if (email == "") {
-                                $('#subscribeMessage').html("Please enter your email")
-                            } else if (!isEmail(email)) {
-                                $('#subscribeMessage').html("Please enter a valid email")
-                            } else {
-                                // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
-                                $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email+'</span>');
-                                $('.subscribeForm').hide();
-
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '/slackServiceCall.php',
-                                    data: {email: email},
-                                    success: function (msg) {
-
-                                    }
-                                });
-                                // $.fancybox.close();
-                            }
-
-                        });
-                
-                
-                              //start of new subscribe form
-                        $("#subscribeUserButton").click(function (event) {
-                            event.preventDefault();
-                            var email = $("#emailUser").val();
-
-                            if (email == "") {
-                                $('#subscribeUserMessage').html("Please enter your email")
-                            } else if (!isEmail(email)) {
-                                $('#subscribeUserMessage').html("Please enter a valid email")
-                            } else {
-                                 $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");                        
-                                 $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
-                                 $('.subscribeUserForm').hide();
-                            }
-
-                        });
-                        //end of new subscribe form
-                
-                
-                
-                
-                    });
-
-                    function isEmail(email) {
-                        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                        return regex.test(email);
-                    }
-        </script> 
+         
 
     </head>
     <body class="cBallerina">
@@ -754,52 +698,36 @@ function main(string[] args) {
                     <h2>Get started</h2>
                 </div>
                 <div class="">
-
-                    <div style="display: inline-block; margin-bottom: 4em;">
-
-                        <div class="col-sm-12 col-md-6">
+       <div style="display: inline-block; margin-bottom: 4em;">
+                    <div class="col-sm-12 col-md-6">
                             <p class="Intro">Ballerina was built from the ground to make it easier to design, describe and develop programs. Here’s how and why. </p>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div>
-
                                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/P92y5cgEa0Q" allowfullscreen style="width: 100%; height: 400px;"></iframe>
-
-                                <!--                     <iframe class="embed-responsive-item cSlides" src="http://www.slideshare.net/slideshow/embed_code/key/HlffpWO9MWg5NQ"> </iframe> -->
-                                <!--                                <img src="img/video.jpg?123"/>-->
                             </div>
                         </div>
-
-                    </div>
+                  </div>
                     <div>
-
-                        <div class="col-sm-12 col-md-6">
-
-                            <iframe id="IBallerinaslides"  src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>  </div>
+         <div class="col-sm-12 col-md-6">
+                <iframe id="IBallerinaslides"  src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>  </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div>
-
-                            <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
+                          <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
                         </div>
                     </div>
-
-
-
-                    <div class="cNewtoBallerina" style="margin-top: 2em;">
+                     <div class="cNewtoBallerina" style="margin-top: 2em;">
                         <div class="">
                             <h2>New to Ballerina?</h2>
-
-                            <div class="col-sm-12 col-md-4 ">
+                             <div class="col-sm-12 col-md-4 ">
                                 <div class="cNewtoBallerinaCol">
                                     <h3>Start with the Ballerina </br><a id="NewtoBallerina-documentation" class="cSmallButtons" href="http://ballerinalang.org/docs/"/>documentation</a></h3>
-
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
                                 <div class="cNewtoBallerinaCol cMiddle">
                                     <h3>Join the </br><a  id="NewtoBallerina-UserGroup" class="cSmallButtons" href="https://groups.google.com/forum/#!forum/ballerina-user"/>User Group</a></h3>
-
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
@@ -814,11 +742,9 @@ function main(string[] args) {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
         <div class="row cBallerinaContentRow">
             <div class="container">
                 <div class="cBallerinaContentColContainer"  style="background-image: none;">
@@ -827,19 +753,13 @@ function main(string[] args) {
                         <div class="" id="Get-involved">
                             <h2>Get involved</h2>
                             <p>Ballerina is an open-source project. We want you to use it, abuse it and show us how to improve it.
-
-
-
                             <div class="cNewtoBallerina">
                                 <div class="">
-
-                                    <div class="col-sm-12 col-md-4 ">
+                                <div class="col-sm-12 col-md-4 ">
                                         <div class="cNewtoBallerinaCol">
                                             <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/docs.svg"/>
-
-                                            <h3>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h3>
-
-                                        </div>
+                                           <h3>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h3>
+                                          </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4">
                                         <div class="cNewtoBallerinaCol cMiddle">
@@ -878,10 +798,7 @@ function main(string[] args) {
                                     </div>
                                 </div>
                             </div>
-
-
-
-                            <div class="cSocialMedia">
+                           <div class="cSocialMedia">
                                 <a href="https://www.facebook.com/BallerinaLang/" id="iFB" target="_blank">
                                     <svg version="1.1" class="cSVGMenuIcons" id="iFooterSVGTracking_fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
                                     <path d="M80.318,215.866h43.272V107.453h30.206L157,71.199h-33.41c0,0,0-13.555,0-20.701 c0-8.522,1.73-11.936,10.005-11.936c6.653,0,23.405,0,23.405,0V0.917c0,0-24.67,0-29.942,0c-32.222,0-46.74,14.17-46.74,41.336 c0,23.635,0,28.946,0,28.946H57.784v36.725h22.534V215.866z"/>
@@ -906,18 +823,8 @@ function main(string[] args) {
             </div>
         </div>
         <div class="row cBallerinaFooter" id="iBallerinaFooter">
-
-        </div>
-        <!--      <div class="cBallerinaDownloadForm" id="download">
-                 <form>
-                    <div class="cBallerinaFormFieldContainer">
-                       <label>Email Address</label>
-                       <input maxlength="90" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email" type="text">
-                    </div>
-                    <a class="cBallerinaButtons" href="downloads/ballerina-tools-0.8.0-SNAPSHOT.zip">Download Now</a>
-                 </form>
-              </div>-->
-        <div class="cBallerinaDownloadForm" id="subscribe">
+           </div>
+          <div class="cBallerinaDownloadForm" id="subscribe">
             <form>
                 <div class="cBallerinaFormFieldContainer">
                     <span id="subscribeMessage" ></span>
@@ -960,6 +867,64 @@ function main(string[] args) {
         <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
         <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina.js"></script>
         <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
+        
+        <script type="text/javascript">
+                    $(document).ready(function () {
+                        $("#subscribeButton").click(function (event) {
+                            event.preventDefault();
+                            var email = $("#email").val();
+
+                            if (email == "") {
+                                $('#subscribeMessage').html("Please enter your email")
+                            } else if (!isEmail(email)) {
+                                $('#subscribeMessage').html("Please enter a valid email")
+                            } else {
+                                // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
+                                $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email+'</span>');
+                                $('.subscribeForm').hide();
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '/slackServiceCall.php',
+                                    data: {email: email},
+                                    success: function (msg) {
+
+                                    }
+                                });
+                                // $.fancybox.close();
+                            }
+
+                        });
+                
+                
+                              //start of new subscribe form
+                        $("#subscribeUserButton").click(function (event) {
+                            event.preventDefault();
+                            var email = $("#emailUser").val();
+
+                            if (email == "") {
+                                $('#subscribeUserMessage').html("Please enter your email")
+                            } else if (!isEmail(email)) {
+                                $('#subscribeUserMessage').html("Please enter a valid email")
+                            } else {
+                                 $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");                        
+                                 $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
+                                 $('.subscribeUserForm').hide();
+                            }
+
+                        });
+                        //end of new subscribe form
+                
+                
+                
+                
+                    });
+
+                    function isEmail(email) {
+                        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                        return regex.test(email);
+                    }
+        </script>
   
     </body>
    
