@@ -447,9 +447,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>All value-typed variables are allocated on the stack, while all reference-typed variables are allocated on the heap. Value-typed variables are deallocated when they go out of scope, and all reference-typed variables are garbage-collected when they are no longer in use.</p>
 <p>As all reference-typed variables are allocated on the heap, they must be explicitly allocated. This can be done by assigning them a literal value or by simply creating an empty value.</p>
 <h2 id="the-any-type">The <code>any</code> type</h2>
+<p>The <code>any</code> type is the root of the Ballerina data types. It represents a variable of any data type in the type system and provides a powerful way to deal with variables whose type is unknown during the compile time. Values of these variables can come from dynamic content, such as request and response messages, user input, etc. </p>
+<p>The <code>any</code> type allows you to skip compile-time type checks, but use this wisely. You must always check the type and cast it to correct type when working with <code>any</code> type variables. </p>
 <blockquote>
-<p>NOTE: We are planning to add a type named <code>any</code> to be the root of the type system. This will be used to represent a variable of any type in the type system and will have additional constraints.</p>
+<p>NOTE: Currently, you can't check the type of a variable of type <code>any</code>. This will be implemented in a future release. </p>
 </blockquote>
+<p>Following are examples of using the <code>any</code> type:</p>
+<pre><code>any a = getParameter();
+any b = &quot;foo&quot;;
+any i = 5;
+any j = 10;
+
+int k = (int) i + (int) j;
+</code></pre>
+
 <h2 id="value-types">Value types</h2>
 <p>Ballerina includes the following value types:</p>
 <ul>
@@ -496,6 +507,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre>
 
 <p>If there are no expressions given (i.e., the right-hand side is <code>[]</code>), the variable will be initialized to an array of length 0. Otherwise, it will be an array of the same length as the number of expressions, with each value being stored in the corresponding index of the array.</p>
+<p>An array can have arrays as values. Here are some examples: </p>
+<pre><code>int[][] a = [];
+
+a[0] = [1, 2, 3, 5, 6];
+a[1] = [10, 54];
+a[2] = [4, 6, 1];
+
+int i = int[0][0] // Vaue of i is 1
+i = int[2][1]  // value of i is 6 now.
+</code></pre>
+
+<blockquote>
+<p>NOTE: Currently, you can't initialize the whole array at once. For example, the following is not possible in the current release (we will improve this in a future release): </p>
+<p><code>int[][] a = [ [1, 2, 3, 5, 6], [10, 54], [4, 6, 1]];</code></p>
+</blockquote>
 <h2 id="built-in-reference-types">Built-in reference types</h2>
 <p>Ballerina comes with a pre-defined set of reference types that are key to supporting the types of programs that Ballerina developers are expected to write. These are supported by a set of standard library functions found in the packages <code>ballerina.lang.*</code>. This section defines each of these types and defines their usage.</p>
 <h3 id="type-message">Type: <code>message</code></h3>
@@ -509,7 +535,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>The <code>exception</code> type, like <code>message</code>, is an opaque type used to hold an exception.</p>
 <p>See <a href="../exceptions/">Exception Handling</a> for more information on exception handling and the <code>exception</code> type.</p>
 <h3 id="type-map">Type: <code>map</code></h3>
-<p>The <code>map</code> type is a hash map with keys of type string mapped to values of any type.</p>
+<p>The <code>map</code> type is a hash map with keys of type <code>string</code> mapped to values of type <code>any</code>. Following are some examples:</p>
+<pre><code>map m = { &quot;a&quot; : 1, &quot;b&quot; : 2};
+int i = (int) m[&quot;a&quot;] + (int) m [&quot;b&quot;];
+any k = m[&quot;a&quot;];
+</code></pre>
+
 <p>Library functions for accessing information from this type are in the package <code>ballerina.lang.maps</code>.</p>
 <h3 id="type-xml-and-xmldocument">Type: <code>xml</code> and <code>xmldocument</code></h3>
 <p>The <code>xml</code> type is used to represent an XML element, and <code>xmldocument</code> is used to represent a full XML document. Ballerina also understands XML Schema and allows you to declare that an element or document must conform to a particular schema.</p>
