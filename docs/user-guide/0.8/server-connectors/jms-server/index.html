@@ -435,8 +435,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </code></pre>
 
-<h3 id="step-2-specify-the-topic-or-queue">Step 2: Specify the topic or queue</h3>
-<p>Add a service-level annotation named “Source”, and add the key-value pairs to specify the particular topic/queue that you want to listen to. The following table describes each key that can be used with the JMS service.</p>
+<h3 id="step-2-specify-the-connection-details">Step 2: Specify the connection details</h3>
+<p>Add a service-level annotation named “jms:JMSSource”, and add the key-value pairs of these two mandatory properties to specify the JMS connection details.
+The following table describes each key that can be used with the JMS service.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Expected Values</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>factoryInitial</td>
+<td>The JNDI initial context factory class. The class must implement the java.naming.spi.InitialContextFactory interface.</td>
+<td>A valid class name depending on the JMS provider</td>
+<td>-</td>
+</tr>
+<tr>
+<td>providerUrl</td>
+<td>The URL/ file path of the JNDI provider</td>
+<td>A valid URL/ path for the JNDI provider</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Example: </p>
+<pre><code>import ballerina.net.jms;
+
+@jms:JMSSource {
+factoryInitial : &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
+providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;}
+</code></pre>
+
+<p>The following set of parameters are optional and can be provided to the JMS provider along with any other vendor specific properties by adding an annotation named "jms:ConnectionProperty"</p>
 <table>
 <thead>
 <tr>
@@ -449,25 +483,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </thead>
 <tbody>
 <tr>
-<td>protocol</td>
-<td>The protocol this particular service belongs to</td>
-<td>Yes</td>
-<td>jms</td>
-<td>-</td>
-</tr>
-<tr>
-<td>factoryInitial</td>
-<td>The JNDI initial context factory class. The class must implement the java.naming.spi.InitialContextFactory interface.</td>
-<td>Yes</td>
-<td>A valid class name depending on the JMS provider</td>
-<td>-</td>
-</tr>
-<tr>
-<td>providerUrl</td>
-<td>The URL/ file path of the JNDI provider</td>
-<td>Yes</td>
-<td>A valid URL/ path for the JNDI provider</td>
-<td>-</td>
+<td>connectionFactoryType</td>
+<td>The type of the connection factory</td>
+<td>no</td>
+<td>queue, topic</td>
+<td>queue</td>
 </tr>
 <tr>
 <td>connectionFactoryJNDIName</td>
@@ -475,13 +495,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td>Yes</td>
 <td>A valid JNDI name of the connection factory.</td>
 <td>-</td>
-</tr>
-<tr>
-<td>connectionFactoryType</td>
-<td>The type of the connection factory</td>
-<td>no</td>
-<td>queue, topic</td>
-<td>queue</td>
 </tr>
 <tr>
 <td>destination</td>
@@ -515,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td>subscriptionDurable</td>
 <td>Whether subscription is durable</td>
 <td>no</td>
-<td>true, false</td>
+<td>true/false</td>
 <td>false (subscription is not durable)</td>
 </tr>
 <tr>
@@ -546,32 +559,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td>A valid integer value</td>
 <td>5</td>
 </tr>
+<tr>
+<td>useReceiver</td>
+<td>Use synchronous message receiver to receive message instead of asynchronous message listener</td>
+<td>no</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
 </tbody>
 </table>
 <p>Example: </p>
-<pre><code>@Source (
-protocol = &quot;jms&quot;,
-destination = &quot;ballerina&quot;,
-connectionFactoryJNDIName = &quot;QpidConnectionFactory&quot;,
-factoryInitial = &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
-providerUrl = &quot;jndi.properties&quot;,
-connectionFactoryType = &quot;queue&quot;,
-sessionAcknowledgement = &quot;CLIENT_ACKNOWLEDGE&quot;)
-service jmsMBService {
-}
+<pre><code>import ballerina.net.jms;
+
+@jms:ConnectionProperty{key:&quot;connectionFactoryType&quot;, value:&quot;queue&quot;}
+@jms:ConnectionProperty{key:&quot;destination&quot;, value:&quot;MyQueue&quot;}
+@jms:ConnectionProperty{key:&quot;useReceiver&quot;, value:&quot;true&quot;}
+@jms:ConnectionProperty{key:&quot;connectionFactoryJNDIName&quot;, value:&quot;QueueConnectionFactory&quot;}
+@jms:ConnectionProperty{key:&quot;sessionAcknowledgement&quot;, value:&quot;AUTO_ACKNOWLEDGE&quot;}
 </code></pre>
 
 <h3 id="step-3-add-the-resource">Step 3: Add the resource</h3>
 <p>Add a resource to the JMS service. This is required, because whenever a message comes from the JMS provider to a specific JMS service, it will be delivered to this particular resource. You must have only one resource in a JMS service.</p>
 <p>Example:</p>
-<pre><code>@Source (
-protocol = &quot;jms&quot;,
-destination = &quot;ballerina&quot;,
-connectionFactoryJNDIName = &quot;QpidConnectionFactory&quot;,
-factoryInitial = &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
-providerUrl = &quot;jndi.properties&quot;,
-connectionFactoryType = &quot;queue&quot;,
-sessionAcknowledgement = &quot;CLIENT_ACKNOWLEDGE&quot;)
+<pre><code>import ballerina.net.jms;
+
+@jms:JMSSource {
+factoryInitial : &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
+providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;,
+connectionFactoryType : &quot;queue&quot;}
+@jms:ConnectionProperty{key:&quot;destination&quot;, value:&quot;MyQueue&quot;}
+@jms:ConnectionProperty{key:&quot;useReceiver&quot;, value:&quot;true&quot;}
+@jms:ConnectionProperty{key:&quot;connectionFactoryJNDIName&quot;, value:&quot;QueueConnectionFactory&quot;}
+@jms:ConnectionProperty{key:&quot;sessionAcknowledgement&quot;, value:&quot;AUTO_ACKNOWLEDGE&quot;}
 service jmsService {
     resource onMessage (message m) {
         // ProcessMessage
@@ -585,14 +604,14 @@ service jmsService {
 <p>Following is a sample JMS service.</p>
 <pre><code>import ballerina.net.jms;
 
-@Source (
-protocol = &quot;jms&quot;,
-destination = &quot;ballerina&quot;,
-connectionFactoryJNDIName = &quot;QpidConnectionFactory&quot;,
-factoryInitial = &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
-providerUrl = &quot;jndi.properties&quot;,
-connectionFactoryType = &quot;queue&quot;,
-sessionAcknowledgement = &quot;CLIENT_ACKNOWLEDGE&quot;)
+@jms:JMSSource {
+factoryInitial : &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;,
+providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;}
+@jms:ConnectionProperty{key:&quot;connectionFactoryType&quot;, value:&quot;queue&quot;}
+@jms:ConnectionProperty{key:&quot;destination&quot;, value:&quot;MyQueue&quot;}
+@jms:ConnectionProperty{key:&quot;useReceiver&quot;, value:&quot;true&quot;}
+@jms:ConnectionProperty{key:&quot;connectionFactoryJNDIName&quot;, value:&quot;QueueConnectionFactory&quot;}
+@jms:ConnectionProperty{key:&quot;sessionAcknowledgement&quot;, value:&quot;AUTO_ACKNOWLEDGE&quot;}
 service jmsService {
     resource onMessage (message m) {
         //Process the message
@@ -639,17 +658,18 @@ string stringValue;
 stringValue = messages:getStringValue(m, “count”);
 </code></pre>
 
-<h3 id="package-ballerinanetjms">Package ballerina.net.jms</h3>
-<p><strong>jms:getMessageType</strong></p>
-<p>This function can be used get the JMS message type of the relevant message. This function accepts the relevant message as the argument. Return values will be “TextMessage”, “BytesMessage”, “MapMessage” or “ObjectMessage”.</p>
+<p><strong>messages:getProperty</strong></p>
+<p>This function can be used to retrieve a property from the message.</p>
 <p>Example:</p>
-<pre><code>import ballerina.net.jms
+<p>Message type can be retrieved from the message as below.</p>
+<pre><code>import ballerina.lang.messages;
 ---
 
-string messageType;
-messageType = jms:getMessageType(m);
+string msgType = messages:getProperty(m, &quot;JMS_MESSAGE_TYPE&quot;);
+
 </code></pre>
 
+<h3 id="package-ballerinanetjms">Package ballerina.net.jms</h3>
 <p><strong>jms:acknowledge</strong></p>
 <p>This function can be used to acknowledge the message delivery or success, which is particularly useful when using the client acknowledgement mode. This function accepts the following parameters:</p>
 <ul>
