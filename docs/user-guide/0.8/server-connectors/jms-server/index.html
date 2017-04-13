@@ -492,7 +492,7 @@ providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;}
 <tr>
 <td>connectionFactoryJNDIName</td>
 <td>The JNDI name of the connection factory</td>
-<td>Yes</td>
+<td>no</td>
 <td>A valid JNDI name of the connection factory.</td>
 <td>-</td>
 </tr>
@@ -566,6 +566,20 @@ providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;}
 <td>true/false</td>
 <td>false</td>
 </tr>
+<tr>
+<td>concurrentConsumers</td>
+<td>Number of concurrent consumers to be spawned when the server connector is starting.</td>
+<td>no</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>connectionFactoryNature</td>
+<td>The type of connection factory to use when creating consumers</td>
+<td>no</td>
+<td>default,cached,pooled</td>
+<td>default</td>
+</tr>
 </tbody>
 </table>
 <p>Example: </p>
@@ -576,6 +590,8 @@ providerUrl : &quot;/Users/Akalanka/test/jndi.properties&quot;}
 @jms:ConnectionProperty{key:&quot;useReceiver&quot;, value:&quot;true&quot;}
 @jms:ConnectionProperty{key:&quot;connectionFactoryJNDIName&quot;, value:&quot;QueueConnectionFactory&quot;}
 @jms:ConnectionProperty{key:&quot;sessionAcknowledgement&quot;, value:&quot;AUTO_ACKNOWLEDGE&quot;}
+@jms:ConnectionProperty{key:&quot;concurrentConsumers&quot;, value:&quot;5&quot;}
+@jms:ConnectionProperty{key:&quot;connectionFactoryNature&quot;, value:&quot;pooled&quot;}
 </code></pre>
 
 <h3 id="step-3-add-the-resource">Step 3: Add the resource</h3>
