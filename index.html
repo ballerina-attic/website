@@ -901,32 +901,9 @@ window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 </script>
 
-<script type="text/javascript">
-function downloadJSAtOnload() {
-var element = document.createElement("script");
-element.src = "http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js.js" ;
-document.body.appendChild(element);
-}
-if (window.addEventListener)
-window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
-</script>
 
-<script type="text/javascript">
-function downloadJSAtOnload() {
-var element = document.createElement("script");
-element.src = "http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js" ;
-document.body.appendChild(element);
-}
-if (window.addEventListener)
-window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
-</script>
-
+<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
+<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
 <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina.js"></script>
 <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
  <script type="text/javascript">
