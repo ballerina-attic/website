@@ -8,20 +8,20 @@
         <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
         <meta property="og:description"        content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration." />
         <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="index"/>
         <meta name="title" content="Ballerina - A flexible, powerful, beautiful programming language">
         <meta name="description" content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.">
         <meta name="keywords" content="Programing language, Integration language, Sequence diagrams, Ballerinalang, WSO2 Ballerina, ballerina, language, Microservices Enterprise, Integration,">
         <meta name="author" content="ballerinalang"/>
-       
+
         <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
         <!--GA-->
         <script>
-            (function (i, s, o, g, r, a, m) {
+            (function(i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
+                i[r] = i[r] || function() {
                     (i[r].q = i[r].q || []).push(arguments)
                 }, i[r].l = 1 * new Date();
                 a = s.createElement(o),
@@ -36,7 +36,7 @@
 
         </script>
         <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
+        <script>(function(w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({'gtm.start':
                             new Date().getTime(), event: 'gtm.js'});
@@ -49,11 +49,26 @@
             })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');</script>
         <!-- End Google Tag Manager -->
         <!-- Hotjar Tracking Code for http://ballerinalang.org/ --> 
-        <script> 
-        (function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:442732,hjsv:5}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv='); 
+        <script>
+            (function(h, o, t, j, a, r) {
+                h.hj = h.hj || function() {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {hjid: 442732, hjsv: 5};
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
         </script>
         <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
-         
+
+        <style>
+            .hideSlide {
+                display: none;
+            }
+        </style>
 
     </head>
     <body class="cBallerina">
@@ -73,10 +88,7 @@
                 </div>
                 <div class="col-sm-12 col-md-8">
                     <h2><span>Ballerina</span> is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.</h2>
-
-
-
-                </div>
+                 </div>
                 <div class="col-sm-12 col-md-4 cBallerinaDownload" style="text-align: center;">
                     <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="cBallerinaDownlaodHome" href="downloads">Download</a>
                     <a href="#subscribeUser" class="fancybox cGet-updates">Subscribe for more updates</a>
@@ -698,35 +710,41 @@ function main(string[] args) {
                     <h2>Get started</h2>
                 </div>
                 <div class="">
-       <div style="display: inline-block; margin-bottom: 4em;">
-                    <div class="col-sm-12 col-md-6">
+                    <div style="display: inline-block; margin-bottom: 4em;">
+                        <div class="col-sm-12 col-md-6">
                             <p class="Intro">Ballerina was built from the ground to make it easier to design, describe and develop programs. Here’s how and why. </p>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                               
+
                             <div class="VideoR-one" id="videoClick_1" onclick="this.nextElementSibling.style.display = 'block';
                                     this.style.display = 'none'">
                                 <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/sanjiva-ballerina.jpg" alt="play button" style="cursor:pointer">
-                              
+
                             </div>
                             <div style="display:none">             
                                 <div class="embed-container" id="video_1"></div>
                             </div>
                         </div>
-                  </div>
+                    </div>
                     <div>
-         <div class="col-sm-12 col-md-6">
-                <iframe id="IBallerinaslides"  src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>  </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="Slides-One" >
+                                <img class="cSlideImage" src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/slideshare.jpg" alt="play button" style="cursor:pointer">
+                                <div id="slideClick"></div>
+
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div>
-                          <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
+                            <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
                         </div>
                     </div>
-                     <div class="cNewtoBallerina" style="margin-top: 2em;">
+                    <div class="cNewtoBallerina" style="margin-top: 2em;">
                         <div class="">
                             <h2>New to Ballerina?</h2>
-                             <div class="col-sm-12 col-md-4 ">
+                            <div class="col-sm-12 col-md-4 ">
                                 <div class="cNewtoBallerinaCol">
                                     <h3>Start with the Ballerina </br><a id="NewtoBallerina-documentation" class="cSmallButtons" href="http://ballerinalang.org/docs/"/>documentation</a></h3>
                                 </div>
@@ -761,11 +779,11 @@ function main(string[] args) {
                             <p>Ballerina is an open-source project. We want you to use it, abuse it and show us how to improve it.
                             <div class="cNewtoBallerina">
                                 <div class="">
-                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="col-sm-12 col-md-4 ">
                                         <div class="cNewtoBallerinaCol">
                                             <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/docs.svg"/>
-                                           <h3>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h3>
-                                          </div>
+                                            <h3>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h3>
+                                        </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4">
                                         <div class="cNewtoBallerinaCol cMiddle">
@@ -804,7 +822,7 @@ function main(string[] args) {
                                     </div>
                                 </div>
                             </div>
-                           <div class="cSocialMedia">
+                            <div class="cSocialMedia">
                                 <a href="https://www.facebook.com/BallerinaLang/" id="iFB" target="_blank">
                                     <svg version="1.1" class="cSVGMenuIcons" id="iFooterSVGTracking_fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
                                     <path d="M80.318,215.866h43.272V107.453h30.206L157,71.199h-33.41c0,0,0-13.555,0-20.701 c0-8.522,1.73-11.936,10.005-11.936c6.653,0,23.405,0,23.405,0V0.917c0,0-24.67,0-29.942,0c-32.222,0-46.74,14.17-46.74,41.336 c0,23.635,0,28.946,0,28.946H57.784v36.725h22.534V215.866z"/>
@@ -829,8 +847,8 @@ function main(string[] args) {
             </div>
         </div>
         <div class="row cBallerinaFooter" id="iBallerinaFooter">
-           </div>
-          <div class="cBallerinaDownloadForm" id="subscribe">
+        </div>
+        <div class="cBallerinaDownloadForm" id="subscribe">
             <form>
                 <div class="cBallerinaFormFieldContainer">
                     <span id="subscribeMessage" ></span>
@@ -841,12 +859,12 @@ function main(string[] args) {
             </form>
 
         </div> 
-         <div class="cBallerinaDownloadForm" id="subscribeUser">
+        <div class="cBallerinaDownloadForm" id="subscribeUser">
             <form>
                 <div class="cBallerinaFormFieldContainer">
                     <h3 style="margin-bottom: 0;">Subscribe for more updates</h3>
-                      <span id="subscribeUserMessage" ></span>
-                     <label class="subscribeUserForm">Email Address</label>
+                    <span id="subscribeUserMessage" ></span>
+                    <label class="subscribeUserForm">Email Address</label>
                     <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeUserForm" type="text">
                 </div>
                 <a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton">Subscribe</a>
@@ -858,92 +876,103 @@ function main(string[] args) {
         <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/fork-w.svg"/>
         <span>Fork Ballerina on Github</span>
     </a>
-        
-           <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
-        
-        <link href="//cdn.wso2.com/wso2/sites/all/ballerina/css/master.css" rel="stylesheet">
-        
-         <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/jquery.js"></script>
-        <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/bootstrap.min.js"></script>
-        
-        <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
-        <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
-        <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina.js"></script>
-        <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
-        
-        
-        <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#subscribeButton").click(function (event) {
-                            event.preventDefault();
-                            var email = $("#email").val();
 
-                            if (email == "") {
-                                $('#subscribeMessage').html("Please enter your email")
-                            } else if (!isEmail(email)) {
-                                $('#subscribeMessage').html("Please enter a valid email")
-                            } else {
-                                // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
-                                $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email+'</span>');
-                                $('.subscribeForm').hide();
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
 
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '/slackServiceCall.php',
-                                    data: {email: email},
-                                    success: function (msg) {
+    <link href="//cdn.wso2.com/wso2/sites/all/ballerina/css/master.css" rel="stylesheet">
 
-                                    }
+    <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/jquery.js"></script>
+    <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
+    <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
+    <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <script type="text/javascript" src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
+
+
+    <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $("#subscribeButton").click(function(event) {
+                                        event.preventDefault();
+                                        var email = $("#email").val();
+
+                                        if (email == "") {
+                                            $('#subscribeMessage').html("Please enter your email")
+                                        } else if (!isEmail(email)) {
+                                            $('#subscribeMessage').html("Please enter a valid email")
+                                        } else {
+                                            // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
+                                            $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email + '</span>');
+                                            $('.subscribeForm').hide();
+
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '/slackServiceCall.php',
+                                                data: {email: email},
+                                                success: function(msg) {
+
+                                                }
+                                            });
+                                            // $.fancybox.close();
+                                        }
+
+                                    });
+
+
+                                    //start of new subscribe form
+                                    $("#subscribeUserButton").click(function(event) {
+                                        event.preventDefault();
+                                        var email = $("#emailUser").val();
+
+                                        if (email == "") {
+                                            $('#subscribeUserMessage').html("Please enter your email")
+                                        } else if (!isEmail(email)) {
+                                            $('#subscribeUserMessage').html("Please enter a valid email")
+                                        } else {
+                                            $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
+                                            $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
+                                            $('.subscribeUserForm').hide();
+                                        }
+
+                                    });
+                                    //end of new subscribe form
+
+
+
+
                                 });
-                                // $.fancybox.close();
-                            }
 
-                        });
-                
-                
-                              //start of new subscribe form
-                        $("#subscribeUserButton").click(function (event) {
-                            event.preventDefault();
-                            var email = $("#emailUser").val();
+                                function isEmail(email) {
+                                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                                    return regex.test(email);
+                                }
+    </script>
+    <script>
+        $('.VideoR-one').click(function() {
 
-                            if (email == "") {
-                                $('#subscribeUserMessage').html("Please enter your email")
-                            } else if (!isEmail(email)) {
-                                $('#subscribeUserMessage').html("Please enter a valid email")
-                            } else {
-                                 $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");                        
-                                 $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
-                                 $('.subscribeUserForm').hide();
-                            }
+            var videos = ["", "P92y5cgEa0Q"];
 
-                        });
-                        //end of new subscribe form
-                
-                
-                
-                
-                    });
+            var video_div = $(this).attr('id');
+            var video_div = video_div.split("_");
+            var vcode = video_div[1];
 
-                    function isEmail(email) {
-                        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                        return regex.test(email);
-                    }
-        </script>
-         <script>
-        $('.VideoR-one').click(function () {
-       
-        var videos = ["","P92y5cgEa0Q"];
-        
-        var video_div = $(this).attr('id');
-        var video_div = video_div.split("_");
-        var vcode = video_div[1];
-        
-        $("#video_"+vcode).html('<iframe width="100%" height="373" src="https://www.youtube.com/embed/' + videos[vcode] + '?autoplay=1&wmode=transparent&VQ=HD1080" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
-        $("#video_"+vcode).show();
-    });
-        </script>
-  
-    </body>
-   
+            $("#video_" + vcode).html('<iframe width="100%" height="373" src="https://www.youtube.com/embed/' + videos[vcode] + '?autoplay=1&wmode=transparent&VQ=HD1080" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+            $("#video_" + vcode).show();
+        });
+
+
+
+        $('.Slides-One').click(function() {
+
+            var slideframe = $('<iframe src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>');
+            $('#slideClick').append(slideframe);
+            $('.cSlideImage').addClass("hideSlide")
+
+
+        });
+
+</script>
+</body>
+
 </html>
