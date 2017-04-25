@@ -12,6 +12,7 @@ pages:
     - Tools: 'tools.md'
     - Samples: 'samples.md'
 - Tutorials:
+    - Introduction: 'tutorials/index.md'
     - Write your First Program: 'tutorials/first-program.md'
     - Create an Archive of your Program: 'tutorials/create-archive.md'
 - Language Reference:
