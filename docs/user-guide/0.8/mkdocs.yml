@@ -11,6 +11,9 @@ pages:
     - Key Concepts: 'key-concepts.md'
     - Tools: 'tools.md'
     - Samples: 'samples.md'
+- Tutorials:
+    - Write your First Program: 'tutorials/first-program.md'
+    - Create an Archive of your Program: 'tutorials/create-archive.md'
 - Language Reference:
     - Overview: 'lang-ref/lang-overview.md'
     - Packaging and Running Programs: 'lang-ref/packaging.md'
@@ -30,7 +33,7 @@ pages:
     - Statements: 'lang-ref/statements.md'
     - Exception Handling: 'lang-ref/exceptions.md'
 - Additional Reference:
-    - API Documentation: 'native-functions.md'
+    - Native Functions (API Documentation): 'native-functions.md'
     - Language Specification: 'spec.md'
     - Architecture Design Documents: 'architecture.md'
 theme_dir: ballerina-theme
