@@ -107,22 +107,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             
 
 
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Write your First Program</a>
-        
-            <ul>
-                <li><a href="../..">Home</a></li>
-            
-                <li class="toctree-l3"><a href="#write-your-first-program">Write your First Program</a></li>
-                
-                 <li><a class="toctree-l4" href="#running-ballerina">Running Ballerina</a></li>
-                
-                 <li><a class="toctree-l4" href="#creating-an-integration">Creating an integration</a></li>
-                
-                 <li><a class="toctree-l4" href="#next-steps">Next steps</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="./">Write your First Program</a>
         
     </li>
 
@@ -153,6 +139,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <li class="toctree-l1 ">
         <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../">Introduction</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Write your First Program</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#write-your-first-program">Write your First Program</a></li>
+                
+                 <li><a class="toctree-l4" href="#run-ballerina">Run Ballerina</a></li>
+                
+                 <li><a class="toctree-l4" href="#create-an-integration">Create an integration</a></li>
+                
+                 <li><a class="toctree-l4" href="#next-steps">Next steps</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-archive/">Create an Archive of your Program</a>
         
     </li>
 
@@ -352,7 +392,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../../native-functions/">API Documentation</a>
+        <a class="" href="../../native-functions/">Native Functions (API Documentation)</a>
         
     </li>
 
@@ -405,7 +445,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
       
         
-          <li>Get Started &raquo;</li>
+          <li>Tutorials &raquo;</li>
         
       
     
@@ -424,7 +464,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               
                 <h1 id="write-your-first-program">Write your First Program</h1>
 <p>Now that you’ve taken the <a href="../../quick-tour/">Quick Tour</a>, let's dig a little deeper and write your first Ballerina integration program. This tutorial will teach you how to run Ballerina in standalone and server mode, use the editor to build your integration, understand the key concepts, and get familiar with the Ballerina language.</p>
-<h2 id="running-ballerina">Running Ballerina</h2>
+<h2 id="run-ballerina">Run Ballerina</h2>
 <p>In the <a href="../../quick-tour/">Quick Tour</a>, you learned how to start Ballerina and run a sample program from the <code>&lt;ballerina_home&gt;/samples/helloWorld</code> directory with a single command:</p>
 <pre><code>ballerina run main helloWorld.bal
 </code></pre>
@@ -439,7 +479,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre>
 
 <p>The service receives the request and executes its logic, printing "Hello, World!" on the command line. Notice that the Ballerina server is still running in the background, waiting for more requests to come in. You can stop the Ballerina server by pressing Ctrl-C. </p>
-<h2 id="creating-an-integration">Creating an integration</h2>
+<h2 id="create-an-integration">Create an integration</h2>
 <p>It's time to create your first integration! In this exercise, we are going to create a service that takes an incoming message, extracts the text, and sends a message back to the client with that same text. </p>
 <h3 id="add-a-service-and-resource">Add a service and resource</h3>
 <p>First, we add a <strong>service</strong> construct to the canvas in the Composer. A service is a container for all the other constructs and represents a single unit of functionality that can be accessed remotely.</p>
@@ -513,6 +553,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Now that you're familiar with running Ballerina in standalone and server mode, using the Composer to build an integration program, and creating a service and resource, you are ready to learn more. </p>
 <ul>
 <li>Read the <a href="../../key-concepts/">Key Concepts</a> page to familiarize yourself with the rest of the main features you need to know about.</li>
+<li>Run through the rest of the <a href="../">Tutorials</a> to get hands-on experience.  </li>
 <li>Browse through the <a href="../../samples/">Samples</a> and use them as templates for your own programs.</li>
 <li>See the <a href="../../lang-ref/lang-overview/">Language Reference</a> for complete information on using the Ballerina language. </li>
 </ul>
@@ -523,10 +564,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../key-concepts/" class="btn btn-neutral float-right" title="Key Concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../create-archive/" class="btn btn-neutral float-right" title="Create an Archive of your Program">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../quick-tour/" class="btn btn-neutral" title="Quick Tour"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -556,10 +597,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../quick-tour/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../key-concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../create-archive/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
