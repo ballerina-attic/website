@@ -1,6 +1,6 @@
 .cResourcesMainVideoContainer {
     height: 295px;
-    background: #3C3D41;
+    background: transparent;
 }
 .cDownloadColLeft {
     padding-right: 2em;
@@ -60,10 +60,9 @@
     transition:all 0.5s ease 0s;
 }
 .cEventBox h3 {
-/*    font-weight: 400;
-    font-size: 2em;*/
+
 margin-bottom: 0.5em; 
-/*margin-top: 0.5em;*/
+
 
 }
 .tab-content .cBallerinaContentRow {
@@ -72,9 +71,7 @@ margin-bottom: 0.5em;
 
 
 .cEventBox span {
-/*    width: 100%;
-    font-size: 1.5em;
-    font-weight: 600;*/
+
 }
 .cEventBox h4 {
     margin-bottom: 0.5em;
