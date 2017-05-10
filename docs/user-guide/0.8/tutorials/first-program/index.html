@@ -177,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                  <li><a class="toctree-l4" href="#run-ballerina">Run Ballerina</a></li>
                 
-                 <li><a class="toctree-l4" href="#create-an-integration">Create an integration</a></li>
+                 <li><a class="toctree-l4" href="#create-a-new-program">Create a new program</a></li>
                 
                  <li><a class="toctree-l4" href="#next-steps">Next steps</a></li>
                 
@@ -463,7 +463,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="section">
               
                 <h1 id="write-your-first-program">Write your First Program</h1>
-<p>Now that you’ve taken the <a href="../../quick-tour/">Quick Tour</a>, let's dig a little deeper and write your first Ballerina integration program. This tutorial will teach you how to run Ballerina in standalone and server mode, use the editor to build your integration, understand the key concepts, and get familiar with the Ballerina language.</p>
+<p>Now that you’ve taken the <a href="../../quick-tour/">Quick Tour</a>, let's dig a little deeper and write your first Ballerina program. This tutorial will teach you how to run Ballerina in standalone and server mode, use the editor to build your program, understand the key concepts, and get familiar with the Ballerina language.</p>
 <h2 id="run-ballerina">Run Ballerina</h2>
 <p>In the <a href="../../quick-tour/">Quick Tour</a>, you learned how to start Ballerina and run a sample program from the <code>&lt;ballerina_home&gt;/samples/helloWorld</code> directory with a single command:</p>
 <pre><code>ballerina run main helloWorld.bal
@@ -479,43 +479,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre>
 
 <p>The service receives the request and executes its logic, printing "Hello, World!" on the command line. Notice that the Ballerina server is still running in the background, waiting for more requests to come in. You can stop the Ballerina server by pressing Ctrl-C. </p>
-<h2 id="create-an-integration">Create an integration</h2>
-<p>It's time to create your first integration! In this exercise, we are going to create a service that takes an incoming message, extracts the text, and sends a message back to the client with that same text. </p>
+<h2 id="create-a-new-program">Create a new program</h2>
+<p>It's time to create your first program! In this exercise, we are going to create a service that takes an incoming message, extracts the text, and sends a message back to the client with that same text. </p>
 <h3 id="add-a-service-and-resource">Add a service and resource</h3>
 <p>First, we add a <strong>service</strong> construct to the canvas in the Composer. A service is a container for all the other constructs and represents a single unit of functionality that can be accessed remotely.</p>
 <ol>
 <li>If the Composer is not already running, run it as described in the <a href="../../quick-tour/">Quick Tour</a>.</li>
+<li>On the Welcome page, click <strong>New</strong>.</li>
 <li>On the tool palette, click the service icon and drag it to the canvas. </li>
 </ol>
-<p>A box appears with the name <code>newService</code>, and inside it is another box called <code>newResource</code> with some content already created for you. </p>
-<p>A <strong>resource</strong> is a single request handler within a service. This is where we will program the logic describing how to handle certain types of requests from incoming messages to this service. </p>
+<p><img alt="alt text" src="../../images/AddService.gif" /></p>
+<p>A box appears called <code>Resource1</code> with some content already created for you. If you scroll up, you can see that it is inside another box called <code>Service1</code>, which is the top-level container for the service.  </p>
+<p>A <strong>resource</strong> is a single request handler within a service. This is where we will program the logic describing how to handle certain types of requests from incoming messages to this service. The diagram shows that when clients send messages to this service, they are received by the <code>Resource1</code> resource, which has one <strong>worker</strong> that handles the message. Each worker is a separate thread of execution, so you can add more workers if you want to do parallel processing. In this tutorial, we'll just use the default worker.  </p>
 <p>By default, the resource is configured to accept a message <code>m</code>. You can see this by clicking the Arguments icon in the upper right corner of the resource box: </p>
 <p><img alt="alt text" src="../../images/icons/arguments.png" title="Arguments icon" /></p>
 <p>When you click it, you'll see <code>message m</code> listed below the fields. Click the Arguments icon again to close its window.</p>
-<p>Let's rename both the service and resource. </p>
+<p>Let's rename the service and resource. </p>
 <ol>
-<li>Highlight the name <code>newService</code> and type <code>myEchoService</code> in its place. </li>
-<li>Change <code>newResource</code> to <code>myEchoResource</code> in the same way. </li>
+<li>Highlight the name <code>Service1</code> and type <code>myEchoService</code> in its place. </li>
+<li>Change <code>Resource1</code> to <code>myEchoResource</code> in the same way. </li>
 </ol>
 <h3 id="set-the-base-path">Set the base path</h3>
-<p>Now, let's set the base path for this service. This will be the context portion of the URL that clients will use to send requests to this service. </p>
+<p>The base path for a service is the context portion of the URL that clients will use to send requests to this service. For example, if we set the base path to <code>/myecho</code>, clients will be able to send requests to this service using the URL http://localhost:9090/myecho. Let's do this now.</p>
 <ol>
-<li>In the upper right corner of the <strong>service</strong> box (not the resource box this time), click the Annotations (@) icon.</li>
+<li>In the upper right corner of the myEcho<strong>Service</strong> box (not the resource box this time), click the Annotations (@) icon.</li>
 <li>Make sure <code>http:BasePath</code> is selected in the list, type <code>/myecho</code> in the text box, and then press Enter or click the + symbol to its right. </li>
 </ol>
-<p>The base path is now set, so that when you deploy this service, clients will be able to send requests to it using the URL http://localhost:9090/myecho.</p>
+<p>The base path is now set, so that when you deploy this service, clients will be able to send requests to it using http://localhost:9090/myecho.</p>
 <h3 id="change-get-to-post">Change GET to POST</h3>
 <p>When you added the service, Ballerina configured the resource to use the GET method by default. Because we are going to use the incoming message to post a reply, let's change it to POST. </p>
 <ol>
-<li>Click the Annotations (@) icon in the upper right corner of the <strong>resource</strong> box (not the service box).</li>
+<li>Click the Annotations (@) icon in the upper right corner of the myEcho<strong>Resource</strong> box (not the service box).</li>
 <li>Click <code>http:GET</code>, highlight <code>GET</code>, and type <code>POST</code>. </li>
 <li>Click the Annotations icon again to hide the box. </li>
 </ol>
-<p>You can click the symbol again to confirm that GET was in fact changed to POST. You can also click the <strong>Source View</strong> button in the lower right corner to see the changes that are being made to the Ballerina code as you work with the visual editor.</p>
+<p>You can click the symbol again to confirm that GET was in fact changed to POST. You can also click the <strong>Source View</strong> button in the lower right corner to see the changes that are being made to the Ballerina code as you work with the visual editor. Currently, the source code should look like this:</p>
+<pre><code>@http:BasePath{value:&quot;/myecho&quot;} 
+service myEchoService {
+    @http:POST {} 
+    resource myEchoResource( message m) {
+    }
+}
+</code></pre>
+
 <h3 id="add-a-function">Add a function</h3>
 <p>Now, let's add a function that will take the incoming message and convert it to a response that gets sent back to the client. Because we are sending the original request back instead of composing a new message to send to the client, we need to strip its original headers before we reply, as those headers are intended for use in the client -&gt; server direction and not the other way around. The <code>ballerina.net.http</code> package includes a native function called <code>convertToResponse</code> that removes the incoming HTTP headers when replying to the client. Let's add that function to our flow.</p>
 <ol>
-<li>On the tool palette, scroll down to the <strong>ballerina.net.http</strong> section, click the <strong>convertToResponse</strong> function, and drag it to the canvas below <strong>Start</strong>. </li>
+<li>Click <strong>Design View</strong>. </li>
+<li>On the tool palette, scroll down and click the <strong>ballerina.net.http</strong> section to expand it, click the <strong>convertToResponse</strong> function, and drag it to the canvas below <strong>start</strong>. </li>
 <li>Highlight <code>message</code> in <code>http:convertToResponse(message)</code> and replace it with <code>m</code>, which is the incoming message, so that it looks like this: <code>http:convertToResponse(m)</code></li>
 </ol>
 <h3 id="add-the-reply">Add the reply</h3>
@@ -530,29 +541,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Click the reply box you just added and type <code>m</code> to instruct the program to send the message processed by the <code>convertToResponse</code> function back to the client. Click outside of the box. </p>
 </li>
 </ol>
-<p>This completes the sequence, so you are now ready to save and run your integration program.</p>
+<p>This completes the sequence. If you go to the Source view, your program should now look like this:</p>
+<pre><code> import ballerina.net.http;
+@http:BasePath{value:&quot;/myecho&quot;} 
+service myEchoService {
+    @http:POST {} 
+    resource myEchoResource( message m) {
+        http:convertToResponse( m );
+        reply m;
+
+    }
+
+}
+</code></pre>
+
+<p>Notice that the <code>ballerina.net.http</code> package has been imported, and the <code>convertToResponse</code> function and <code>reply</code> statement appear within the resource definition.</p>
+<p>You are now ready to save and run your integration program</p>
 <h3 id="save-the-program">Save the program</h3>
 <ol>
 <li>Click the <strong>File</strong> menu and choose <strong>Save As</strong>. </li>
-<li>Save it as <code>myEcho.bal</code> in your Ballerina <code>samples</code> directory. </li>
+<li>Specify the name as <code>myEcho.bal</code> and specify the location as your Ballerina <code>samples</code> directory. You can type the path directly in the Location box, or use the tree to navigate to the directory. </li>
+<li>Click <strong>Save</strong>.</li>
 </ol>
 <h3 id="run-the-program">Run the program</h3>
 <p>You can run a Ballerina program from inside the Composer using the Run icon, which is to the left of the tool palette:</p>
 <p><img alt="alt text" src="../../images/icons/run.png" title="Run icon" /></p>
-<p>Click the Run icon now and click <strong>Service</strong>. </p>
-<p>If you were creating a Ballerina program with a <code>main()</code> function, you would click <strong>Application</strong> instead.</p>
+<p>Click the Run icon now and click <strong>Service</strong>. If you were creating a Ballerina program with a <code>main()</code> function, you would click <strong>Application</strong> instead.</p>
 <p>Your service is now deployed and running on the Ballerina server. </p>
 <h3 id="send-the-request">Send the request</h3>
-<p>In a new command prompt, use curl to send a request to your program:</p>
+<p>In a new command prompt, use curl to send the following request to your program:</p>
 <pre><code>curl -v http://localhost:9090/myecho -d &quot;Hello World......&quot;
 </code></pre>
 
 <p>The service receives the request, takes the text <code>Hello World......</code> from the incoming message, converts it into a response without the client headers, and sends it back to the command line where the request was sent.</p>
-<p>You have now completed your first Ballerina program! If you run into problems, you can troubleshoot by comparing your code with the Echo sample.  </p>
+<p>You have now completed your first Ballerina program! If you run into problems, you can troubleshoot by comparing your code with the Echo sample.</p>
 <h2 id="next-steps">Next steps</h2>
-<p>Now that you're familiar with running Ballerina in standalone and server mode, using the Composer to build an integration program, and creating a service and resource, you are ready to learn more. </p>
+<p>Now that you're familiar with running Ballerina in standalone and server mode, using the Composer to build a program, and creating a service and resource, you are ready to learn more. </p>
 <ul>
-<li>Read the <a href="../../key-concepts/">Key Concepts</a> page to familiarize yourself with the rest of the main features you need to know about.</li>
+<li>Read the <a href="../../key-concepts/">Key Concepts</a> page to familiarize yourself with the rest of the primary features you need to know about.</li>
+<li>Read about the <a href="../../tools/">Tools</a> that you can use with Ballerina, such as using an IDE instead of the Composer. </li>
 <li>Run through the rest of the <a href="../">Tutorials</a> to get hands-on experience.  </li>
 <li>Browse through the <a href="../../samples/">Samples</a> and use them as templates for your own programs.</li>
 <li>See the <a href="../../lang-ref/lang-overview/">Language Reference</a> for complete information on using the Ballerina language. </li>
