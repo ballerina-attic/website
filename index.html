@@ -69,6 +69,58 @@
             .hideSlide {
                 display: none;
             }
+            .cBallerinaTweets {
+                background-color: rgba(255,255,255,0.8);
+                display: inline-block;
+                /*    height: 200px;*/
+                padding: 10px;
+                position: fixed;
+                right: 0;
+                bottom: -50px;
+                border: 1px solid #c5c5c5;
+                border-radius: 10px 0 0 0;
+                width: 220px;
+                /*                border-top: none;*/
+
+            }
+
+            .cTweetContainerButton {
+                -moz-border-bottom-colors: none;
+                -moz-border-left-colors: none;
+                -moz-border-right-colors: none;
+                -moz-border-top-colors: none;
+                background-color: #ffffff;
+                background-image: url("http://ballerinalang.org/img/down-arrow.svg");
+                background-position: center center;
+                background-repeat: no-repeat;
+                border:1px solid #c5c5c5;
+                border-image: none;
+                border-radius: 5px 5px 0 0;
+
+                display: inline-block;
+                float: right;
+                height: 40px;
+                margin-right: -11px;
+                margin-top: -49px;
+                padding: 0;
+                width: 40px;
+                border-bottom: none;
+                 transition: all 0.2s ease-in-out 0s;
+                 cursor: pointer;
+            }
+            .cTweetContainerButton:hover {
+                border-bottom: none;
+            } 
+
+
+.cBallerinaTweets.cHideTwitter {
+    bottom: -530px;
+     transition: all 0.2s ease-in-out 0s;
+}
+.cBallerinaTweets.cHideTwitter .cTweetContainerButton {
+     background-image: url("http://ballerinalang.org/img/up-arrow.svg") !important;
+}
+            
         </style>
 
     </head>
@@ -89,7 +141,9 @@
                 </div>
                 <div class="col-sm-12 col-md-8">
                     <h2><span>Ballerina</span> is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.</h2>
-                 </div>
+                 
+
+                </div>
                 <div class="col-sm-12 col-md-4 cBallerinaDownload" style="text-align: center;">
                     <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="cBallerinaDownlaodHome" href="downloads">Download</a>
                     <a href="#subscribeUser" class="fancybox cGet-updates">Subscribe for more updates</a>
@@ -843,6 +897,9 @@ function main(string[] args) {
                 </div>
             </div>
         </div>
+    
+    
+        </div>
         <div class="row cBallerinaFooter" id="iBallerinaFooter">
         </div>
         <div class="cBallerinaDownloadForm" id="subscribe">
@@ -872,7 +929,12 @@ function main(string[] args) {
         <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
         <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/fork-w.svg"/>
         <span>Fork Ballerina on Github</span>
-    </a>
+</a>
+        
+<div class="cBallerinaTweets">
+    <a class="cTweetContainerButton"></a>
+    <a class="twitter-timeline" data-width="220" data-height="500" data-theme="light" href="https://twitter.com/ballerinalang"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>    
+</div>        
    
     <script type="text/javascript">
   WebFontConfig = {
@@ -991,6 +1053,10 @@ else window.onload = downloadJSAtOnload;
 
 
         });
+        
+         $('.cTweetContainerButton').click(function() {
+             $(".cBallerinaTweets").toggleClass("cHideTwitter");
+         });
 
 </script>
 </body>
