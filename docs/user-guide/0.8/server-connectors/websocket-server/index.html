@@ -312,6 +312,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                  <li><a class="toctree-l4" href="#defining-a-websocket-service-in-ballerina">Defining a WebSocket service in Ballerina</a></li>
                 
+                 <li><a class="toctree-l4" href="#functions-of-websocket">Functions of WebSocket</a></li>
+                
             
             </ul>
         
@@ -339,6 +341,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <li class="toctree-l1 ">
         <a class="" href="../../lang-ref/workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../specification/transactions/">Transactions</a>
         
     </li>
 
@@ -519,12 +531,14 @@ service helloWorld {
 }
 </code></pre>
 
-<h3 id="functions-for-websocket">Functions for WebSocket</h3>
-<h4 id="wssendtextmessage-string">ws:sendText(message, string)</h4>
+<h2 id="functions-of-websocket">Functions of WebSocket</h2>
+<h3 id="pushing-messages-to-the-same-client">pushing messages to the same client</h3>
+<h4 id="wspustexttext">ws:pusText(text)</h4>
 <p>This function is used if the user needs to send a text message to the same client who sent the WebSocket message.</p>
 <table>
 <thead>
 <tr>
+<th>Parameter</th>
 <th>Parameter Type</th>
 <th>Description</th>
 <th>Expected Values</th>
@@ -532,11 +546,7 @@ service helloWorld {
 </thead>
 <tbody>
 <tr>
-<td>message</td>
-<td>The message received as the resource parameter</td>
-<td>This should not be null. The message should contain all the details needed for sending the text, such as the recipient</td>
-</tr>
-<tr>
+<td>text</td>
 <td>string</td>
 <td>The text message to send</td>
 <td>This can be any string</td>
@@ -544,6 +554,196 @@ service helloWorld {
 </tbody>
 </table>
 <p>For an example, see the simple echo server sample in <code>samples/websocket/echo-server/server/websocketEchoServer.bal</code>.</p>
+<h3 id="pushing-messages-to-all-the-clients-connected-to-a-given-service">Pushing messages to all the clients connected to a given service</h3>
+<h4 id="wsbroadcasttexttext">ws:broadcastText(text)</h4>
+<p>This function push text all the clients who have been connected to the currently this function declared service.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storing-and-grouping-websocket-connections-globally">Storing and grouping WebSocket connections globally</h3>
+<p>In Ballerina you can store the WebSocket connections and use them in other services too.
+There are 2 ways of using this feature.
+- Storing single connection
+- Grouping connections</p>
+<h3 id="storing-single-connection">Storing single connection</h3>
+<h4 id="wsstoreconnectionconnectionname">ws:storeConnection(connectionName)</h4>
+<p>This function is used to store a given connection globally and it can be
+retrieved by any other service in Ballerina to push data from server to 
+client.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>A unique string</td>
+</tr>
+</tbody>
+</table>
+<p><em>note: connection name should be a unique string for a connection. 
+If the same connection name used again, the previous connection will be 
+replaced by the current connection.</em></p>
+<h4 id="wspushtexttoconnectionconnectionname-text">ws:pushTextToConnection(connectionName, text)</h4>
+<p>This function can be used in any service to retrieve a connection which 
+was previously stored by the user and push text to the client.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>A unique string</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremovestoredconnectionconnectionname">ws:removeStoredConnection(connectionName);</h4>
+<p>This function is used to remove the connection from the global connection 
+store.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>Unique string of the connection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grouping-websocket-connections">Grouping WebSocket Connections</h3>
+<h4 id="wsaddconnectiontogroupgroupname">ws:addConnectionToGroup(groupName)</h4>
+<p>This will add the current WebSocket connection to group with the given group name.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group which current connection is added</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wspushtexttogroupgroupname-text">ws:pushTextToGroup(groupName, text)</h4>
+<p>This function can be used globally to access the connection groups defined by any of the services and send text to that
+specific group.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremoveconnectionfromgroupgroupname">ws:removeConnectionFromGroup(groupName)</h4>
+<p>This function removes the current connection from the given group if that connection exists in the given group.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremoveconnectiongroupgroupname">ws:removeConnectionGroup(groupName)</h4>
+<p>This removes the whole connection group globally. So if the connection group is removed it cannot be used again.
+But it does not mean that individual connections are removed globally. Because same connection can be added to one or
+more groups. </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

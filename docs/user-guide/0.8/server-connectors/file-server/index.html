@@ -350,6 +350,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
+        <a class="" href="../../specification/transactions/">Transactions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
         <a class="" href="../../lang-ref/types-variables/">Types and Variables</a>
         
     </li>
@@ -475,7 +485,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre>
 
 <h3 id="step-2-specify-service-parameters">Step 2: Specify service parameters</h3>
-<p>Add a service level annotation named <code>Source</code> and add the key-value pairs to specify the parameters. The following section describes each key that can be used with a file service. An example is provided after the tables.</p>
+<p>Add a service level annotation named <code>file:FileSource</code> and add the key-value pairs to specify the parameters. The following section describes each key that can be used with a file service. An example is provided after the tables.</p>
 <table>
   <tr>
     <th>Key</th>
@@ -548,12 +558,11 @@ name, size, lastModifiedTimestamp</td>
 </table>
 
 <h4 id="example">Example:</h4>
-<pre><code>@Source (
-  protocol = &quot;file&quot;,
-  fileURI = &quot;file:///home/user/orders&quot;,
-  pollingInterval = &quot;20000&quot;,
-  fileSortAttribute = &quot;size&quot;,
-  fileSortAscending = &quot;false&quot;
+<pre><code>@file:FileSource (
+  fileURI : &quot;file:///home/user/orders&quot;,
+  pollingInterval : &quot;20000&quot;,
+  fileSortAttribute : &quot;size&quot;,
+  fileSortAscending : &quot;false&quot;
   )
 service orderProcessService {
 }
@@ -561,12 +570,11 @@ service orderProcessService {
 
 <h3 id="step-3-add-a-resource">Step 3: Add a resource</h3>
 <p>Add a resource under the file service as below:</p>
-<pre><code>@Source (
-    protocol = &quot;file&quot;,
-    fileURI = &quot;file:///home/user/orders&quot;,
-    pollingInterval = &quot;20000&quot;,
-    fileSortAttribute = &quot;size&quot;,
-    fileSortAscending = &quot;false&quot;
+<pre><code>@file:FileSource (
+    fileURI : &quot;file:///home/user/orders&quot;,
+    pollingInterval : &quot;20000&quot;,
+    fileSortAttribute : &quot;size&quot;,
+    fileSortAscending : &quot;false&quot;
     )
 service orderProcessService { 
     resource processOrder (message m) {
@@ -582,12 +590,11 @@ service orderProcessService {
 import ballerina.lang.system;
 import ballerina.net.file;
 
-@Source (
-  protocol = &quot;file&quot;,
-  fileURI = &quot;file:///home/user/orders&quot;,
-  pollingInterval = &quot;20000&quot;,
-  fileSortAttribute = &quot;size&quot;,
-  fileSortAscending = &quot;false&quot;
+@file:FileSource (
+  fileURI : &quot;file:///home/user/orders&quot;,
+  pollingInterval : &quot;20000&quot;,
+  fileSortAttribute : &quot;size&quot;,
+  fileSortAscending : &quot;false&quot;
   )
 service orderProcessService {
     resource processOrder (message m) {
@@ -639,12 +646,11 @@ Here, <code>file:acknowledge(m)</code> is a function that is exclusive for file 
 import ballerina.lang.system;
 import ballerina.net.file;
 
-@Source (
-  protocol = &quot;file&quot;,
-  fileURI = &quot;file:///home/user/orders&quot;,
-  pollingInterval = &quot;20000&quot;,
-  fileSortAttribute = &quot;size&quot;,
-  fileSortAscending = &quot;false&quot;
+@file:FileSource (
+  fileURI : &quot;file:///home/user/orders&quot;,
+  pollingInterval : &quot;20000&quot;,
+  fileSortAttribute : &quot;size&quot;,
+  fileSortAscending : &quot;false&quot;
   )
 service orderProcessService {
     resource processOrder (message m) {
