@@ -211,7 +211,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                  <li><a class="toctree-l4" href="#expressions">Expressions</a></li>
                 
-                 <li><a class="toctree-l4" href="#reserved-names">Reserved names</a></li>
+                 <li><a class="toctree-l4" href="#names">Names</a></li>
                 
             
             </ul>
@@ -345,6 +345,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <li class="toctree-l1 ">
         <a class="" href="../workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../specification/transactions/">Transactions</a>
         
     </li>
 
@@ -492,8 +502,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Action calls <code>(tweet(twitterActor, "hello"))</code></li>
 <li>Complex expressions <code>(foo(a,bar(c,d)))</code></li>
 </ul>
-<h2 id="reserved-names">Reserved names</h2>
-<p>When naming your Ballerina elements (services, resources, actions, etc.), Swagger files, program files, and packages, do not use the following terms for the name, as these terms are reserved in Ballerina:</p>
+<h2 id="names">Names</h2>
+<p>When naming your elements (services, resources, actions, functions, etc.), Ballerina's support for identifier literals allows you to use quotes, foreign characters, and more in your names. If the name has space, be sure to surround the name with vertical bars (|) when declaring and invoking the element. For example:</p>
+<pre><code>int |this is a variable| = 5;
+function |this is a sample function| (){}
+</code></pre>
+
+<p>The following example shows a simple program using Sinhalese characters. Notice there are vertical bars around both the invocation and declaration of the Sinhalese function and string, whereas the <code>main</code> function does not need vertical bars because its name does not include spaces:</p>
+<pre><code>import ballerina.lang.system;
+
+function main (string[] args) {
+    system:println(|සිංහල වාක්යක් දෙන්න|());
+}
+
+function |සිංහල වාක්යක් දෙන්න|() (string) {
+    string |සිංහල වාක්යක්| = &quot;සිංහල වාක්යක්&quot;;
+    return |සිංහල වාක්යක්|;
+}
+</code></pre>
+
+<p>Here's another example with names in Greek. Notice that there are no vertical bars around the names, because they don't have spaces:</p>
+<pre><code>import ballerina.lang.system;
+
+function main (string[] args) {
+    system:println(Λάβετετοόνομα());
+}
+
+function Λάβετετοόνομα() (string) {
+    return &quot;sample&quot;;
+}
+</code></pre>
+
+<p>For more detailed information, see "IdentifierLiteral" in the <a href="https://github.com/ballerinalang/ballerina/blob/master/docs/grammar/Ballerina.g4">Ballerina grammar definition</a>.</p>
+<h3 id="reserved-names">Reserved names</h3>
+<p>When naming Ballerina elements, Swagger files, program files, and packages, do <strong>not</strong> use the following terms for the name, as these terms are reserved in Ballerina:</p>
 <ul>
 <li>action</li>
 <li>all</li>

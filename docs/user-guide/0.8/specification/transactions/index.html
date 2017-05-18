@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
   <meta name="author" content="WSO2, Inc.">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Working with Connectors - Ballerina Documentation</title>
+  <title>Transactions - Ballerina Documentation</title>
 <!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -39,9 +39,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Working with Connectors";
-    var mkdocs_page_input_path = "lang-ref/connectors.md";
-    var mkdocs_page_url = "/lang-ref/connectors/";
+    var mkdocs_page_name = "Transactions";
+    var mkdocs_page_input_path = "specification/transactions.md";
+    var mkdocs_page_url = "/specification/transactions/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -198,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../lang-overview/">Overview</a>
+        <a class="" href="../../lang-ref/lang-overview/">Overview</a>
         
     </li>
 
@@ -208,7 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../packaging/">Packaging and Running Programs</a>
+        <a class="" href="../../lang-ref/packaging/">Packaging and Running Programs</a>
         
     </li>
 
@@ -218,7 +218,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../services/">Services</a>
+        <a class="" href="../../lang-ref/services/">Services</a>
         
     </li>
 
@@ -228,7 +228,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../resources/">Resources</a>
+        <a class="" href="../../lang-ref/resources/">Resources</a>
         
     </li>
 
@@ -238,7 +238,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../functions/">Functions</a>
+        <a class="" href="../../lang-ref/functions/">Functions</a>
         
     </li>
 
@@ -252,24 +252,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             
 
 
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Working with Connectors</a>
-        
-            <ul>
-                <li><a href="../..">Home</a></li>
-            
-                <li class="toctree-l3"><a href="#working-with-connectors">Working with Connectors</a></li>
-                
-                 <li><a class="toctree-l4" href="#using-a-connector">Using a connector</a></li>
-                
-                 <li><a class="toctree-l4" href="#defining-a-new-connector">Defining a new connector</a></li>
-                
-                 <li><a class="toctree-l4" href="#composing-connectors">Composing connectors</a></li>
-                
-                 <li><a class="toctree-l4" href="#use-of-connector-scoped-variables">Use of connector-scoped variables</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/connectors/">Working with Connectors</a>
         
     </li>
 
@@ -334,7 +318,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../actions/">Actions</a>
+        <a class="" href="../../lang-ref/actions/">Actions</a>
         
     </li>
 
@@ -344,7 +328,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../workers/">Workers</a>
+        <a class="" href="../../lang-ref/workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Transactions</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#transactions">Transactions</a></li>
+                
+                 <li><a class="toctree-l4" href="#local-transactions">Local Transactions</a></li>
+                
+                 <li><a class="toctree-l4" href="#distributed-transactions-globalxa-transactions">Distributed Transactions: (Global/XA Transactions)</a></li>
+                
+                 <li><a class="toctree-l4" href="#example">Example</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -354,7 +362,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../../specification/transactions/">Transactions</a>
+        <a class="" href="../../lang-ref/types-variables/">Types and Variables</a>
         
     </li>
 
@@ -364,7 +372,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../types-variables/">Types and Variables</a>
+        <a class="" href="../../lang-ref/statements/">Statements</a>
         
     </li>
 
@@ -374,17 +382,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../statements/">Statements</a>
-        
-    </li>
-
-
-        
-            
-
-
-    <li class="toctree-l1 ">
-        <a class="" href="../exceptions/">Exception Handling</a>
+        <a class="" href="../../lang-ref/exceptions/">Exception Handling</a>
         
     </li>
 
@@ -460,15 +458,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li>Language Reference &raquo;</li>
         
       
-        
-          <li>Connectors &raquo;</li>
-        
-      
     
-    <li>Working with Connectors</li>
+    <li>Transactions</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/lang-ref/connectors.md"
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/specification/transactions.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -478,46 +472,123 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div role="main">
             <div class="section">
               
-                <h1 id="working-with-connectors">Working with Connectors</h1>
-<p>A connector represents a participant in the integration and is used to interact with an external system or a service you've defined in Ballerina. Ballerina includes a set of connectors under <code>org.ballerinalang.connectors.*</code> that allow you to connect to Twitter, Facebook, and more. It also includes built-in connectors for network protocols under <code>ballerina.net.*</code> that handle HTTP(S) 1 &amp; 2, WebSockets, JMS, and FTP/FTPS/SFTP.</p>
-<p>Each connector defines a set of <a href="../actions/">actions</a> that can be used when interacting with the external system or service. For example, the Twitter connector includes actions such as <code>tweet</code>, <code>retweet</code>, and <code>destroyStatus</code>, which allow you to perform those actions in Twitter from your Ballerina program.</p>
-<h2 id="using-a-connector">Using a connector</h2>
-<p>To use a connector, import it using the Import box in the upper left corner of the canvas in Design view (or use an import statement in the Source view). The connector will then be listed in the tool palette in Ballerina Composer. Scroll down to the connector you want to use, and then drag the connector to the canvas if you want to create an endpoint connection to that service, or drag one of the connector's actions to the place in your integration flow where you want to invoke that action. </p>
-<p>For details on using the built-in connectors, see the following topics:</p>
+                <h1 id="transactions">Transactions</h1>
+<p>Transaction processing is information processing that is divided into individual, indivisible operations called transactions. Each transaction must succeed or fail as a complete unit; it can never be only partially complete. </p>
+<p>A transaction is a series of data manipulation statements that must either fully complete or fully fail, leaving the system in a consistent state. It symbolizes a unit of work performed and treated in a coherent and reliable way independent of other transactions. There are two types of transactions; local and distributed.</p>
+<h2 id="local-transactions">Local Transactions</h2>
+<p>Local transactions are transactions associated with a particular datasource (this means they are resource-specific). The most common example is a transaction associated with a JDBC connection.</p>
+<h2 id="distributed-transactions-globalxa-transactions">Distributed Transactions: (Global/XA Transactions)</h2>
+<p>A distributed transaction is a transaction that accesses and updates data on two or more networked resources, and therefore must be coordinated among those resources. This coordination is the function of the transaction manager. The transaction manager is responsible for making the final decision either to commit or rollback any distributed transaction and it uses the two phase commit protocol for that.</p>
 <ul>
-<li><a href="../../server-connectors/file-server/">File Server Connector</a></li>
-<li><a href="../../server-connectors/http2-server/">HTTP/2 Server Connector</a></li>
-<li><a href="../../server-connectors/jms-client/">JMS Client Connector</a></li>
-<li><a href="../../server-connectors/jms-server/">JMS Server Connector</a></li>
-<li><a href="../../server-connectors/websocket-server/">WebSocket Server Connector</a></li>
+<li>First phase: The transaction manager polls all of the resource managers involved in the distributed transaction to see if each one is ready to commit. If a resource manager cannot commit, it responds negatively and rolls back its particular part of the transaction so that data is not altered.</li>
+<li>Second phase: The transaction manager determines if any of the resource managers have responded negatively, and, if so, rolls back the whole transaction. If there are no negative responses, the translation manager commits the whole transaction, and returns the results to the application.</li>
 </ul>
-<p>To explore other connectors, go to https://github.com/ballerinalang/connectors. </p>
-<h2 id="defining-a-new-connector">Defining a new connector</h2>
-<p>You can define additional connectors within your Ballerina programs. To define a new connector, drag the Connector Definition icon <img alt="alt-text" src="../../images/icons/connector.png" title="Connector Definition icon" /> to the canvas. You then drag the Connector Action icon <img alt="alt-text" src="../../images/icons/action.png" title="Connector Action icon" /> to the canvas and define the actions in this connector. </p>
-<p>A connector is defined as follows:</p>
-<pre><code>[ConnectorAnnotations]
-connector ConnectorName ([ConnectorParamAnnotations]TypeName VariableName[(, TypeName VariableName)*]) {
-    ConnectorDeclaration;*
-    VariableDeclaration;*
-    ActionDefinition;+
+<p>JTA specifies standard Java interfaces between the transaction manager and the other components in a distributed transaction: the application, the application server, and the resource managers. <a href="https://www.atomikos.com/">Atomikos</a> is used as open source JTA implementation.</p>
+<p>A <code>transaction</code> is defined as follows:</p>
+<pre><code>transaction { 
+
+   sql:ClientConnector.update(testdb1,...) 
+
+
+   sql:ClientConnector.update(testdb2,...) 
+
+    If ( ...) {
+        abort;
+    }
+
+
+   ....
+   //commit all local &amp;  XA transactions and close connections
+} aborted { 
+   //Logic which needs to execute on transaction failure
+   ...
+
+   ...
+}
+
+</code></pre>
+
+<p>The <code>aborted</code> section is executed after the transaction is rolled back due to any of the following conditions:
+- an exception occurred within the transaction block
+- abort statement
+- throw statement</p>
+<h3 id="nested-transactions">Nested Transactions</h3>
+<p>A <code>nested transaction</code> is defined as follows:</p>
+<pre><code>transaction { 
+
+   ....
+
+   ....
+
+    transaction {
+
+       ....
+
+       ....
+
+    } 
+    aborted { 
+       ...
+
+       ...
+    }
+   ....
+
+   ....
+
+
+} 
+aborted { 
+   //Logic which needs to execute on transaction failure
+   ...
+
+   ...
 }
 </code></pre>
 
-<p>The ConnectorAnnotations are designed to help the editor provide a better user experience for connector users.</p>
-<p>Connectors are instantiated (by means of the <code>new</code> keyword) as follows:</p>
-<pre><code>[ConnectorPackageName:]ConnectorName ConnectorInstanceName = new [ConnectorPackageName:]ConnectorName (ValueList[, map]);
+<p>Ballerina allows you to have transactions within a transaction.  All internal transactions are committed or aborted at the end of the outer most transaction block. If any of the transactions fail, the aborted block gets executed and all the transactions are rollbacked. The transaction is successful if all the nested transactions are successfully committed.</p>
+<h2 id="example">Example</h2>
+<p>The following is an example of a local transaction where the transaction gets aborted if any of the <code>update</code> actions fail.</p>
+<pre><code>    map propertiesMap = {&quot;jdbcUrl&quot;:&quot;jdbc:hsqldb:file:./target/tempdb/TEST_SQL_CONNECTOR&quot;,
+                         &quot;username&quot;:&quot;SA&quot;, &quot;password&quot;:&quot;&quot;, &quot;maximumPoolSize&quot;:1};
+    sql:ClientConnector testDB = create sql:ClientConnector(propertiesMap);
+    sql:Parameter[] parameters = [];
+    transaction {
+    sql:ClientConnector.update(testDB, &quot;Insert into Customers
+                (firstName,lastName,registrationID,creditLimit,country) values ('James', 'Clerk', 200, 5000.75, 'USA')&quot;,
+                               parameters);
+    sql:ClientConnector.update(testDB, &quot;Insert into Customers
+                (firstName,lastName,registrationID,creditLimit,country) values ('James', 'Clerk', 200, 5000.75, 'USA')&quot;,
+                               parameters);
+    } aborted {
+        system.println(&quot;The transaction is aborted&quot;);
+    }
+    sql:ClientConnector.close(testDB);
+
 </code></pre>
 
-<p>The newly created instance has the <code>ConnectorInstanceName</code> assigned.</p>
-<p>Once a connector of name <code>ConnectorInstanceName</code> has been instantiated, actions can be invoked against that connector as follows:</p>
-<pre><code>[ConnectorPackageName:]ConnectorName.ActionName (ConnectorInstanceName, ValueList);
-</code></pre>
+<p>The following is an example of the <code>abort</code> statement in a transaction.</p>
+<pre><code>    map propertiesMap = {&quot;jdbcUrl&quot;:&quot;jdbc:hsqldb:file:./target/tempdb/TEST_SQL_CONNECTOR&quot;,
+                         &quot;username&quot;:&quot;SA&quot;, &quot;password&quot;:&quot;&quot;, &quot;maximumPoolSize&quot;:1};
+    sql:ClientConnector testDB = create sql:ClientConnector(propertiesMap);
+    sql:Parameter[] parameters = [];
+    transaction {
+        int insertCount = sql:ClientConnector.update(testDB, &quot;Insert into Customers
+                (firstName,lastName,registrationID,creditLimit,country) values ('James', 'Clerk', 220, 5000.75, 'USA')&quot;,
+                                                     parameters);
 
-<h2 id="composing-connectors">Composing connectors</h2>
-<p>It is very easy to use one connector to write another connector in Ballerina. For example, the HTTP Basic Auth connector embeds an instance of the HTTP Connector, adds the Basic Auth header, and delegates all work to the underlying connector. This is an excellent approach for writing new connectors, but note that the delegation requires a second function call, which affects performance slightly.</p>
-<h2 id="use-of-connector-scoped-variables">Use of connector-scoped variables</h2>
-<p>In many cases, connectors must keep some state associated with the connection for as long as the connection is valid. Connector-scoped variables are available for this purpose. The “constructor arguments” given when creating a new connector are also with that same scope.</p>
-<p>To define connector-scoped variables, click the Variables button in the upper-left corner of the connector on the canvas. To define constructor arguments, click the connector's Arguments button in the upper-right corner of the connector. </p>
+        insertCount = sql:ClientConnector.update(testDB, &quot;Insert into Customers
+                (firstName,lastName,registrationID,creditLimit,country) values ('James', 'Clerk', 220, 5000.75, 'USA')&quot;,
+                                             parameters);
+        int i = 0;
+        if (i == 0) {
+            abort;//transaction can be aborted based on a condition
+        }
+    } aborted {
+        system.println(&quot;The transaction is aborted&quot;);
+    }
+    sql:ClientConnector.close(testDB);
+</code></pre>
               
             </div>
           </div>
@@ -525,10 +596,10 @@ connector ConnectorName ([ConnectorParamAnnotations]TypeName VariableName[(, Typ
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../server-connectors/file-server/" class="btn btn-neutral float-right" title="File Server Connector">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../lang-ref/types-variables/" class="btn btn-neutral float-right" title="Types and Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../functions/" class="btn btn-neutral" title="Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../lang-ref/workers/" class="btn btn-neutral" title="Workers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -558,10 +629,10 @@ connector ConnectorName ([ConnectorParamAnnotations]TypeName VariableName[(, Typ
           <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../functions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../lang-ref/workers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../server-connectors/file-server/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../lang-ref/types-variables/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
