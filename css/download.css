@@ -55,9 +55,10 @@ ul.cDownloadlinks li a {
 .cDownlodInfo ul {
     padding: 0;
     margin: 0 0 2em 0;
+    padding-left: 1em;
 }
 .cDownlodInfo ul li {
-    list-style: none;
+/*    list-style: none;*/
     padding-left: 1em;
     margin-bottom: 0.5em;
     background-image: url("../img/list-style.svg");
