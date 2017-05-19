@@ -338,7 +338,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../../specification/transactions/">Transactions</a>
+        <a class="" href="../transactions/">Transactions</a>
         
     </li>
 
@@ -377,11 +377,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                  <li><a class="toctree-l4" href="#behavior">Behavior</a></li>
                 
-                 <li><a class="toctree-l4" href="#the-exception-type">The exception type</a></li>
+            
+                <li class="toctree-l3"><a href="#the-try-catch-statement">The try-catch Statement</a></li>
                 
-                 <li><a class="toctree-l4" href="#the-try-catch-statement">The try-catch statement</a></li>
-                
-                 <li><a class="toctree-l4" href="#the-throw-statement">The throw statement</a></li>
+            
+                <li class="toctree-l3"><a href="#the-throw-statement">The throw Statement</a></li>
                 
             
             </ul>
@@ -475,38 +475,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="section">
               
                 <h1 id="exception-handling">Exception Handling</h1>
-<p>Ballerina supports throwing and catching exceptions using a simple exception-handling model. This is supported by the <code>exception</code> type and the constructs <code>try-catch</code> and <code>throw</code>.</p>
+<p>In any programming language, there are three ways to respond to an anomalous situation:
+- Abort the current execution scope and inform the upstream caller about the problem that occurred.
+- Attempt to correct the problem by doing something different.
+- Ignore it. </p>
+<p>Java uses exceptions to handle all these cases. Go uses a combination of returnable first class errors and panic/recover (similar to exceptions) for this. C uses just out of range normal values to indicate error statuses.</p>
+<p>The Ballerina approach is to introduce a first class error concept that can both be returned as yet another return value (and thereby processed by the caller as it deems fit) or be thrown. Thrown errors are just like exceptions and cause the call stack to be unwound until a matching catcher is found.</p>
 <h2 id="behavior">Behavior</h2>
-<p>An exception can be thrown by a native Ballerina function or any Ballerina construct using the <code>throw</code> statement. When thrown, the runtime searches for the nearest enclosing block containing a <code>try-catch</code> statement. If none is found in the current stack frame, execution of the function (or resource or action or type mapper) stops, the frame is popped, and the search continues until a <code>try-catch</code> statement is found. If none is found at the outermost level of the worker, that worker thread dies in an abnormal state.</p>
-<p>If the exception goes through the default worker of a <code>main</code> function without being caught, the entire program will stop executing. If the exception goes through a <code>resource</code> without being caught, that particular invocation of the service and resource will fail, and the server connector will choose the appropriate behavior in that situation.</p>
-<h2 id="the-exception-type">The <code>exception</code> type</h2>
-<p>Exceptions are instances of a built-in, opaque reference type named <code>exception</code>.</p>
-<p>A collection of library functions can be used to set and get properties of exceptions, including stack traces. Note that unlike other languages, Ballerina does not allow developers to define subtypes of the exception type, and custom exceptions must be thrown by using custom category strings. As such, exception category strings starting with "Ballerina:" are reserved for system use only.</p>
-<p>Variables of type <code>exception</code> are defined and initialized to a new exception as follows:</p>
-<pre><code>exception VariableName = {};
+<p>Ballerina errors are Ballerina structs, which are structurally equivalent to the ballerina.lang.errors:Error struct. The following is an error struct.</p>
+<pre><code>package ballerina.lang.errors;
+
+struct Error {
+    string msg;
+    Error cause;
+}
 </code></pre>
 
-<p>Library functions for accessing information from this type are in the package <code>ballerina.lang.exceptions</code>. These functions can be used to set the category of the exception, the descriptive messsage, and any additional properties.</p>
-<h2 id="the-try-catch-statement">The <code>try-catch</code> statement</h2>
+<p>An error may be thrown by a native Ballerina function or any Ballerina construct using the <code>throw</code> statement. When thrown, the runtime searches for the nearest enclosing block containing a <code>try-catch</code> statement. If none is found in the current stack frame then execution of the function (or resource or action) stops and the frame is popped and the search continues until a <code>try-catch</code> statement is found. If none is found at the outermost level of the worker, then that worker thread dies in an abnormal state.</p>
+<p>If the exception goes through the default worker of a <code>main</code> function without being caught then the entire program will stop executing. If the exception goes through a <code>resource</code> without being caught then that particular invocation of the service &amp; resource will fail and the server connector will choose the appropriate behavior in that situation.</p>
+<h1 id="the-try-catch-statement">The <code>try-catch</code> Statement</h1>
 <p>In Design View in the Composer, you can add a <code>try-catch</code> statement to your sequence diagram by dragging the following icon from the tool palette to the canvas:</p>
 <p><img alt="alt text" src="../../images/icons/try-catch.png" title="Try-Catch icon" /></p>
 <p>The syntax of a <code>try-catch</code> is as follows:</p>
 <pre><code>try {
     Statement;+
-} catch (exception e) {
+} catch (ErrorTypeName e) {
     Statement;+
+} catch (errors:Error e) {
+    Statement;+
+} finally {
+
 }
 </code></pre>
 
-<p>If any exception occurs while execution, the first block of statements and then the exception will be handled by the block after the <code>catch</code>.</p>
-<h2 id="the-throw-statement">The <code>throw</code> statement</h2>
+<p>If any exception occurs while executing the first block of statements, the exception is handled by the block after the <code>catch</code>.</p>
+<h1 id="the-throw-statement">The <code>throw</code> Statement</h1>
 <p>You can add a <code>throw</code> statement to your diagram by dragging the folloiwng icon to the canvas:</p>
 <p><img alt="alt text" src="../../images/icons/throw.png" title="Throw icon" /></p>
 <p>The syntax of a <code>throw</code> statement is as follows:</p>
-<pre><code>throw ExceptionVariableName;
+<pre><code>throw ErrorVariableName;
 </code></pre>
 
-<p>The <code>throw</code> statement is used to throw an exception from the current location. An execution stack trace pointing to the current location will be automatically inserted into the exception before the runtime starts the exception-handling process.</p>
+<p>The <code>throw</code> statement is used to throw an exception from the current location. An execution stack trace pointing to the current location will be automatically inserted into the exception before the runtime starts the exception handling process.</p>
+<blockquote>
+<p>NOTE: There will be more capabilities brought to exceptions in future.</p>
+</blockquote>
               
             </div>
           </div>
