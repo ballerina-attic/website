@@ -30,6 +30,7 @@ pages:
         - WebSocket Server Connector: 'server-connectors/websocket-server.md'    
     - Actions: 'lang-ref/actions.md'
     - Workers: 'lang-ref/workers.md'
+    - Transactions: 'lang-ref/transactions.md'
     - Types and Variables: 'lang-ref/types-variables.md'
     - Statements: 'lang-ref/statements.md'
     - Exception Handling: 'lang-ref/exceptions.md'

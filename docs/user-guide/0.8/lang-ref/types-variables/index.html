@@ -338,7 +338,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     <li class="toctree-l1 ">
-        <a class="" href="../../specification/transactions/">Transactions</a>
+        <a class="" href="../transactions/">Transactions</a>
         
     </li>
 
@@ -617,22 +617,41 @@ xmldocument&lt;{SchemaNamespaceName}DocumentElementTypeOrElementName&gt; Variabl
 </blockquote>
 <p>Library functions for manipulating XML documents and elements are in the package <code>ballerina.lang.xmls</code>.</p>
 <h3 id="type-json">Type: <code>json</code></h3>
-<p>A variable of type <code>json</code> can hold any JSON document. Ballerina also understands JSON Schema and allows you to declare that a JSON document must conform to a particular schema.</p>
-<p>JSON variables are declared in either of the following ways:</p>
+<p>JSON is a textual format for representing a collection of values: a simple value (string, number, “true”, “false”, “null”), an array of values or an object. Ballerina also understands the JSON Schema and allows one to declare that a JSON document must conform to a particular schema.</p>
+<p>Ballerina has a variable type named “json” that can represent any JSON value. Thus it is a built-in union type in Ballerina whose value can be any one of a string, a float, a boolean, an array of any or a map of any. We provide utility functions to read a JSON document to create a JSON typed value. The lexical representation of a value of that type is JSON, thus simply printing a JSON typed variable results in a JSON string.</p>
+<p>JSON variables are declared in the following way:</p>
 <pre><code>json VariableName;
-json&lt;SchemaName&gt; VariableName;
 </code></pre>
 
-<p>The first approach is a variable that can hold any JSON document. The second approach is a variable whose value is a document that is of the indicated JSON Schema.</p>
-<p>Literal JSON values can be assigned to <code>json</code> typed variables as follows:</p>
-<pre><code>json VariableName = `{&quot;PropertyName&quot; : &quot;Value&quot;, &quot;PropertyName&quot;: &quot;Value&quot;, ...}`;
-</code></pre>
-
-<p>Within the literal JSON expression (enclosed within back quote characters), other in-scope variables can be referred to using the syntax <code>${VariableName}</code>, which will be replaced by the value of the variable.</p>
-<p>Library functions for manipulating XML documents and elements are in the package <code>ballerina.lang.jsons</code>.</p>
+<p>This is a variable that may hold any JSON document.</p>
+<p>Ballerina will not always perform runtime schema validation as that will inhibit performance - instead a library function will allow that to be done on demand. For better performance a Ballerina implementation is expected to stream the contents of JSON documents and only load into memory what is needed based on how the document is used in the program.</p>
 <blockquote>
-<p>NOTE: We are considering a deeper marriage of JSON types and structs. This is because a JSON document with its properties can be viewed as being analogous to a struct with fields. Some of the deeper integration we are considering is the ability to use dot notation (similar to the syntax for accessing fields of a struct) to navigate through a JSON document, instead of the current approach of using a library function.</p>
+<p>NOTE: The Ballerina runtime implementation in version 0.8 does not currently support the scheme constraining mechanism explained above.</p>
 </blockquote>
+<p>Literal JSON values can be assigned to <code>json</code> typed variables as follows:</p>
+<pre><code>json VariableName = {&quot;PropertyName&quot; : &quot;Value&quot;, &quot;PropertyName&quot;: &quot;Value&quot;, ...};
+</code></pre>
+
+<p>Within the literal JSON expression, other in-scope variables can be referred to use the syntax <code>VariableName</code> and that is replaced by the value of the variable.</p>
+<blockquote>
+<p>NOTE: We are considering allowing the value of a property to be an expression.</p>
+</blockquote>
+<p>A field of any of these three types can be accessed by using “.” or using array indexing:</p>
+<pre><code>struct address {
+  string city;
+  string country;
+}
+
+address a1 = { city : “Colombo”, “country” : “Sri Lanka” };
+json j = { city : “Colombo”, “country” : “Sri Lanka” };
+map m = { city : “Colombo”, “country” : “Sri Lanka” };
+
+system:println (a1.city, a1[“country”]);
+system:println (j.city, j[“country”]);
+system:println (m.city, m[“country”]);
+</code></pre>
+
+<p>If the accessed field does not exist, in the case of a struct there will be a compile-time error, while the other cases will result in a null value being returned.</p>
 <h3 id="type-datatable">Type: <code>datatable</code></h3>
 <p>The <code>datatable</code> type is used to hold tabular data, such as those returned from an SQL database queries, and provides cursor-based access to the data. In the current release, values of this type can only be created as the return value of certain actions of the SQL data connector (for details, see the <code>ballerina.data.sql</code> package).</p>
 <p>Navigating a <code>datatable</code> requires you to use the library functions in the package <code>ballerina.lang.datatables</code>. More information is available in the documentation for that package.</p>
@@ -696,7 +715,7 @@ t2 = (Type2) t1;
         <a href="../statements/" class="btn btn-neutral float-right" title="Statements">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../specification/transactions/" class="btn btn-neutral" title="Transactions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../transactions/" class="btn btn-neutral" title="Transactions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -726,7 +745,7 @@ t2 = (Type2) t1;
           <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../specification/transactions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../transactions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../statements/" style="color: #fcfcfc">Next &raquo;</a></span>
