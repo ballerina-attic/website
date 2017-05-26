@@ -165,7 +165,7 @@
                             <div class="">
                                 <h3>helloWorld.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode1">
                                     <textarea id="txtSample1">
 import ballerina.lang.system;
@@ -177,9 +177,9 @@ function main(string[] args) {
                                     <input type="text" id="arguments1" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram1">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/helloWorld.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/hello-world.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow1 cResults">
@@ -190,17 +190,17 @@ function main(string[] args) {
                             <div class="">
                                 <h3>echoService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode2">
                                     <textarea id="txtSample2" >
 //This sample will echo the request message
 
 import ballerina.net.http;
 
-@http:BasePath ("/echo")
+@http:BasePath {value:"/echo"}
 service echo {
-
-    @http:POST
+    
+    @http:POST{}
     resource echo (message m) {
         http:convertToResponse(m);
         reply m;
@@ -210,9 +210,9 @@ service echo {
                                     <input type="text" id="arguments2" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram2">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/echoService.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/echo-service.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow2 cResults">
@@ -223,20 +223,19 @@ service echo {
                             <div class="">
                                 <h3>passthroughService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode3">
                                     <textarea id="txtSample3" >
 //This sample will passthrough the message to the backend and response to the client
 //This publish the 'passthroughService' and 'nyseStockQuoteService' services
 //Here the 'nyseStockQuoteService' will act as a backend.
 
-import ballerina.lang.messages;
 import ballerina.net.http;
 
-@http:BasePath ("/passthrough")
+@http:BasePath {value:"/passthrough"}
 service passthrough {
 
-    @http:GET
+    @http:GET{}
     resource passthrough (message m) {
         http:ClientConnector nyseEP = create http:ClientConnector("http://localhost:9090");
         message response = http:ClientConnector.get(nyseEP, "/nyseStock", m);
@@ -244,24 +243,26 @@ service passthrough {
     }
 }
 
-@http:BasePath("/nyseStock")
+import ballerina.lang.messages;
+import ballerina.net.http;
+
+@http:BasePath {value:"/nyseStock"}
 service nyseStockQuote {
 
-    @http:GET
+    @http:GET{}
     resource stocks (message m) {
-        json payload = `{"exchange":"nyse", "name":"IBM", "value":"127.50"}`;
+        json payload = {"exchange":"nyse", "name":"IBM", "value":"127.50"};
         message response = {};
         messages:setJsonPayload(response, payload);
         reply response;
     }
-}
-                                    </textarea>
+}                               </textarea>
                                     <input type="text" id="arguments3" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram3">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/passthroughService.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/passthrough.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow3 cResults">
@@ -272,92 +273,85 @@ service nyseStockQuote {
                             <div class="">
                                 <h3>routingServices.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode4">
                                     <textarea id="txtSample4" >
 //This sample has two services which will route the message to two different backend. The first service will route based on the message content and the second one will route based on the header value.
 
 import ballerina.net.http;
-import ballerina.lang.jsonutils;
+import ballerina.lang.jsons;
 import ballerina.lang.messages;
 
-@http:BasePath ("/cbr")
+@http:BasePath {value:"/cbr"}
 service contentBasedRouting {
-
-    @http:POST
+    
+    @http:POST{}
     resource cbrResource (message m) {
-
-        http:ClientConnector nyseEP = create http:ClientConnector("http://localhost:9090/nyseStocks");
         http:ClientConnector nasdaqEP = create http:ClientConnector("http://localhost:9090/nasdaqStocks");
-
+        http:ClientConnector nyseEP = create http:ClientConnector("http://localhost:9090/nyseStocks");
         string nyseString = "nyse";
-
         json jsonMsg = messages:getJsonPayload(m);
-        string nameString = jsonutils:getString(jsonMsg, "$.name");
-
+        string nameString = jsons:getString(jsonMsg, "$.name");
         message response = {};
-
         if (nameString == nyseString) {
             response = http:ClientConnector.post(nyseEP, "/", m);
-        } else {
+        }
+        else {
             response = http:ClientConnector.post(nasdaqEP, "/", m);
         }
-
         reply response;
     }
 }
 
-@http:BasePath ("/hbr")
+import ballerina.net.http;
+import ballerina.lang.messages;
+
+@http:BasePath {value:"/hbr"}
 service headerBasedRouting {
-
-    @http:GET
+    
+    @http:GET{}
     resource cbrResource (message m) {
-
-        http:ClientConnector nyseEP = create http:ClientConnector("http://localhost:9090/nyseStocks");
         http:ClientConnector nasdaqEP = create http:ClientConnector("http://localhost:9090/nasdaqStocks");
-
+        http:ClientConnector nyseEP = create http:ClientConnector("http://localhost:9090/nyseStocks");
         string nyseString = "nyse";
-
         string nameString = messages:getHeader(m, "name");
-
         message response = {};
-
         if (nameString == nyseString) {
             response = http:ClientConnector.post(nyseEP, "/", m);
-        } else {
+        }
+        else {
             response = http:ClientConnector.post(nasdaqEP, "/", m);
         }
-
         reply response;
     }
 }
 
-@http:BasePath("/nyseStocks")
+import ballerina.lang.messages;
+import ballerina.net.http;
+
+@http:BasePath {value:"/nyseStocks"}
 service nyseStockQuote {
-
-    @http:POST
+    
+    @http:POST{}
     resource stocks (message m) {
-
         message response = {};
-
-        json payload = `{"exchange":"nyse", "name":"IBM", "value":"127.50"}`;
+        json payload = {"exchange":"nyse", "name":"IBM", "value":"127.50"};
         messages:setJsonPayload(response, payload);
-
         reply response;
     }
 }
 
-@http:BasePath("/nasdaqStocks")
+import ballerina.lang.messages;
+import ballerina.net.http;
+
+@http:BasePath {value:"/nasdaqStocks"}
 service nasdaqStocksQuote {
-
-    @http:POST
+    
+    @http:POST{}
     resource stocks (message m) {
-
         message response = {};
-
-        json payload = `{"exchange":"nasdaq", "name":"IBM", "value":"127.50"}`;
+        json payload = {"exchange":"nasdaq", "name":"IBM", "value":"127.50"};
         messages:setJsonPayload(response, payload);
-
         reply response;
     }
 }
@@ -365,9 +359,9 @@ service nasdaqStocksQuote {
                                     <input type="text" id="arguments4" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram4">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/routingServices.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/routing-services.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow4 cResults">
@@ -378,155 +372,151 @@ service nasdaqStocksQuote {
                             <div class="">
                                 <h3>ecommerceService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode5">
                                     <textarea id="txtSample5">
-import ballerina.lang.messages;
 import ballerina.net.http;
-import ballerina.lang.system;
-import ballerina.lang.strings;
-import ballerina.lang.jsonutils;
 
-@http:BasePath ("/ecommerceservice")
+@http:BasePath {value:"/ecommerceservice"}
 service Ecommerce {
-
     http:ClientConnector productsService = create http:ClientConnector("http://localhost:9090");
-
-
-    @http:GET
-    @http:Path ("/products/{productId}")
-    resource productsInfo (message m, @http:PathParam("productId") string prodId)  {
+    
+    @http:GET{}
+    @http:Path {value:"/products/{productId}"}
+    resource productsInfo(message m, 
+    @http:PathParam{value:"productId"} string prodId) {
         string reqPath = "/productsservice/" + prodId;
         message response = http:ClientConnector.get(productsService, reqPath, m);
         reply response;
     }
-
-    @http:POST
-    @http:Path ("/products")
+    
+    @http:POST{}
+    @http:Path {value:"/products"}
     resource productMgt (message m) {
         message response = http:ClientConnector.post(productsService, "/productsservice", m);
         reply response;
     }
-
-
-    @http:GET
-    @http:Path ("/orders")
+    
+    @http:GET{}
+    @http:Path {value:"/orders"}
     resource ordersInfo (message m) {
         http:ClientConnector productsService = create http:ClientConnector("http://localhost:9090");
         message response = http:ClientConnector.get(productsService, "/orderservice", m);
         reply response;
     }
-
-    @http:POST
-    @http:Path ("/orders")
+    
+    @http:POST{}
+    @http:Path {value:"/orders"}
     resource ordersMgt (message m) {
         http:ClientConnector productsService = create http:ClientConnector("http://localhost:9090");
         message response = http:ClientConnector.post(productsService, "/orderservice", m);
         reply response;
     }
-
-    @http:GET
-    @http:Path ("/customers")
+    
+    @http:GET{}
+    @http:Path {value:"/customers"}
     resource customersInfo (message m) {
         http:ClientConnector productsService = create http:ClientConnector("http://localhost:9090");
         message response = http:ClientConnector.get(productsService, "/customerservice", m);
         reply response;
     }
-
-    @http:POST
-    @http:Path ("/customers")
+    
+    @http:POST{}
+    @http:Path {value:"/customers"}
     resource customerMgt (message m) {
         http:ClientConnector productsService = create http:ClientConnector("http://localhost:9090");
         message response = http:ClientConnector.post(productsService, "/customerservice", m);
         reply response;
-    }
+    }   
 }
 
-@http:BasePath("/productsservice")
-service productmgt {
+import ballerina.lang.messages;
+import ballerina.lang.system;
+import ballerina.lang.jsons;
+import ballerina.net.http;
 
+@http:BasePath{value:"/productsservice"}
+service productmgt {
     map productsMap = populateSampleProducts();
 
-    @http:GET
-    @http:Path ("/{id}")
-    resource product (message m, @PathParam("id") string prodId) {
-        json payload = productsMap[prodId];
-        // ToDo : Fix for non-existing products
-
+    @http:GET{}
+    @http:Path {value:"/{id}"}
+    resource product(message m,
+    @http:PathParam{value:"id"} string prodId) {
+        json payload = (json) productsMap[prodId];
         message response = {};
         messages:setJsonPayload(response, payload);
         reply response;
     }
 
-    @http:POST
-    @http:Path ("/")
+    @http:POST{}
+    @http:Path {value:"/"}
     resource product (message m) {
         json jsonReq = messages:getJsonPayload(m);
-
-        string productId = jsonutils:getString(jsonReq, "$.Product.ID");
+        string productId = jsons:getString(jsonReq, "$.Product.ID");
         productsMap[productId] = jsonReq;
-
-        json payload = `{"Status":"Product is successfully added."}`;
+        json payload = {"Status":"Product is successfully added."};
         message response = {};
         messages:setJsonPayload(response, payload);
         reply response;
     }
 
 }
-
 
 function populateSampleProducts()(map productsMap) {
     productsMap = {};
-    json prod_1 = `{"Product": {"ID": "123000", "Name": "ABC_1","Description": "Sample product."}}`;
-    json prod_2 = `{"Product": {"ID": "123001", "Name": "ABC_2","Description": "Sample product."}}`;
-    json prod_3 = `{"Product": {"ID": "123002", "Name": "ABC_3","Description": "Sample product."}}`;
-
-    productsMap["123000"]= prod_1;
-    productsMap["123001"]= prod_2;
-    productsMap["123002"]= prod_3;
+    json prod_1 = {"Product": {"ID": "123000", "Name": "ABC_1","Description": "Sample product."}};
+    json prod_2 = {"Product": {"ID": "123001", "Name": "ABC_2","Description": "Sample product."}};
+    json prod_3 = {"Product": {"ID": "123002", "Name": "ABC_3","Description": "Sample product."}};
+    productsMap["123000"] = prod_1;
+    productsMap["123001"] = prod_2;
+    productsMap["123002"] = prod_3;
     system:println("Sample products are added.");
     return productsMap;
-
 }
 
-@http:BasePath("/orderservice")
+import ballerina.lang.messages;
+import ballerina.lang.strings;
+import ballerina.net.http;
+
+@http:BasePath{value:"/orderservice"}
 service OrderMgtService {
 
-    @http:GET
-    @http:POST
+    @http:GET{}
+    @http:POST{}
     resource orders (message m) {
         json payload = {};
-
         string httpMethod = http:getMethod(m);
-
-        if ( strings:equalsIgnoreCase(httpMethod, "GET") ) {
-            payload = `{"Order": {"ID": "111999", "Name": "ABC123","Description": "Sample order."}}`;
-        } else {
-            payload = `{"Status":"Order is successfully added."}`;
+        if (strings:equalsIgnoreCase(httpMethod, "GET")) {
+            payload = {"Order": {"ID": "111999", "Name": "ABC123","Description": "Sample order."}};
         }
-
+        else {
+            payload = {"Status":"Order is successfully added."};
+        }
         message response = {};
         messages:setJsonPayload(response, payload);
         reply response;
     }
 }
 
-@http:BasePath("/customerservice")
+import ballerina.lang.messages;
+import ballerina.lang.strings;
+import ballerina.net.http;
+
+@http:BasePath{value:"/customerservice"}
 service CustomerMgtService {
 
-    @http:GET
-    @http:POST
+    @http:GET{}
+    @http:POST{}
     resource customers (message m) {
         json payload = {};
-
         string httpMethod = http:getMethod(m);
-
-        if ( strings:equalsIgnoreCase(httpMethod, "GET") ) {
-             payload = `{"Customer": {"ID": "987654", "Name": "ABC PQR","Description": "Sample Customer."}}`;
-        } else {
-            payload = `{"Status":"Customer is successfully added."}`;
+        if (strings:equalsIgnoreCase(httpMethod, "GET")) {
+            payload = {"Customer": {"ID": "987654", "Name": "ABC PQR","Description": "Sample Customer."}};
         }
-
+        else {
+            payload = {"Status":"Customer is successfully added."};
+        }
         message response = {};
         messages:setJsonPayload(response, payload);
         reply response;
@@ -536,9 +526,9 @@ service CustomerMgtService {
                                     <input type="text" id="arguments5" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram5">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/RestfulService.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/ecommerce.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow5 cResults">
@@ -549,7 +539,7 @@ service CustomerMgtService {
                             <div class="">
                                 <h3>ATMLocatorService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode6">
                                     <textarea id="txtSample6">
 //This sample will illustrate a composite service : ATMLocatorService, which calls the following services to find the nearest ATM of ABC Bank using the zip code.
@@ -559,61 +549,54 @@ service CustomerMgtService {
 import ballerina.lang.messages;
 import ballerina.net.http;
 import ballerina.lang.system;
-import ballerina.lang.jsonutils;
+import ballerina.lang.jsons;
 
-@http:BasePath ("/ABCBank")
+@http:BasePath {value:"/ABCBank"}
 service ATMLocator {
-
-    @http:POST
-    @http:Path ("/locator")
+    
+    @http:POST{}
+    @http:Path {value:"/locator"}
     resource locator (message m) {
-        http:ClientConnector branchLocatorService = create http:ClientConnector("http://localhost:9090/branchlocator");
         http:ClientConnector bankInfoService = create http:ClientConnector("http://localhost:9090/bankinfo");
-
+        http:ClientConnector branchLocatorService = create http:ClientConnector("http://localhost:9090/branchlocator");
         message backendServiceReq = {};
-
         json jsonLocatorReq = messages:getJsonPayload(m);
-
-        string zipCode = jsonutils:getString(jsonLocatorReq, "$.ATMLocator.ZipCode");
+        string zipCode = jsons:getString(jsonLocatorReq, "$.ATMLocator.ZipCode");
         system:println("Zip Code " + zipCode);
-
-        json branchLocatorReq = `{"BranchLocator": {"ZipCode":""}}`;
-        jsonutils:set(branchLocatorReq, "$.BranchLocator.ZipCode", zipCode);
+        json branchLocatorReq = {"BranchLocator": {"ZipCode":""}};
+        jsons:set(branchLocatorReq, "$.BranchLocator.ZipCode", zipCode);
         messages:setJsonPayload(backendServiceReq, branchLocatorReq);
-
         message response = http:ClientConnector.post(branchLocatorService, "", backendServiceReq);
-
         json branchLocatorRes = messages:getJsonPayload(response);
-
-        string branchCode = jsonutils:getString(branchLocatorRes, "$.ABCBank.BranchCode");
+        string branchCode = jsons:getString(branchLocatorRes, "$.ABCBank.BranchCode");
         system:println("Branch Code " + branchCode);
-
-        json bankInfoReq = `{"BranchInfo": {"BranchCode":""}}`;
-        jsonutils:set(bankInfoReq, "$.BranchInfo.BranchCode", branchCode);
+        json bankInfoReq = {"BranchInfo": {"BranchCode":""}};
+        jsons:set(bankInfoReq, "$.BranchInfo.BranchCode", branchCode);
         messages:setJsonPayload(backendServiceReq, bankInfoReq);
-
         response = http:ClientConnector.post(bankInfoService, "", backendServiceReq);
-
         reply response;
-    }
+    }    
 }
 
 
-@http:BasePath("/branchlocator")
-service Banklocator {
+import ballerina.lang.messages;
+import ballerina.lang.jsons;
+import ballerina.net.http;
 
-    @http:POST
+@http:BasePath {value:"/branchlocator"}
+service Banklocator {
+    
+    @http:POST{}
     resource product (message m) {
         message response = {};
-
         json jsonRequest = messages:getJsonPayload(m);
-        string zipCode = jsonutils:getString(jsonRequest, "$.BranchLocator.ZipCode");
-
+        string zipCode = jsons:getString(jsonRequest, "$.BranchLocator.ZipCode");
         json payload = {};
         if (zipCode == "95999") {
-            payload = `{"ABCBank": {"BranchCode":"123"}}`;
-        } else {
-            payload = `{"ABCBank": {"BranchCode":"-1"}}`;
+            payload = {"ABCBank": {"BranchCode":"123"}};
+        }
+        else {
+            payload = {"ABCBank": {"BranchCode":"-1"}};
         }
         messages:setJsonPayload(response, payload);
         reply response;
@@ -621,24 +604,26 @@ service Banklocator {
 }
 
 
-@http:BasePath("/bankinfo")
+import ballerina.lang.messages;
+import ballerina.lang.jsons;
+import ballerina.net.http;
 
+@http:BasePath {value:"/bankinfo"}
 service Bankinfo {
-
-    @http:POST
+    
+    @http:POST{}
     resource product (message m) {
         message response = {};
-
         json jsonRequest = messages:getJsonPayload(m);
-        string branchCode = jsonutils:getString(jsonRequest, "$.BranchInfo.BranchCode");
-
+        string branchCode = jsons:getString(jsonRequest, "$.BranchInfo.BranchCode");
         json payload = {};
         if (branchCode == "123") {
-            payload = `{"ABC Bank": {"Address": "111 River Oaks Pkwy, San Jose, CA 95999"}}`;
-        } else {
-            payload = `{"ABC Bank": {"error": "No branches found."}}`;
+            payload = {"ABC Bank": {"Address": "111 River Oaks Pkwy, San Jose, CA 95999"}};
+            
         }
-
+        else {
+            payload = {"ABC Bank": {"error": "No branches found."}};
+        }
         messages:setJsonPayload(response, payload);
         reply response;
     }
@@ -647,9 +632,9 @@ service Bankinfo {
                                     <input type="text" id="arguments6" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram6">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/ServiceChaining.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/atm-locator.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow6 cResults">
@@ -660,18 +645,19 @@ service Bankinfo {
                             <div class="">
                                 <h3>helloWorldService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode7">
                                     <textarea id="txtSample7">
 //This sample runs a service that replies to a request with a greeting message.
 
 import ballerina.lang.messages;
+import ballerina.net.http;
 
-@http:BasePath ("/hello")
+@http:BasePath {value:"/hello"}
 service helloWorld {
-
-    @http:GET
-    resource sayHello(message m) {
+    
+    @http:GET{}
+    resource sayHello (message m) {
         message response = {};
         messages:setStringPayload(response, "Hello, World!");
         reply response;
@@ -681,9 +667,9 @@ service helloWorld {
                                     <input type="text" id="arguments7" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram7">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/helloworlds-2.svg"/>
+                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/hello-world-service.png"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow7 cResults">
@@ -694,7 +680,7 @@ service helloWorld {
                             <div class="">
                                 <h3>twitterConnector.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode8">
                                     <textarea id="txtSample8">
 import ballerina.lang.jsons;
@@ -738,9 +724,9 @@ function main(string[] args) {
                                     <input type="text" id="arguments8" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram8">
-                                    <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/TwitterConnector.svg"/>
+<!--                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/TwitterConnector.svg"/>-->
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 cOutputWindow8 cResults">
@@ -776,7 +762,7 @@ function main(string[] args) {
 
                             <div class="VideoR-one" id="videoClick_1" onclick="this.nextElementSibling.style.display = 'block';
                                     this.style.display = 'none'">
-                                <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/sanjiva-ballerina.jpg" alt="play button" style="cursor:pointer">
+                                <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sanjiva-ballerina.jpg" alt="play button" style="cursor:pointer">
 
                             </div>
                             <div style="display:none">             
@@ -787,7 +773,7 @@ function main(string[] args) {
                     <div>
                         <div class="col-sm-12 col-md-6">
                             <div class="Slides-One" >
-                                <img class="cSlideImage" src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/slideshare.jpg" alt="play button" style="cursor:pointer">
+                                <img class="cSlideImage" src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/slideshare.jpg" alt="play button" style="cursor:pointer">
                                 <div id="slideClick"></div>
 
                             </div>
@@ -848,19 +834,19 @@ function main(string[] args) {
                                 <div class="">
                                     <div class="col-sm-12 col-md-4 ">
                                         <div class="cNewtoBallerinaCol">
-                                            <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/docs.svg"/>
+                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/docs.svg"/>
                                             <h4>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h4>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4">
                                         <div class="cNewtoBallerinaCol cMiddle">
-                                            <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/fork.svg"/>
+                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork.svg"/>
                                             <h4>Fork Ballerina on <a id="Getinvolved-Github" class="cSmallButtons" href="https://github.com/ballerinalang"/>Github</a></h4>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4">
                                         <div class="cNewtoBallerinaCol">
-                                            <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/dev.svg"/>
+                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/dev.svg"/>
                                             <h4>
                                                 Join the <a id="Getinvolved-BallerinaDevGroup" href="https://groups.google.com/forum/#!forum/ballerina-dev">Ballerina Dev Group</a>. 
                                             </h4>
@@ -946,7 +932,7 @@ function main(string[] args) {
         </div>
         <div id="pdframe" class="pdframe"></div>
         <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
-        <img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/fork-w.svg"/>
+        <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork-w.svg"/>
         <span>Fork Ballerina on Github</span>
 </a>
         
@@ -972,12 +958,12 @@ function main(string[] args) {
     <link href="//cdn.wso2.com/wso2/sites/all/ballerina/css/master.css" rel="stylesheet">
     
 
-    <script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/jquery.js"></script>
+    <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/jquery.js"></script>
 
 <script type="text/javascript">
 function downloadJSAtOnload() {
 var element = document.createElement("script");
-element.src = "http://cdn.wso2.com/wso2/sites/all/ballerina/js/bootstrap.min.js" ;
+element.src = "//wso2.cachefly.net/wso2/sites/all/ballerina/js/bootstrap.min.js" ;
 document.body.appendChild(element);
 }
 if (window.addEventListener)
@@ -988,10 +974,10 @@ else window.onload = downloadJSAtOnload;
 </script>
 
 
-<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
-<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
-<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<script src="http://cdn.wso2.com/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
+<script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
+<script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
+<script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+<script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
  <script type="text/javascript">
                                 $(document).ready(function() {
                                     $("#subscribeButton").click(function(event) {
