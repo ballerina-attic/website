@@ -11,6 +11,7 @@ body.wy-body-for-nav {
 }
 section li {
     font-size: 1.1em;
+        line-height: 1.5em;
 }
 .wy-nav-content {
     background: #ffffff;
@@ -74,6 +75,10 @@ body.wy-body-for-nav {} .wy-side-nav-search > a,
 p {
     font-size: 1.1em;
     line-height: 1.5em;
+}
+li p {
+    font-size: 1em;
+    line-height: 1.4em;
 }
 .wy-menu.wy-menu-vertical span {
     padding: 0.5em 1em;
