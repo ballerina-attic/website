@@ -1,145 +1,197 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ballerina - A flexible, powerful, beautiful programming language.</title>
-        <meta charset="UTF-8">
-        <meta property="og:url"                content="http://ballerinalang.org" />
-        <meta property="og:type"               content="article" />
-        <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
-        <meta property="og:description"        content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration." />
-        <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="index"/>
-        <meta name="title" content="Ballerina - A flexible, powerful, beautiful programming language">
-        <meta name="description" content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.">
-        <meta name="keywords" content="Programing language, Integration language, Sequence diagrams, Ballerinalang, WSO2 Ballerina, ballerina, language, Microservices Enterprise, Integration,">
-        <meta name="author" content="ballerinalang"/>
-
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-        
-        <!--GA-->
-        <script>
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-92163714-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-        <!-- Google Tag Manager -->
-        <script>(function(w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');</script>
-        <!-- End Google Tag Manager -->
-        <!-- Hotjar Tracking Code for http://ballerinalang.org/ --> 
-        <script>
-            (function(h, o, t, j, a, r) {
-                h.hj = h.hj || function() {
-                    (h.hj.q = h.hj.q || []).push(arguments)
-                };
-                h._hjSettings = {hjid: 442732, hjsv: 5};
-                a = o.getElementsByTagName('head')[0];
-                r = o.createElement('script');
-                r.async = 1;
-                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
-        </script>
-        <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
-
-        <style>
-            .hideSlide {
-                display: none;
-            }
-            .cBallerinaTweets {
-                background-color: rgba(255,255,255,0.8);
-                display: inline-block;
-                /*    height: 200px;*/
-                padding: 10px;
-                position: fixed;
-                right: 0;
-                bottom: -50px;
-                border: 1px solid #c5c5c5;
-                border-radius: 10px 0 0 0;
-                width: 220px;
-                /*                border-top: none;*/
-
-            }
-
-            .cTweetContainerButton {
-                -moz-border-bottom-colors: none;
-                -moz-border-left-colors: none;
-                -moz-border-right-colors: none;
-                -moz-border-top-colors: none;
-                background-color: #ffffff;
-                background-image: url("http://ballerinalang.org/img/down-arrow.svg");
-                background-position: center center;
-                background-repeat: no-repeat;
-                border:1px solid #c5c5c5;
-                border-image: none;
-                border-radius: 5px 5px 0 0;
-
-                display: inline-block;
-                float: right;
-                height: 40px;
-                margin-right: -11px;
-                margin-top: -49px;
-                padding: 0;
-                width: 40px;
-                border-bottom: none;
-                 transition: all 0.2s ease-in-out 0s;
-                 cursor: pointer;
-            }
-            .cTweetContainerButton:hover {
-                border-bottom: none;
-            } 
-
-
-.cBallerinaTweets.cHideTwitter {
-    bottom: -530px;
-     transition: all 0.2s ease-in-out 0s;
-}
-.cBallerinaTweets.cHideTwitter .cTweetContainerButton {
-     background-image: url("http://ballerinalang.org/img/up-arrow.svg") !important;
-}
-
-@media screen and (max-width:991px) {
-    .cTweetContainerButton , .cBallerinaTweets {
-        display: none;
-    }
-}
-            
-        </style>
-
-    </head>
+   <title>Ballerina - A flexible, powerful, beautiful programming language.</title>
+   <meta charset="UTF-8">
+   <meta property="og:url"                content="http://ballerinalang.org" />
+   <meta property="og:type"               content="article" />
+   <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+   <meta property="og:description"        content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration." />
+   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="robots" content="index"/>
+   <meta name="title" content="Ballerina - A flexible, powerful, beautiful programming language">
+   <meta name="description" content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.">
+   <meta name="keywords" content="Programing language, Integration language, Sequence diagrams, Ballerinalang, WSO2 Ballerina, ballerina, language, Microservices Enterprise, Integration,">
+   <meta name="author" content="ballerinalang"/>
+   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+   <!--GA-->
+   <script>
+      (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function() {
+              (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      
+      ga('create', 'UA-92163714-1', 'auto');
+      ga('send', 'pageview');
+      
+   </script>
+   <!-- Google Tag Manager -->
+   <script>(function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({'gtm.start':
+                  new Date().getTime(), event: 'gtm.js'});
+      var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+   </script>
+   <!-- End Google Tag Manager -->
+   <!-- Hotjar Tracking Code for http://ballerinalang.org/ --> 
+   <script>
+      (function(h, o, t, j, a, r) {
+          h.hj = h.hj || function() {
+              (h.hj.q = h.hj.q || []).push(arguments)
+          };
+          h._hjSettings = {hjid: 442732, hjsv: 5};
+          a = o.getElementsByTagName('head')[0];
+          r = o.createElement('script');
+          r.async = 1;
+          r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+   </script>
+   <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
+   <style>
+      .hideSlide {
+      display: none;
+      }
+      .cBallerinaTweets {
+      background-color: rgba(255,255,255,0.8);
+      display: inline-block;
+      /*    height: 200px;*/
+      padding: 10px;
+      position: fixed;
+      right: 0;
+      bottom: -50px;
+      border: 1px solid #c5c5c5;
+      border-radius: 10px 0 0 0;
+      width: 220px;
+      /*                border-top: none;*/
+      }
+      .cTweetContainerButton {
+      -moz-border-bottom-colors: none;
+      -moz-border-left-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-top-colors: none;
+      background-color: #ffffff;
+      background-image: url("http://ballerinalang.org/img/down-arrow.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      border:1px solid #c5c5c5;
+      border-image: none;
+      border-radius: 5px 5px 0 0;
+      display: inline-block;
+      float: right;
+      height: 40px;
+      margin-right: -11px;
+      margin-top: -49px;
+      padding: 0;
+      width: 40px;
+      border-bottom: none;
+      transition: all 0.2s ease-in-out 0s;
+      cursor: pointer;
+      }
+      .cTweetContainerButton:hover {
+      border-bottom: none;
+      } 
+      .cBallerinaTweets.cHideTwitter {
+      bottom: -530px;
+      transition: all 0.2s ease-in-out 0s;
+      }
+      .cBallerinaTweets.cHideTwitter .cTweetContainerButton {
+      background-image: url("http://ballerinalang.org/img/up-arrow.svg") !important;
+      }
+      .row.cBallerna-banner {
+      background-color: #000000;
+      background-image: url("hackathon/hackathon-images/intro-bg-orange.jpg");
+      background-attachment: fixed;
+      background-size: 100%;
+      height: 0;
+      transition: all 0.5s ease-in-out 0s;
+      padding: 0;
+      box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
+      filter: grayscale(100%);
+      }
+      .row.cBallerna-banner:hover {
+      filter: grayscale(0%);
+      transition: all 0.5s ease-in-out 0s;
+      }
+      .cBallerna-banner-Container {
+      height: 0px;
+      }
+      .row.cBallerna-banner img {
+      height: 0px;
+      }
+      .row.cBallerna-banner.cOpenBanner {
+      height: auto;
+      transition: all 0.5s ease-in-out 0s;
+      padding: 4em;
+      margin-bottom: 4em;
+      }
+      .row.cBallerna-banner.cOpenBanner img {
+      height: 200px;
+      }
+      .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
+      height: auto;
+      }
+      @media screen and (max-width:991px) {
+      .cTweetContainerButton , .cBallerinaTweets {
+      display: none;
+      }
+      .row.cBallerna-banner.cOpenBanner {
+      padding: 2em;
+      }
+      .row.cBallerna-banner {
+      background: 300%;
+      }
+      }
+      @media screen and (max-width:500px) {
+      .row.cBallerna-banner.cOpenBanner img {
+      height: 77px;
+      }
+      .row.cBallerna-banner.cOpenBanner {
+      padding: 1.2em;
+      }
+      background: 600%;
+      }
+   </style>
+</head>
     <body class="cBallerina">
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW2LLTW"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-
+      
         <div class="row cBallerinaNav" id="iBallerinaNavigation">
 
         </div>
+        <a href="http://ballerinalang.org/hackathon/" target="_blank"><div class="row cBallerna-banner">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-6 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017.svg"/>
+                </div>
+                 <div class="col-xs-6 col-sm-6 col-md-3 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017-date.svg"/>
+                </div>
+                   <div class="col-xs-6 col-sm-6 col-md-3 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017-regoster-now.svg"/>
+                </div>
+            </div>
+        </div>
+        </a>
         <div class="row cBallerinaIntro">
             <div class="container">
                 <div class="col-sm-12 col-md-12">
@@ -752,318 +804,307 @@ function main(string[] args) {
             </div>
         </div>
         <div class="row cBallerinaContentRow cGrayRow" id="Getting-Started">
-            <div class="container">
-                <div class="">
-                    <div style="display: inline-block; margin-bottom: 4em;">
-                        <div class="col-sm-12 col-md-6">
-                            <p class="Intro">Ballerina was built from the ground up to make it easier to design, describe and develop programs. Here’s how and why. </p>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-
-                            <div class="VideoR-one" id="videoClick_1" onclick="this.nextElementSibling.style.display = 'block';
-                                    this.style.display = 'none'">
-                                <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sanjiva-ballerina.jpg" alt="play button" style="cursor:pointer">
-
-                            </div>
-                            <div style="display:none">             
-                                <div class="embed-container" id="video_1"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="Slides-One" >
-                                <img class="cSlideImage" src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/slideshare.jpg" alt="play button" style="cursor:pointer">
-                                <div id="slideClick"></div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div>
-                            <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
-                        </div>
-                    </div>
-                    <div class="cNewtoBallerina" style="margin-top: 2em;">
-                        <div class="">
-                            <h2>New to Ballerina?</h2>
-                            <div class="col-sm-12 col-md-6 ">
-                                <div class="cNewtoBallerinaCol">
-                                    <h3>Start with the Ballerina </br><a id="NewtoBallerina-documentation" class="cSmallButtons" href="http://ballerinalang.org/docs/"/>documentation</a></h3>
-                                </div>
-                            </div>
-                          
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cNewtoBallerinaCol">
-                                    <h3>
-                                        Ask questions on #Ballerinalang on </br><a id="NewtoBallerina-Stackoverflow" class="cSmallButtons" href="http://stackoverflow.com/questions/tagged/ballerinalang"/>Stackoverflow</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12">
-                                <p>By building around a visual programming model, Ballerina allows you to connect apps and services and create any program via a sequence diagram. It’s a unique approach that we believe will make all of us faster and more effective at designing integration logic. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+   <div class="container">
+      <div class="">
+         <div style="display: inline-block; margin-bottom: 4em;">
+            <div class="col-sm-12 col-md-6">
+               <p class="Intro">Ballerina was built from the ground up to make it easier to design, describe and develop programs. Here’s how and why. </p>
             </div>
-        </div>
-         
-        <div class="row cBallerinaContentRow">
-                <div class="container">
-                    <div class="col-sm-12 col-md-2"></div>
-                        
-                         <div class="col-sm-12 col-md-8">
-               <a class="twitter-timeline" href="https://twitter.com/ballerinalang" data-tweet-limit="3">Tweets by ballerinalang</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                         </div>
-                    <div class="col-sm-12 col-md-2"></div>
-                    </div>
-        
-        </div>
-        
-        <div class="row cBallerinaContentRow cGrayRow">
-            <div class="container">
-                <div class="cBallerinaContentColContainer"  style="background-image: none;">
-
-                    <div class="col-sm-12 col-md-12">
-                        <div class="" id="Get-involved">
-                            <h2>Get involved</h2>
-                            <h3>Ballerina is an open source project. We want you to use it, abuse it and show us how to improve it.</h3>
-                            <div class="cNewtoBallerina" style="width: 100%; padding-top: 4em;">
-                                <div class="">
-                                    <div class="col-sm-12 col-md-4 ">
-                                        <div class="cNewtoBallerinaCol">
-                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/docs.svg"/>
-                                            <h4>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4">
-                                        <div class="cNewtoBallerinaCol cMiddle">
-                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork.svg"/>
-                                            <h4>Fork Ballerina on <a id="Getinvolved-Github" class="cSmallButtons" href="https://github.com/ballerinalang"/>Github</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4">
-                                        <div class="cNewtoBallerinaCol">
-                                            <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/dev.svg"/>
-                                            <h4>
-                                                Join the <a id="Getinvolved-BallerinaDevGroup" href="https://groups.google.com/forum/#!forum/ballerina-dev">Ballerina Dev Group</a>. 
-                                            </h4>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cSlackContainer">
-                                    <div class="col-sm 12 col-md-12" style="text-align:center;">
-                                        <h2>Subscribe for updates</h2>
-                                    </div>
-                                    <div class="col-sm 12 col-md-12">
-                                        <a class="cBallerinaButtons fancybox cSubscribe" id="Getinvolved-slack" href="#subscribeUser">Subscribe</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cSlackContainer">
-                                    <div class="col-sm 12 col-md-12" style="text-align:center;">
-                                        <h2>We’re on Slack! Let’s talk.</h2>
-                                    </div>
-                                    <div class="col-sm 12 col-md-12">
-                                        <a class="cBallerinaButtons fancybox cSubscribe" id="Getinvolved-slack" href="#subscribe">Request an Invite</a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="VideoR-one" id="videoClick_1" onclick="this.nextElementSibling.style.display = 'block';
+                  this.style.display = 'none'">
+                  <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sanjiva-ballerina.jpg" alt="play button" style="cursor:pointer">
+               </div>
+               <div style="display:none">
+                  <div class="embed-container" id="video_1"></div>
+               </div>
+            </div>
+         </div>
+         <div>
+            <div class="col-sm-12 col-md-6">
+               <div class="Slides-One" >
+                  <img class="cSlideImage" src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/slideshare.jpg" alt="play button" style="cursor:pointer">
+                  <div id="slideClick"></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-12 col-md-6">
+            <div>
+               <p class="Intro" style="margin-top: 4em;">Ballerina’s visual approach allows you to create programs and integrate services and apps via sequence diagrams.</p>
+            </div>
+         </div>
+         <div class="cNewtoBallerina" style="margin-top: 2em;">
+            <div class="">
+               <h2>New to Ballerina?</h2>
+               <div class="col-sm-12 col-md-6 ">
+                  <div class="cNewtoBallerinaCol">
+                     <h3>Start with the Ballerina </br><a id="NewtoBallerina-documentation" class="cSmallButtons" href="http://ballerinalang.org/docs/"/>documentation</a></h3>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-6">
+                  <div class="cNewtoBallerinaCol">
+                     <h3>
+                        Ask questions on #Ballerinalang on </br><a id="NewtoBallerina-Stackoverflow" class="cSmallButtons" href="http://stackoverflow.com/questions/tagged/ballerinalang"/>Stackoverflow</a>
+                     </h3>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-12">
+                  <p>By building around a visual programming model, Ballerina allows you to connect apps and services and create any program via a sequence diagram. It’s a unique approach that we believe will make all of us faster and more effective at designing integration logic. </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row cBallerinaContentRow">
+   <div class="container">
+      <div class="col-sm-12 col-md-2"></div>
+      <div class="col-sm-12 col-md-8">
+         <a class="twitter-timeline" href="https://twitter.com/ballerinalang" data-tweet-limit="3">Tweets by ballerinalang</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <div class="col-sm-12 col-md-2"></div>
+   </div>
+</div>
+<div class="row cBallerinaContentRow cGrayRow">
+   <div class="container">
+      <div class="cBallerinaContentColContainer"  style="background-image: none;">
+         <div class="col-sm-12 col-md-12">
+            <div class="" id="Get-involved">
+               <h2>Get involved</h2>
+               <h3>Ballerina is an open source project. We want you to use it, abuse it and show us how to improve it.</h3>
+               <div class="cNewtoBallerina" style="width: 100%; padding-top: 4em;">
+                  <div class="">
+                     <div class="col-sm-12 col-md-4 ">
+                        <div class="cNewtoBallerinaCol">
+                           <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/docs.svg"/>
+                           <h4>Read the architecture <a id="Getinvolved-documentation" class="cSmallButtons" href="https://docs.google.com/document/d/1aWX-Wkrp6ZXPG3Ei83OJd645Ss2b1rLdGvZ7-_f4J08/edit#"/>documentation</a></h4>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                     <div class="col-sm-12 col-md-4">
+                        <div class="cNewtoBallerinaCol cMiddle">
+                           <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork.svg"/>
+                           <h4>Fork Ballerina on <a id="Getinvolved-Github" class="cSmallButtons" href="https://github.com/ballerinalang"/>Github</a></h4>
+                        </div>
+                     </div>
+                     <div class="col-sm-12 col-md-4">
+                        <div class="cNewtoBallerinaCol">
+                           <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/dev.svg"/>
+                           <h4>
+                              Join the <a id="Getinvolved-BallerinaDevGroup" href="https://groups.google.com/forum/#!forum/ballerina-dev">Ballerina Dev Group</a>. 
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-6">
+                  <div class="cSlackContainer">
+                     <div class="col-sm 12 col-md-12" style="text-align:center;">
+                        <h2>Subscribe for updates</h2>
+                     </div>
+                     <div class="col-sm 12 col-md-12">
+                        <a class="cBallerinaButtons fancybox cSubscribe" id="Getinvolved-slack" href="#subscribeUser">Subscribe</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-12 col-md-6">
+                  <div class="cSlackContainer">
+                     <div class="col-sm 12 col-md-12" style="text-align:center;">
+                        <h2>We’re on Slack! Let’s talk.</h2>
+                     </div>
+                     <div class="col-sm 12 col-md-12">
+                        <a class="cBallerinaButtons fancybox cSubscribe" id="Getinvolved-slack" href="#subscribe">Request an Invite</a>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="row cBallerinaContentRow" style="padding: 1em 0;">
-            <div class="container">
-                <div class="cSocialMedia">
-                    <a href="https://www.facebook.com/BallerinaLang/" id="iFB" target="_blank">
-                        <svg version="1.1" class="cSVGMenuIcons" id="iFooterSVGTracking_fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
-                        <path d="M80.318,215.866h43.272V107.453h30.206L157,71.199h-33.41c0,0,0-13.555,0-20.701 c0-8.522,1.73-11.936,10.005-11.936c6.653,0,23.405,0,23.405,0V0.917c0,0-24.67,0-29.942,0c-32.222,0-46.74,14.17-46.74,41.336 c0,23.635,0,28.946,0,28.946H57.784v36.725h22.534V215.866z"/>
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/ballerinalang" target="_blank" id="iTwitter">
-                        <svg class="cSVGMenuIcons" version="1.1" id="iFooterSVGTracking_twitter" xmlns="http://wwwa.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 217.796 177.016" enable-background="new 0 0 217.796 177.016" xml:space="preserve">
-                        <path d="M0,156.928c19.764,12.661,43.248,20.091,68.477,20.091c82.971,0,129.816-70.094,127.012-132.928 c8.729-6.308,16.308-14.167,22.307-23.156c-8.027,3.589-16.634,5.972-25.661,7.055c9.196-5.513,16.288-14.259,19.615-24.735 c-8.653,5.13-18.204,8.849-28.352,10.877c-8.167-8.709-19.773-14.129-32.632-14.129c-28.856,0-50.022,26.903-43.542,54.881 C70.117,53.015,37.168,35.25,15.147,8.142C3.467,28.28,9.097,54.557,28.987,67.845c-7.326-0.271-14.241-2.261-20.259-5.579 c-0.477,20.688,14.385,40.051,35.841,44.341c-6.274,1.737-13.171,2.102-20.156,0.803c5.653,17.756,22.184,30.632,41.719,31.015 C47.363,153.161,23.722,159.75,0,156.928z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/groups/10333249" target="_blank" id="iLinkedin">
-                        <svg version="1.1" id="iFooterSVGTracking_linkedin" class="cSVGMenuIcons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
-                        <rect x="4.267" y="71.146" width="44.034" height="142.273"/>
-                        <path d="M26.033,52.494c14.434,0,26.115-11.773,26.115-26.252C52.148,11.744,40.467,0,26.033,0 C11.686,0,0,11.744,0,26.242C0,40.721,11.686,52.494,26.033,52.494z"/>
-                        <path d="M118.703,138.751c0-20.015,9.193-31.963,26.846-31.963c16.17,0,23.984,11.442,23.984,31.963 c0,20.491,0,74.669,0,74.669h43.832c0,0,0-51.979,0-90.062c0-38.131-21.619-56.57-51.783-56.57 c-30.182,0-42.879,23.517-42.879,23.517V71.146H76.444V213.42h42.259C118.703,213.42,118.703,160.645,118.703,138.751z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    
-
-        <div class="row cBallerinaFooter" id="iBallerinaFooter">
-        </div>
-        <div class="cBallerinaDownloadForm" id="subscribe">
-            <form>
-                <div class="cBallerinaFormFieldContainer">
-                    <span id="subscribeMessage" ></span>
-                    <label class="subscribeForm">Email Address</label>
-                    <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeForm" type="text">
-                </div>
-                <a class="cBallerinaButtons subscribeForm" href="" id="subscribeButton">Submit</a>
-            </form>
-
-        </div> 
-        <div class="cBallerinaDownloadForm" id="subscribeUser">
-            <form>
-                <div class="cBallerinaFormFieldContainer">
-                    <h3 style="margin-bottom: 0;">Subscribe for updates</h3>
-                    <span id="subscribeUserMessage" ></span>
-                    <label class="subscribeUserForm">Email Address</label>
-                    <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeUserForm" type="text">
-                </div>
-                <a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton">Subscribe</a>
-            </form>
-
-        </div>
-        <div id="pdframe" class="pdframe"></div>
-        <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
-        <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork-w.svg"/>
-        <span>Fork Ballerina on Github</span>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row cBallerinaContentRow" style="padding: 1em 0;">
+   <div class="container">
+      <div class="cSocialMedia">
+         <a href="https://www.facebook.com/BallerinaLang/" id="iFB" target="_blank">
+            <svg version="1.1" class="cSVGMenuIcons" id="iFooterSVGTracking_fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
+               <path d="M80.318,215.866h43.272V107.453h30.206L157,71.199h-33.41c0,0,0-13.555,0-20.701 c0-8.522,1.73-11.936,10.005-11.936c6.653,0,23.405,0,23.405,0V0.917c0,0-24.67,0-29.942,0c-32.222,0-46.74,14.17-46.74,41.336 c0,23.635,0,28.946,0,28.946H57.784v36.725h22.534V215.866z"/>
+            </svg>
+         </a>
+         <a href="https://twitter.com/ballerinalang" target="_blank" id="iTwitter">
+            <svg class="cSVGMenuIcons" version="1.1" id="iFooterSVGTracking_twitter" xmlns="http://wwwa.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 217.796 177.016" enable-background="new 0 0 217.796 177.016" xml:space="preserve">
+               <path d="M0,156.928c19.764,12.661,43.248,20.091,68.477,20.091c82.971,0,129.816-70.094,127.012-132.928 c8.729-6.308,16.308-14.167,22.307-23.156c-8.027,3.589-16.634,5.972-25.661,7.055c9.196-5.513,16.288-14.259,19.615-24.735 c-8.653,5.13-18.204,8.849-28.352,10.877c-8.167-8.709-19.773-14.129-32.632-14.129c-28.856,0-50.022,26.903-43.542,54.881 C70.117,53.015,37.168,35.25,15.147,8.142C3.467,28.28,9.097,54.557,28.987,67.845c-7.326-0.271-14.241-2.261-20.259-5.579 c-0.477,20.688,14.385,40.051,35.841,44.341c-6.274,1.737-13.171,2.102-20.156,0.803c5.653,17.756,22.184,30.632,41.719,31.015 C47.363,153.161,23.722,159.75,0,156.928z"/>
+            </svg>
+         </a>
+         <a href="https://www.linkedin.com/groups/10333249" target="_blank" id="iLinkedin">
+            <svg version="1.1" id="iFooterSVGTracking_linkedin" class="cSVGMenuIcons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
+               <rect x="4.267" y="71.146" width="44.034" height="142.273"/>
+               <path d="M26.033,52.494c14.434,0,26.115-11.773,26.115-26.252C52.148,11.744,40.467,0,26.033,0 C11.686,0,0,11.744,0,26.242C0,40.721,11.686,52.494,26.033,52.494z"/>
+               <path d="M118.703,138.751c0-20.015,9.193-31.963,26.846-31.963c16.17,0,23.984,11.442,23.984,31.963 c0,20.491,0,74.669,0,74.669h43.832c0,0,0-51.979,0-90.062c0-38.131-21.619-56.57-51.783-56.57 c-30.182,0-42.879,23.517-42.879,23.517V71.146H76.444V213.42h42.259C118.703,213.42,118.703,160.645,118.703,138.751z"/>
+            </svg>
+         </a>
+      </div>
+   </div>
+</div>
+<div class="row cBallerinaFooter" id="iBallerinaFooter">
+</div>
+<div class="cBallerinaDownloadForm" id="subscribe">
+   <form>
+      <div class="cBallerinaFormFieldContainer">
+         <span id="subscribeMessage" ></span>
+         <label class="subscribeForm">Email Address</label>
+         <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeForm" type="text">
+      </div>
+      <a class="cBallerinaButtons subscribeForm" href="" id="subscribeButton">Submit</a>
+   </form>
+</div>
+<div class="cBallerinaDownloadForm" id="subscribeUser">
+   <form>
+      <div class="cBallerinaFormFieldContainer">
+         <h3 style="margin-bottom: 0;">Subscribe for updates</h3>
+         <span id="subscribeUserMessage" ></span>
+         <label class="subscribeUserForm">Email Address</label>
+         <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeUserForm" type="text">
+      </div>
+      <a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton">Subscribe</a>
+   </form>
+</div>
+<div id="pdframe" class="pdframe"></div>
+<a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
+<img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork-w.svg"/>
+<span>Fork Ballerina on Github</span>
 </a>
-        
-<!--<div class="cBallerinaTweets">
-    <a class="cTweetContainerButton"></a>
-   
-</div>        -->
-   
-    <script type="text/javascript">
-  WebFontConfig = {
-    google: { families: [ 'Cairo:200,300,400,600,700,900:latin', 'Source+Sans+Pro:400,600,400italic,700italic,700:latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
-    
-    <link href="//cdn.wso2.com/wso2/sites/all/ballerina/css/master.css" rel="stylesheet">
-    
-
-    <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/jquery.js"></script>
-
 <script type="text/javascript">
-function downloadJSAtOnload() {
-var element = document.createElement("script");
-element.src = "//wso2.cachefly.net/wso2/sites/all/ballerina/js/bootstrap.min.js" ;
-document.body.appendChild(element);
-}
-if (window.addEventListener)
-window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
+   WebFontConfig = {
+     google: { families: [ 'Cairo:200,300,400,600,700,900:latin', 'Source+Sans+Pro:400,600,400italic,700italic,700:latin' ] }
+   };
+   (function() {
+     var wf = document.createElement('script');
+     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+       '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+     wf.type = 'text/javascript';
+     wf.async = 'true';
+     var s = document.getElementsByTagName('script')[0];
+     s.parentNode.insertBefore(wf, s);
+   })(); 
 </script>
-
-
+<link href="//cdn.wso2.com/wso2/sites/all/ballerina/css/master.css" rel="stylesheet">
+<script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/jquery.js"></script>
+<script type="text/javascript">
+   function downloadJSAtOnload() {
+   var element = document.createElement("script");
+   element.src = "//wso2.cachefly.net/wso2/sites/all/ballerina/js/bootstrap.min.js" ;
+   document.body.appendChild(element);
+   }
+   if (window.addEventListener)
+   window.addEventListener("load", downloadJSAtOnload, false);
+   else if (window.attachEvent)
+   window.attachEvent("onload", downloadJSAtOnload);
+   else window.onload = downloadJSAtOnload;
+</script>
 <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/lightbox-js.js"></script>
 <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/lightbox-js-inline.js"></script>
 <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
 <script src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina-home.js"></script>
- <script type="text/javascript">
-                                $(document).ready(function() {
-                                    $("#subscribeButton").click(function(event) {
-                                        event.preventDefault();
-                                        var email = $("#email").val();
-
-                                        if (email == "") {
-                                            $('#subscribeMessage').html("Please enter your email")
-                                        } else if (!isEmail(email)) {
-                                            $('#subscribeMessage').html("Please enter a valid email")
-                                        } else {
-                                            // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
-                                            $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email + '</span>');
-                                            $('.subscribeForm').hide();
-
-                                            $.ajax({
-                                                type: 'POST',
-                                                url: '/slackServiceCall.php',
-                                                data: {email: email},
-                                                success: function(msg) {
-
-                                                }
-                                            });
-                                            // $.fancybox.close();
-                                        }
-
-                                    });
-
-
-                                    //start of new subscribe form
-                                    $("#subscribeUserButton").click(function(event) {
-                                        event.preventDefault();
-                                        var email = $("#emailUser").val();
-
-                                        if (email == "") {
-                                            $('#subscribeUserMessage').html("Please enter your email")
-                                        } else if (!isEmail(email)) {
-                                            $('#subscribeUserMessage').html("Please enter a valid email")
-                                        } else {
-                                            $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
-                                            $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
-                                            $('.subscribeUserForm').hide();
-                                        }
-
-                                    });
-                                    //end of new subscribe form
-
-
-
-
-                                });
-
-                                function isEmail(email) {
-                                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                                    return regex.test(email);
-                                }
-    </script>
-    <script>
-        $('.VideoR-one').click(function() {
-
-            var videos = ["", "P92y5cgEa0Q"];
-
-            var video_div = $(this).attr('id');
-            var video_div = video_div.split("_");
-            var vcode = video_div[1];
-
-            $("#video_" + vcode).html('<iframe width="100%" height="373" src="https://www.youtube.com/embed/' + videos[vcode] + '?autoplay=1&wmode=transparent&VQ=HD1080" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
-            $("#video_" + vcode).show();
-        });
-
-
-
-        $('.Slides-One').click(function() {
-
-            var slideframe = $('<iframe src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>');
-            $('#slideClick').append(slideframe);
-            $('.cSlideImage').addClass("hideSlide")
-
-
-        });
-        
-         $('.cTweetContainerButton').click(function() {
-             $(".cBallerinaTweets").toggleClass("cHideTwitter");
-         });
-
+<script type="text/javascript">
+   $(document).ready(function() {
+       $("#subscribeButton").click(function(event) {
+           event.preventDefault();
+           var email = $("#email").val();
+   
+           if (email == "") {
+               $('#subscribeMessage').html("Please enter your email")
+           } else if (!isEmail(email)) {
+               $('#subscribeMessage').html("Please enter a valid email")
+           } else {
+               // $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
+               $('#subscribeMessage').html('<span style="color:green;">Your invitation has been sent to ' + email + '</span>');
+               $('.subscribeForm').hide();
+   
+               $.ajax({
+                   type: 'POST',
+                   url: '/slackServiceCall.php',
+                   data: {email: email},
+                   success: function(msg) {
+   
+                   }
+               });
+               // $.fancybox.close();
+           }
+   
+       });
+   
+   
+       //start of new subscribe form
+       $("#subscribeUserButton").click(function(event) {
+           event.preventDefault();
+           var email = $("#emailUser").val();
+   
+           if (email == "") {
+               $('#subscribeUserMessage').html("Please enter your email")
+           } else if (!isEmail(email)) {
+               $('#subscribeUserMessage').html("Please enter a valid email")
+           } else {
+               $(".pdframe").html("<iframe src='http://go.pardot.com/l/142131/2017-02-16/3c6zgy?email=" + email + "'></iframe>");
+               $('#subscribeUserMessage').html('<span style="color:green;">Thank you! Stay tuned for updates on Ballerina.</span>');
+               $('.subscribeUserForm').hide();
+           }
+   
+       });
+       //end of new subscribe form
+   
+   
+   
+   
+   });
+   
+   function isEmail(email) {
+       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+       return regex.test(email);
+   }
+</script>
+<script>
+   $('.VideoR-one').click(function() {
+   
+       var videos = ["", "P92y5cgEa0Q"];
+   
+       var video_div = $(this).attr('id');
+       var video_div = video_div.split("_");
+       var vcode = video_div[1];
+   
+       $("#video_" + vcode).html('<iframe width="100%" height="373" src="https://www.youtube.com/embed/' + videos[vcode] + '?autoplay=1&wmode=transparent&VQ=HD1080" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+       $("#video_" + vcode).show();
+   });
+   
+   
+   
+   $('.Slides-One').click(function() {
+   
+       var slideframe = $('<iframe src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>');
+       $('#slideClick').append(slideframe);
+       $('.cSlideImage').addClass("hideSlide")
+   
+   
+   });
+   
+    $('.cTweetContainerButton').click(function() {
+        $(".cBallerinaTweets").toggleClass("cHideTwitter");
+    });
+   
+</script>
+<script>
+   $("document").ready(function($) {
+   
+   var div_top = $("body").offset().top ;
+   //    div_top = div_top - 1000;
+   $(window).scroll(function() {
+      if ($(this).scrollTop() > div_top) {
+          $('.cBallerna-banner').addClass('cOpenBanner');
+       }
+   
+   });
+   
+    });   
+   
+      
 </script>
 </body>
-
 </html>
