@@ -65,6 +65,14 @@
         </script>
         <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
 
+        
+        
+  
+        
+        
+        
+        
+        
         <style>
             .hideSlide {
                 display: none;
@@ -121,13 +129,84 @@
      background-image: url("http://ballerinalang.org/img/up-arrow.svg") !important;
 }
 
+.row.cBallerna-banner {
+background-color: #000000;
+background-image: url("hackathon/hackathon-images/intro-bg-orange.jpg");
+ background-attachment: fixed;
+ background-size: 100%;
+ height: 0;
+ transition: all 0.5s ease-in-out 0s;
+ padding: 0;
+ box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
+  filter: grayscale(100%);
+ 
+}
+
+.row.cBallerna-banner:hover {
+filter: grayscale(0%);
+ transition: all 0.5s ease-in-out 0s;
+}
+.cBallerna-banner-Container {
+height: 0px;
+
+}
+
+.row.cBallerna-banner img {
+height: 0px;
+}
+
+.row.cBallerna-banner.cOpenBanner {
+    height: auto;
+    transition: all 0.5s ease-in-out 0s;
+    padding: 4em;
+    margin-bottom: 4em;
+    
+
+}
+
+.row.cBallerna-banner.cOpenBanner img {
+height: 200px;
+}
+.row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
+height: auto;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width:991px) {
     .cTweetContainerButton , .cBallerinaTweets {
         display: none;
     }
+     .row.cBallerna-banner.cOpenBanner {
+        padding: 2em;
+    }
+
 }
+
+@media screen and (max-width:500px) {
+    .row.cBallerna-banner.cOpenBanner img {
+        height: 77px;
+    }
+    .row.cBallerna-banner.cOpenBanner {
+        padding: 1.2em;
+    }
+}
+
+
+
+
+
+
+
             
         </style>
+        
+        
 
     </head>
     <body class="cBallerina">
@@ -136,10 +215,24 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW2LLTW"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-
+      
         <div class="row cBallerinaNav" id="iBallerinaNavigation">
 
         </div>
+        <a href="http://ballerinalang.org/hackathon/" target="_blank"><div class="row cBallerna-banner">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-6 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017.svg"/>
+                </div>
+                 <div class="col-xs-6 col-sm-6 col-md-3 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017-date.svg"/>
+                </div>
+                   <div class="col-xs-6 col-sm-6 col-md-3 cBallerna-banner-Container">
+                    <img src="img/hackathon-logo-2017-regoster-now.svg"/>
+                </div>
+            </div>
+        </div>
+        </a>
         <div class="row cBallerinaIntro">
             <div class="container">
                 <div class="col-sm-12 col-md-12">
@@ -1064,6 +1157,47 @@ else window.onload = downloadJSAtOnload;
          });
 
 </script>
+
+      
+        
+        <script>
+     $("document").ready(function($) {
+
+    var div_top = $("body").offset().top ;
+//    div_top = div_top - 1000;
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > div_top) {
+            $('.cBallerna-banner').addClass('cOpenBanner');
+         }
+
+    });
+ 
+      });   
+      
+      
+//      $("document").ready(function($) {
+//      
+//        $(window).scroll(function() {
+//                     if ($(this).scrollTop() > 80) {
+//                         $('.cBallerna-banner').addClass('cOpenBanner');
+////                         $('.cBallerna-banner').addClass('cOpenBanner');
+//                       
+//                         //                            $('.body').addClass('cFixdspacer');
+//         
+//                     } else {
+//                    
+////                        $('.cBallerna-banner').removeClass('cOpenBanner');
+//         
+//                         //                            $('.cMenuSpacer').removeClass('cFixdspacer');
+//         
+//                     }
+//                 });
+//      
+//      
+//        });
+         
+     
+      </script>
 </body>
 
 </html>
