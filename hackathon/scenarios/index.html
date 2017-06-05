@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ballerina - A flexible, powerful, beautiful programming language designed for integration.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <meta property="og:url"                content="http://ballerinalang.org" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+        <meta property="og:description"        content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration." />
+        <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index"/>
+        <meta name="title" content="Ballerina - A flexible, powerful, beautiful programming language">
+        <meta name="description" content="Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration.">
+        <meta name="keywords" content="Programing language, Integration language, Sequence diagrams, Ballerinalang, WSO2 Ballerina, ballerina, language, Microservices Enterprise, Integration,">
+        <meta name="author" content="ballerinalang"/>
+        
+        
+        
+    <link href="http://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="http://b.content.wso2.com/sites/all/bootstrap/js/jquery.js"></script>
+    <script src="http://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js"></script>
+    <link href="http://c.content.wso2.com/sites/all/common/wso2-common-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+    <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js.js"></script>
+    <link href="http://c.content.wso2.com/sites/all/lightbox/lightbox-styles.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js-inline.js"></script>
+
+    <link href="../../css/ballerina.css" rel="stylesheet">
+    <!--        <script type="text/javascript" src="../js/ballerina.js"></script>-->
+    <link rel="stylesheet" href="http://c.content.wso2.com/sites/all/common/aos/aos.css" />
+    <script src="http://c.content.wso2.com/sites/all/common/aos/aos.js"></script>
+
+    <style>
+        * {
+            transition: all 0.5s ease 0s;
+        }
+        
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin: 1em 0;
+        }
+        
+        .cBallerinaContentColContainer {
+            background-image: none;
+        }
+        
+        .cBallerinaContentCol_Left ul li {
+            background-image: none;
+            list-style: outside none disc;
+            padding: 0 0 0 1em;
+        }
+        
+        .cBallerinaContentCol_Left ul {
+            padding-left: 1em;
+        }
+        
+        body.cBallerina.cBallerinaHackathon.cBallerinaHackathon {
+            /*                background-image:url(../hackathon-images/intro-bg.jpg);
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 100%;*/
+        }
+        
+        .cBallerinaContentRow.cBallerinaContentIntroRow {
+            background-image: url(../hackathon-images/intro-bg.jpg);
+            /*                background-attachment: fixed;*/
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 100%;
+            padding-bottom: 8em;
+            padding-top: 5em;
+        }
+        
+        .cBallerinaHackathonIntro {
+            text-align: center;
+        }
+        
+        .cBallerinaHackathonIntro h1 {
+            font-size: 9em;
+            color: #000000;
+            font-weight: 700;
+            line-height: 1em;
+            margin-bottom: 0.5em;
+        }
+        
+        .cDate {
+            color: #000000;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 0.5em;
+        }
+        
+        .cTime {
+            color: #000000;
+            font-size: 1.5em;
+            font-weight: 600;
+            line-height: 1.2em;
+        }
+        
+        .cBallerinaContentRow {
+            padding: 4em 0;
+        }
+        
+        .cBallerinaContentRow h2 {
+            font-size: 3em;
+            line-height: 1.6em;
+            margin: 0;
+            font-weight: 600;
+            margin-bottom: 1em;
+            padding-top: 0;
+        }
+        
+        .cBallerinaContentIntroRow.cFadeout {
+            opacity: 0;
+            transition: all 0.1s ease 0s;
+        }
+        /*          FORM*/
+        
+        .cFormContainer ul li {
+            text-align: left;
+        }
+        
+        .cFormContainer ul li label {
+            margin-right: 1em;
+        }
+        
+        .row.cFormRow {
+            height: 0px;
+            transition: all 0.1s ease 0s;
+            padding: 0;
+            opacity: 0;
+            /*              background-color: rgba(0,0,0,0.7);*/
+            text-align: center;
+        }
+        
+        .row.cFormRow.show {
+            transition: all 0.1s ease 0s;
+            padding: 8em 0 4em 0;
+            opacity: 1;
+            border-bottom: 1px solid;
+            display: inline-block;
+            height: auto !important;
+        }
+        
+        .row.cFormRow .cFormContainer {
+            width: 100%;
+            display: inline-block;
+            padding: 3em;
+            display: none;
+            background-color: #DDDDDD;
+            position: relative;
+        }
+        
+        .cClose {
+            position: absolute;
+            top: -7px;
+            right: 0px;
+            cursor: pointer;
+        }
+        
+        .cClose img {
+            width: 32px;
+        }
+        
+        .row.cFormRow.show .cFormContainer {
+            display: inline-block;
+        }
+        
+        .cFormContainer input,
+        .cTextarea {
+            margin-bottom: 1em;
+            padding: 0.5em 1em;
+            width: 100%;
+        }
+        
+        .cFormContainer h2 {
+            text-align: left;
+            font-weight: 600;
+            color: #303030;
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+        
+        .cFormContainer h3 {
+            text-align: left;
+        }
+        
+        .cTeamMemberForm {
+            background-color: #f0f0f0;
+            display: inline-block;
+            width: 100%;
+            border-bottom: 2px solid #DDDDDD;
+            padding: 3em;
+        }
+        
+        .cTeamForm {
+            margin-bottom: 3em;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .cSteps {
+            width: 100%;
+            display: inline-block;
+            padding: 4em 0;
+        }
+        /*          #iBallerinaNavigation {
+            background-color: rgba(255,255,255,0.8);
+            }*/
+        
+        .cTeamSelectForm {
+            margin-bottom: 1em;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .cTeamSelectForm ul {
+            float: left;
+        }
+        
+        .cTeamSelectForm ul li {
+            display: inline-block;
+            float: left;
+            margin-right: 4em;
+        }
+        
+        .cTeamSelectForm ul li input {
+            width: auto;
+            margin-bottom: 0;
+        }
+        
+        .cTeamSelectForm ul li label {
+            font-weight: 700;
+            float: left;
+        }
+        
+        a.cBallerinaButtons.cRegisterButton,
+        input.cBallerinaButtons {
+            background-color: #303030;
+            /*background-color: #FF5000;*/
+            border: 1px solid #e2e2e4;
+            bottom: 0;
+            color: #ffffff;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 2em;
+            padding: 0.8em 2em;
+            text-align: center;
+            text-transform: none;
+            vertical-align: bottom;
+            width: auto;
+        }
+        
+        input.cBallerinaButtons {
+            font-size: 1.5em;
+            margin-top: 1em;
+        }
+        
+        a.cBallerinaButtons.cRegisterButton:hover {
+            color: #303030;
+            background: #ffffff;
+        }
+        
+        a.cBallerinaButtons.cRegisterButton.cFixd {
+            font-size: 1em;
+            font-weight: 600;
+            height: 48px;
+            padding: 0.5em 1em;
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transition: all 0.5s ease 0s;
+            z-index: 9999999;
+           
+        }
+         a.cBallerinaButtons.cRegisterButton.cFixd:hover {
+/*                height: 48px;
+                font-size: 1em;
+                font-weight: 600;
+                height: 48px;
+                padding: 0.5em 1em;
+                position: fixed;
+                right: 0;
+                top: 50%;
+                transition: all 0.5s ease 0s;
+                z-index: 9999999;*/
+            }
+        
+        a.cBallerinaButtons.cRegisterButton.cFixd.cHideButton {
+            right: -100px;
+        }
+        
+        .cStepContainer {
+            min-height: 300px;
+            /*              border: 1px solid;*/
+            /*              background: gray;*/
+        }
+        
+        .cStepContainer h3 {
+            font-size: 3em;
+            color: #ffffff;
+            padding-top: 0px;
+            margin-bottom: 1em;
+            font-weight: 700;
+        }
+        
+        .cStepContainer p {
+            color: #ffffff;
+            font-size: 1.2em;
+            line-height: 1.4em;
+        }
+        
+        .cStepContainer a {
+            padding-right: 30px;
+            background-image: url(http://ballerinalang.org/img/down-arrow.svg);
+            background-position: right;
+            width: 90%;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            display: inline-block;
+        }
+        
+        .cStep1 {
+            background-color: #333333;
+        }
+        
+        .cStep2 {
+            background-color: #666666;
+        }
+        
+        .cStep3 {
+            background-color: #999999;
+        }
+        
+        .cStep4 {
+            background-color: #cccccc;
+        }
+        
+        .cBallerinaContentRowBlack {
+            background-image: url(../hackathon-images/bg-2-black.jpg?01);
+            background-position: top center;
+            background-repeat: no-repeat;
+            /*              background-attachment: fixed;*/
+            background-size: 100%;
+            padding: 8em 0em;
+            transition: all 0.5s ease 0s;
+            filter: grayscale(100%);
+        }
+        
+        .cBallerinaContentRowBlack:hover {
+            transition: all 0.5s ease 0s;
+            filter: grayscale(0%);
+        }
+        
+        .cBallerinaContentRowBlack h2,
+        .cBallerinaContentRowBlack p {
+            color: #ffffff;
+        }
+        
+        .cBallerinaContentRowGray {
+            background-image: url(../hackathon-images/bg-gain.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+            /*              background-attachment: fixed;*/
+            background-size: 100%;
+            padding: 8em 0em;
+        }
+        
+        .cBallerinaContentRowWhiteImage {
+            background-image: url(../hackathon-images/bg-4-orange.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+            /*              background-attachment: fixed;*/
+            background-size: 100%;
+            /*                padding: 8em 0em;*/
+            transition: all 0.5s ease 0s;
+            filter: grayscale(100%);
+            
+            background-color: #000000;
+        }
+        .cBallerinaContentRowWhiteImage:hover  {
+            transition: all 0.5s ease 0s;
+            filter: grayscale(25%);
+        }
+        
+        .cBallerinaContentRowWhiteImage h2 , .cBallerinaContentRowWhiteImage h3 , .cBallerinaContentRowWhiteImage p {
+            color: #ffffff;
+        }
+        
+        .cBallerinaContentRowWhite {
+            background-color: #ffffff;
+        }
+        
+        .cBallerinaButtons.cRegisterButton.cHide.cFixd {
+            display: none;
+        }
+        
+        .cIndividualMemberForm {
+            padding-top: 0em;
+        }
+        
+        .cEvaluation li {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 1em;
+        }
+        
+        .cEvaluationSteps {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
+            padding: 1em 2em;
+        }
+        
+        .cEvaluationSteps p {
+            color: #000000;
+            font-size: 1.3em;
+        }
+        
+        .cWhatwillIgain {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
+            padding: 1em 2em;
+/*            min-height: 280px;*/
+            border: 1px solid rgb(235, 235, 235);
+            vertical-align: middle;
+        }
+        
+        .cWhatwillIgain p {
+            font-size: 1.4em;
+            line-height: 1.4em;
+        }
+        
+        #hackathonMessage p {
+            width: 100%;
+            display: inline-block;
+            padding: 1em;
+            background: #f0f68a;
+            color: #000000;
+            font-weight: 600;
+            box-shadow: 0 0 44px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cInfo.cMargin {
+            margin-bottom: 8em;
+            transition: all 0.5s ease 0s;
+        }
+        
+        .cBallerinaContentRow img {
+            filter: grayscale(100%);
+            transition: all 0.5s ease 0s;
+        }
+        
+        .cBallerinaContentRow:hover img {
+            transition: all 0.5s ease 0s;
+            filter: grayscale(0%);
+        }
+        
+        .cBallerinaNav,
+        .navbar-collapse.collapse {
+            /*                position: absolute;
+                width: 100%;*/
+            background-color: #616161 !important;
+        }
+        
+        .cBallerinaNav a {
+            color: #ffffff !important;
+        }
+        
+        .cBallerinaNav .navbar.navbar-default {
+            padding: 0;
+        }
+        
+        .cSharePannel {
+            position: fixed;
+            width: 55px;
+            top: 10%;
+            right: 0;
+            padding: 1em 0 0.5em 0;
+            background: #ffffff;
+            border: 1px solid #AEAEAE;
+            text-align: center;
+            border-right: none;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .cSharePannel a:hover {
+            border: none;
+        }
+        
+        .cSharePannel .cSVGMenuIcons {
+            width: 20px;
+        }
+        #iTeamSelectForm {
+            padding: 1em;
+            background-color: #ffffff;
+            
+        }
+        #iTeamSelectForm label {
+            font-size: 1.5em;
+        }
+        #iTeamRegForm h3 {
+            margin-top: 0;
+        }
+        
+        .cThankYouMsg {
+/*            font-weight: 800;
+            font-size: 4em;
+            font-weight: 700;*/
+        }
+        .cThankYouMsg h2 {
+            font-weight: 800;
+            font-size: 4em;
+            font-weight: 700;
+            color: #23a700;
+        }
+        .cInnerPage-logo {
+            text-align: center;
+        }
+        
+        
+        
+/*        Scenarios*/
+
+a.cScenariosLinks {
+cursor: pointer;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.5em;
+    text-align: center;
+    width: 100%;
+     background-image: url("../scenarios/scenario-images/down-arrow.svg");
+     background-repeat: no-repeat;
+    background-position: center bottom;
+    color: #000000;
+    padding-bottom: 1em;
+    border-color: transparent;
+     transition: all 0.5s ease 0s;
+     filter: alpha(opacity=50);
+     
+    
+}
+a.cScenariosLinks:hover {
+font-weight: 600;
+border: none;
+border-color: transparent;
+
+ transition: all 0.5s ease 0s;
+ filter: alpha(opacity=100);
+
+    
+}
+.cInnerPage-logo {
+    text-align: left;
+}
+.cScenariosCol {
+    text-align: center;
+    border-left: 1px solid red;
+}
+.cScenariosCol:first-child {
+    border: none;
+}
+.cScenariosColFirst {
+    border: none;
+}
+.cScenariosImage {
+    display: none;
+}
+a.cTopLink {
+     background-image: url(http://ballerinalang.org/img/up-arrow.svg);
+     padding-top: 1em;
+     background-position: top center;
+     background-repeat: no-repeat;
+     border: none;
+     color: #000000;
+     margin-top: 4em;
+     display: inline-block;
+     position: fixed;
+     padding: 1em;
+     bottom: 100px;
+     right: 0;
+     cursor: pointer;
+     display: inline-block;
+}
+a.cTopLink:hover {
+    border: none;
+}
+.cInnerPage-logo-content h1 {
+    padding:0; margin: 0; line-height: 3.5em;
+}
+
+a.cHackLogo , a.cHackLogo:hover {
+    border: none;
+    border-color: transparent;
+}
+
+
+        
+        
+     
+        
+        @media screen and (max-width: 1300px) {
+            .cBallerinaContentRowGray,
+            .cBallerinaContentRowBlack {
+                background-size: 500%;
+            }
+            body.cBallerina.cBallerinaHackathon.cBallerinaHackathon {
+                background-image: none;
+            }
+            .cBallerinaContentIntroRow {
+                background-image: url(../hackathon-images/intro-bg.jpg);
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 100%;
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            .cBallerinaHackathonIntro h1 {
+                font-size: 5em;
+            }
+            body.cBallerina.cBallerinaHackathon.cBallerinaHackathon {
+                background-size: 900%;
+                background-position: center -617px;
+            }
+            .cBallerinaContentRowGray,
+            .cBallerinaContentRowBlack,
+            .cBallerinaContentIntroRow,
+            .row.cBallerinaContentRow.cBallerinaContentIntroRow {
+                background-size: 500%;
+            }
+            .cBallerinaContentIntroRow {
+                padding-bottom: 4em;
+            }
+            .cInfo.cMargin {
+                margin-bottom: 2em;
+            }
+            .cBallerinaContentRow h2 {
+                font-size: 1.4em !important;
+                font-weight: 600 !important;
+            }
+            .cStepContainer {
+                min-height: unset;
+                padding: 1em;
+            }
+            .cStepContainer h3 {
+                color: #fff;
+                display: inline-block;
+                float: left;
+                font-size: 2em;
+                font-weight: 700;
+                margin-bottom: 0;
+                margin-right: 0.7em;
+                margin-top: 0;
+                padding-top: 0;
+            }
+            .cWhatwillIgain {
+                min-height: unset;
+            }
+            a.cBallerinaButtons.cRegisterButton.cFixd {
+                display: none;
+            }
+            #Menu-Logo img,
+            .navbar-brand > img {
+                max-width: 100px !important;
+            }
+            a.cTopLink {
+                display: none;
+            }
+            .cInnerPage-logo-content h1 {
+                line-height: 1.6em;
+            }
+        }
+
+        @media screen and (max-width: 361px) {
+            .row.cBallerinaContentRow {
+                padding: 3em 0;
+            }
+            #Scenarios {
+                display: none;
+            }
+            .cBallerinaHackathonIntro h1 {
+                font-size: 2.5em;
+            }
+            body.cBallerina.cBallerinaHackathon.cBallerinaHackathon {
+                background-size: 600%;
+            }
+            .cBallerinaContentIntroRow {
+                padding-bottom: 0;
+            }
+            .cBallerinaContentRowGray,
+            .cBallerinaContentRowBlack,
+            .cBallerinaContentIntroRow,
+            .cBallerinaContentRow.cBallerinaContentIntroRow {
+                background-size: 1200% !important;
+                background-repeat: repeat;
+            }
+            a.cBallerinaButtons.cRegisterButton,
+            input.cBallerinaButtons {
+                font-size: 1.5em;
+                margin-bottom: 2em;
+            }
+            .cSharePannel {
+                border-radius: 0;
+                bottom: 0;
+                height: 36px;
+                padding: 0.5em;
+                top: auto;
+                width: 100%;
+            }
+        }
+        .cPowerdby {
+            float: left;
+        }
+        .row.cBallerinaFooter {
+            margin-bottom: 1em;
+        }
+       
+    </style>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+  
+
+    
+
+</head>
+
+<body class="cBallerina cBallerinaHackathon">
+
+    <script>
+        AOS.init({
+            duration: 1200
+        });
+    </script>
+    <!--        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+        </div>-->
+
+    <div class="row cBallerinaNav" id="iBallerinaNavigation">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                        <a class="navbar-brand imagelink" href="http://ballerinalang.org/" id="Menu-Logo"><img style='max-width: 100px;' src="../hackathon-images/ballerina-logo-white.svg"></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                        <ul class="nav navbar-nav">
+                            <li><a id="Menu-docs" href="http://ballerinalang.org/docs">Documentation</a></li>
+                            <li><a id="Menu-downlaod" href="http://ballerinalang.org/downloads">Downloads</a></li>
+                            <li><a id="Menu-Get-involved" href="http://ballerinalang.org/#Get-involved">Get involved</a></li>
+                            <li><a id="Resources" href="http://ballerinalang.org/resources">Resources</a></li>
+                            <li><a id="Menu-blog" href="https://medium.com/ballerinalang" target="_blank">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+   
+    
+    <!--      FORM START-->
+    
+    <!--      FORM END -->
+    
+    <div class="row cBallerinaContentRow cBallerinaContentIntroRow">
+        <div class="container">
+            <div class="col-sm-12 col-md-6 cInnerPage-logo">
+                <a class="cHackLogo" href="http://ballerinalang.org/hackathon/">
+                <img src="scenario-images/hackathon-logo-2017-b.svg"/>
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-6 cInnerPage-logo-content">
+                <h1>Examples & Scenarios</h1>
+            </div>
+        </div>
+        
+    </div>
+    
+<!--    <div class="row cBallerinaContentRow">
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                
+            </div>
+        </div>
+    </div>-->
+
+    <div class="row cBallerinaContentRow" id="Scenarios">
+        <div class="container">
+            
+
+            <div class="col-xs-3 col-sm-3 col-md-3 cScenariosCol cScenariosColFirst" data-aos="fade-up">
+                <a class="cScenariosLinks" href="#Movie-release-reminder">
+                    Movie release reminder
+                </a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3  cScenariosCol" data-aos="fade-up">
+                <a class="cScenariosLinks" href="#Tag-collector">
+                    Tag collector
+                </a>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3  cScenariosCol" data-aos="fade-up">
+                <a class="cScenariosLinks" href="#Bulk-GitHub-repo-creator">
+                    Bulk GitHub repo creator
+                </a>
+            </div>
+             <div class="col-xs-3 col-sm-3 col-md-3  cScenariosCol" data-aos="fade-up">
+                <a class="cScenariosLinks" href="#Ballerina-based-DevOps-toolkit">
+                    Ballerina based DevOps toolkit
+                </a>
+            </div>
+            
+
+
+        </div>
+    </div>
+    <div class="row cBallerinaContentRow cGrayRow cScenariosContent" id="Movie-release-reminder">
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                <h2>Movie release reminder</h2>
+            </div>
+            <div class="col-sm-12 col-md-8">
+
+                <p>Connect to a movie information service provider or providers and query release date information, process it and if the information is found create a Google calendar reminder.
+                </p>
+                <p>
+                    Learning outcomes: basic Ballerina syntax, HTTP transport support, string manipulation support, JSON/XML support, creating connectors.  
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a class="fancybox" href="#MovieReleaseReminder"/><img src="scenario-images/MovieReleaseReminder.png"/></a>
+                <img id="MovieReleaseReminder" Class="cScenariosImage" src="scenario-images/MovieReleaseReminder.png"/>
+            </div>
+            
+        </div>
+         
+
+    </div>
+
+    
+    
+    
+    <div class="row cBallerinaContentRow cScenariosContent" id="Tag-collector">
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                <h2>Tag collector</h2>
+            </div>
+            <div class="col-sm-12 col-md-8">
+
+
+                <p>A stand-alone app that checks a person's facebook account for photos he/she is tagged in and if matches are found, stores them away in a predefined google drive location.
+                </p>
+                <p>Learning outcomes: basic ballerina syntax familiarity, http transport support, string manipulation support, json xml support, creating connectors.  
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a class="fancybox" href="#TagCollector"/><img src="scenario-images/Tag-Collector.png"/></a>
+                <img id="TagCollector" Class="cScenariosImage" src="scenario-images/Tag-Collector.png"/>
+            </div> 
+            
+            
+        </div>
+
+    </div>
+    
+    
+    
+    
+    
+     <div class="row cBallerinaContentRow cGrayRow cScenariosContent" id="Bulk-GitHub-repo-creator">
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                <h2>Bulk GitHub repo creator 
+                </h2>
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <p>
+                    The idea here is to create a set of github repos using parameters passed in. The list of repositories that needs to be created will be stored in the local file system.
+                </p><p>
+                    Learning outcomes: basic ballerina syntax familiarity, http transport support, file connector usage, string manipulation support, json xml support, creating connectors(optional).
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a class="fancybox" href="#GitHubRepoCreator"/><img src="scenario-images/Git-Hub-Repo-Creator.png"/></a>
+                <img id="GitHubRepoCreator" Class="cScenariosImage" src="scenario-images/Git-Hub-Repo-Creator.png"/>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    <div class="row cBallerinaContentRow cScenariosContent" id="Ballerina-based-DevOps-toolkit">
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                <h2>Ballerina based DevOps toolkit </h2>
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <p>The basic idea is to encapsulate a bunch of ballerina bmz bsz with shell scripts or another scripting language so that they can be used through the command line or be used inside other scripts. 
+                </p>
+                <p>The project is better suited for a team of developers, they will have to have some familiarity with ballerina or work up competency by playing around with it for a few hours first to identify the capabilities of ballerina and then figure out which aspects of it would be useful to a DevOp. Once they have passed this stage, they can start creating services and standalone apps that makes using those aspects of ballerina easy. Examples of actionable items in this stage, 
+                </p>
+                <ul>
+                    <li>Creating scripts to automate client key/secret generation needed for some of the connectors found in ballerina.</li>
+                    <li>Creating ballerina services that act as a 1-to-1 json to xml proxy.</li>
+                    <li>Filling in a parameterized XML template that's passed in as a service parameter to generate xml payloads on the fly before making outgoing HTTP calls.</li>
+
+                </ul>
+                <p>Once the services and programs have been created they should be packed in with ballerina to be used conveniently, Examples of actionable items in this stage, 
+                </p>
+
+                <ul>
+                    <li>packing bsz, bmz and the script files that insulate them into a predefined location inside <BALLERINA_HOME> and creating a new zip distribution that can be unzipped and be run from the command line or be integrated into other scripts. 
+                        </li>
+                        <li>Documenting the scripts that encapsulate the services and programs. </li>
+
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a class="fancybox" href="#BallerinabasedDevOpstoolkit"/><img src="scenario-images/Ballerina-based-DevOps-toolkit.png"/></a>
+                <img id="BallerinabasedDevOpstoolkit" Class="cScenariosImage" src="scenario-images/Ballerina-based-DevOps-toolkit.png"/>
+            </div>
+         
+        </div>
+
+    </div>
+
+    
+    
+    <div class="row cBallerinaFooter" id="iBallerinaFooter">
+        <div class="container">
+            <ul>
+                <li>&copy;2017 WSO2</li>
+                <li><a id="footer-TOU" href="http://ballerinalang.org/terms-of-use">Terms of Use</a></li>
+                <li><a id="footer-Privacy" href="http://ballerinalang.org/privacy-policy">Privacy Policy</a></li>
+            </ul>
+            <ul class="cPowerdby">
+                <li>Powered by
+                    <a id="footer-wso2" href="http://wso2.com/" class="imagelink"><img src="http://cdn.wso2.com/wso2/sites/all/ballerina/img/wso2logo_white_v2.jpg"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+ <a href="#Scenarios" class="cTopLink">Go to top</a>
+    <div class="cSharePannel">
+        <a class="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
+            <svg version="1.1" class="cSVGMenuIcons" id="iFooterSVGTracking_fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
+                <path d="M80.318,215.866h43.272V107.453h30.206L157,71.199h-33.41c0,0,0-13.555,0-20.701 c0-8.522,1.73-11.936,10.005-11.936c6.653,0,23.405,0,23.405,0V0.917c0,0-24.67,0-29.942,0c-32.222,0-46.74,14.17-46.74,41.336 c0,23.635,0,28.946,0,28.946H57.784v36.725h22.534V215.866z" />
+            </svg>
+        </a>
+        <a href="https://twitter.com/share?
+               url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&
+               via=twitterdev&
+               related=twitterapi%2Ctwitter&
+               hashtags=example%2Cdemo&
+               text=custom%20share%20text">
+            <svg class="cSVGMenuIcons" version="1.1" id="iFooterSVGTracking_twitter" xmlns="http://wwwa.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 217.796 177.016" enable-background="new 0 0 217.796 177.016" xml:space="preserve">
+                <path d="M0,156.928c19.764,12.661,43.248,20.091,68.477,20.091c82.971,0,129.816-70.094,127.012-132.928 c8.729-6.308,16.308-14.167,22.307-23.156c-8.027,3.589-16.634,5.972-25.661,7.055c9.196-5.513,16.288-14.259,19.615-24.735 c-8.653,5.13-18.204,8.849-28.352,10.877c-8.167-8.709-19.773-14.129-32.632-14.129c-28.856,0-50.022,26.903-43.542,54.881 C70.117,53.015,37.168,35.25,15.147,8.142C3.467,28.28,9.097,54.557,28.987,67.845c-7.326-0.271-14.241-2.261-20.259-5.579 c-0.477,20.688,14.385,40.051,35.841,44.341c-6.274,1.737-13.171,2.102-20.156,0.803c5.653,17.756,22.184,30.632,41.719,31.015 C47.363,153.161,23.722,159.75,0,156.928z" />
+            </svg>
+        </a>
+
+        <a class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' + encodeURIComponent(document.title)); return false;">
+            <svg version="1.1" id="iFooterSVGTracking_linkedin" class="cSVGMenuIcons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 216 216" enable-background="new 0 0 216 216" xml:space="preserve">
+                <rect x="4.267" y="71.146" width="44.034" height="142.273" />
+                <path d="M26.033,52.494c14.434,0,26.115-11.773,26.115-26.252C52.148,11.744,40.467,0,26.033,0 C11.686,0,0,11.744,0,26.242C0,40.721,11.686,52.494,26.033,52.494z" />
+                <path d="M118.703,138.751c0-20.015,9.193-31.963,26.846-31.963c16.17,0,23.984,11.442,23.984,31.963 c0,20.491,0,74.669,0,74.669h43.832c0,0,0-51.979,0-90.062c0-38.131-21.619-56.57-51.783-56.57 c-30.182,0-42.879,23.517-42.879,23.517V71.146H76.444V213.42h42.259C118.703,213.42,118.703,160.645,118.703,138.751z" />
+            </svg>
+        </a>
+    </div>
+
+</body>
+
+</html>
