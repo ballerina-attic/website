@@ -141,6 +141,59 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               background-position: 55px center;
            }
            
+/*           BANNER*/
+.row.cBallerna-banner {
+         background-color: #000000;
+         background-image: url("../hackathon/hackathon-images/intro-bg-orange.jpg");
+         background-attachment: fixed;
+         background-size: 100%;
+         transition: all 0.5s ease-in-out 0s;
+         padding: 7em 0;
+         box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
+         margin-bottom: 0;
+         margin-top: 0;
+         opacity: 0.9;
+         padding: 0.5em 0;
+         bottom: -200px;
+         top: auto;
+         transition: all 0.5s ease-in-out 0s;
+         width: 100%;
+         z-index: 999999;
+         filter: grayscale(100%);
+         text-align: center;
+         position: fixed;
+         }
+         .row.cBallerna-banner:hover {
+         filter: grayscale(0%);
+         transition: all 0.5s ease-in-out 0s;
+         }
+         .row.cBallerna-banner.cOpenBanner {
+         bottom: 0;
+         }
+         .row.cBallerna-banner.cOpenBanner:hover {
+         opacity: 1;
+         filter: grayscale(0%);
+         }
+         .row.cBallerna-banner img {
+         width: 350px;
+         transition: all 0.5s ease-in-out 0s;
+         }
+         body.cBallerina {
+         /*              margin-top: 420px;*/
+         margin-bottom: 78px;
+         }
+         body.cBallerina.cFixdspacer {
+         margin-top: 0x;
+         }
+         .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
+         height: auto;
+         }
+           
+           
+           
+           
+           
+           
            @media screen and (max-width: 991px) {
                .cDownloadRow p {
                    min-height: auto;
@@ -261,6 +314,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
          
       </div>
-      
+      <a href="http://ballerinalang.org/hackathon/" target="_blank" id="cHomePageHackathonBanner">
+         <div class="row cBallerna-banner">
+            <div class="container">
+               <div class="col-xs-12 col-sm-12 col-md-12">
+                  <img src="../img/home-banner-hackathon.svg"/>
+               </div>
+            </div>
+         </div>
+      </a>
+           <script>
+         $(window).scroll(function() {
+                        if ($(this).scrollTop() > 417) {
+                             $('.cBallerna-banner').addClass('cOpenBanner');
+                             $('body').addClass('cFixdspacer');
+         
+                          }
+                        
+                    });
+            
+             
+      </script>
    </body>
 </html>

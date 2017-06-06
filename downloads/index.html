@@ -1,293 +1,348 @@
+
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Ballerina - A flexible, powerful, beautiful programming language designed for integration.</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--GA-->
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-92163714-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
-        </script>
-        <!-- End Google Tag Manager -->
-        <!-- Hotjar Tracking Code for http://ballerinalang.org/ --> 
-        <script>
-            (function (h, o, t, j, a, r) {
-                h.hj = h.hj || function () {
-                    (h.hj.q = h.hj.q || []).push(arguments)
-                };
-                h._hjSettings = {hjid: 442732, hjsv: 5};
-                a = o.getElementsByTagName('head')[0];
-                r = o.createElement('script');
-                r.async = 1;
-                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
-        </script>
-        <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
-        <link href="http://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <script src="http://b.content.wso2.com/sites/all/bootstrap/js/jquery.js"></script>
-        <script src="http://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js"></script>
-        <link href="http://c.content.wso2.com/sites/all/common/wso2-common-styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
-        <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js.js"></script>
-        <link href="http://c.content.wso2.com/sites/all/lightbox/lightbox-styles.css" rel="stylesheet" type="text/css" media="all" />
-        <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js-inline.js"></script>
-        <link href="../css/ballerina.css" rel="stylesheet">
-        <link href="../css/download.css" rel="stylesheet">
-        <script type="text/javascript" src="../js/ballerina.js"></script>
-         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-        <style>
-
-
-        </style>
-        <script>
-            $(document).ready(function () {
-
-                var fieldEmail = getCookie("userdata");
-                if (fieldEmail != null) {
-                    $("#emailUser").val((atob(fieldEmail)));
-                }
-
-                $(".cPreviousReleases").click(function () {
-                    $(".cPreviousReleasesList").slideToggle();
-                    $(".cPreviousReleases").toggleClass("cUp");
-                });
-                $(".cPreviousReleases2").click(function () {
-                    $(".cPreviousReleasesList2").slideToggle();
-                    $(".cPreviousReleases2").toggleClass("cUp");
-                });
-
-
-                $("#DownloadTools").click(function (event) {
-                    
-                    $('#subscribeUserMessage').html("");
-                    var subscribeUser = $("#downloadCheckBox").is(':checked');
-                    if (subscribeUser) {
-                        var userEmail = $("#emailUser").val();
-                        if (userEmail != "") {
-                            if (!isEmail(userEmail)) {
-                                $('#subscribeUserMessage').html("Please enter a valid email");
-                                event.preventDefault();
-                            } else {
-                                $.ajax({
-                                    type: "GET",
-                                    url: "http://go.pardot.com/l/142131/2017-03-02/3fkmhq",
-                                    data: 'email=' + userEmail,
-                                    success: null
-                                });
-                                addCookie(userEmail);
-                            }
-                        }
-                    }
-                });
-            });
-
-        </script>
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-    </head>
-    <body class="cBallerina">
-        <div class="row cBallerinaNav" id="iBallerinaNavigation">
-        </div>
-        <div class="row cBallerinaContentRow">
-            <div class="container">
-                <div class="col-sm-12 col-md-12">
-                    <h1>Downloads</h1>
-                </div>
-                <div class="col-sm-12 col-md-12 cDownloadRow">
-                    <div class="cDownloadContainers" style="padding-left:0; padding-top: 0;">
-                        <div class="col-sm-12 col-md-12">
-                            <h2>Complete Ballerina Tools package<span class="cVersionTitle">Version 0.87</span></h2>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="cDownloadColLeft">
-                                <div class="cDownloadFormContainer">
-                                    <form>
-                                        <div class="cBallerinaFormFieldContainer">
-                                            <ul class="cDownloadCheckBoxContainer">
-                                                <li> <input class="cDownloadCheckBox" id="downloadCheckBox" type="checkbox" name="downloadCheckBox" value="" checked /></li>
-                                                <li>
-                                                    <p>Send me alerts and download links when new releases are out</p>
-                                                </li>
-                                            </ul>
-                                            <span id="subscribeUserMessage" ></span>
-                                            <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeUserForm" type="text">
-                                        </div>
-                                    </form>
-                                </div>
-                                <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="DownloadTools"  href="/downloads/ballerina-tools/ballerina-tools-0.87.zip">Download Tools + Runtime</a>
-                                <ul class="cDownloadlinks">
-                                    <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.sha1">sha1</a></li>
-                                    <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.md5">md5</a></li>
-                                    <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.asc">Signature</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="cDownlodInfo cDownloadColRight">
-                                <h4>This package includes:</h4>
-                                <ul>
-                                    <li>The Ballerina <span>Composer</span> for visual editing</li>
-                                    <li>Docerina for generating API documentation for Ballerina programs</li>
-                                    <li>Testerina for testing Ballerina code</li>
-                                </ul>
-                                <h4 class="cPreviousReleases">Previous Releases</h4>
-
-                                <div class="cPreviousReleasesList">
-                                    <table class="table cPlugins">
-                                        
-                                        <tr>
-                                            <td style="border: none;">Version 0.86</td>
-                                            <td style="border: none;"><a id="v0.86" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.86.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Version 0.85</td>
-                                            <td><a id="v0.85" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.85.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Version 0.84</td>
-                                            <td><a id="v0.84" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.84.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Version 0.8.3</td>
-                                            <td><a id="v0.8.3" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Version 0.8.1</td>
-                                            <td><a id="v0.8.1" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Version 0.8.0</td>
-                                            <td><a id="v0.8.0" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.0.zip">Download</a></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cDownloadContainers">
-                    <div class="cBallerinaContentColContainer">
-                        <div class="col-sm-12 col-md-12 cDownloadRow">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cDownloadColLeft">
-
-                                    <h3>Ballerina runtime <span class="cVersionTitle">Version 0.87</span></h3>
-
-
-                                    <a class="cBallerinaButtons cBallerinaDownloadButtons cBallerinaDownloadButtonLevel2 fancybox" id="DownloadRuntime" href="/downloads/ballerina-runtime/ballerina-0.87.zip">Download Runtime Only</a>
-
-                                    <ul class="cDownloadlinks" style="margin-bottom: 3em;">
-                                        <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.sha1">sha1</a></li>
-                                        <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.md5">md5</a></li>
-                                        <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.asc">Signature</a></li>
-                                    </ul>
-
-
-                                    <p style="margin-bottom: 2em;">This package contains only the runtime environment needed to execute a Ballerina program. </p>
-
-
-                                    <h4 class="cPreviousReleases2">Previous Releases</h4>
-                                    <div class="cPreviousReleasesList2">
-                                        <table class="table cPlugins">
-                                              <tr>
-                                                <td style="border: none;">Version 0.86</td>
-                                                <td style="border: none;"> <a id="v0.86" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.86.zip">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Version 0.85</td>
-                                                <td> <a id="v0.85" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.85.zip">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Version 0.84</td>
-                                                <td> <a id="v0.84r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.84.zip">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Version 0.8.3</td>
-                                                <td> <a id="v0.8.3r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.3.zip">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Version 0.8.1</td>
-                                                <td><a id="v0.8.1r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.1.zip">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Version 0.8.0</td>
-                                                <td><a id="v0.8.0r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.0.zip">Download</a></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cDownloadColRight cPlugins">
-                                    <h3 style="margin-bottom:2em;">Plugins for Your IDE</h3>
-                                    <table class="table cPlugins">
-                                        <tr>
-                                            <td>IntelliJ IDEA</td>
-                                            <td><a id="DownloadIntelliJIDEA" class="cBallerinaButtons cSubDownload" href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Atom</td>
-                                            <td><a id="DownloadAtom" class="cBallerinaButtons cSubDownload" href="https://atom.io/packages/language-ballerina" target="_blank">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>VIM</td>
-                                            <td><a id="RepoloadVIM" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-vim/releases/download/0.8.0-RC1/plugin-vim-0.8.0-RC1.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sublime Text 3</td>
-                                            <td><a id="DownloadSublimeText3" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-sublimetext3/releases/download/0.8.0-RC1/plugin-sublimetext3-0.8.0-RC1.zip">Download</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Visual Studio Code</td>
-                                            <td><a id="DownloadVisualStudioCode"  class="cBallerinaButtons cSubDownload" href="https://marketplace.visualstudio.com/items?itemName=WSO2.Ballerina" target="_blank">Download</a></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+   <head>
+      <title>Ballerina - A flexible, powerful, beautiful programming language designed for integration.</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for http://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+      <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
+      <link href="http://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <script src="http://b.content.wso2.com/sites/all/bootstrap/js/jquery.js"></script>
+      <script src="http://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js"></script>
+      <link href="http://c.content.wso2.com/sites/all/common/wso2-common-styles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+      <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js.js"></script>
+      <link href="http://c.content.wso2.com/sites/all/lightbox/lightbox-styles.css" rel="stylesheet" type="text/css" media="all" />
+      <script type="text/javascript" src="http://c.content.wso2.com/sites/all/lightbox/lightbox-js-inline.js"></script>
+      <link href="../css/ballerina.css" rel="stylesheet">
+      <link href="../css/download.css" rel="stylesheet">
+      <script type="text/javascript" src="../js/ballerina.js"></script>
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+      <style>
+      </style>
+      <script>
+         $(document).ready(function () {
+         
+             var fieldEmail = getCookie("userdata");
+             if (fieldEmail != null) {
+                 $("#emailUser").val((atob(fieldEmail)));
+             }
+         
+             $(".cPreviousReleases").click(function () {
+                 $(".cPreviousReleasesList").slideToggle();
+                 $(".cPreviousReleases").toggleClass("cUp");
+             });
+             $(".cPreviousReleases2").click(function () {
+                 $(".cPreviousReleasesList2").slideToggle();
+                 $(".cPreviousReleases2").toggleClass("cUp");
+             });
+         
+         
+             $("#DownloadTools").click(function (event) {
+                 
+                 $('#subscribeUserMessage').html("");
+                 var subscribeUser = $("#downloadCheckBox").is(':checked');
+                 if (subscribeUser) {
+                     var userEmail = $("#emailUser").val();
+                     if (userEmail != "") {
+                         if (!isEmail(userEmail)) {
+                             $('#subscribeUserMessage').html("Please enter a valid email");
+                             event.preventDefault();
+                         } else {
+                             $.ajax({
+                                 type: "GET",
+                                 url: "http://go.pardot.com/l/142131/2017-03-02/3fkmhq",
+                                 data: 'email=' + userEmail,
+                                 success: null
+                             });
+                             addCookie(userEmail);
+                         }
+                     }
+                 }
+             });
+         });
+         
+      </script>
+      <style>
+         .row.cBallerna-banner {
+         background-color: #000000;
+         background-image: url("../hackathon/hackathon-images/intro-bg-orange.jpg");
+         background-attachment: fixed;
+         background-size: 100%;
+         transition: all 0.5s ease-in-out 0s;
+         padding: 7em 0;
+         box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
+         margin-bottom: 0;
+         margin-top: 0;
+         opacity: 0.9;
+         padding: 0.5em 0;
+         bottom: -200px;
+         top: auto;
+         transition: all 0.5s ease-in-out 0s;
+         width: 100%;
+         z-index: 999999;
+         filter: grayscale(100%);
+         text-align: center;
+         position: fixed;
+         }
+         .row.cBallerna-banner:hover {
+         filter: grayscale(0%);
+         transition: all 0.5s ease-in-out 0s;
+         }
+         .row.cBallerna-banner.cOpenBanner {
+         bottom: 0;
+         }
+         .row.cBallerna-banner.cOpenBanner:hover {
+         opacity: 1;
+         filter: grayscale(0%);
+         }
+         .row.cBallerna-banner img {
+         width: 350px;
+         transition: all 0.5s ease-in-out 0s;
+         }
+         body.cBallerina {
+         /*              margin-top: 420px;*/
+         margin-bottom: 78px;
+         }
+         body.cBallerina.cFixdspacer {
+         margin-top: 0x;
+         }
+         .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
+         height: auto;
+         }
+      </style>
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+   </head>
+   <body class="cBallerina">
+      <div class="row cBallerinaNav" id="iBallerinaNavigation">
+      </div>
+      <div class="row cBallerinaContentRow">
+         <div class="container">
+            <div class="col-sm-12 col-md-12">
+               <h1>Downloads</h1>
             </div>
-        </div>
-        <div class="row cBallerinaFooter" id="iBallerinaFooter">
-        </div>
-        <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
-        <img src="http://ballerinalang.org/img/fork-w.svg"/>
-        <span>Fork Ballerina on Github</span>
-    </a>
-</body>
+            <div class="col-sm-12 col-md-12 cDownloadRow">
+               <div class="cDownloadContainers" style="padding-left:0; padding-top: 0;">
+                  <div class="col-sm-12 col-md-12">
+                     <h2>Complete Ballerina Tools package<span class="cVersionTitle">Version 0.87</span></h2>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                     <div class="cDownloadColLeft">
+                        <div class="cDownloadFormContainer">
+                           <form>
+                              <div class="cBallerinaFormFieldContainer">
+                                 <ul class="cDownloadCheckBoxContainer">
+                                    <li> <input class="cDownloadCheckBox" id="downloadCheckBox" type="checkbox" name="downloadCheckBox" value="" checked /></li>
+                                    <li>
+                                       <p>Send me alerts and download links when new releases are out</p>
+                                    </li>
+                                 </ul>
+                                 <span id="subscribeUserMessage" ></span>
+                                 <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeUserForm" type="text">
+                              </div>
+                           </form>
+                        </div>
+                        <a class="cBallerinaButtons cBallerinaDownloadButtons fancybox" id="DownloadTools"  href="/downloads/ballerina-tools/ballerina-tools-0.87.zip">Download Tools + Runtime</a>
+                        <ul class="cDownloadlinks">
+                           <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.sha1">sha1</a></li>
+                           <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.md5">md5</a></li>
+                           <li><a href="/downloads/ballerina-tools/ballerina-tools-0.87.zip.asc">Signature</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                     <div class="cDownlodInfo cDownloadColRight">
+                        <h4>This package includes:</h4>
+                        <ul>
+                           <li>The Ballerina <span>Composer</span> for visual editing</li>
+                           <li>Docerina for generating API documentation for Ballerina programs</li>
+                           <li>Testerina for testing Ballerina code</li>
+                        </ul>
+                        <h4 class="cPreviousReleases">Previous Releases</h4>
+                        <div class="cPreviousReleasesList">
+                           <table class="table cPlugins">
+                              <tr>
+                                 <td style="border: none;">Version 0.86</td>
+                                 <td style="border: none;"><a id="v0.86" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.86.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Version 0.85</td>
+                                 <td><a id="v0.85" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.85.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Version 0.84</td>
+                                 <td><a id="v0.84" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.84.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Version 0.8.3</td>
+                                 <td><a id="v0.8.3" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.3.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Version 0.8.1</td>
+                                 <td><a id="v0.8.1" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.1.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Version 0.8.0</td>
+                                 <td><a id="v0.8.0" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-tools/ballerina-tools-0.8.0.zip">Download</a></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="cDownloadContainers">
+               <div class="cBallerinaContentColContainer">
+                  <div class="col-sm-12 col-md-12 cDownloadRow">
+                     <div class="col-sm-12 col-md-6">
+                        <div class="cDownloadColLeft">
+                           <h3>Ballerina runtime <span class="cVersionTitle">Version 0.87</span></h3>
+                           <a class="cBallerinaButtons cBallerinaDownloadButtons cBallerinaDownloadButtonLevel2 fancybox" id="DownloadRuntime" href="/downloads/ballerina-runtime/ballerina-0.87.zip">Download Runtime Only</a>
+                           <ul class="cDownloadlinks" style="margin-bottom: 3em;">
+                              <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.sha1">sha1</a></li>
+                              <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.md5">md5</a></li>
+                              <li><a href="/downloads/ballerina-runtime/ballerina-0.87.zip.asc">Signature</a></li>
+                           </ul>
+                           <p style="margin-bottom: 2em;">This package contains only the runtime environment needed to execute a Ballerina program. </p>
+                           <h4 class="cPreviousReleases2">Previous Releases</h4>
+                           <div class="cPreviousReleasesList2">
+                              <table class="table cPlugins">
+                                 <tr>
+                                    <td style="border: none;">Version 0.86</td>
+                                    <td style="border: none;"> <a id="v0.86" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.86.zip">Download</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Version 0.85</td>
+                                    <td> <a id="v0.85" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.85.zip">Download</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Version 0.84</td>
+                                    <td> <a id="v0.84r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.84.zip">Download</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Version 0.8.3</td>
+                                    <td> <a id="v0.8.3r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.3.zip">Download</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Version 0.8.1</td>
+                                    <td><a id="v0.8.1r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.1.zip">Download</a></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Version 0.8.0</td>
+                                    <td><a id="v0.8.0r" class="cBallerinaButtons cSubDownload" href="/downloads/ballerina-runtime/ballerina-0.8.0.zip">Download</a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-12 col-md-6">
+                        <div class="cDownloadColRight cPlugins">
+                           <h3 style="margin-bottom:2em;">Plugins for Your IDE</h3>
+                           <table class="table cPlugins">
+                              <tr>
+                                 <td>IntelliJ IDEA</td>
+                                 <td><a id="DownloadIntelliJIDEA" class="cBallerinaButtons cSubDownload" href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Atom</td>
+                                 <td><a id="DownloadAtom" class="cBallerinaButtons cSubDownload" href="https://atom.io/packages/language-ballerina" target="_blank">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>VIM</td>
+                                 <td><a id="RepoloadVIM" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-vim/releases/download/0.8.0-RC1/plugin-vim-0.8.0-RC1.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Sublime Text 3</td>
+                                 <td><a id="DownloadSublimeText3" class="cBallerinaButtons cSubDownload" href="https://github.com/ballerinalang/plugin-sublimetext3/releases/download/0.8.0-RC1/plugin-sublimetext3-0.8.0-RC1.zip">Download</a></td>
+                              </tr>
+                              <tr>
+                                 <td>Visual Studio Code</td>
+                                 <td><a id="DownloadVisualStudioCode"  class="cBallerinaButtons cSubDownload" href="https://marketplace.visualstudio.com/items?itemName=WSO2.Ballerina" target="_blank">Download</a></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+      <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
+      <img src="http://ballerinalang.org/img/fork-w.svg"/>
+      <span>Fork Ballerina on Github</span>
+      </a>
+      <a href="http://ballerinalang.org/hackathon/" target="_blank" id="cHomePageHackathonBanner">
+         <div class="row cBallerna-banner">
+            <div class="container">
+               <div class="col-xs-12 col-sm-12 col-md-12">
+                  <img src="../img/home-banner-hackathon.svg"/>
+               </div>
+            </div>
+         </div>
+      </a>
+      <script>
+         $(window).scroll(function() {
+                        if ($(this).scrollTop() > 417) {
+                             $('.cBallerna-banner').addClass('cOpenBanner');
+                             $('body').addClass('cFixdspacer');
+         
+                          }
+                        
+                    });
+            
+             
+      </script>
+   </body>
 </html>
-
-
 

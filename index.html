@@ -113,92 +113,77 @@
       .cBallerinaTweets.cHideTwitter .cTweetContainerButton {
       background-image: url("http://ballerinalang.org/img/up-arrow.svg") !important;
       }
+      
+      
+      
+      
       .row.cBallerna-banner {
           background-color: #000000;
           background-image: url("hackathon/hackathon-images/intro-bg-orange.jpg");
-                background-attachment: fixed;
+          background-attachment: fixed;
           background-size: 100%;
-          
-
-
           transition: all 0.5s ease-in-out 0s;
           padding: 7em 0;
           box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
           filter: grayscale(100%);
-          /*      opacity: 0;*/
+
           margin: 0;
-          /*      height: 400px;*/
+
           position: absolute;
           width: 100%;
           top: 0;
       }
-      
-      
-      
-      
+
       .row.cBallerna-banner:hover {
-      filter: grayscale(0%);
-      transition: all 0.5s ease-in-out 0s;
-     
- 
-     
-     
-  
+          filter: grayscale(0%);
+          transition: all 0.5s ease-in-out 0s;
+
       }
-/*      .cBallerna-banner-Container {
-      height: 0px;
-      }*/
-/*      .row.cBallerna-banner img {
-      height: 0px;
-      }*/
+
       .row.cBallerna-banner.cOpenBanner {
-/*  height: 122px;*/
-    margin-bottom: 0;
-    margin-top: 0;
-    opacity: 0.9;
-    padding: 0.5em 0;
-    bottom: 0;
-    top: auto;
-    transition: all 0.5s ease-in-out 0s;
-    width: 100%;
-    z-index: 999999;
-    filter: grayscale(100%);
-    text-align: center;
-position: fixed;
-     }
-     .row.cBallerna-banner.cOpenBanner:hover {
-         opacity: 1;
-         filter: grayscale(0%);
-     }
-    .row.cBallerna-banner img {
-         width:100%;
-           transition: all 0.5s ease-in-out 0s;
-       
-     }
-     body.cBallerina {
-         margin-top: 420px;
-     }
-     
-    body.cBallerina.cFixdspacer {
-         
+          margin-bottom: 0;
+          margin-top: 0;
+          opacity: 0.9;
+          padding: 0.5em 0;
+          bottom: 0;
+          top: auto;
+          transition: all 0.5s ease-in-out 0s;
+          width: 100%;
+          z-index: 999999;
+          filter: grayscale(100%);
+          text-align: center;
+          position: fixed;
+      }
+      .row.cBallerna-banner.cOpenBanner:hover {
+          opacity: 1;
+          filter: grayscale(0%);
+      }
+      .row.cBallerna-banner img {
+          width:100%;
+          transition: all 0.5s ease-in-out 0s;
+
+      }
+      body.cBallerina {
+          margin-top: 420px;
+          margin-bottom: 78px;
+      }
+
+      body.cBallerina.cFixdspacer {
+
           margin-top: 0x;
       }
-      
+
       .row.cBallerna-banner.cOpenBanner img {
-    width: 350px;
-      transition: all 0.5s ease-in-out 0s;
-        
+          width: 350px;
+          transition: all 0.5s ease-in-out 0s;
+
       }
       .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
-      height: auto;
+          height: auto;
       }
       
-      .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container.cBallerna-banner-Container1 {
-          text-align: right;
-      }
-      .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container.cBallerna-banner-Container2 , .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container.cBallerna-banner-Container3 {
-          text-align: left;
-      }
+    
+      
       
       
       
@@ -1165,25 +1150,7 @@ function main(string[] args) {
    
 </script>
 <script>
-//   $("document").ready(function($) {
-//   
-//   var div_top = $("body").offset().top ;
-//       div_top = div_top - 1000;
-//   $(window).scroll(function() {
-//      if ($(this).scrollTop() > div_top) {
-//          $('.cBallerna-banner').addClass('cOpenBanner');
-//          $('body').addClass('cFixedBanner');
-//          
-////           } else {
-////               
-////            $('.cBallerina').removeClass('cFixedBanner');       
-//          }
-//   
-//       });
-//   
-//    });   
-////   
-//   
+
    $(window).scroll(function() {
                   if ($(this).scrollTop() > 417) {
                        $('.cBallerna-banner').addClass('cOpenBanner');
