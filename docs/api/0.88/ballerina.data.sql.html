@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.data.sql</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                         
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.data.sql package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#map">map</a> options)
+                        </h3>
+                        <p></p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>options</td><td><a href="#map">map</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="batchUpdateClientConnector">action batchUpdate()</h3>
+                        <p>The call action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>String</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="ballerina.data.sql.html#Parameter[][]" title="ballerina.data.sql:Parameter[][]">Parameter[][]</a></td><td>Parameter array</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int[]">int[]</a></td><td>updatedCounts: Array of update counts</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="callClientConnector">action call()</h3>
+                        <p>The call action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>String</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="ballerina.data.sql.html#Parameter[]" title="ballerina.data.sql:Parameter[]">Parameter[]</a></td><td>Parameter array</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#datatable">datatable</a></td><td>Result set for the query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="closeClientConnector">action close()</h3>
+                        <p>The close action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="selectClientConnector">action select()</h3>
+                        <p>The select action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>String</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="ballerina.data.sql.html#Parameter[]" title="ballerina.data.sql:Parameter[]">Parameter[]</a></td><td>Parameter array</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#datatable">datatable</a></td><td>Result set for the query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateClientConnector">action update()</h3>
+                        <p>The update action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>String</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="ballerina.data.sql.html#Parameter[]" title="ballerina.data.sql:Parameter[]">Parameter[]</a></td><td>Parameter array</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int">int</a></td><td>integer: Updated row count</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys()</h3>
+                        <p>The update with generated keys given columns action implementation for SQL connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>c</td><td><a href="ballerina.data.sql.html#ClientConnector" title="ballerina.data.sql:ClientConnector">ClientConnector</a></td><td>Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>String</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="ballerina.data.sql.html#Parameter[]" title="ballerina.data.sql:Parameter[]">Parameter[]</a></td><td>Parameter array</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>keyColumns</td><td><a href="#string[]">string[]</a></td><td>String array</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int">int</a></td><td>rowCount: Updated row count</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#string[]">string[]</a></td><td>rowCount: Updated row count</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.data.sql package</h2>
+                         
+                        <h3 id="Parameter">struct Parameter</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sqlType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>value</td><td><a href="#any">any</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>direction</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>structuredType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                         
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (map options)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#batchUpdateClientConnector">batchUpdate(ClientConnector c, string query, Parameter[][] parameters)</a></li>
+                                        
+                                        <li><a href="#callClientConnector">call(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        
+                                        <li><a href="#closeClientConnector">close(ClientConnector c)</a></li>
+                                        
+                                        <li><a href="#selectClientConnector">select(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        
+                                        <li><a href="#updateClientConnector">update(ClientConnector c, string query, Parameter[] parameters)</a></li>
+                                        
+                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(ClientConnector c, string query, Parameter[] parameters, string[] keyColumns)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#Parameter ">Parameter</a></li>
+                                
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

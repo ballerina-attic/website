@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>org.wso2.ballerina.connectors.salesforcesoap</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of org.wso2.ballerina.connectors.salesforcesoap package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addFields">
+                                function addFields(<a href="#xml">xml</a> payload, <a href="#map">map</a> fields, <a href="#string">string</a> xpath) 
+                            </h3>
+                            <p></p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>fields</td><td><a href="#map">map</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xpath</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isSessionExpired">
+                                function isSessionExpired(<a href="#xml">xml</a> soapResponse) (boolean )
+                            </h3>
+                            <p></p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>soapResponse</td><td><a href="#xml">xml</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="login">
+                                function login(<a href="#string">string</a> username, <a href="#string">string</a> password, <a href="#string">string</a> loginUrl, <a href="#string">string</a> soapVersion) (xml )
+                            </h3>
+                            <p></p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>username</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>password</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>loginUrl</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>soapVersion</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of org.wso2.ballerina.connectors.salesforcesoap package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> username, <a href="#string">string</a> password, <a href="#string">string</a> loginUrl, <a href="#string">string</a> soapVersion)
+                        </h3>
+                        <p>Salesforcesoap client connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>username</td><td><a href="#string">string</a></td><td>Salesforce Username</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>password</td><td><a href="#string">string</a></td><td>Salesforce Password + Security Token</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>loginUrl</td><td><a href="#string">string</a></td><td>Login Url of Salesforce</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>soapVersion</td><td><a href="#string">string</a></td><td>Soap version</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="createRecordClientConnector">action createRecord()</h3>
+                        <p>Adds one or more new records to your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#map">map</a></td><td>Map of fields of records</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteRecordClientConnector">action deleteRecord()</h3>
+                        <p>Deletes one or more records from your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>recordId</td><td><a href="#string">string</a></td><td>Id of Record to be deleted</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="describeGlobalClientConnector">action describeGlobal()</h3>
+                        <p>Lists the available objects and their metadata for your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="describeSObjectClientConnector">action describeSObject()</h3>
+                        <p>Retrieves metadata (field list and object properties) for the specified object type</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>type</td><td><a href="#string">string</a></td><td>Name of SObject</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="describeSObjectsClientConnector">action describeSObjects()</h3>
+                        <p>An array-based version of describeSObject</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>type</td><td><a href="#string">string</a></td><td>Name of SObject</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryClientConnector">action query()</h3>
+                        <p>Executes a query against the specified object and returns data that matches the specified criteria</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>Query String</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryAllClientConnector">action queryAll()</h3>
+                        <p>Retrieves data from specified objects, whether or not they have been deleted</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>Query String</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryMoreClientConnector">action queryMore()</h3>
+                        <p>Retrieves the next batch of objects from a query</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>queryLocator</td><td><a href="#string">string</a></td><td>Url to retrieve the balance query results</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="retrieveClientConnector">action retrieve()</h3>
+                        <p>Retrieves one or more records based on the specified IDs</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fieldList</td><td><a href="#string">string</a></td><td>List of fields that needs to be retrieved</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>type</td><td><a href="#string">string</a></td><td>Name of SObject</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>recordId</td><td><a href="#string">string</a></td><td>Id of Record</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="searchClientConnector">action search()</h3>
+                        <p>Executes a text search in your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>Search String</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateRecordClientConnector">action updateRecord()</h3>
+                        <p>Updates one or more existing records in your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#map">map</a></td><td>Map of fields of records</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="upsertRecordClientConnector">action upsertRecord()</h3>
+                        <p>Creates new records and updates existing records</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>s</td><td><a href="org.wso2.ballerina.connectors.salesforcesoap.html#ClientConnector" title="org.wso2.ballerina.connectors.salesforcesoap:ClientConnector">ClientConnector</a></td><td>The salesforcesoap connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Soap header values</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>externalId</td><td><a href="#string">string</a></td><td>External Id</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#map">map</a></td><td>Map of fields of records</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addFields">addFields(xml payload, map fields, string xpath) </a>
+                                </li>
+                                <li><a href="#isSessionExpired">isSessionExpired(xml soapResponse) (boolean )</a>
+                                </li>
+                                <li><a href="#login">login(string username, string password, string loginUrl, string soapVersion) (xml )</a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string username, string password, string loginUrl, string soapVersion)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#createRecordClientConnector">createRecord(ClientConnector s, xml[] headers, map fields)</a></li>
+                                        
+                                        <li><a href="#deleteRecordClientConnector">deleteRecord(ClientConnector s, xml[] headers, string recordId)</a></li>
+                                        
+                                        <li><a href="#describeGlobalClientConnector">describeGlobal(ClientConnector s, xml[] headers)</a></li>
+                                        
+                                        <li><a href="#describeSObjectClientConnector">describeSObject(ClientConnector s, xml[] headers, string type)</a></li>
+                                        
+                                        <li><a href="#describeSObjectsClientConnector">describeSObjects(ClientConnector s, xml[] headers, string type)</a></li>
+                                        
+                                        <li><a href="#queryClientConnector">query(ClientConnector s, xml[] headers, string query)</a></li>
+                                        
+                                        <li><a href="#queryAllClientConnector">queryAll(ClientConnector s, xml[] headers, string query)</a></li>
+                                        
+                                        <li><a href="#queryMoreClientConnector">queryMore(ClientConnector s, xml[] headers, string queryLocator)</a></li>
+                                        
+                                        <li><a href="#retrieveClientConnector">retrieve(ClientConnector s, xml[] headers, string fieldList, string type, string recordId)</a></li>
+                                        
+                                        <li><a href="#searchClientConnector">search(ClientConnector s, xml[] headers, string query)</a></li>
+                                        
+                                        <li><a href="#updateRecordClientConnector">updateRecord(ClientConnector s, xml[] headers, map fields)</a></li>
+                                        
+                                        <li><a href="#upsertRecordClientConnector">upsertRecord(ClientConnector s, xml[] headers, string externalId, map fields)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

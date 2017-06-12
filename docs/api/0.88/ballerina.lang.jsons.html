@@ -1,0 +1,492 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.jsons</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.jsons package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addToArray">
+                                function addToArray(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#any">any</a> value) 
+                            </h3>
+                            <p>Inserts a Boolean to a JSON array. This function will add a new Boolean element to the end of the JSON array identified by the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON array object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#any">any</a></td><td>A any value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addToObject">
+                                function addToObject(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> key, <a href="#any">any</a> value) 
+                            </h3>
+                            <p>Inserts a named element to a JSON object. This method will add a new JSON element with the given name (key)</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The name of the element to be added</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#any">any</a></td><td>A any value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBoolean">
+                                function getBoolean(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) (boolean )
+                            </h3>
+                            <p>Evaluates the JSONPath on a JSON object and returns the Boolean value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>The Boolean element on the specified path</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getFloat">
+                                function getFloat(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) (float )
+                            </h3>
+                            <p>Evaluates the JSONPath on a JSON object and returns the integer value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#float">float</a></td><td>The float element on the specified path</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getInt">
+                                function getInt(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) (int )
+                            </h3>
+                            <p>Evaluates the JSONPath on a JSON object and returns the integer value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A json object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>The integer element on the specified path</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getJson">
+                                function getJson(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) (json )
+                            </h3>
+                            <p>Evaluates the JSONPath on a JSON object and returns the matching JSON.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>The JSON element on the specified path</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) (string )
+                            </h3>
+                            <p>Evaluates the JSONPath on a JSON object and returns the string value</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The string element on the specified path</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                function remove(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath) 
+                            </h3>
+                            <p>Removes each element that matches the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="rename">
+                                function rename(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#string">string</a> oldKey, <a href="#string">string</a> newKey) 
+                            </h3>
+                            <p>Renames the key of the given element that is under the given JSONPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>oldKey</td><td><a href="#string">string</a></td><td>The old key value</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>newKey</td><td><a href="#string">string</a></td><td>The new key value to use</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="set">
+                                function set(<a href="#json">json</a> j, <a href="#string">string</a> jsonPath, <a href="#any">any</a> value) 
+                            </h3>
+                            <p>Sets the integer value of the element that matches the given JSONPath. If the JSONPath doesn&#x27;t match any element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonPath</td><td><a href="#string">string</a></td><td>The path of the JSON element</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#any">any</a></td><td>An any value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString(<a href="#json">json</a> j) (string )
+                            </h3>
+                            <p>Converts a JSON object to a string representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>String value of the converted JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addToArray">addToArray(json j, string jsonPath, any value) </a>
+                                </li>
+                                <li><a href="#addToObject">addToObject(json j, string jsonPath, string key, any value) </a>
+                                </li>
+                                <li><a href="#getBoolean">getBoolean(json j, string jsonPath) (boolean )</a>
+                                </li>
+                                <li><a href="#getFloat">getFloat(json j, string jsonPath) (float )</a>
+                                </li>
+                                <li><a href="#getInt">getInt(json j, string jsonPath) (int )</a>
+                                </li>
+                                <li><a href="#getJson">getJson(json j, string jsonPath) (json )</a>
+                                </li>
+                                <li><a href="#getString">getString(json j, string jsonPath) (string )</a>
+                                </li>
+                                <li><a href="#remove">remove(json j, string jsonPath) </a>
+                                </li>
+                                <li><a href="#rename">rename(json j, string jsonPath, string oldKey, string newKey) </a>
+                                </li>
+                                <li><a href="#set">set(json j, string jsonPath, any value) </a>
+                                </li>
+                                <li><a href="#toString">toString(json j) (string )</a>
+                                </li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
