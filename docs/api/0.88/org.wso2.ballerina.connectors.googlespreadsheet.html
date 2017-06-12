@@ -1,0 +1,1398 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>org.wso2.ballerina.connectors.googlespreadsheet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                         
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of org.wso2.ballerina.connectors.googlespreadsheet package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> accessToken, <a href="#string">string</a> refreshToken, <a href="#string">string</a> clientId, <a href="#string">string</a> clientSecret)
+                        </h3>
+                        <p>Google Spreadsheet client connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>accessToken</td><td><a href="#string">string</a></td><td>The accessToken of the Google Spreadsheet account to access the Google Spreadsheet REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>refreshToken</td><td><a href="#string">string</a></td><td>The refreshToken of the Google Spreadsheet App to access the Google Spreadsheet REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientId</td><td><a href="#string">string</a></td><td>The clientId of the App to access the Google Spreadsheet REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientSecret</td><td><a href="#string">string</a></td><td>The clientSecret of the App to access the Google Spreadsheet REST API</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="addConditionalFormatRuleBatchRequestClientConnector">action addConditionalFormatRuleBatchRequest()</h3>
+                        <p>Establishes a new conditional formatting rule</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="addRowsColumnsDataClientConnector">action addRowsColumnsData()</h3>
+                        <p>Append row/rows/column/columns of data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>range</td><td><a href="#string">string</a></td><td>The A1 notation of the values to retrieve</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>insertDataOption</td><td><a href="#string">string</a></td><td>How the input data should be inserted</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>valueInputOption</td><td><a href="#string">string</a></td><td>How the input data should be interpreted</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains the major dimension that results should use and the data that was to be written(values)</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="addSheetBatchRequestClientConnector">action addSheetBatchRequest()</h3>
+                        <p>Add a sheet or multiple sheets to a spreadsheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="appendDimensionBatchRequestClientConnector">action appendDimensionBatchRequest()</h3>
+                        <p>Append empty rows or columns at the end of the sheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="autoResizeDimensionsBatchRequestClientConnector">action autoResizeDimensionsBatchRequest()</h3>
+                        <p>Automatically resize a column</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="copyPasteBatchRequestClientConnector">action copyPasteBatchRequest()</h3>
+                        <p>Copy cell formatting in one range and paste it into another range on the same sheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="copyToClientConnector">action copyTo()</h3>
+                        <p>Copies a single sheet from a spreadsheet to another spreadsheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sheetId</td><td><a href="#string">string</a></td><td>The ID of the sheet to copy</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains the ID of the spreadsheet to copy the sheet to</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="createSpreadsheetClientConnector">action createSpreadsheet()</h3>
+                        <p>Create a new spreadsheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>The payload containing the information of the post that should be send</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="cutPasteBatchRequestClientConnector">action cutPasteBatchRequest()</h3>
+                        <p>Cuts the one range and pastes its data, formats, formulas, and merges to the another range
+                      on the same sheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteConditionalFormatRuleBatchRequestClientConnector">action deleteConditionalFormatRuleBatchRequest()</h3>
+                        <p>Delete a conditional formatting rule</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteDimensionBatchRequestClientConnector">action deleteDimensionBatchRequest()</h3>
+                        <p>Removing rows, columns and remove part of a row or column</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteSheetBatchRequestClientConnector">action deleteSheetBatchRequest()</h3>
+                        <p>Remove a sheet or multiple sheets from a given spreadsheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="editCellClientConnector">action editCell()</h3>
+                        <p>Edit the content of the cell with new values</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>range</td><td><a href="#string">string</a></td><td>The A1 notation of the values to retrieve</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>valueInputOption</td><td><a href="#string">string</a></td><td>How the input data should be interpreted</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data about major dimension that results should use and about
+                the values (the data that was to be written)</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="editMultipleCellClientConnector">action editMultipleCell()</h3>
+                        <p>Edit the content of multiple cell with new values</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data about the new values(data) to apply to the spreadsheet and
+                How the input data should be interpreted(valueInputOption)</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="getCellDataClientConnector">action getCellData()</h3>
+                        <p>Retrieve any set of cell data from a sheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>range</td><td><a href="#string">string</a></td><td>The A1 notation of the values to retrieve</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>dateTimeRenderOption</td><td><a href="#string">string</a></td><td>How dates, times, and durations should be represented in the output</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>valueRenderOption</td><td><a href="#string">string</a></td><td>How values should be represented in the output</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>majorDimension</td><td><a href="#string">string</a></td><td>The major dimension that results should use</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="getMultipleCellDataClientConnector">action getMultipleCellData()</h3>
+                        <p>Retrieve any set of cell data including multiple ranges from a sheet</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>ranges</td><td><a href="#string">string</a></td><td>The ranges to retrieve from the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>dateTimeRenderOption</td><td><a href="#string">string</a></td><td>How dates, times, and durations should be represented in the output</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>valueRenderOption</td><td><a href="#string">string</a></td><td>How values should be represented in the output</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>majorDimension</td><td><a href="#string">string</a></td><td>The major dimension that results should use</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="getSheetMetaDataClientConnector">action getSheetMetaData()</h3>
+                        <p>Retrieve Sheet properties and other metadata</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>includeGridData</td><td><a href="#string">string</a></td><td>True if grid data should be returned. This parameter is ignored
+                                    if a field mask was set in the request</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>ranges</td><td><a href="#string">string</a></td><td>The ranges to retrieve from the spreadsheet</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="insertDimensionBatchRequestClientConnector">action insertDimensionBatchRequest()</h3>
+                        <p>Insert an empty row or column at the end or in the middle</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="mergeCellsBatchRequestClientConnector">action mergeCellsBatchRequest()</h3>
+                        <p>Merge range of cells into a one cell</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="moveDimensionBatchRequestClientConnector">action moveDimensionBatchRequest()</h3>
+                        <p>Move a row or column / range of rows or columns</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="repeatCellsBatchRequestClientConnector">action repeatCellsBatchRequest()</h3>
+                        <p>Repeat formatting of the cell into over a range of cells</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="setDataValidationBatchRequestClientConnector">action setDataValidationBatchRequest()</h3>
+                        <p>Apply data validation rule to a range</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sortRangeBatchRequestClientConnector">action sortRangeBatchRequest()</h3>
+                        <p>Sort a range with multiple sorting specifications</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateBordersBatchRequestClientConnector">action updateBordersBatchRequest()</h3>
+                        <p>Edit cell borders</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateCellsBatchRequestClientConnector">action updateCellsBatchRequest()</h3>
+                        <p>Updates all cells in a range with new data that can be cell value, formatting</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateConditionalFormatRuleBatchRequestClientConnector">action updateConditionalFormatRuleBatchRequest()</h3>
+                        <p>Update a conditional formatting rule or its priority</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateDimensionPropertiesBatchRequestClientConnector">action updateDimensionPropertiesBatchRequest()</h3>
+                        <p>Adjust column width or row height</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateSheetPropertiesBatchRequestClientConnector">action updateSheetPropertiesBatchRequest()</h3>
+                        <p>Update all sheet properties</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheet</td><td><a href="org.wso2.ballerina.connectors.googlespreadsheet.html#ClientConnector" title="org.wso2.ballerina.connectors.googlespreadsheet:ClientConnector">ClientConnector</a></td><td>The Google Spreadsheet Connector instance</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>spreadsheetId</td><td><a href="#string">string</a></td><td>Unique value of the spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>payload</td><td><a href="#json">json</a></td><td>It contains data that is a kind of update to apply to a spreadsheet</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fields</td><td><a href="#string">string</a></td><td>Specifying which fields to include in a partial response</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response object</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                         
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string accessToken, string refreshToken, string clientId, string clientSecret)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#addConditionalFormatRuleBatchRequestClientConnector">addConditionalFormatRuleBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#addRowsColumnsDataClientConnector">addRowsColumnsData(ClientConnector spreadsheet, string spreadsheetId, string range, string insertDataOption, string valueInputOption, string fields, json payload)</a></li>
+                                        
+                                        <li><a href="#addSheetBatchRequestClientConnector">addSheetBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#appendDimensionBatchRequestClientConnector">appendDimensionBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#autoResizeDimensionsBatchRequestClientConnector">autoResizeDimensionsBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#copyPasteBatchRequestClientConnector">copyPasteBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#copyToClientConnector">copyTo(ClientConnector spreadsheet, string spreadsheetId, string sheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#createSpreadsheetClientConnector">createSpreadsheet(ClientConnector spreadsheet, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#cutPasteBatchRequestClientConnector">cutPasteBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#deleteConditionalFormatRuleBatchRequestClientConnector">deleteConditionalFormatRuleBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#deleteDimensionBatchRequestClientConnector">deleteDimensionBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#deleteSheetBatchRequestClientConnector">deleteSheetBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#editCellClientConnector">editCell(ClientConnector spreadsheet, string spreadsheetId, string range, string valueInputOption, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#editMultipleCellClientConnector">editMultipleCell(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#getCellDataClientConnector">getCellData(ClientConnector spreadsheet, string spreadsheetId, string range, string dateTimeRenderOption, string valueRenderOption, string fields, string majorDimension)</a></li>
+                                        
+                                        <li><a href="#getMultipleCellDataClientConnector">getMultipleCellData(ClientConnector spreadsheet, string spreadsheetId, string ranges, string dateTimeRenderOption, string valueRenderOption, string fields, string majorDimension)</a></li>
+                                        
+                                        <li><a href="#getSheetMetaDataClientConnector">getSheetMetaData(ClientConnector spreadsheet, string spreadsheetId, string includeGridData, string fields, string ranges)</a></li>
+                                        
+                                        <li><a href="#insertDimensionBatchRequestClientConnector">insertDimensionBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#mergeCellsBatchRequestClientConnector">mergeCellsBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#moveDimensionBatchRequestClientConnector">moveDimensionBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#repeatCellsBatchRequestClientConnector">repeatCellsBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#setDataValidationBatchRequestClientConnector">setDataValidationBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#sortRangeBatchRequestClientConnector">sortRangeBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#updateBordersBatchRequestClientConnector">updateBordersBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#updateCellsBatchRequestClientConnector">updateCellsBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#updateConditionalFormatRuleBatchRequestClientConnector">updateConditionalFormatRuleBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#updateDimensionPropertiesBatchRequestClientConnector">updateDimensionPropertiesBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                        <li><a href="#updateSheetPropertiesBatchRequestClientConnector">updateSheetPropertiesBatchRequest(ClientConnector spreadsheet, string spreadsheetId, json payload, string fields)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
