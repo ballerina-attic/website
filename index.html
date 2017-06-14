@@ -1049,6 +1049,7 @@ godefer.parentNode.insertBefore(giftofspeed, godefer);
 </script>
 <script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/jquery.js"></script>
 
+
 <script type="text/javascript">
    function downloadJSAtOnload() {
    var element = document.createElement("script");
@@ -1122,49 +1123,6 @@ godefer.parentNode.insertBefore(giftofspeed, godefer);
        return regex.test(email);
    }
 </script>
-<script>
-   $('.VideoR-one').click(function() {
-   
-       var videos = ["", "P92y5cgEa0Q"];
-   
-       var video_div = $(this).attr('id');
-       var video_div = video_div.split("_");
-       var vcode = video_div[1];
-   
-       $("#video_" + vcode).html('<iframe width="100%" height="373" src="https://www.youtube.com/embed/' + videos[vcode] + '?autoplay=1&wmode=transparent&VQ=HD1080" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
-       $("#video_" + vcode).show();
-   });
-   
-   
-   
-   $('.Slides-One').click(function() {
-   
-       var slideframe = $('<iframe src="//www.slideshare.net/slideshow/embed_code/key/bQRal9WXLPnPP5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>');
-       $('#slideClick').append(slideframe);
-       $('.cSlideImage').addClass("hideSlide")
-   
-   
-   });
-   
-    $('.cTweetContainerButton').click(function() {
-        $(".cBallerinaTweets").toggleClass("cHideTwitter");
-    });
-   
-</script>
-<script>
 
-   $(window).scroll(function() {
-                  if ($(this).scrollTop() > 417) {
-                       $('.cBallerna-banner').addClass('cOpenBanner');
-                       $('body').addClass('cFixdspacer');
-
-                  } else {
-                        $('body').removeClass('cFixdspacer');
-                        $('.cBallerna-banner').removeClass('cOpenBanner');
-                    }
-                  
-              });
-      
-</script>
 </body>
 </html>
