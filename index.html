@@ -64,13 +64,13 @@
    </script>
    <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
    <style>
-      .hideSlide {
+/*      .hideSlide {
       display: none;
       }
       .cBallerinaTweets {
       background-color: rgba(255,255,255,0.8);
       display: inline-block;
-      /*    height: 200px;*/
+          height: 200px;
       padding: 10px;
       position: fixed;
       right: 0;
@@ -78,7 +78,7 @@
       border: 1px solid #c5c5c5;
       border-radius: 10px 0 0 0;
       width: 220px;
-      /*                border-top: none;*/
+                      border-top: none;
       }
       .cTweetContainerButton {
       -moz-border-bottom-colors: none;
@@ -218,11 +218,11 @@
       padding: 1.2em;
       }
       background-size: 600%;
-      }
+      }*/
    </style>
 </head>
     <body class="cBallerina">
-        <a href="https://ballerinalang.org/hackathon/?utm_source=bnrhmpg&utm_medium=ballerina&utm_campaign=hpban_ballerinahack_jun17" target="_blank" id="cHomePageHackathonBanner"><div class="row cBallerna-banner">
+<!--        <a href="https://ballerinalang.org/hackathon/?utm_source=bnrhmpg&utm_medium=ballerina&utm_campaign=hpban_ballerinahack_jun17" target="_blank" id="cHomePageHackathonBanner"><div class="row cBallerna-banner">
             <div class="container">
 
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -231,7 +231,7 @@
 </div>
             </div>
         </div>
-        </a>
+        </a>-->
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW2LLTW"
@@ -267,7 +267,7 @@
                             <div class="">
                                 <h3>helloWorld.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode1">
                                     <textarea id="txtSample1">
 import ballerina.lang.system;
@@ -279,7 +279,7 @@ function main(string[] args) {
                                     <input type="text" id="arguments1" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram1">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/hello-world.png"/>
                                 </div>
@@ -292,7 +292,7 @@ function main(string[] args) {
                             <div class="">
                                 <h3>echoService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode2">
                                     <textarea id="txtSample2" >
 //This sample will echo the request message
@@ -312,7 +312,7 @@ service echo {
                                     <input type="text" id="arguments2" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram2">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/echo-service.png"/>
                                 </div>
@@ -325,7 +325,7 @@ service echo {
                             <div class="">
                                 <h3>passthroughService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode3">
                                     <textarea id="txtSample3" >
 //This sample will passthrough the message to the backend and response to the client
@@ -362,7 +362,7 @@ service nyseStockQuote {
                                     <input type="text" id="arguments3" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram3">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/passthrough.png"/>
                                 </div>
@@ -375,7 +375,7 @@ service nyseStockQuote {
                             <div class="">
                                 <h3>routingServices.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode4">
                                     <textarea id="txtSample4" >
 //This sample has two services which will route the message to two different backend. The first service will route based on the message content and the second one will route based on the header value.
@@ -461,7 +461,7 @@ service nasdaqStocksQuote {
                                     <input type="text" id="arguments4" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram4">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/routing-services.png"/>
                                 </div>
@@ -474,7 +474,7 @@ service nasdaqStocksQuote {
                             <div class="">
                                 <h3>ecommerceService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode5">
                                     <textarea id="txtSample5">
 import ballerina.net.http;
@@ -628,7 +628,7 @@ service CustomerMgtService {
                                     <input type="text" id="arguments5" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram5">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/ecommerce.png"/>
                                 </div>
@@ -641,7 +641,7 @@ service CustomerMgtService {
                             <div class="">
                                 <h3>ATMLocatorService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode6">
                                     <textarea id="txtSample6">
 //This sample will illustrate a composite service : ATMLocatorService, which calls the following services to find the nearest ATM of ABC Bank using the zip code.
@@ -734,7 +734,7 @@ service Bankinfo {
                                     <input type="text" id="arguments6" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram6">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/atm-locator.png"/>
                                 </div>
@@ -747,7 +747,7 @@ service Bankinfo {
                             <div class="">
                                 <h3>helloWorldService.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode7">
                                     <textarea id="txtSample7">
 //This sample runs a service that replies to a request with a greeting message.
@@ -769,7 +769,7 @@ service helloWorld {
                                     <input type="text" id="arguments7" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram7">
                                     <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/sample-screen/hello-world-service.png"/>
                                 </div>
@@ -782,7 +782,7 @@ service helloWorld {
                             <div class="">
                                 <h3>twitterConnector.bal</h3>
                             </div>
-                            <div class="col-sm-12 col-md-4 cBallerinaTryNowCol">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol">
                                 <div class="cBallerinaCode cBallerinaCode8">
                                     <textarea id="txtSample8">
 import ballerina.lang.jsons;
@@ -826,7 +826,7 @@ function main(string[] args) {
                                     <input type="text" id="arguments8" placeholder="arguments. e.g. val1;val2" style="width: 100%;"/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-8 cBallerinaTryNowCol ">
+                            <div class="col-sm-12 col-md-6 cBallerinaTryNowCol ">
                                 <div class="cBallerinaDaiagram cBallerinaDaiagram8">
 <!--                                    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/TwitterConnector.svg"/>-->
                                 </div>
