@@ -1,7 +1,7 @@
 <?php
 
 define('SUBDOMAIN', 'ballerinalang');
-define('TOKEN', 'xoxp-143486495379-142849113584-143601653459-09296c2f90bff926144a1e25b15a4efe');
+define('TOKEN', 'xoxp-143486495379-142849113584-206744401269-56a37ae3b24756cb0bfa573b13c2286d');
 
 $email = $_POST['email'];
 $first = "";
@@ -40,7 +40,6 @@ if ($reply['ok'] == false) {
     echo '<p style="font-family: \'Roboto\', sans-serif; color: #9d3d3d">';
     echo 'Something went wrong, try again!';
     echo '</p>';
-    showForm();
 } else {
     echo '<p style="font-family: \'Roboto\', sans-serif; color: #719E6F">';
     echo 'Invited successfully. Check your email. It should arrive within a couple minutes';
