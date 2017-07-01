@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.errors</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.errors package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStackTrace">
+                                function getStackTrace(<a href="#Error" title="null">Error</a> err) (StackTrace )
+                            </h3>
+                            <p>Provide access to StackTrace of an Error. StackTrace available only when an error is thrown. Otherwise, returns a null reference.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>err</td><td><a href="#Error" title="null">Error</a></td><td>err : The Error struct</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#StackTrace" title="null">StackTrace</a></td><td>ballerina.lang.errors:StackTrace: StackTrace struct containing StackTrace of the error.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString(<a href="#StackTraceItem" title="null">StackTraceItem</a> item) (string )
+                            </h3>
+                            <p>Converts StackTraceItem details into a single string.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>item</td><td><a href="#StackTraceItem" title="null">StackTraceItem</a></td><td>err : The StackTraceItem struct</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>StackTraceItem details as a string.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.lang.errors package</h2>
+                         
+                        <h3 id="Error">struct Error</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="">string</a></td><td>An error message explaining about the error.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="">Error</a></td><td>The error that caused this Error to get thrown. the null reference is permitted. if the value is null, either cause is unknown or this error originated from itself.</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="NullReferenceError">struct NullReferenceError</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="">string</a></td><td>An error message explaining about the error.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="">Error</a></td><td>The error that caused this NullReferenceError to get thrown. the null reference is permitted. if the value is null, either cause is unknown or this NullReferenceError originated from itself.</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="StackTrace">struct StackTrace</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>items</td><td><a href="">StackTraceItem[]</a></td><td>An array of StackTraceItem ordered by oldest to latest invocation.</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="StackTraceItem">struct StackTraceItem</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>caller</td><td><a href="">string</a></td><td>Caller&#x27;s name of the current function/action/resource</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>packageName</td><td><a href="">string</a></td><td>Package name of the current function/action/resource</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fileName</td><td><a href="">string</a></td><td>File name of the current function/action/resource</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>lineNumber</td><td><a href="">int</a></td><td>Last executed line number of the current function/action/resource</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="TypeCastError">struct TypeCastError</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="">string</a></td><td>An error message explaining about the error.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="">Error</a></td><td>The error that caused this TypeCastingError to get thrown. the null reference is permitted. if the value is null, either cause is unknown or this TypeCastingError originated from itself.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sourceType</td><td><a href="">string</a></td><td>Source type</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>targetType</td><td><a href="">string</a></td><td>Target type</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="TypeConversionError">struct TypeConversionError</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="">string</a></td><td>An error message explaining about the error.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="">Error</a></td><td>The error that caused this TypeConversionError to get thrown. the null reference is permitted. if the value is null, either cause is unknown or this TypeConversionError originated from itself.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sourceType</td><td><a href="">string</a></td><td>Source type</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>targetType</td><td><a href="">string</a></td><td>Target type</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#getStackTrace">getStackTrace(Error err) (StackTrace )</a>
+                                </li>
+                                <li><a href="#toString">toString(StackTraceItem item) (string )</a>
+                                </li>
+                            </ul>
+                        </li>  
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#Error ">Error</a></li>
+                                
+                                    <li><a href="#NullReferenceError ">NullReferenceError</a></li>
+                                
+                                    <li><a href="#StackTrace ">StackTrace</a></li>
+                                
+                                    <li><a href="#StackTraceItem ">StackTraceItem</a></li>
+                                
+                                    <li><a href="#TypeCastError ">TypeCastError</a></li>
+                                
+                                    <li><a href="#TypeConversionError ">TypeConversionError</a></li>
+                                
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
