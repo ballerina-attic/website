@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.jms</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.net.jms package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="acknowledge">
+                                function acknowledge(<a href="#message">message</a> m, <a href="#string">string</a> deliveryStatus) 
+                            </h3>
+                            <p>Message acknowledgement action implementation for jms connector when using jms client acknowledgement mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>deliveryStatus</td><td><a href="#string">string</a></td><td>Specify whether message delivery is SUCCESS or ERROR</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="commit">
+                                function commit(<a href="#message">message</a> m) 
+                            </h3>
+                            <p>Session commit action implementation for jms connector when using jms session transaction mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="rollback">
+                                function rollback(<a href="#message">message</a> m) 
+                            </h3>
+                            <p>Session rollback action implementation for jms connector when using jms session transaction mode</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.jms package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#map">map</a> properties)
+                        </h3>
+                        <p>JMS client connector to send messages to the JMS provider.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>properties</td><td><a href="#map">map</a></td><td>connection and optional properties for the connector</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="sendClientConnector">action send()</h3>
+                        <p>SEND action implementation of the JMS Connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>jmsClientConnector</td><td><a href="#ClientConnector" title="null">ClientConnector</a></td><td>connector: Connector</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>destinationName</td><td><a href="#string">string</a></td><td>Destination Name</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>m</td><td><a href="#message">message</a></td><td>connector: Connector</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.net.jms package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="config">annotation config</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>initialContextFactory</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>providerUrl</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionFactoryType</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionFactoryName</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>destination</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>acknowledgmentMode</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>subscriptionId</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>clientId</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>configFilePath</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionFactoryNature</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>properties</td><td><a href="">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#acknowledge">acknowledge(message m, string deliveryStatus) </a>
+                                </li>
+                                <li><a href="#commit">commit(message m) </a>
+                                </li>
+                                <li><a href="#rollback">rollback(message m) </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (map properties)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#sendClientConnector">send(ClientConnector jmsClientConnector, string destinationName, message m)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#config ">config</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
