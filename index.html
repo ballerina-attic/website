@@ -64,174 +64,23 @@
    </script>
    <!-- Hotjar Tracking Code for http://ballerinalang.org/ END --> 
    <style>
-      .hideSlide {
-      display: none;
-      }
-      .cBallerinaTweets {
-      background-color: rgba(255,255,255,0.8);
-      display: inline-block;
-      /*    height: 200px;*/
-      padding: 10px;
+
+      .row.cBallerna-banner-new {
       position: fixed;
-      right: 0;
-      bottom: -50px;
-      border: 1px solid #c5c5c5;
-      border-radius: 10px 0 0 0;
-      width: 220px;
-      /*                border-top: none;*/
-      }
-      .cTweetContainerButton {
-      -moz-border-bottom-colors: none;
-      -moz-border-left-colors: none;
-      -moz-border-right-colors: none;
-      -moz-border-top-colors: none;
-      background-color: #ffffff;
-      background-image: url("http://ballerinalang.org/img/down-arrow.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      border:1px solid #c5c5c5;
-      border-image: none;
-      border-radius: 5px 5px 0 0;
-      display: inline-block;
-      float: right;
-      height: 40px;
-      margin-right: -11px;
-      margin-top: -49px;
-      padding: 0;
-      width: 40px;
-      border-bottom: none;
-      transition: all 0.2s ease-in-out 0s;
-      cursor: pointer;
-      }
-      .cTweetContainerButton:hover {
-      border-bottom: none;
-      } 
-      .cBallerinaTweets.cHideTwitter {
-      bottom: -530px;
-      transition: all 0.2s ease-in-out 0s;
-      }
-      .cBallerinaTweets.cHideTwitter .cTweetContainerButton {
-      background-image: url("https://ballerinalang.org/img/up-arrow.svg") !important;
-      }
-      
-      
-      
-      
-      .row.cBallerna-banner {
-          background-color: #000000;
-          background-image: url("hackathon/hackathon-images/intro-bg-orange.jpg");
-          background-attachment: fixed;
-          background-size: 100%;
-          transition: all 0.5s ease-in-out 0s;
-          padding: 7em 0;
-          box-shadow: 0 0 44px rgba(0, 0, 0, 0.5) inset;
-          filter: grayscale(100%);
-
-          margin: 0;
-
-          position: absolute;
-          width: 100%;
-          top: 0;
-      }
-
-      .row.cBallerna-banner:hover {
-          filter: grayscale(0%);
-          transition: all 0.5s ease-in-out 0s;
-
-      }
-
-      .row.cBallerna-banner.cOpenBanner {
-          margin-bottom: 0;
-          margin-top: 0;
-          opacity: 0.9;
-          padding: 0.5em 0;
-          bottom: 0;
-          top: auto;
-          transition: all 0.5s ease-in-out 0s;
-          width: 100%;
-          z-index: 999999;
-          filter: grayscale(100%);
-          text-align: center;
-          position: fixed;
-      }
-      .row.cBallerna-banner.cOpenBanner:hover {
-          opacity: 1;
-          filter: grayscale(0%);
-      }
-      .row.cBallerna-banner img {
-          width:100%;
-          transition: all 0.5s ease-in-out 0s;
-
-      }
-      body.cBallerina {
-          margin-top: 420px;
-          margin-bottom: 78px;
-      }
-
-      body.cBallerina.cFixdspacer {
-
-          margin-top: 0x;
-      }
-
-      .row.cBallerna-banner.cOpenBanner img {
-          width: 350px;
-          transition: all 0.5s ease-in-out 0s;
-
-      }
-      .row.cBallerna-banner.cOpenBanner .cBallerna-banner-Container  {
-          height: auto;
-      }
-      
-    
-      
-      
-      
-      
-      
-      
-      @media screen and (max-width:991px) {
-      .cTweetContainerButton , .cBallerinaTweets {
-      display: none;
-      }
-      .row.cBallerna-banner.cOpenBanner {
-      padding: 2em;
-      background-size:300%;
-      }
-   body.cBallerina {
-          margin-top: 10em;
-      }
-      .row.cBallerna-banner {
-          padding: 1em;
-      }
-     
-      
+      width: 100%;
+      background-image: url("hackathon/hackathon-images/intro-bg-orange.jpg");
+      bottom: 0;
+      padding: 0.5em; 
+      text-align: center;
       
       }
-      @media screen and (max-width:500px) {
-             body.cBallerina {
-          margin-top: 5em;
-      }
-      .row.cBallerna-banner.cOpenBanner img {
-      height: 77px;
-      }
-      .row.cBallerna-banner.cOpenBanner {
-      padding: 1.2em;
-      }
-      background-size: 600%;
+      .row.cBallerna-banner-new img {
+      width: 300px;
       }
    </style>
 </head>
     <body class="cBallerina">
-        <a href="https://ballerinalang.org/hackathon/?utm_source=bnrhmpg&utm_medium=ballerina&utm_campaign=hpban_ballerinahack_jun17" target="_blank" id="cHomePageHackathonBanner"><div class="row cBallerna-banner">
-            <div class="container">
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/home-banner-hackathon.svg"/>
-
-</div>
-            </div>
-        </div>
-        </a>
+      
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW2LLTW"
@@ -1018,6 +867,18 @@ function main(string[] args) {
    </form>
 </div>
 <div id="pdframe" class="pdframe"></div>
+<a href="https://ballerinalang.org/hackathon/?utm_source=bnrhmpg&utm_medium=ballerina&utm_campaign=hpban_ballerinahack_jun17" target="_blank" id="cHomePageHackathonBanner">
+    <div class="row cBallerna-banner-new">
+        <div class="container">
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/home-banner-hackathon.svg"/>
+
+            </div>
+        </div>
+    </div>
+</a>
+
 <a id="Getinvolved-Github" class="cSmallButtons cFloatingButton" href="https://github.com/ballerinalang"/>
 <img src="//wso2.cachefly.net/wso2/sites/all/ballerina/img/fork-w.svg"/>
 <span>Fork Ballerina on Github</span>
