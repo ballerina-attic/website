@@ -104,7 +104,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">reminder</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">remainder</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -118,9 +118,9 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy5</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">reminder</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy5</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">remainder</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">quotient</span> <span class="p">=</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="nx">reminder</span> <span class="p">=</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">remainder</span> <span class="p">=</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
     <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -151,7 +151,7 @@
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;reminder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
+                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -164,7 +164,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q2</span><span class="p">,</span> <span class="nx">r2</span> <span class="p">=</span> <span class="nx">divideBy5</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/5: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q2</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;reminder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
+                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -213,8 +213,8 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run main named-returns.bal
-<span class="go">93/10: quotient=9 reminder=3</span>
-<span class="go">93/5: quotient=9 reminder=3</span>
+<span class="go">93/10: quotient=9 remainder=3</span>
+<span class="go">93/5: quotient=9 remainder=3</span>
 <span class="go">a: 0</span>
 <span class="go">b: 0.0</span>
 <span class="go">c: false</span>
