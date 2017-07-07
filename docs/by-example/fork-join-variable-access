@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ballerina by Example: Fork/Join Variable Access</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+
+      
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+  </head>
+  <body>
+      
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+    <div class="example" id="fork-join-variable-access">
+      <h2><a href="./">Ballerina by Example</a>: Fork/Join Variable Access</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Workers within fork-join can access any variables which are declared within
+the scope of that statement.
+Value type variables are passed into these workers as a copy of the original
+data.
+Reference type variables are passed into these workers as a reference to the
+original data.
+Join block receives a map of any type array which contains the data sent from
+the respective workers.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>In scope variables can be accessed within workers of fork-join statement.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Define variables which are visible to the forked workers</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>  <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;WSO2&quot;</span><span class="p">;</span>
+  <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Abhaya&quot;</span><span class="p">,</span><span class="s">&quot;era&quot;</span><span class="p">:</span><span class="s">&quot;Anuradhapura&quot;</span><span class="p">};</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Declare the fork-join statement</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>  <span class="k">fork</span> <span class="p">{</span>
+    <span class="kd">worker</span> <span class="nx">W1</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Change the value of the integer variable &ldquo;i&rdquo; within the worker W1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Change the value of map variable &ldquo;m&rdquo; within the worker W1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Rajasinghe&quot;</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Define a variable within the worker to send to join block</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Send data to join block of the fork-join from worker W1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="kd">worker</span> <span class="nx">W2</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Change the value of string variable &ldquo;s&rdquo; within the worker W2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Change the value of map variable &ldquo;m&rdquo; within the worker W2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Kandy&quot;</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Send data to join block of the fork-join from worker W2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">){</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Declare variables to receive the results from forked workers W1 and W2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r1</span><span class="p">;</span>
+      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r2</span><span class="p">;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>results map contains a map of any type array from each worker
+ defined within the fork-join statement
+ Values received from worker W1 are assigned to any array of r1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">r1</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W1&quot;</span><span class="p">];</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Values received from worker W2 are assigned to any array of r2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">r2</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W2&quot;</span><span class="p">];</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Getting the 0th index of array returned from worker W1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="kt">int</span> <span class="nx">p</span><span class="p">;</span>
+      <span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Getting the 1th index of array returned from worker W1</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">l</span><span class="p">;</span>
+      <span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Getting the 0th index of array returned from worker W2</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">q</span><span class="p">;</span>
+      <span class="nx">q</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Print values received from workers within join block</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">      Value of integer from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">p</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">      Value of string from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">      Value of string from W2 [&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Print values after the fork-join statement to check effect on variables.
+ Value type variables have not been changed since they are passed in as a
+ copy of the original variable</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">      Value of integer variable is [&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">      Value of string variable is [&quot;</span> <span class="o">+</span> <span class="nx">s</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Reference type variables are changed since they have passed in as a
+ reference to the workers</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>  <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="kt">string</span> <span class="nx">era</span><span class="p">;</span>
+  <span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span>  <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
+  <span class="nx">era</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">];</span>
+  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">      Value of name is [&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">      Value of era is [&quot;</span> <span class="o">+</span> <span class="nx">era</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ballerina run main fork-join-variable-access.bal
+<span class="go">[default worker] within join:</span>
+<span class="go">      Value of integer from W1 is [23]</span>
+<span class="go">[default worker] within join:</span>
+<span class="go">      Value of string from W1 is [Colombo]</span>
+<span class="go">[default worker] within join:</span>
+<span class="go">      Value of string from W2 [Ballerina]</span>
+<span class="go">[default worker] after fork-join:</span>
+<span class="go">      Value of integer variable is [100]</span>
+<span class="go">      Value of string variable is [WSO2]</span>
+<span class="go">[default worker] after fork-join:</span>
+<span class="go">      Value of name is [Rajasinghe]</span>
+<span class="go">      Value of era is [Kandy]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="datatables">Datatables</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/fork-join-variable-access">source</a>
+      </p>
+      <p class="attrib">
+        This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+      </p>
+    </div>
+          </div>
+      </div>
+      
+  </body>
+</html>
