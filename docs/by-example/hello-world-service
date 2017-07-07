@@ -197,7 +197,7 @@ that are given for the specific resource.</p>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina build service hello-world-service.bal
 <span class="gp">$</span> ls
-<span class="go">hello-world-service.bsz	hello-world-service.go</span>
+<span class="go">hello-world-service.bsz	hello-world-service.bal</span>
 </pre></div>
 
                               </td>

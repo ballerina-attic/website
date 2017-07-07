@@ -102,7 +102,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>BasePath annotation associates a path to service.</p>
+                                  <p>BasePath attribute associates a path to the service.</p>
 
                               </td>
                               <td class="code leading">

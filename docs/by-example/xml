@@ -248,7 +248,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Check whether an XML is exmpty</p>
+                                  <p>Check whether the XML value is empty</p>
 
                               </td>
                               <td class="code leading">
@@ -272,7 +272,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get a subsequence of an XML sequence</p>
+                                  <p>Get a subset of this XML sequence</p>
 
                               </td>
                               <td class="code leading">
