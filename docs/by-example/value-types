@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: Value Types</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -90,7 +94,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
@@ -102,7 +105,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -115,7 +117,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 </pre></div>
@@ -128,7 +129,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">20.0</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
 </pre></div>
@@ -142,7 +142,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 </pre></div>
@@ -155,7 +154,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
 <span class="p">}</span>
@@ -176,7 +174,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run main value-types.bal
 <span class="go">0</span>
 <span class="go">20.0</span>
@@ -190,7 +187,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="go">true</span>
 </pre></div>
 
@@ -210,7 +206,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/value-types">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/value-types">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: HTTP Sessions</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -88,7 +92,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
 </pre></div>
@@ -101,7 +104,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">session</span> <span class="p">{</span>
     <span class="nd">@http:GET {</span><span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
@@ -116,7 +118,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">createSessionIfAbsent</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">result</span><span class="p">;</span>
 </pre></div>
@@ -130,7 +131,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">http</span><span class="p">:</span><span class="nx">isNew</span><span class="p">(</span><span class="nx">session</span><span class="p">))</span> <span class="p">{</span>
             <span class="nx">result</span> <span class="p">=</span> <span class="s">&quot;Say hello to a new session&quot;</span><span class="p">;</span>
 </pre></div>
@@ -144,7 +144,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">createTime</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getCreationTime</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
@@ -157,7 +156,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">setMaxInactiveInterval</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
         <span class="p">}</span>
 </pre></div>
@@ -171,7 +169,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;Session example&quot;</span><span class="p">);</span>
         <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
         <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
@@ -186,7 +183,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nd">@http:GET {</span><span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">welcome</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
@@ -200,7 +196,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">attributeValue</span><span class="p">;</span>
 </pre></div>
@@ -213,7 +208,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -226,7 +220,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="kt">string</span><span class="p">[]</span> <span class="nx">arr</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getAttributeNames</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
@@ -239,7 +232,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">attributeValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">http</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 
@@ -252,7 +244,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">lastAccessedTime</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getLastAccessedTime</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;Hi &quot;</span> <span class="o">+</span> <span class="nx">attributeValue</span><span class="p">);</span>
@@ -268,7 +259,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nd">@http:GET {</span><span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayBye</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
@@ -285,7 +275,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">inactiveInterval</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getMaxInactiveInterval</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
@@ -298,7 +287,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">id</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getId</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
@@ -311,7 +299,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="s">&quot;key&quot;</span><span class="p">);</span>
         <span class="p">}</span>
         
@@ -326,7 +313,6 @@
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">invalidate</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
         <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;Session: &quot;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s">&quot; invalidated&quot;</span><span class="p">);</span>
         <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
@@ -349,7 +335,6 @@
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run service http-sessions.bal
 <span class="go">ballerina: deploying service(s) in &#39;http-sessions.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
@@ -370,7 +355,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/session/sayHello
 <span class="go">Say hello to a new session</span>
 </pre></div>
@@ -385,7 +369,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/session/welcome
 <span class="go">        -H &quot;Cookie: BSESSIONID=..(use above BSESSIONID)..&quot;</span>
 <span class="go">Hi Session example</span>
@@ -400,7 +383,6 @@
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/session/sayBye
 <span class="go">        -H &quot;Cookie: BSESSIONID=..(use same BSESSIONID)..&quot;</span>
 <span class="go">Session: ..(same BSESSIONID).. invalidated</span>
@@ -418,7 +400,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/http-sessions">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/http-sessions">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

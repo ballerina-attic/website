@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: Type Conversion</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -89,7 +93,6 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
@@ -101,7 +104,6 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -115,7 +117,6 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.0</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">f</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
@@ -130,7 +131,6 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">intVal</span> <span class="p">=</span> <span class="mi">45</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">strVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="nx">intVal</span><span class="p">;</span>
 </pre></div>
@@ -145,7 +145,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;Sri Lanka&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nx">conversionErr</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">conversionErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
@@ -162,7 +161,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;5&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
@@ -177,7 +175,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">boolVal</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="nx">intVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">boolVal</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span><span class="p">);</span>
@@ -192,7 +189,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">intVal</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
     <span class="nx">boolVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span> <span class="nx">intVal</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
@@ -207,7 +203,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;true&quot;</span><span class="p">;</span>
     <span class="nx">boolVal</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
@@ -229,7 +224,6 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run main type-conversion.bal
 <span class="go">10</span>
 <span class="go">error: &#39;string&#39; cannot be converted to &#39;int&#39;</span>
@@ -255,7 +249,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/type-conversion">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/type-conversion">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: XML</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -88,7 +92,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">xmls</span><span class="p">;</span>
 </pre></div>
@@ -101,7 +104,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -114,7 +116,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x</span><span class="p">;</span>
 </pre></div>
 
@@ -127,7 +128,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">someText</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -140,7 +140,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">book</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;book/&gt;&quot;</span><span class="p">);</span>
     <span class="kt">xml</span> <span class="nx">bookName</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;Book1&lt;/name&gt;&quot;</span><span class="p">);</span>
 </pre></div>
@@ -154,7 +153,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">bookComment</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;!-- comment about the book--&gt;&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -167,7 +165,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">bookMeta</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;?doc document=\&quot;book.doc\&quot; ?&gt;&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -180,7 +177,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getItemType</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">));</span>
 </pre></div>
 
@@ -193,7 +189,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getElementName</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
 </pre></div>
 
@@ -206,7 +201,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getTextValue</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
 </pre></div>
 
@@ -219,7 +213,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">xmls</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;{http://ballerina.com/}year&quot;</span><span class="p">,</span> <span class="s">&quot;ns0&quot;</span><span class="p">,</span> <span class="s">&quot;2017&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
 </pre></div>
@@ -233,7 +226,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">year</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;{http://ballerina.com/}year&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">year</span><span class="p">);</span>
 </pre></div>
@@ -247,7 +239,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">someText</span> <span class="o">+</span> <span class="nx">bookName</span> <span class="o">+</span> <span class="nx">bookComment</span> <span class="o">+</span> <span class="nx">bookMeta</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
 </pre></div>
@@ -261,7 +252,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
 </pre></div>
 
@@ -274,7 +264,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isSingleton</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
 </pre></div>
 
@@ -287,7 +276,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">slice</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -301,7 +289,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">elements</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -315,7 +302,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">select</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -329,7 +315,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">xmls</span><span class="p">:</span><span class="nx">setChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="nx">content</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
 </pre></div>
@@ -343,7 +328,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">children</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -357,7 +341,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">selectChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -371,7 +354,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </pre></div>
@@ -385,7 +367,6 @@
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="p">}</span>
@@ -406,7 +387,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run main xml.bal
 </pre></div>
 
@@ -419,7 +399,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">comment</span>
 </pre></div>
 
@@ -432,7 +411,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">name</span>
 </pre></div>
 
@@ -445,7 +423,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">Book1</span>
 </pre></div>
 
@@ -458,7 +435,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;book xmlns:ns0=&quot;http://ballerina.com/&quot; ns0:year=&quot;2017&quot;&gt;&lt;/book&gt;</span>
 </pre></div>
 
@@ -471,7 +447,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">2017</span>
 </pre></div>
 
@@ -484,7 +459,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
 <span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
 </pre></div>
@@ -498,7 +472,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">false</span>
 </pre></div>
 
@@ -511,7 +484,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">false</span>
 </pre></div>
 
@@ -524,7 +496,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;!-- comment about the book--&gt;&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
 </pre></div>
 
@@ -537,7 +508,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
 </pre></div>
 
@@ -550,7 +520,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
 </pre></div>
 
@@ -563,7 +532,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;book xmlns:ns0=&quot;http://ballerina.com/&quot; ns0:year=&quot;2017&quot;&gt;Hello, World!</span>
 <span class="go">&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;&lt;?doc  document=&quot;book.doc&quot; ?&gt;</span>
 <span class="go">&lt;/book&gt;</span>
@@ -578,7 +546,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
 <span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
 </pre></div>
@@ -592,7 +559,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
 </pre></div>
 
@@ -605,7 +571,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
 <span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
 </pre></div>
@@ -619,7 +584,6 @@
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="go">&lt;!-- comment about the book--&gt;</span>
 </pre></div>
 
@@ -639,7 +603,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/xml">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/xml">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
