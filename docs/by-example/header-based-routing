@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: Header Based Routing</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -88,7 +92,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
 </pre></div>
@@ -102,7 +105,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="nd">@http:config {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hbr&quot;</span><span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">headerBasedRouting</span> <span class="p">{</span>
 </pre></div>
@@ -116,7 +118,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nd">@http:GET {</span><span class="p">}</span>
     <span class="nd">@http:Path {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/route&quot;</span><span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">hbrResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
@@ -131,7 +132,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">locationEP</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
                                           <span class="s">&quot;http://www.mocky.io&quot;</span><span class="p">);</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">weatherEP</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
@@ -147,7 +147,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getHeader</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -159,7 +158,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
@@ -173,7 +171,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
                                        <span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
 </pre></div>
@@ -187,7 +184,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
                                        <span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
 </pre></div>
@@ -200,7 +196,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </pre></div>
 
@@ -213,7 +208,6 @@
 
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>            <span class="kt">message</span> <span class="nx">newMessage</span> <span class="p">=</span> <span class="p">{};</span>
             <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">weatherEP</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">,</span>
                                        <span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span>
@@ -239,7 +233,6 @@
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run service header-based-routing.bal
 <span class="go">ballerina: deploying service(s) in &#39;header-based-routing.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
@@ -260,7 +253,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/hbr/route -H <span class="s2">&quot;type:location&quot;</span>
 <span class="go">{</span>
 <span class="go">    &quot;name&quot;: &quot;Colombo,Sri Lanka&quot;,</span>
@@ -278,7 +270,6 @@
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/hbr/route -H <span class="s2">&quot;type:weather&quot;</span>
 <span class="go">{&quot;coord&quot;:{&quot;lon&quot;:139.01,&quot;lat&quot;:35.02},&quot;weather&quot;:[{&quot;id&quot;:800,</span>
 <span class="go">&quot;main&quot;:&quot;Clear&quot;,&quot;description&quot;:&quot;clear sky&quot;,&quot;icon&quot;:&quot;01n&quot;}],</span>
@@ -303,7 +294,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/header-based-routing">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/header-based-routing">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

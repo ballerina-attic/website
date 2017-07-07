@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <title>Ballerina by Example: File API</title>
     <!--GA-->
       <script>
@@ -50,16 +55,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -88,7 +92,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
@@ -103,7 +106,6 @@
                                   
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -116,7 +118,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
 </pre></div>
@@ -130,7 +131,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">blob</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Sample Content&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file written: /tmp/result.txt&quot;</span><span class="p">);</span>
@@ -145,7 +145,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
 </pre></div>
 
@@ -158,7 +157,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">exists</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file existence: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
 </pre></div>
@@ -172,7 +170,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">read</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="mi">100000</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
@@ -189,7 +186,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">source</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/copy.txt&quot;</span><span class="p">};</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
@@ -205,7 +201,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/copy.txt&quot;</span><span class="p">);</span>
 </pre></div>
@@ -219,7 +214,6 @@
 
                               </td>
                               <td class="code leading">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/move.txt&quot;</span><span class="p">};</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">move</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file moved: /tmp/result.txt to /tmp/move.txt&quot;</span><span class="p">);</span>
@@ -233,7 +227,6 @@
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/move.txt&quot;</span><span class="p">);</span>
 <span class="p">}</span>
@@ -254,7 +247,6 @@
                                   
                               </td>
                               <td class="code">
-                                  
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run main file-api.bal
 <span class="go">file written: /tmp/result.txt</span>
 <span class="go">file existence: true</span>
@@ -281,7 +273,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/file-api">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/file-api">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
