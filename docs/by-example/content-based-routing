@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ballerina by Example: Content Based Routing</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+<!--      <link rel=stylesheet href="https://ballerinalang.org/css/ballerina.css?230617">-->
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="http://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+              <div class="example" id="content-based-routing">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: Content Based Routing</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The Content-Based Router service reads the content of a message and routes it to a specific recipient based on its content.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre><span class="nd">@http:config {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/cbr&quot;</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">contentBasedRouting</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>http:POST{} annotation declares the HTTP method.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>    <span class="nd">@http:POST {</span><span class="p">}</span>
+    <span class="nd">@http:Path {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/route&quot;</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">cbrResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create service endpoint using HTTP client-connector.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">locationEP</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+                                                <span class="s">&quot;http://www.mocky.io&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get JSON payload from the request message.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the string value relevant to the key &ldquo;name&rdquo;.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
+        <span class="nx">nameString</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">jsonMsg</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Additionally HTTP HEAD request can be executed to verify the accessibility.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
+                                  <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;sanFrancisco&quot;</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>&ldquo;post&rdquo; represent the POST action of HTTP connector. Route payload to relevant service as the server accept the entity enclosed.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
+                                  <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Additionally, If the payload needed to be stored under requested resource path, PUT action will help as follows.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
+                                  <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+            
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
+                                  <span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Requested resources can be deleted using DELETE action.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
+                                   <span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+        <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  
+                                  <div class="highlight"><pre>        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service content-based-routing.bal
+<span class="go">ballerina: deploying service(s) in &#39;content-based-routing.bal&#39;</span>
+<span class="go">ballerina: started server connector http-9090</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/cbr/route -d <span class="s1">&#39;{&quot;name&quot; : &quot;sanFrancisco&quot;}&#39;</span>
+<span class="go">{</span>
+<span class="go">    &quot;name&quot;: &quot;San Francisco Test Station,USA&quot;,</span>
+<span class="go">    &quot;longitude&quot;: -122.43,</span>
+<span class="go">    &quot;latitude&quot;: 37.76,</span>
+<span class="go">    &quot;altitude&quot;: 150,</span>
+<span class="go">    &quot;rank&quot;: 1</span>
+<span class="go">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/cbr/route -d <span class="s1">&#39;{&quot;name&quot; : &quot;london&quot;}&#39;</span>
+<span class="go">{</span>
+<span class="go">    &quot;name&quot;: &quot;London Test Station,England&quot;,</span>
+<span class="go">    &quot;longitude&quot;: -156.49,</span>
+<span class="go">    &quot;latitude&quot;: 57.76,</span>
+<span class="go">    &quot;altitude&quot;: 430,</span>
+<span class="go">    &quot;rank&quot;: 5</span>
+<span class="go">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="header-based-routing">Header Based Routing</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/ballerina-by-example-src/samples/ballerina-by-example/examples/content-based-routing">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+      
+  </body>
+</html>
