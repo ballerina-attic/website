@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Working with Connectors - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Working with Connectors";
+    var mkdocs_page_input_path = "lang-ref/connectors.md";
+    var mkdocs_page_url = "/lang-ref/connectors/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>Get Started</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Welcome</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../quick-tour/">Quick Tour</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../key-concepts/">Key Concepts</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tools/">Tools</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/">Introduction</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/main-program/">Write a Main Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/create-archive/">Create an Archive of your Program</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Language Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../lang-overview/">Overview</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../packaging/">Packaging and Running Programs</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../services/">Services</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../resources/">Resources</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../functions/">Functions</a>
+        
+    </li>
+
+
+        
+            
+
+  <li class="cMainLink"><span>Connectors</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Working with Connectors</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#working-with-connectors">Working with Connectors</a></li>
+                
+                 <li><a class="toctree-l4" href="#using-a-connector">Using a connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#defining-a-new-connector">Defining a new connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#composing-connectors">Composing connectors</a></li>
+                
+                 <li><a class="toctree-l4" href="#use-of-connector-scoped-variables">Use of connector-scoped variables</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/file-server/">File Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/http2-server/">HTTP/2 Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-client/">JMS Client Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-server/">JMS Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/websocket-server/">WebSocket Server Connector</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">Actions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../transactions/">Transactions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../types-variables/">Types and Variables</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../statements/">Statements</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../exceptions/">Exception Handling</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Additional Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../native-functions/">Native Functions (API Documentation)</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../spec/">Language Specification</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../architecture/">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Language Reference &raquo;</li>
+        
+      
+        
+          <li>Connectors &raquo;</li>
+        
+      
+    
+    <li>Working with Connectors</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/lang-ref/connectors.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="working-with-connectors">Working with Connectors</h1>
+<p>A connector represents a participant in the integration and is used to interact with an external system or a service you've defined in Ballerina. Ballerina includes a set of connectors under <code>org.ballerinalang.connectors.*</code> that allow you to connect to Twitter, Facebook, and more. It also includes built-in connectors for network protocols under <code>ballerina.net.*</code> that handle HTTP(S) 1 &amp; 2, WebSockets, JMS, and FTP/FTPS/SFTP.</p>
+<p>Each connector defines a set of <a href="../actions/">actions</a> that can be used when interacting with the external system or service. For example, the Twitter connector includes actions such as <code>tweet</code>, <code>retweet</code>, and <code>destroyStatus</code>, which allow you to perform those actions in Twitter from your Ballerina program.</p>
+<h2 id="using-a-connector">Using a connector</h2>
+<p>To use a connector, import it using the Import box in the upper left corner of the canvas in Design view (or use an import statement in the Source view). The connector will then be listed in the tool palette in Ballerina Composer. Scroll down to the connector you want to use, and then drag the connector to the canvas if you want to create an endpoint connection to that service, or drag one of the connector's actions to the place in your integration flow where you want to invoke that action. </p>
+<p>For details on using the built-in connectors, see the following topics:</p>
+<ul>
+<li><a href="../../server-connectors/file-server/">File Server Connector</a></li>
+<li><a href="../../server-connectors/http2-server/">HTTP/2 Server Connector</a></li>
+<li><a href="../../server-connectors/jms-client/">JMS Client Connector</a></li>
+<li><a href="../../server-connectors/jms-server/">JMS Server Connector</a></li>
+<li><a href="../../server-connectors/websocket-server/">WebSocket Server Connector</a></li>
+</ul>
+<p>To explore other connectors, go to https://github.com/ballerinalang/connectors. </p>
+<h2 id="defining-a-new-connector">Defining a new connector</h2>
+<p>You can define additional connectors within your Ballerina programs. To define a new connector, drag the Connector Definition icon <img alt="alt-text" src="../../images/icons/connector.png" title="Connector Definition icon" /> to the canvas. You then drag the Connector Action icon <img alt="alt-text" src="../../images/icons/action.png" title="Connector Action icon" /> to the canvas and define the actions in this connector. </p>
+<p>A connector is defined as follows:</p>
+<pre><code>[ConnectorAnnotations]
+connector ConnectorName ([ConnectorParamAnnotations]TypeName VariableName[(, TypeName VariableName)*]) {
+    ConnectorDeclaration;*
+    VariableDeclaration;*
+    ActionDefinition;+
+}
+</code></pre>
+
+<p>The ConnectorAnnotations are designed to help the editor provide a better user experience for connector users.</p>
+<p>Connectors are instantiated (by means of the <code>new</code> keyword) as follows:</p>
+<pre><code>[ConnectorPackageName:]ConnectorName ConnectorInstanceName = new [ConnectorPackageName:]ConnectorName (ValueList[, map]);
+</code></pre>
+
+<p>The newly created instance has the <code>ConnectorInstanceName</code> assigned.</p>
+<p>Once a connector of name <code>ConnectorInstanceName</code> has been instantiated, actions can be invoked against that connector as follows:</p>
+<pre><code>[ConnectorPackageName:]ConnectorName.ActionName (ConnectorInstanceName, ValueList);
+</code></pre>
+
+<h2 id="composing-connectors">Composing connectors</h2>
+<p>It is very easy to use one connector to write another connector in Ballerina. For example, the HTTP Basic Auth connector embeds an instance of the HTTP Connector, adds the Basic Auth header, and delegates all work to the underlying connector. This is an excellent approach for writing new connectors, but note that the delegation requires a second function call, which affects performance slightly.</p>
+<h2 id="use-of-connector-scoped-variables">Use of connector-scoped variables</h2>
+<p>In many cases, connectors must keep some state associated with the connection for as long as the connection is valid. Connector-scoped variables are available for this purpose. The “constructor arguments” given when creating a new connector are also with that same scope.</p>
+<p>To define connector-scoped variables, click the Variables button in the upper-left corner of the connector on the canvas. To define constructor arguments, click the connector's Arguments button in the upper-right corner of the connector. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../server-connectors/file-server/" class="btn btn-neutral float-right" title="File Server Connector">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../functions/" class="btn btn-neutral" title="Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../functions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../server-connectors/file-server/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

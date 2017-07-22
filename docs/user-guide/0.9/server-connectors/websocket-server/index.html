@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>WebSocket Server Connector - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WebSocket Server Connector";
+    var mkdocs_page_input_path = "server-connectors/websocket-server.md";
+    var mkdocs_page_url = "/server-connectors/websocket-server/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>Get Started</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Welcome</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../quick-tour/">Quick Tour</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../key-concepts/">Key Concepts</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tools/">Tools</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/">Introduction</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/main-program/">Write a Main Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/create-archive/">Create an Archive of your Program</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Language Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/lang-overview/">Overview</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/packaging/">Packaging and Running Programs</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/services/">Services</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/resources/">Resources</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/functions/">Functions</a>
+        
+    </li>
+
+
+        
+            
+
+  <li class="cMainLink"><span>Connectors</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/connectors/">Working with Connectors</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../file-server/">File Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../http2-server/">HTTP/2 Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../jms-client/">JMS Client Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../jms-server/">JMS Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">WebSocket Server Connector</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#websocket-server-connector">WebSocket Server Connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#defining-a-websocket-service-in-ballerina">Defining a WebSocket service in Ballerina</a></li>
+                
+                 <li><a class="toctree-l4" href="#functions-of-websocket">Functions of WebSocket</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/actions/">Actions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/transactions/">Transactions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/types-variables/">Types and Variables</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/statements/">Statements</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/exceptions/">Exception Handling</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Additional Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../native-functions/">Native Functions (API Documentation)</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../spec/">Language Specification</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../architecture/">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Language Reference &raquo;</li>
+        
+      
+        
+          <li>Connectors &raquo;</li>
+        
+      
+    
+    <li>WebSocket Server Connector</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/server-connectors/websocket-server.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="websocket-server-connector">WebSocket Server Connector</h1>
+<p>WebSocket is a protocol that provides full-duplex, persistent communication channels over a single TCP connection. Once a WebSocket connection is established, the connection stays open until the client or server decides to close this connection. This connection is also initialized by the client, in which case the WebSocket protocol uses an HTTP request to upgrade the connection from HTTP to WebSocket using two HTTP headers, “Connection” and “Upgrade”.</p>
+<p>For example:</p>
+<pre><code>GET ws://websocket.example.com/ HTTP/1.1
+Origin: http://example.com
+Connection: Upgrade
+Host: websocket.example.com
+Upgrade: websocket
+</code></pre>
+
+<p>This tells the server that the client needs to establish a WebSocket connection. If the server supports WebSocket, it sends the response agreeing to establish the connection using the “Upgrade” header.</p>
+<p>For example:</p>
+<pre><code>HTTP/1.1 101 WebSocket Protocol Handshake
+Date: Wed, 16 Oct 2013 10:07:34 GMT
+Connection: Upgrade
+Upgrade: WebSocket
+</code></pre>
+
+<p>Once this message is sent, the handshake is completed, and the initial HTTP connection is replaced by the WebSocket connection using the same underlying TCP/IP connection. Ballerina uses the same HTTP base path + WebSocket Upgrade path to upgrade the existing connection to a WebSocket 
+connection. </p>
+<h2 id="defining-a-websocket-service-in-ballerina">Defining a WebSocket service in Ballerina</h2>
+<p>A WebSocket service is defined in the same service base path as a REST service, since this is an upgrade from the REST service.</p>
+<h3 id="step-1-add-websocketupgradepath">Step 1: Add WebSocketUpgradePath</h3>
+<p>Add a base path and WebSocketUpgradePath to the service.</p>
+<p>For example:</p>
+<pre><code>@http:BasePath(“/test”)
+@ws:WebSocketUpgradePath(“/websocket”)
+service myService {
+}
+</code></pre>
+
+<p>If you want to connect to this WebSocket endpoint, use <code>ws://host:port/test/websocket</code>. </p>
+<h3 id="step-2-add-annotations-to-the-resource-level">Step 2: Add annotations to the resource level</h3>
+<p>There are several supported annotations for this release of Ballerina. </p>
+<h4 id="wsonopen">@ws:OnOpen</h4>
+<p>This annotated resource will be called when a new client is connecting to the WebSocket endpoint. If something has to be done when a new client is connecting to the endpoint, you can add that logic to the relevant resource.</p>
+<h4 id="wsontextmessage">@ws:OnTextMessage</h4>
+<p>When the server is receiving a text message from the client, this resource will be called.</p>
+<h4 id="wsonclose">@ws:OnClose</h4>
+<p>When the client connection is closed, this resource will be called. </p>
+<h4 id="example">Example</h4>
+<pre><code>import ballerina.lang.messages;
+
+@http:BasePath (&quot;/test&quot;)
+@ws:WebSocketUpgradePath(&quot;/websocket&quot;)
+service helloWorld {
+    @ws:OnOpen
+    resource onOpenMessage(message m) {}
+
+    @ws:OnTextMessage
+    resource onTextMessage(message m) {}
+
+    @ws:OnClose
+    resource onCloseMessage(message m) {}
+}
+</code></pre>
+
+<h2 id="functions-of-websocket">Functions of WebSocket</h2>
+<h3 id="pushing-messages-to-the-same-client">pushing messages to the same client</h3>
+<h4 id="wspustexttext">ws:pusText(text)</h4>
+<p>This function is used if the user needs to send a text message to the same client who sent the WebSocket message.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<p>For an example, see the simple echo server sample in <code>samples/websocket/echo-server/server/websocketEchoServer.bal</code>.</p>
+<h3 id="pushing-messages-to-all-the-clients-connected-to-a-given-service">Pushing messages to all the clients connected to a given service</h3>
+<h4 id="wsbroadcasttexttext">ws:broadcastText(text)</h4>
+<p>This function push text all the clients who have been connected to the currently this function declared service.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="closing-the-connection-of-the-current-client-from-server-side">Closing the connection of the current client from server side</h3>
+<h4 id="wscloseconnectiontext">ws:closeConnection(text)</h4>
+<p>This function close the connection of the current client from a given WebSocket resource.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storing-and-grouping-websocket-connections-globally">Storing and grouping WebSocket connections globally</h3>
+<p>In Ballerina you can store the WebSocket connections and use them in other services too.
+There are 2 ways of using this feature.
+- Storing single connection
+- Grouping connections</p>
+<h3 id="storing-single-connection">Storing single connection</h3>
+<h4 id="wsstoreconnectionconnectionname">ws:storeConnection(connectionName)</h4>
+<p>This function is used to store a given connection globally and it can be
+retrieved by any other service in Ballerina to push data from server to 
+client.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>A unique string</td>
+</tr>
+</tbody>
+</table>
+<p><em>note: connection name should be a unique string for a connection. 
+If the same connection name used again, the previous connection will be 
+replaced by the current connection.</em></p>
+<h4 id="wspushtexttoconnectionconnectionname-text">ws:pushTextToConnection(connectionName, text)</h4>
+<p>This function can be used in any service to retrieve a connection which 
+was previously stored by the user and push text to the client.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>A unique string</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremovestoredconnectionconnectionname">ws:removeStoredConnection(connectionName);</h4>
+<p>This function is used to remove the connection from the global connection 
+store.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>Unique string of the connection</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsclosestoredconnectionconnectionname">ws:closeStoredConnection(connectionName);</h4>
+<p>This function is used to close a stored connection. Note that removeStoredConnection will only remove connection from
+connection store. This will close the connection and remove it from the store.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>Represent the name of the connection given by the user</td>
+<td>Unique string of the connection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grouping-websocket-connections">Grouping WebSocket Connections</h3>
+<h4 id="wsaddconnectiontogroupgroupname">ws:addConnectionToGroup(groupName)</h4>
+<p>This will add the current WebSocket connection to group with the given group name.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group which current connection is added</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wspushtexttogroupgroupname-text">ws:pushTextToGroup(groupName, text)</h4>
+<p>This function can be used globally to access the connection groups defined by any of the services and send text to that
+specific group.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>The text message to send</td>
+<td>This can be any string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremoveconnectionfromgroupgroupname">ws:removeConnectionFromGroup(groupName)</h4>
+<p>This function removes the current connection from the given group if that connection exists in the given group.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wsremoveconnectiongroupgroupname">ws:removeConnectionGroup(groupName)</h4>
+<p>This removes the whole connection group globally. So if the connection group is removed it cannot be used again.
+But it does not mean that individual connections are removed globally. Because same connection can be added to one or
+more groups. </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wscloseconnectiongroupgroupname">ws:closeConnectionGroup(groupName)</h4>
+<p>This close all the connections in a connection group. Note that removeConnectionGroup will only remove only the connection
+group. But the connection status will not affect. But here the connections will be closed and removed the connection group</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Type</th>
+<th>Description</th>
+<th>Expected Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupName</td>
+<td>string</td>
+<td>Represent the name of the group</td>
+<td>String name represents the group</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lang-ref/actions/" class="btn btn-neutral float-right" title="Actions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../jms-server/" class="btn btn-neutral" title="JMS Server Connector"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../jms-server/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../lang-ref/actions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

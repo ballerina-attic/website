@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Write a Main Program - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Write a Main Program";
+    var mkdocs_page_input_path = "tutorials/main-program.md";
+    var mkdocs_page_url = "/tutorials/main-program/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>Get Started</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Welcome</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../quick-tour/">Quick Tour</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../key-concepts/">Key Concepts</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tools/">Tools</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../">Introduction</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Write a Main Program</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#write-a-main-program">Write a Main Program</a></li>
+                
+                 <li><a class="toctree-l4" href="#create-a-new-main-program">Create a new main program</a></li>
+                
+                 <li><a class="toctree-l4" href="#add-a-connector">Add a connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#call-the-connector">Call the connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#view-the-response">View the response</a></li>
+                
+                 <li><a class="toctree-l4" href="#extract-content-from-json">Extract content from JSON</a></li>
+                
+                 <li><a class="toctree-l4" href="#calculate-average-temperature">Calculate average temperature</a></li>
+                
+                 <li><a class="toctree-l4" href="#convert-kelvin-to-celcius">Convert Kelvin to Celcius</a></li>
+                
+                 <li><a class="toctree-l4" href="#call-the-function-and-print-the-result">Call the function and print the result</a></li>
+                
+                 <li><a class="toctree-l4" href="#get-information-from-the-weather-forecast-api">Get information from the weather forecast API</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-archive/">Create an Archive of your Program</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Language Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/lang-overview/">Overview</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/packaging/">Packaging and Running Programs</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/services/">Services</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/resources/">Resources</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/functions/">Functions</a>
+        
+    </li>
+
+
+        
+            
+
+  <li class="cMainLink"><span>Connectors</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/connectors/">Working with Connectors</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/file-server/">File Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/http2-server/">HTTP/2 Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-client/">JMS Client Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-server/">JMS Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/websocket-server/">WebSocket Server Connector</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/actions/">Actions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/workers/">Workers</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/transactions/">Transactions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/types-variables/">Types and Variables</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/statements/">Statements</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../lang-ref/exceptions/">Exception Handling</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Additional Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../native-functions/">Native Functions (API Documentation)</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../spec/">Language Specification</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../architecture/">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Write a Main Program</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/tutorials/main-program.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="write-a-main-program">Write a Main Program</h1>
+<p>Now that you have <a href="../first-program/">written your first program</a>, you can write some more programs to do various integration-related tasks. </p>
+<blockquote>
+<p>This tutorial provides instructions on how to write a main program. This involves a simple integration scenario where you can call a public weather forecast API and do some customization to the data obtained. The weather forecast API provides the weather forecast for the next five days and provides new records every three hours. Using this data, you will learn how to use Ballerina to find the average temperature and convert the result from Kelvin to Celsius.</p>
+</blockquote>
+<p>This tutorial consists of the following main sections.</p>
+<ul>
+<li><a href="#create-a-new-main-program">Create a new main program</a></li>
+<li><a href="#add-a-connector">Add a connector</a></li>
+<li><a href="#call-the-connector">Call the connector</a></li>
+<li><a href="#view-the-response">View the response</a></li>
+<li><a href="#extract-content-from-json">Extract content from JSON</a></li>
+<li><a href="#calculate-average-temperature">Calculate average temperature</a></li>
+<li><a href="#convert-kelvin-to-celcius">Convert Kelvin to Celcius</a></li>
+<li><a href="#call-the-function-and-print-the-result">Call the function and print the result</a></li>
+<li><a href="#get-information-from-the-weather-forecast-api">Get information from the weather forecast API</a></li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong>: Download Ballerina and set it up. For instructions on how to do this, see the <a href="../../quick-tour/">Quick Tour</a>. For more information on the weather forecast API, see <a href="#get-information-from-the-weather-forecast-api">Get information from the weather forecast API</a>.</p>
+</blockquote>
+<h2 id="create-a-new-main-program">Create a new main program</h2>
+<p>There are main programs and services, but this tutorial focuses on main programs only. A service normally continues to run and can be invoked by a REST API when required. A main program, on the other hand, will just run once. Main programs can be executed just like a Java main program. </p>
+<p>It is time to create a main program to solve your integration problem.</p>
+<ol>
+<li>If the Composer is not already running, run it as described in the <a href="../../quick-tour/">Quick Tour</a>.</li>
+<li>On the Welcome page, click <strong>File</strong> and select <strong>New</strong> from the dropdown list.</li>
+<li>On the tool palette that you see on the left of the Composer, click the <strong>Main Function</strong> icon and drag it to the canvas.</li>
+</ol>
+<p><img alt="alt text" src="../../images/AddMainProgram.gif" /></p>
+<h2 id="add-a-connector">Add a connector</h2>
+<p>Now that you have added a main program, you need a connector to connect to the external weather API. The connector ideal for this is the <strong>HTTP Client Connector</strong> since you are invoking an HTTP endpoint.</p>
+<p>Connectors represents network services that are used by a Ballerina program. The term "network services" here is meant in the broadest possible sense - Ballerina is designed to connect with everything from a database to a JMS queue to an OAuth protected API to LDAP servers and more. Thus connectors are the representation of any such remote service in Ballerina.</p>
+<p>Graphically, connectors are modeled as a separate lifeline to represent its independent and parallel execution. However, that lifeline is not a programmable thread of execution for the Ballerina developer - it only exists to represent the remote system.</p>
+<p>Connectors may need to have usage specific parameters and hence must be instantiated prior to use. For example, an HTTP connector will need the URL to connect to in the minimum.</p>
+<ol>
+<li>On the tool palette, click <strong>More Connectors</strong> to see a list of all available connectors.
+    <img alt="alt text" src="../../images/MoreConnectors.png" /></li>
+<li>From the list that appears, expand <strong>ballerina.net.http</strong> and drag a <strong>ClientConnector</strong> onto the canvas.
+    <img alt="alt text" src="../../images/addConnector.gif" /></li>
+<li>Add the endpoint URL (http://api.openweathermap.org/data/2.5/forecast?appid=f6f43202ba90c14ab13479aa2a2beefb&amp;q=Washington,US) within quotation marks "" as the connector endpoint. You can also change the name of the endpoint to something suitable. For more information on how to get this URL and call it to get the JSON content, see <a href="#get-information-from-the-weather-forecast-api">Get information from the weather forecast API</a>.
+    <img alt="alt text" src="../../images/ConnectorEndpoint.gif" /></li>
+</ol>
+<h2 id="call-the-connector">Call the connector</h2>
+<p>When you add a connector, you need to have a way of calling a connector and those are called actions.</p>
+<p>A connector comes with a set of actions that represent the interactions that one can have with the remote service. Actions can be one directional or bi-directional and represent blocking from the calling worker's perspective. That is, the calling thread is blocked until the action has completed its remote interaction.</p>
+<p>In the case of the HTTP connector you are using in this tutorial, the actions are listed out under the connector in the tool palette.</p>
+<p><img alt="alt text" src="../../images/Actions.png" /></p>
+<ol>
+<li>Add an action by dragging one of the actions from the tool palette onto the canvas. In this instance, you need to add a GET action as this is a GET request to the weather forecast API. Place the GET action under the main program you added.
+    <img alt="alt text" src="../../images/AddingAction.gif" />    </li>
+<li>To call the connector from the main program, draw an arrow to the connector from the action.
+    <img alt="alt text" src="../../images/ConnectingAction.gif" /></li>
+<li>
+<p>You also need to pass a message to the connector from the main program. To do this, you must first add a variable.</p>
+<p><img alt="alt text" src="../../images/AddVariable.gif" />
+1. Define a message in the variable you just added. Curly brackets <strong>{}</strong> are used to denote an empty message. The default message is defined as the letter <strong>m</strong>.</p>
+<p><img alt="alt text" src="../../images/DefineMessage.png" /></p>
+<p>The <code>message</code> type is an opaque type used to represent a request to a <code>resource</code>. This approach allows the <code>resource</code> to be network-protocol independent, even though a given <code>resource</code> is always tied to a particular protocol because a <code>service</code> can only be bound to one network protocol at a time.</p>
+</li>
+<li>
+<p>The GET request action for the HTTP connector requires you to pass some parameters in the request. This includes the connector, the request path, and the message. In this tutorial, forecastAPI is the name of the connector that is passed. The request path is an additional string that can be passed in the request. You can set this up so that the request path includes the API key and country code. This will be portrayed in a different tutorial. In this instance, an empty string is passed <strong>""</strong>. Additionally, you can pass the message <strong>m</strong>.
+    <img alt="alt text" src="../../images/GETRequestMessage.png" /></p>
+</li>
+</ol>
+<h2 id="view-the-response">View the response</h2>
+<p>Prior to doing further changes, you can view the output to see if the call to the API works.</p>
+<ol>
+<li>
+<p>You can print the message to see the output of what you have set up. To do this, you need to find a print function. You can use the search at the top of the tool palette for this, or you can click <strong>More Libraries</strong> and find it under the <strong>ballerina.lang.system</strong> library.</p>
+<p><img alt="alt text" src="../../images/SystemPrint.png" />
+1. Drag and drop the print function onto the main program and print message <strong>m</strong>.
+<img alt="alt text" src="../../images/AddPrint.gif" />
+1. Save your file by clicking <strong>File</strong> and <strong>Save As</strong>. Provide an appropriate name for you <strong>.bal</strong> file.
+1. Click the <strong>Run</strong> button and click <strong>Application</strong> to run this file. You can see the output in the console of the Ballerina Composer.</p>
+</li>
+</ol>
+<p>The output contains a JSON payload. This tutorial aims to access the JSON payload and extract the contents under <strong>list</strong>. This enables you to obtain the temperature forecast in Kelvin for the next five days. For more information, see <a href="#call-the-api-using-the-url">Call the API using the URL</a>.</p>
+<p>Once you have viewed this, you can remove the <code>print</code> function by hovering over it and clicking the trash can icon.</p>
+<h2 id="extract-content-from-json">Extract content from JSON</h2>
+<p>The next step is to obtain the JSON payload content. </p>
+<p>JSON is a textual format for representing a collection of values: a simple value (string, number, “true”, “false”, “null”), an array of values or an object. Ballerina also understands the JSON Schema and allows one to declare that a JSON document must conform to a particular schema.</p>
+<p>Ballerina has a variable type named “json” that can represent any JSON value. Thus it is a built-in union type in Ballerina whose value can be any one of a string, a float, a boolean, an array of any or a map of any. We provide utility functions to read a JSON document to create a JSON typed value. The lexical representation of a value of that type is JSON, thus simply printing a JSON typed variable results in a JSON string.</p>
+<p>JSON variables are declared in the following way:</p>
+<pre><code>json VariableName;
+</code></pre>
+
+<p>This is a variable that may hold any JSON document.</p>
+<ol>
+<li>Use the search, or navigate to a function called <strong>getJsonPayload</strong>, which is in the <strong>ballerina.lang.messages</strong> library. This library contains functions that enable you to modify and use messages in various ways.</li>
+<li>Drag and drop this onto the main program in the canvas. This automatically applies this function on message <strong>m</strong> since that is the default message.
+    <img alt="alt text" src="../../images/GetJsonPayload.gif" /></li>
+<li>Modify the name of the JSON function you added to something meaningful.
+    <img alt="alt text" src="../../images/GetJsonPayloadMessage.png" /></li>
+<li>To get the data under list, you need to add a variable from the tool palette to the main function in the canvas.
+    <img alt="alt text" src="../../images/JsonVariable.gif" /></li>
+<li>Modify the variable so that you can get the data under list. In this example, <strong>.list</strong> is a JSON path. 
+    <img alt="alt text" src="../../images/forecastDataList.png" />
+    &gt; The dot notation (<strong>.</strong>) enables you to invoke any of the attributes available in the JSON. These JSON paths can be used to access the contents of an attribute. For example, if <code>json j = {a:"hello"}</code> you can access <code>hello</code> using <code>j.a</code>. When considering the example used in this tutorial, if <code>json j = {list:[1,2,3]}</code> you can access the list using <code>j.list</code>. This is done because all the content that you need resides within the list attribute in the JSON file.</li>
+</ol>
+<h2 id="calculate-average-temperature">Calculate average temperature</h2>
+<p>Now that you have extracted the content from the JSON, Ballerina needs to do the calculations. This involves using a conditional statement like <code>while</code>.</p>
+<p>A <code>while</code> statement provides a way to execute a series of statements as long as a Boolean expression is met. In the Composer, you can drag the <strong>While</strong> icon from the tool palette to the canvas to add the statement to your program. </p>
+<p>A <code>while</code> statement is defined as follows:</p>
+<pre><code>while (BooleanExpression) {
+    Statement;+
+}
+</code></pre>
+
+<ol>
+<li>
+<p>Add a <code>variable</code> and define an integer that gets the number of instances of the data. Set this as <code>int dataCount = jsons:getInt(forcastDataList,"$.length()")</code>. The weather API lists multiple instances of the temperature and this variable ensures that you find the number of instances of the temperature in the data sets and assigns it to <code>dataCount</code>.</p>
+<p><img alt="alt text" src="../../images/dataCount.png" /></p>
+<blockquote>
+<p>You use a <strong>.length</strong> JSON path here to access an inbuilt function of the JSON. In this case, length is an inbuilt function of JSON.</p>
+</blockquote>
+</li>
+<li>
+<p>Add another <code>variable</code> called <code>int i = 0</code> by dragging a variable from the tool palette to the canvas. You can use this integer to get the exact number of instances of the data you need to do the calculation.</p>
+</li>
+<li>Drag and drop a <code>while</code> statement from the tool palette to the canvas.
+    <img alt="alt text" src="../../images/WhileCondition.gif" /></li>
+<li>
+<p>Set the <code>while</code> condition to <code>i &lt; dataCount</code> to make this condition loop until it reaches the <code>dataCount</code> value.</p>
+<p><img alt="alt text" src="../../images/WhileCondition2.png" />
+1. Add an <code>assignment</code> to the <code>while</code> loop by dragging it from the tool palette to the canvas.
+<img alt="alt text" src="../../images/AddAssignment.gif" />
+1. Specify the assignment value as <code>i = i + 1</code>. This increments <code>i</code> until it is equal to the <code>dataCount</code>. So if there are 5 data sets, <code>i</code> will be 5 when it comes out of the <code>while</code> loop.</p>
+<p><img alt="alt text" src="../../images/AssignmentValue.png" />
+1. Add a <code>variable</code> and declare it as a <code>float</code>. A <code>float</code> supports 64-bit IEEE754 arithmetic. The sum of all the temperatures can be assigned to this value type.</p>
+<p><img alt="alt text" src="../../images/AddFloat.png" />
+1. Add another <code>variable</code> and declare the value calculated as a <code>float</code>. This must be inside the <code>while</code> condition. This is used to calculate the temperature for each data set. In this case, <code>forecastDataList[i].main.temp</code> is basically used to get the temperature from the JSON for each data set. This is then assigned to the <code>float</code> using the <code>&lt;float&gt;</code> statement. The whole thing is assigned to the variable <code>temp</code>.</p>
+<p><img alt="alt text" src="../../images/AssignFloatTemp2.png" />
+1. Add another assignment to add each temperature value the <code>sumTemp</code> float that was declared earlier.
+<img alt="alt text" src="../../images/SumTemp.png" />
+1. Add an assignment to calculate the average temperature. This is done by dividing the sum of all the temperatures by the number of temperatures or the <code>dataCount</code>.
+<img alt="alt text" src="../../images/AverageTemp.png" /></p>
+</li>
+</ol>
+<h2 id="convert-kelvin-to-celcius">Convert Kelvin to Celcius</h2>
+<p>The next aspect of this tutorial is to convert the average temperature from Kelvin to Celcius.</p>
+<ol>
+<li>Add a <code>function</code> by dragging it from the tool palette to the canvas. A function is a single operation that is intended to be a unit of reusable functionality. You can define additional functions within your Ballerina programs. All library functions are found in <code>ballerina.*</code> packages under the <code>src</code> directory in your Ballerina distribution. If the function is in another package and is marked public, you can import that package using the Imports box in the upper left corner of the canvas, and then drag the Function Invocation icon to the canvas. All functions are private to the package unless explicitly declared to be public with the <code>public</code> keyword. You can invoke functions from a resource or a function within the same package without importing.
+    <img alt="alt text" src="../../images/AddFunction.gif" /></li>
+<li>Provide a name for the <code>function</code> and also add a parameter called <code>float KelvinTemp</code> that returns a <code>float</code> value. 
+    <img alt="alt text" src="../../images/FunctionDefinition.png" /></li>
+<li>Add a <code>return</code> statement by dragging it from the tool palette to the canvas. The <code>return</code> statement evaluates the expression, stops the current function, and returns the result of the expression to the caller.
+    <img alt="alt text" src="../../images/AddReturn.gif" /></li>
+<li>
+<p>In the <code>return</code> statement, do the calculation to convert Kelvin to Celcius by subtracting 273.15 from the Kelvin temperature.</p>
+<p><img alt="alt text" src="../../images/KelvinToCelcius.png" /></p>
+</li>
+</ol>
+<h2 id="call-the-function-and-print-the-result">Call the function and print the result</h2>
+<p>Once the function is added, it is available on the tool palette and can be dragged onto the canvas when you need to call it.</p>
+<p><img alt="alt text" src="../../images/FunctionPackage.png" /></p>
+<ol>
+<li>
+<p>Drag the function you created onto the canvas, assign a float value, and apply the function on the average Celcius temperature.</p>
+<p><img alt="alt text" src="../../images/ConvertFunction.png" />
+1. Drag two <code>println</code> functions to the canvas and assign <code>avgTemp</code> to one to display the average temperature in Kelvin and assign <code>celciusTemp</code> to the other to display the average temperature in Celcius.
+<img alt="alt text" src="../../images/PrintLn.png" />
+1. Run the main program as an application. You will see the following output in the console.
+<img alt="alt text" src="../../images/Console.png" /></p>
+</li>
+</ol>
+<h2 id="get-information-from-the-weather-forecast-api">Get information from the weather forecast API</h2>
+<p>In order to get this tutorial to work, you need to obtain some information from the public API for use in Ballerina. This section showcases how to get the URL and how to call it.</p>
+<h3 id="get-the-api-key">Get the API key</h3>
+<p>You can access the weather forecast API and obtain the API key from it using the following steps. The key is used as part of the URL that is called by Ballerina.</p>
+<ol>
+<li>Go to https://openweathermap.org/ and click <strong>Sign Up</strong> to register your account.</li>
+<li>Once you have signed up for an account, log in using your credentials.</li>
+<li>In the home page that appears, click <strong>API keys</strong>. You can copy the <strong>Key</strong> that is already generated for you.</li>
+</ol>
+<p><img alt="alt text" src="../../images/OpenWeatherAPI.png" /></p>
+<h3 id="identify-the-country-code">Identify the country code</h3>
+<p>The weather forecast API can be done for any country. Washington (USA) is used in our example. You need to identify the exact code to use to pass this parameter in the URL.</p>
+<ol>
+<li>Click <strong>API</strong> in the top level menu and click the <strong>API doc</strong> button under <strong>5 day / 3 hour forecast</strong>.
+    <img alt="alt text" src="../../images/WeatherAPIdoc.png" /></li>
+<li>The page that appears provides details about the API and provides sample calls for different types of requirements. Under the <strong>By city ID</strong> section, you can access a JSON file from http://bulk.openweathermap.org/sample/. This includes all the country codes available.
+    <img alt="alt text" src="../../images/WeatherJSON.png" /></li>
+</ol>
+<h3 id="call-the-api-using-the-url">Call the API using the URL</h3>
+<p>Now that you have got the API key and the country code, you can identify the URL that you need to call from Ballerina. The URL is something similar to the following: http://api.openweathermap.org/data/2.5/forecast?appid=f6f43202ba90c14ab13479aa2a2beefb&amp;q=Washington,US.</p>
+<blockquote>
+<p>Here the <code>appid</code> is the API key and the country code is <code>Washington,US</code>.</p>
+</blockquote>
+<p>Use a tool that can interact with HTTP APIs. In this instance we use Postman, which is a Google Chrome app. Paste the URL above in the <strong>Enter request URL</strong> text box and change the request type to <strong>GET</strong>. In the JSON response you can see the <strong>list</strong> part of the response contans the temperature (<strong>temp</strong>) in Kelvin.</p>
+<p><img alt="alt text" src="../../images/PostmanWeather.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../create-archive/" class="btn btn-neutral float-right" title="Create an Archive of your Program">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../first-program/" class="btn btn-neutral" title="Write your First Program"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../first-program/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../create-archive/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
