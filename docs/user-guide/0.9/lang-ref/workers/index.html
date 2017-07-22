@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Workers - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Workers";
+    var mkdocs_page_input_path = "lang-ref/workers.md";
+    var mkdocs_page_url = "/lang-ref/workers/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>Get Started</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Welcome</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../quick-tour/">Quick Tour</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../key-concepts/">Key Concepts</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tools/">Tools</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../samples/">Samples</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/">Introduction</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/first-program/">Write your First Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/main-program/">Write a Main Program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorials/create-archive/">Create an Archive of your Program</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Language Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../lang-overview/">Overview</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../packaging/">Packaging and Running Programs</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../services/">Services</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../resources/">Resources</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../functions/">Functions</a>
+        
+    </li>
+
+
+        
+            
+
+  <li class="cMainLink"><span>Connectors</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../connectors/">Working with Connectors</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/file-server/">File Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/http2-server/">HTTP/2 Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-client/">JMS Client Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/jms-server/">JMS Server Connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-connectors/websocket-server/">WebSocket Server Connector</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../actions/">Actions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Workers</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#workers">Workers</a></li>
+                
+                 <li><a class="toctree-l4" href="#adding-a-worker">Adding a worker</a></li>
+                
+                 <li><a class="toctree-l4" href="#invoking-the-worker">Invoking the worker</a></li>
+                
+                 <li><a class="toctree-l4" href="#receiving-a-reply-from-a-worker">Receiving a reply from a worker</a></li>
+                
+                 <li><a class="toctree-l4" href="#how-workers-work">How workers work</a></li>
+                
+                 <li><a class="toctree-l4" href="#examples">Examples</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../transactions/">Transactions</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../types-variables/">Types and Variables</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../statements/">Statements</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../exceptions/">Exception Handling</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+            <li>
+
+  <li class="cMainLink"><span>Additional Reference</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../native-functions/">Native Functions (API Documentation)</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../spec/">Language Specification</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../../architecture/">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Language Reference &raquo;</li>
+        
+      
+    
+    <li>Workers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/lang-ref/workers.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="workers">Workers</h1>
+<p>A worker is a programmable actor in Ballerina. It is represented on a sequence diagram as a vertical "lifeline" of logic to be executed. </p>
+<p><img alt="alt text" src="../../images/worker-lifeline.png" title="The default worker in a resource" /></p>
+<p>The default worker is just a worker that is defined without declaring it as such. For example, the following syntax:</p>
+<pre><code>function foo (int x) {
+  statement1;
+  statement2;
+}
+
+</code></pre>
+
+<p>is equivalent to:</p>
+<pre><code>function foo (int x) {
+  worker {
+    statement1;
+    statement2;
+  }
+}
+</code></pre>
+
+<p>The default worker does not result in a thread of its own: it inherits a thread from the caller. Note that the same applies for resources as well.</p>
+<p>If there were additional workers in the function, then it is as follows:</p>
+<pre><code>function foo (int x) {
+  worker {
+    statement1;
+    statement2;
+  }
+  worker OtherWorker1 {
+    s1;
+    s2;
+    s3;
+  }
+  worker OtherWorker2 {
+    s1;
+  }
+}
+</code></pre>
+
+<p>For syntactic convenience, you can adopt the following approach:</p>
+<pre><code>function foo (int x) {
+  statement1;
+  statement2;
+  worker OtherWorker1 {
+    s1;
+    s2;
+    s3;
+  }
+  worker OtherWorker2 {
+    s1;
+  }
+}
+</code></pre>
+
+<p>Workers do not share any state with each other. Upon invocation, the “parent” worker can pass a message to the new worker. Resource workers can also access the service's state.</p>
+<h2 id="adding-a-worker">Adding a worker</h2>
+<p>To add a worker in Design View in the Composer, drag the Worker icon from the tool palette to your sequence diagram:</p>
+<p><img alt="alt text" src="../../images/icons/worker.png" title="Worker icon" /></p>
+<p>To add a worker when working directly with the source code of your program, a worker is defined and declared as follows:</p>
+<pre><code>worker WorkerName {
+    Statement*
+    workerDeclaration*
+}
+</code></pre>
+
+<p>You then define the logic that you want the worker to reply. The worker can invoke any functions that are defined in the same package. </p>
+<p>If the <a href="../statements/#reply">Reply</a> statement is present, it must be at the end of the worker definition. The reply indicates what message will be returned to the initiator if the initiator requires a response from the worker (see "Receiving a reply from a worker" below). If no Reply statement is present, it has the same effect as having sent a null message.</p>
+<h2 id="invoking-the-worker">Invoking the worker</h2>
+<p>Workers initially come into existence when the enclosing entity-- a <a href="../resources/">resource</a>, <a href="../functions/">function</a>, or <a href="../actions/">action</a>--becomes active. However, similar to a resource, the worker does not execute until it has been sent a message.</p>
+<p>A worker is triggered when a message is sent to the worker. You can configure the enclosing entity to send a message to the worker by dragging the Worker Invoke icon to the enclosing entity and typing the message name:</p>
+<p><img alt="alt text" src="../../images/icons/worker-invoke.png" title="Worker Invoke icon" /></p>
+<p>Or type the following code in the Source View:</p>
+<pre><code>&lt;MessageName&gt; -&gt; &lt;WorkerName&gt;;
+</code></pre>
+
+<p>For example, if the message is named <code>msg</code> and the worker is named <code>sampleWorker</code>, you would type:</p>
+<pre><code>msg -&gt; sampleWorker;
+</code></pre>
+
+<h2 id="receiving-a-reply-from-a-worker">Receiving a reply from a worker</h2>
+<p>The worker can reply to the enclosing entity using a <a href="../statements/#reply">Reply</a> statement at the end of the worker defintion. You can configure the enclosing entity to receive the reply by dragging the Worker Receive icon to the point where you want the enclosing entity to receive the reply:</p>
+<p><img alt="alt text" src="../../images/icons/worker-receive.png" title="Worker Receive icon" /></p>
+<p>Or type the following code in the Source View:</p>
+<pre><code>&lt;MessageName&gt; &lt;- &lt;WorkerName&gt;;
+</code></pre>
+
+<p>For example, to receive a reply from <code>sampleWorker</code> as a message named <code>msg</code>:</p>
+<pre><code>msg &lt;- sampleWorker;
+</code></pre>
+
+<p>If the worker does not reply, the enclosing entity will wait until the named worker completes and will return a null value for the message.</p>
+<p>If there is no wait for completion of a particular worker, and if the enclosing entity finishes execution, all active workers are immediately killed prior to returning from the enclosing context. </p>
+<h2 id="how-workers-work">How workers work</h2>
+<p>Workers are new actors that are running on separate threads that can be programmed using Ballerina. Every Ballerina program runs on a thread and there is a default thread that executes the given function/resource/action within your Ballerina program. When some program needs to delegate a portion of its workload to another actor (thread), a worker can be used and programmed accordingly.</p>
+<p>Here is a sample syntax of a worker that prints "hello world" in a new thread when this main function is executed.</p>
+<pre><code>import ballerina.lang.system;
+
+function main (string[] args) {
+    system:println(&quot;Hello from main&quot;);
+    worker W1 {
+        system:println(&quot;Hello from worker&quot;);
+    }
+}
+</code></pre>
+
+<p>By running the above program, you will get one of the following 2 outputs.</p>
+<pre><code>Hello from main
+Hello from worker 
+</code></pre>
+
+<p>OR</p>
+<pre><code>Hello from worker
+Hello from main
+</code></pre>
+
+<p>There are two outputs from the same program because the workers start at the same time that the main program starts. The underlying operating system decides which thread to run first and which thread to run second. All the workers defined in a function/resource/action will start at the beginning of the enclosing component.</p>
+<p>One important thing to notice in the above program is that worker definition must always come at the bottom of the program. </p>
+<p>With the above simple program running, let’s move on to a comparatively complex program that shares data across workers. One worker can share data to another worker through worker interaction statements. Every worker interaction consists of two statements that must reside in the corresponding two workers. Let’s consider a scenario where worker W1 is sending a message to worker W2.</p>
+<pre><code>worker W1 {
+  message m = {};
+  m -&gt; W2;
+}
+
+worker W2 {
+  message n;
+  n &lt;- W1;
+}
+</code></pre>
+
+<p>In the above program, message m is sent to W2 and it will receive that message in variable n. When sending data across: </p>
+<ul>
+<li>the primitve type variables like int, float, string and boolean will be passed as copies of the original data. </li>
+<li>the variables of type message will be passed as a clone of the original message.</li>
+<li>the reference type variables like array, map, and struct will be passed as references.</li>
+</ul>
+<p>Let’s write a simple meaningful worker interaction program.</p>
+<pre><code>import ballerina.lang.system;
+import ballerina.lang.messages;
+
+function main (string[] args) {
+    message result;
+    message msg = {};
+    int x = 100;
+    float y;
+    msg, x -&gt; sampleWorker;
+    system:println(&quot;Inside default worker after invoking the sampleWorker&quot;);
+    result, y &lt;- sampleWorker;
+    string s = messages:getStringPayload(result);
+    system:println(&quot;Message received from sampleWorker is &quot; + s);
+    system:println(&quot;Float received from sampleWorker is &quot; + y);
+
+    worker sampleWorker {
+        message m;
+        int a;
+        float b = 12.34;
+        m, a &lt;- default;
+        system:println(&quot;Passed in integer value is &quot; + a);
+        json j;
+        j = {&quot;name&quot;:&quot;tom&quot;};
+        messages:setJsonPayload(m, j);
+        m, b -&gt; default;
+    }
+}
+
+</code></pre>
+
+<p>In this program, you can observe that there are four variables defined within the main function and two of them are used to share data with “sampleWorker” and the other two are for receiving data from the same.</p>
+<p>First, we send the msg and x variables to sampleWorker and then we have a println statement. After that, there is a data receiving statement that will receive data of type message (result) and float (y) from the sampleWorker. Then we print the results we receive from the sampleWorker.</p>
+<p>Within the sampleWorker, we can find three variables defined and, after that, the data receiving statement that exactly matches the data sending statement of default worker (main function). Following this, we have the println statement to print out the received integer value and then we set some data to the message and finally pass the float variable and the message to the default worker.</p>
+<p>Once you execute the above program, you will receive the following output (or similar) in your console.</p>
+<pre><code>Inside default worker after invoking the sampleWorker
+Passed in integer value is 100
+Message received from sampleWorker is {&quot;name&quot;:&quot;tom&quot;}
+Float received from sampleWorker is 12.34
+</code></pre>
+
+<p>Let’s move on to the next program that will demonstrate the capability of accessing scope variables within a worker. Workers can access:  </p>
+<ul>
+<li>Input parameters defined at the function/resource/action level</li>
+<li>Service level variables or Connector level variables</li>
+<li>Global constants</li>
+</ul>
+<p>All of these variables are accessed in a shared manner. This means that all the workers (including default worker) access the same variable reference. This shared memory feature is not yet implemented. </p>
+<p>What is supported at the moment is that any primitive (value) type variables are visible to the workers, but the values are passed in as copies of the original variable. This means that if you change the value of a parent scope variable within a worker, it will not get reflected in the parent's variable. </p>
+<p>However, reference type variables of array, map, struct, message, json, and xml are shared as references and hence the changes done within the workers are visible to the parent scope.</p>
+<p>Let’s write a sample program and see how this functionality works.</p>
+<pre><code>import ballerina.lang.system;
+
+function main (string[] args) {
+    system:println(&quot;Variable access within the default worker &quot; + args[0]);
+    worker W1 {
+        system:println(&quot;Variable access within the W1 worker &quot; + args[0]);
+    }
+}
+</code></pre>
+
+<p>When you run the above program with input argument 200 at the command line, you can get the following output in the console.</p>
+<pre><code>Variable access within the default worker 200
+Variable access within the W1 worker 200
+</code></pre>
+
+<p>In the above program, we have only accessed the variable and printed the value of it. Let’s write a comparatively complex program by editing the variables within workers and seeing them within different workers.</p>
+<pre><code>import ballerina.lang.system;
+
+function main (string[] args) {
+    map m = {&quot;name&quot;:&quot;Abhaya&quot;, &quot;era&quot;:&quot;Anuradhapura&quot;};
+    system:println(m[&quot;name&quot;]);
+    testWorker(m);
+    system:println(&quot;After the function call that invoked the workers&quot;);
+    system:println(m[&quot;name&quot;]);
+}
+
+function testWorker (map x) {
+    worker W1 {
+        system:println(x[&quot;name&quot;]);
+        x[&quot;name&quot;] = &quot;WSO2&quot;;
+    }
+    worker W2 {
+        system:println(x[&quot;name&quot;]);
+        x[&quot;name&quot;] = &quot;Ballerina&quot;;
+    }
+}
+
+</code></pre>
+
+<p>In the above program, we are accessing the variable of type map (x) within different workers. Once you run the above program, you will see different results for different runs, due to the invariant nature of the worker execution. Here are few sample outputs.</p>
+<pre><code>Abhaya
+Abhaya
+After the function call that invoked the workers
+WSO2
+WSO2
+
+Abhaya
+Abhaya
+Abhaya
+After the function call that invoked the workers
+Ballerina
+
+Abhaya
+Abhaya
+After the function call that invoked the workers
+WSO2
+Abhaya
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+<p>These examples show how to define, invoke, and receive a reply from a worker. </p>
+<h3 id="inside-the-main-function">Inside the main() function</h3>
+<pre><code>import ballerina.lang.system;
+import ballerina.lang.messages;
+
+const int INDEX = 12;
+
+function main (string[] args) {
+    message result;
+    message msg = {};
+    msg -&gt; sampleWorker;
+    system:println(&quot;After worker&quot;);
+    result &lt;- sampleWorker;
+    string s = messages:getStringPayload(result);
+    system:println(s);
+
+    worker sampleWorker {
+        message m;
+        json j;
+        j = {&quot;name&quot;:&quot;chanaka&quot;};
+        m &lt;- default;
+        messages:setJsonPayload(m, j);
+        // Global constants are visible to worker
+        system:println(&quot;constant value is &quot; + INDEX);
+        m -&gt; default;
+    }
+}
+</code></pre>
+
+<p>When you run the above Ballerina program, the following output is printed to the console:</p>
+<pre><code>After worker
+constant value is 12
+{&quot;name&quot;:&quot;chanaka&quot;}
+</code></pre>
+
+<h3 id="inside-a-resource">Inside a resource</h3>
+<pre><code>import ballerina.lang.messages;
+import ballerina.lang.system;
+import ballerina.net.http;
+
+const int INDEX = 12;
+
+@http:BasePath {value:&quot;/passthrough&quot;}
+service passthrough {
+
+    @http:POST {}
+    resource passthrough (message m) {
+        message result;
+        m -&gt; sampleWorker;
+        system:println(&quot;After worker&quot;);
+        result &lt;- sampleWorker;
+        string s = messages:getStringPayload(result);
+        system:println(s);
+        reply result;
+
+        worker sampleWorker {
+            message msg;
+            json j;
+            msg &lt;- default;
+            j = {&quot;name&quot;:&quot;chanaka&quot;};
+            messages:setJsonPayload(msg, j);
+            // Global constants are visible to worker
+            system:println(&quot;constant value is &quot; + INDEX);
+            msg -&gt; default;
+        }
+    }
+}
+</code></pre>
+
+<p>When the above service is running and is sent a message, it will return the following response from the worker back to the client:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;chanaka&quot;
+}
+</code></pre>
+
+<h3 id="calling-a-function-from-the-worker">Calling a function from the worker</h3>
+<p>This example shows how a worker can call a function that's defined in the same package:</p>
+<pre><code>import ballerina.lang.system;
+import ballerina.lang.messages;
+
+const int INDEX = 12;
+
+function main (string[] args) {
+    message result;
+    message msg = {};
+    msg -&gt; sampleWorker;
+    system:println(&quot;After worker&quot;);
+    printHello(&quot;I'm main function&quot;);
+    result &lt;- sampleWorker;
+    string s = messages:getStringPayload(result);
+    system:println(s);
+
+    worker sampleWorker {
+        message m;
+        json j;
+        m &lt;- default;
+        j = {&quot;name&quot;:&quot;chanaka&quot;};
+        messages:setJsonPayload(m, j);
+        // Global constants are visible to worker
+        system:println(&quot;constant value is &quot; + INDEX);
+        printHello(&quot;I'm worker&quot;);
+        m -&gt; default;
+    }
+}
+
+function printHello (string str) {
+    system:println(str);
+}
+</code></pre>
+
+<p>When you run this program, the following output is printed to the console:</p>
+<pre><code>After worker
+I'm main function
+constant value is 12
+I'm worker
+{&quot;name&quot;:&quot;chanaka&quot;}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../transactions/" class="btn btn-neutral float-right" title="Transactions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../actions/" class="btn btn-neutral" title="Actions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../actions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../transactions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
