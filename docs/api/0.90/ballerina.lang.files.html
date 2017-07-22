@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.files</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.files package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="close">
+                                function close(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> file) 
+                            </h3>
+                            <p>Closes a given file and its stream</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>The file to be closed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="copy">
+                                function copy(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> source, <a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> destination) 
+                            </h3>
+                            <p>Copies a file from a given location to another</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>source</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>target: File/Directory that should be copied</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>destination</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>Location where the File/Directory should be pasted</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="delete">
+                                function delete(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> target) 
+                            </h3>
+                            <p>Deletes a file from a given location</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>target</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>File/Directory that should be deleted</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="exists">
+                                function exists(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> file) (boolean )
+                            </h3>
+                            <p>Checks whether a file exists</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>The File struct of witch existence is to be checked</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>isExists: Boolean representing whether a file exists</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="move">
+                                function move(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> target, <a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> destination) 
+                            </h3>
+                            <p>Moves a file from a given location to another</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>target</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>File/Directory that should be moved</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>destination</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>Location where the File/Directory should be moved to</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="open">
+                                function open(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> file, <a href="#string">string</a> accessMode) 
+                            </h3>
+                            <p>Retrieves the stream from a local file</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>The file to be opened</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>accessMode</td><td><a href="#string">string</a></td><td>file: The file to be opened</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="read">
+                                function read(<a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> file, <a href="#int">int</a> number) (blob , int )
+                            </h3>
+                            <p>Retrieves blob value of a file</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>The file to be read</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>number</td><td><a href="#int">int</a></td><td>Number of bytes to be read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>data: The blob containing files read</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>data: The blob containing files read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="write">
+                                function write(<a href="#blob">blob</a> content, <a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a> file) 
+                            </h3>
+                            <p>Writes a file using the given blob</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>content</td><td><a href="#blob">blob</a></td><td>blob: Content to be written</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">File</a></td><td>Path of the file</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.lang.files package</h2>
+                         
+                        <h3 id="File">struct File</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#close">close(File file) </a>
+                                </li>
+                                <li><a href="#copy">copy(File source, File destination) </a>
+                                </li>
+                                <li><a href="#delete">delete(File target) </a>
+                                </li>
+                                <li><a href="#exists">exists(File file) (boolean )</a>
+                                </li>
+                                <li><a href="#move">move(File target, File destination) </a>
+                                </li>
+                                <li><a href="#open">open(File file, string accessMode) </a>
+                                </li>
+                                <li><a href="#read">read(File file, int number) (blob , int )</a>
+                                </li>
+                                <li><a href="#write">write(blob content, File file) </a>
+                                </li>
+                            </ul>
+                        </li>  
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#File ">File</a></li>
+                                
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
