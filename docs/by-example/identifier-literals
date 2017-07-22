@@ -183,7 +183,7 @@ This is similar to string literals (using double quote characters to demarcate).
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main identifier-literals.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run identifier-literals.bal
 <span class="go">identifier literal</span>
 <span class="go">global var with identifier literal</span>
 </pre></div>

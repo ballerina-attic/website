@@ -154,7 +154,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main multiple-return-values.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run multiple-return-values.bal
 <span class="go">24/10: quotient=2 remainder=4</span>
 </pre></div>
 

@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Try/Catch/Finally</title>
+    <title>Ballerina by Example: FTP Server Connector</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -75,9 +75,9 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
-              <div class="example" id="try-catch-finally">
+              <div class="example" id="ftp-server-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Try/Catch/Finally</h2>
+                      <h2><a href="./">Ballerina by Example</a>: FTP Server Connector</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -90,17 +90,16 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Throwing an error generally means an unexpected error has happend, and the code that
- handles the thrown error is not expected to be able to do much to recover from it,
- rather than perhaps catch and log it.
- Throwing errors will be very rare and will happen under exceptional circumstances such as server going out of memory, running out of disk space.</p>
+                                  <p>The FTP Server Connector can be used to listen to a remote directory. It will keep listening to the specified directory and process the files in the directory as they get added to the directory.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ftp</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -111,8 +110,16 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span><span class="p">[]</span> <span class="nx">data</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="nd">@ftp:configuration {</span>
+    <span class="nx">dirURI</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/observed-dir/&quot;</span><span class="p">,</span>
+    <span class="nx">pollingInterval</span><span class="p">:</span><span class="s">&quot;2000&quot;</span><span class="p">,</span>
+    <span class="nx">actionAfterProcess</span><span class="p">:</span><span class="s">&quot;MOVE&quot;</span><span class="p">,</span>
+    <span class="nx">moveAfterProcess</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/move-to/&quot;</span><span class="p">,</span>
+    <span class="nx">parallel</span><span class="p">:</span><span class="s">&quot;false&quot;</span><span class="p">,</span>
+    <span class="nx">createMoveDir</span><span class="p">:</span><span class="s">&quot;true&quot;</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ftp</span><span class="p">&gt;</span> <span class="nx">ftpServerConnector</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">fileResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -120,11 +127,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Suppose we are creating a file, and writing some data.</p>
+                                  <p>Use the FTP Client Connector to connect to a remote FTP server.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
+                                  <div class="highlight"><pre>        <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">c</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -132,15 +139,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Use a try block to surrounds a code segment that an error may occur.</p>
+                                  <p>Create a File struct using the URL returned by &rsquo;m&rsquo;.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">try</span> <span class="p">{</span>
-        <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-        <span class="kt">blob</span> <span class="nx">c1</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Content1&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-        <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c1</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">url</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">file</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="nx">url</span><span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -148,11 +152,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Accessing a null variable &lsquo;data&rsquo; cause NullReferenceError to be thrown.</p>
+                                  <p>Read the specified file and get its string content.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">c2</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">txt</span> <span class="p">=</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">txt</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -160,12 +165,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Non of the following lines will get executed after the error.</p>
+                                  <p>Print the content of the file to the console.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c2</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Content of the file at: &quot;</span> <span class="o">+</span> <span class="nx">url</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -173,15 +178,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>A Catch block executes, when an error is thrown from the enclosing try
-block and the thrown error type and catch clause&rsquo;s error type are matched, or
-if there is no match, then the catch is the first in the order, where thrown
-error type and catch clause&rsquo;s error type are structurally equivalent.</p>
+                                  <p>Append to the content and convert it to a blob.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">errors</span><span class="p">:</span><span class="nx">Error</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">content</span> <span class="p">=</span> <span class="nx">content</span> <span class="o">+</span> <span class="s">&quot;ballerina&quot;</span><span class="p">;</span>
+        <span class="kt">blob</span> <span class="nx">output</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -189,12 +191,12 @@ error type and catch clause&rsquo;s error type are structurally equivalent.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Catching specific error type &lsquo;errors:NullReferenceError&rsquo;.</p>
+                                  <p>A File struct for the pointing to the location.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">errors</span><span class="p">:</span><span class="nx">NullReferenceError</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
+                             <span class="s">&quot;ftp://127.0.0.1/another-dir/current-output.txt&quot;</span><span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -202,14 +204,11 @@ error type and catch clause&rsquo;s error type are structurally equivalent.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Finally block always executes when the execution exits from the try block or
-catch block when an error occurred. It is also useful, not only in an anomalous
-situation, where the execution exit the try block using a return, break, abort.
-Use finally block to do cleanup tasks i.e File Close, SQL Connection Close etc.</p>
+                                  <p>Write that content to another remote location.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">finally</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>        <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">output</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -217,12 +216,10 @@ Use finally block to do cleanup tasks i.e File Close, SQL Connection Close etc.<
                           
                           <tr>
                               <td class="docs">
-                                  <p>Closing the file.</p>
-
+                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;File Closed&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -239,13 +236,26 @@ Use finally block to do cleanup tasks i.e File Close, SQL Connection Close etc.<
                           
                           <tr>
                               <td class="docs">
+                                  <p>observed-dir contains only 2 files.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run ftp-server-connector.bal
+<span class="go">ballerina: deploying service(s) in &#39;ftp-server-connector.bal&#39;</span>
+<span class="go">Content of the file at: ftp://127.0.0.1/observed-dir/aa.txt</span>
+<span class="go">Content of file aa.txt</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run try-catch-finally.bal
-<span class="go">content1 is written to file</span>
-<span class="go">Caught NullReferenceError. Exiting program</span>
-<span class="go">File Closed</span>
+                                  <div class="highlight"><pre><span class="go">Content of the file at: ftp://127.0.0.1/observed-dir/bb.txt</span>
+<span class="go">Content of file bb.txt</span>
 </pre></div>
 
                               </td>
@@ -257,14 +267,14 @@ Use finally block to do cleanup tasks i.e File Close, SQL Connection Close etc.<
                       
                       
                       <p class="next">
-                          Next example: <a href="base-path-and-path">Base Path and Path</a>.
+                          Next example: <a href="websocket-basic-endpoint">Websocket Basic Endpoint</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/try-catch-finally">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/ftp-server-connector">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

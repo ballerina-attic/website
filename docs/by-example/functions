@@ -176,7 +176,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main functions.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run functions.bal
 <span class="go">This is a sample text</span>
 <span class="go">11</span>
 </pre></div>

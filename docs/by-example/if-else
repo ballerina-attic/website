@@ -174,7 +174,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main <span class="k">if</span>-else.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run <span class="k">if</span>-else.bal
 <span class="go">a == 10</span>
 <span class="go">a &gt;= b</span>
 <span class="go">b == 0</span>

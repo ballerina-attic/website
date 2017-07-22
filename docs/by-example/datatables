@@ -93,7 +93,8 @@
                                   <p>The datatable type is used to hold tabular data, such as those returned from
 an SQL database query and provides cursor based access to the data.
 Use the following sql scripts to create table and
- sample data in a mysql database.</p>
+ sample data in a mysql database. Before run the sample copy the JDBC
+ driver to the BALLERINA_HOME/bre/lib folder.</p>
 
 <p>create table employees (
     id int,
@@ -102,7 +103,7 @@ Use the following sql scripts to create table and
     status boolean,
     birthdate date,
     birthtime time,
-    updated times tamp
+    updated timestamp
 );</p>
 
 <p>insert into employees values(1, &lsquo;John&rsquo;, 1050.50, false,
@@ -205,18 +206,6 @@ the data struct corresponding to each row.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Close the datatable to clean the resources.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">datatables</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
                                   <p>Convert a datatable to json.</p>
 
                               </td>
@@ -225,7 +214,6 @@ the data struct corresponding to each row.</p>
                                     <span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
-    <span class="nx">datatables</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -241,8 +229,6 @@ the data struct corresponding to each row.</p>
                                     <span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
-    <span class="nx">datatables</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
-    
 </pre></div>
 
                               </td>
@@ -273,7 +259,7 @@ the data struct corresponding to each row.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main datatables.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run datatables.bal
 <span class="go">Employee:1|John|1050.5|false|1990-12-31+05:30|</span>
 <span class="go">11:30:45.000+05:30|2007-05-23T09:15:28.000+05:30</span>
 <span class="go">Employee:2|Anne|4060.5|true|1999-12-31+06:00|</span>

@@ -95,8 +95,6 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -173,24 +171,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>Get the length of the JSON array.</p>
+
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="nx">try</span> <span class="p">{</span>
-        <span class="kt">json</span> <span class="nx">family</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">family</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">json</span> <span class="nx">e</span> <span class="p">=</span> <span class="nx">family</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-            <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">errors</span><span class="p">:</span><span class="nx">Error</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">msg</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(!</span><span class="nx">strings</span><span class="p">:</span><span class="nx">contains</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="s">&quot;array index out of range&quot;</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-            <span class="nx">throw</span> <span class="nx">e</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;length of array: &quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">family</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">family</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">l</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">family</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;length of array: &quot;</span> <span class="o">+</span> <span class="nx">l</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -198,11 +185,14 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ignore the error.</p>
+                                  <p>Loop through the array.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">family</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -222,15 +212,20 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main json-arrays.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run json-arrays.bal
 <span class="go">[1,false,null,&quot;foo&quot;,{&quot;first&quot;:&quot;John&quot;,&quot;last&quot;:&quot;Pala&quot;}]</span>
 <span class="go">John</span>
 <span class="go">[1,false,null,&quot;foo&quot;,8.0]</span>
 <span class="go">{&quot;fname&quot;:&quot;John&quot;,&quot;lname&quot;:&quot;Stallone&quot;,</span>
-<span class="go">    &quot;family&quot;:[{&quot;fname&quot;:&quot;Peter&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
-<span class="go">              {&quot;fname&quot;:&quot;Emma&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
-<span class="go">              {&quot;fname&quot;:&quot;Alisha&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
-<span class="go">              {&quot;fname&quot;:&quot;Paul&quot;,&quot;lname&quot;:&quot;Stallone&quot;}]}</span>
+<span class="go"> &quot;family&quot;:[{&quot;fname&quot;:&quot;Peter&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
+<span class="go">           {&quot;fname&quot;:&quot;Emma&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
+<span class="go">           {&quot;fname&quot;:&quot;Alisha&quot;,&quot;lname&quot;:&quot;Stallone&quot;},</span>
+<span class="go">           {&quot;fname&quot;:&quot;Paul&quot;,&quot;lname&quot;:&quot;Stallone&quot;}]}</span>
+<span class="go">length of array: 4</span>
+<span class="go">{&quot;fname&quot;:&quot;Peter&quot;,&quot;lname&quot;:&quot;Stallone&quot;}</span>
+<span class="go">{&quot;fname&quot;:&quot;Emma&quot;,&quot;lname&quot;:&quot;Stallone&quot;}</span>
+<span class="go">{&quot;fname&quot;:&quot;Alisha&quot;,&quot;lname&quot;:&quot;Stallone&quot;}</span>
+<span class="go">{&quot;fname&quot;:&quot;Paul&quot;,&quot;lname&quot;:&quot;Stallone&quot;}</span>
 </pre></div>
 
                               </td>

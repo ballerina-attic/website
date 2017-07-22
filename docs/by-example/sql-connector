@@ -92,12 +92,12 @@
                               <td class="docs">
                                   <p>Ballerina SQL Connector is used to access and manipulate data in relational
  databases. It supports update, select, batchUpdate, call, updateWithGeneratedKeys
- and close actions.</p>
+ and close actions. Before run the sample copy the JDBC driver to the
+ BALLERINA_HOME/bre/lib folder.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">datatables</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
 </pre></div>
 
@@ -141,7 +141,7 @@ statement execution is success update action returns 0</p>
                                   <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
     <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
                     <span class="s">&quot;create table Students(id int auto_increment,  &quot;</span> <span class="o">+</span>
-                    <span class="s">&quot;age intname varchar(255), primary key (id))&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                    <span class="s">&quot;age int, name varchar(255), primary key (id))&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Table creation status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
 </pre></div>
 
@@ -221,7 +221,6 @@ and see datatables section for more details on how to access data.</p>
                                 <span class="s">&quot;SELECT * from Students where age = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
-    <span class="nx">datatables</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -339,7 +338,7 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main sql-connector.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run sql-connector.bal
 <span class="go">Table creation status:0</span>
 <span class="go">Stored proc creation status:0</span>
 <span class="go">Inserted row count:1</span>

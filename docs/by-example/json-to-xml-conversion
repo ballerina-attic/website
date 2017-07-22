@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Var</title>
+    <title>Ballerina by Example: JSON To XML Conversion</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -75,9 +75,9 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
-              <div class="example" id="var">
+              <div class="example" id="json-to-xml-conversion">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Var</h2>
+                      <h2><a href="./">Ballerina by Example</a>: JSON To XML Conversion</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -90,24 +90,16 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina supports variable declarations with &ldquo;var&rdquo;.</p>
+                                  <p>JSON to XML conversion can be done using jsons:toXML function. This function takes
+the JSON to be converted and struct of options as arguments. The options
+struct has two fields, attributePrefix which is used as the prefix to identify
+xml attribute where default value is &lsquo;@&rsquo;. And arrayEntryTag as the
+name of the tag to be added to each entry of JSON arrays.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">jsons</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -126,12 +118,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here the variable type is inferred type from the initial value. This is same as &ldquo;int k = 5&rdquo;;</p>
+                                  <p>Create json.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">j1</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;Store&quot;</span><span class="p">:{</span><span class="s">&quot;@id&quot;</span><span class="p">:</span><span class="s">&quot;AST&quot;</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Anne&quot;</span><span class="p">,</span><span class="s">&quot;address&quot;</span><span class="p">:</span>
+                   <span class="p">{</span><span class="s">&quot;street&quot;</span><span class="p">:</span><span class="s">&quot;Main&quot;</span><span class="p">,</span><span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;94&quot;</span><span class="p">},</span><span class="s">&quot;codes&quot;</span><span class="p">:[</span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="s">&quot;8&quot;</span><span class="p">]}};</span>
 </pre></div>
 
                               </td>
@@ -139,12 +131,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here the type of the &lsquo;strVar&rsquo; is &lsquo;string&rsquo;.</p>
+                                  <p>Convert to XML with default attribute prefix and arrayEntryTag.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">strVar</span> <span class="p">=</span> <span class="s">&quot;Hello!&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">strVar</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">jsons</span><span class="p">:</span><span class="nx">Options</span> <span class="nx">options1</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toXML</span><span class="p">(</span><span class="nx">j1</span><span class="p">,</span> <span class="nx">options1</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -152,39 +145,15 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Multiple assignment with &lsquo;var&rsquo; allows you to define the variable then and there.
-Variable type is inferred from the right-hand side.</p>
+                                  <p>Convert to XML with custom attribute prefix and with custom array tag.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q</span><span class="p">,</span> <span class="nx">r</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;06/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>To ignore a particular return value in a multiple assignment statement, use &lsquo;_&lsquo;.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">57</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;57/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;09/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">j2</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;Store&quot;</span><span class="p">:{</span><span class="s">&quot;#id&quot;</span><span class="p">:</span><span class="s">&quot;AST&quot;</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Anne&quot;</span><span class="p">,</span><span class="s">&quot;address&quot;</span><span class="p">:</span>
+                   <span class="p">{</span><span class="s">&quot;street&quot;</span><span class="p">:</span><span class="s">&quot;Main&quot;</span><span class="p">,</span><span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;94&quot;</span><span class="p">},</span><span class="s">&quot;codes&quot;</span><span class="p">:[</span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="s">&quot;8&quot;</span><span class="p">]}};</span>
+    <span class="nx">jsons</span><span class="p">:</span><span class="nx">Options</span> <span class="nx">options2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">attributePrefix</span> <span class="p">:</span> <span class="s">&quot;#&quot;</span><span class="p">,</span> <span class="nx">arrayEntryTag</span> <span class="p">:</span> <span class="s">&quot;wrapper&quot;</span><span class="p">};</span>
+    <span class="kt">xml</span> <span class="nx">x2</span> <span class="p">=</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toXML</span><span class="p">(</span><span class="nx">j2</span><span class="p">,</span> <span class="nx">options2</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -203,12 +172,11 @@ Variable type is inferred from the right-hand side.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run var.bal
-<span class="go">15</span>
-<span class="go">Hello!</span>
-<span class="go">06/10: quotient=0 remainder=6</span>
-<span class="go">57/10: quotient=5</span>
-<span class="go">09/10: remainder=9</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run json-to-xml-conversion.bal
+<span class="go">&lt;Store id=&quot;AST&quot;&gt;&lt;name&gt;Anne&lt;/name&gt;&lt;address&gt;&lt;street&gt;Main&lt;/street&gt;&lt;city&gt;94&lt;/city&gt;</span>
+<span class="go">&lt;/address&gt;&lt;codes&gt;&lt;item&gt;4&lt;/item&gt;&lt;item&gt;8&lt;/item&gt;&lt;/codes&gt;&lt;/Store&gt;</span>
+<span class="go">&lt;Store id=&quot;AST&quot;&gt;&lt;name&gt;Anne&lt;/name&gt;&lt;address&gt;&lt;street&gt;Main&lt;/street&gt;&lt;city&gt;94&lt;/city&gt;</span>
+<span class="go">&lt;/address&gt;&lt;codes&gt;&lt;wrapper&gt;4&lt;/wrapper&gt;&lt;wrapper&gt;8&lt;/wrapper&gt;&lt;/codes&gt;&lt;/Store&gt;</span>
 </pre></div>
 
                               </td>
@@ -220,14 +188,14 @@ Variable type is inferred from the right-hand side.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="any-type">Any Type</a>.
+                          Next example: <a href="xml-to-json-conversion">XML To JSON Conversion</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/var">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/json-to-xml-conversion">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

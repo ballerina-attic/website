@@ -337,7 +337,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service http-sessions.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run http-sessions.bal
 <span class="go">ballerina: deploying service(s) in &#39;http-sessions.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
 </pre></div>
@@ -397,6 +397,10 @@
 
 
                       
+                      
+                      <p class="next">
+                          Next example: <a href="file-system-server-connector">File System Server Connector</a>.
+                      </p>
                       
 
                   </div>

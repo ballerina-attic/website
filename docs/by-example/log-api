@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Arrays</title>
+    <title>Ballerina by Example: Log API</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -75,9 +75,9 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
-              <div class="example" id="arrays">
+              <div class="example" id="log-api">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Arrays</h2>
+                      <h2><a href="./">Ballerina by Example</a>: Log API</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -90,11 +90,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>All arrays are unbounded in length and support 0 based indexing. Arrays may be sparse as well and they will grow to meet whatever size needed based on the index (subject to memory availability of course).</p>
+                                  <p>From version 0.89, a new log API was introduced to facilitate logging in Ballerina. It is available in the ballerina.utils.logger package.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">logger</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -102,51 +102,17 @@
                           
                           <tr>
                               <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Here is how you can create an int array of length 0;</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">a</span> <span class="p">=</span> <span class="p">[];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Here is how you can create an array with initial values.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Arrays are unbounded in length. There arrays will grow whatever size needed based on the given index.
-Now the length of the following array should be 1000.</p>
+                                  <p>The new Ballerina log API provides functions to log at 5 levels: Debug, Error, Info, Trace and Warn.
+By default, all log messages are logged to the console at the Info level.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">a</span><span class="p">[</span><span class="mi">999</span><span class="p">]</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="mi">999</span><span class="p">]);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -162,14 +128,14 @@ Now the length of the following array should be 1000.</p>
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>As it can be seen from the output, only Info and higher level logs are logged</p>
+
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run arrays.bal
-<span class="go">0</span>
-<span class="go">8</span>
-<span class="go">23</span>
-<span class="go">1000</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run log-api.bal
+<span class="go">2017-07-01 12:30:27,488  ERROR [] - error log</span>
+<span class="go">2017-07-01 12:30:27,491  INFO  [] - info log</span>
+<span class="go">2017-07-01 12:30:27,492  WARN  [] - warn log</span>
 </pre></div>
 
                               </td>
@@ -181,14 +147,14 @@ Now the length of the following array should be 1000.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="array-of-arrays">Array of Arrays</a>.
+                          Next example: <a href="function-pointers">Function Pointers</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/arrays">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/log-api">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

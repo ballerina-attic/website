@@ -249,7 +249,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main file-api.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run file-api.bal
 <span class="go">file written: /tmp/result.txt</span>
 <span class="go">file existence: true</span>
 <span class="go">file content: Sample Content</span>

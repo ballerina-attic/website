@@ -162,7 +162,7 @@ action or resource which encloses the worker(s).</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main worker.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run worker.bal
 <span class="go">[default] i: 100 k: 2.34</span>
 <span class="go">[w1] iw: 200 kw: 5.44</span>
 </pre></div>

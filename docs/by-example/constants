@@ -139,7 +139,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main constants.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run constants.bal
 <span class="go">Diameter of the circle: 3.310425612508316</span>
 </pre></div>
 

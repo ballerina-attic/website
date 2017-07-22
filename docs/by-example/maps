@@ -228,7 +228,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main maps.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run maps.bal
 <span class="go">{&quot;line1&quot;:&quot;No. 20&quot;,&quot;line2&quot;:&quot;Palm Grove&quot;,</span>
 <span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;,&quot;country&quot;:&quot;Sri Lanka&quot;}</span>
 <span class="go">Sri Lanka</span>

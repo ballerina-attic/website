@@ -155,7 +155,7 @@ Therefore the compiler will enforce you to use multi-return type cast expression
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main type-casting.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run type-casting.bal
 <span class="go">Jungle cat</span>
 </pre></div>
 

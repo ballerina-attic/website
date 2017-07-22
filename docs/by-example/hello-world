@@ -124,11 +124,11 @@
                           <tr>
                               <td class="docs">
                                   <p>To run the program, put the code in &ldquo;hello-world.bal&rdquo;
- and use &ldquo;ballerina run main&rdquo; command.</p>
+ and use &ldquo;ballerina run&rdquo; command.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main hello-world.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run hello-world.bal
 <span class="go">Hello, World!</span>
 </pre></div>
 
@@ -137,15 +137,16 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>To build a program archive, we can use the
- &ldquo;ballerina build main&rdquo; command followed by
- one or more packages to be included into the archive.</p>
+                                  <p>To build a compiled program file, we can use the
+ &ldquo;ballerina build&rdquo; command followed by
+ the ballerina source file or the package
+ which contains the main function.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina build main hello-world.bal
 <span class="gp">$</span> ls
-<span class="go">hello-world.bmz	hello-world.bal</span>
+<span class="go">hello-world.balx	hello-world.bal</span>
 </pre></div>
 
                               </td>
@@ -153,11 +154,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here is how we can specify a name of the archive file</p>
+                                  <p>The output file can be specified with the -o flag.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina build main hello-world.bal -o hello.bmz
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina build main hello-world.bal -o hello.balx
 </pre></div>
 
                               </td>
@@ -165,11 +166,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>We can now run the archive directly.</p>
+                                  <p>Here is how you can run the program file.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main hello.bmz
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run hello.balx
 <span class="go">Hello, World!</span>
 </pre></div>
 
