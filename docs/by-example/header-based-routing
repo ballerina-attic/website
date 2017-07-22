@@ -107,7 +107,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@http:config {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hbr&quot;</span><span class="p">}</span>
+                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hbr&quot;</span><span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">headerBasedRouting</span> <span class="p">{</span>
 </pre></div>
 
@@ -174,7 +174,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                       <span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+                                                 <span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -212,8 +212,8 @@
                               <td class="code">
                                   <div class="highlight"><pre>            <span class="kt">message</span> <span class="nx">newMessage</span> <span class="p">=</span> <span class="p">{};</span>
             <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">weatherEP</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">,</span>
-                                       <span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span>
-                                       <span class="nx">newMessage</span><span class="p">);</span>
+                                                    <span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span>
+                                                    <span class="nx">newMessage</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
     <span class="p">}</span>
@@ -235,7 +235,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service header-based-routing.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run header-based-routing.bal
 <span class="go">ballerina: deploying service(s) in &#39;header-based-routing.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
 </pre></div>
@@ -289,7 +289,7 @@
                       
                       
                       <p class="next">
-                          Next example: <a href="http-sessions">HTTP Sessions</a>.
+                          Next example: <a href="produces-consumes">Produces/Consumes</a>.
                       </p>
                       
 

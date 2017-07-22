@@ -226,7 +226,7 @@ the returned messages from the workers.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main fork-join-condition-some.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run fork-join-condition-some.bal
 <span class="go">[w2] f: 10.344</span>
 <span class="go">[w1] i: 23 s: Colombo</span>
 <span class="go">[join-block] fW2: 10.344</span>

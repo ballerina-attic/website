@@ -226,7 +226,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main type-conversion.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run type-conversion.bal
 <span class="go">10</span>
 <span class="go">error: &#39;string&#39; cannot be converted to &#39;int&#39;</span>
 <span class="go">5</span>

@@ -206,7 +206,7 @@ This conversion is always safe</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main json-struct-map-conversion.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run json-struct-map-conversion.bal
 <span class="go">{&quot;title&quot;:&quot;The Revenant&quot;,&quot;year&quot;:&quot;2015&quot;,&quot;released&quot;:&quot;08 Jan 2016&quot;,</span>
 <span class="go">    &quot;writer&quot;:{&quot;fname&quot;:&quot;Michael&quot;,&quot;lname&quot;:&quot;Punke&quot;,&quot;age&quot;:30}}</span>
 <span class="go">Punke</span>

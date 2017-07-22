@@ -107,7 +107,7 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -151,7 +151,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main blob-type.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run blob-type.bal
 <span class="go">Sample Text</span>
 </pre></div>
 
@@ -164,7 +164,7 @@
                       
                       
                       <p class="next">
-                          Next example: <a href="file-api">File API</a>.
+                          Next example: <a href="date-time">Date Time</a>.
                       </p>
                       
 

@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Transactions</title>
+    <title>Ballerina by Example: Websocket Basic Functions</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -75,9 +75,9 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
-              <div class="example" id="transactions">
+              <div class="example" id="websocket-basic-functions">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Transactions</h2>
+                      <h2><a href="./">Ballerina by Example</a>: Websocket Basic Functions</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -90,20 +90,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina transaction is a series of data manipulation
- statements that must either fully complete or fully fail,
- leaving the system in a consistent state.
- Use the following sql scripts to create tables required
- to run the sample with a mysql database.
- create table Customers (id int, name varchar(30));
- create table Salary (id int, salary float); Before run
- the sample copy the JDBC driver to the
- BALLERINA_HOME/bre/lib folder.</p>
+                                  <p>This program explains the basic functions of WebSocket server endpoint</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -114,52 +107,9 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">map</span> <span class="nx">props</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="s">&quot;jdbc:mysql://localhost:3306/db&quot;</span><span class="p">,</span>
-                    <span class="s">&quot;username&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Here is the transaction block. You can use a Try catch here since update action can throw
-errors due to SQL errors, connection pool errors etc.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">transaction</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>This is the first action participate in the transaction.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">parameters</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                            <span class="s">&quot;Insert into Customers(id,name) values</span>
-<span class="s">                             (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>This is the second action participate in the transaction.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">count</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                            <span class="s">&quot;Insert into Salary (id, salary) values</span>
-<span class="s">                            (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+                                  <div class="highlight"><pre><span class="nd">@http:configuration{</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/functions&quot;</span><span class="p">}</span>
+<span class="nd">@ws:WebSocketUpgradePath {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/ws&quot;</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">websocketEndpoint</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -170,7 +120,8 @@ errors due to SQL errors, connection pool errors etc.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nd">@ws:OnOpen {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -178,55 +129,11 @@ errors due to SQL errors, connection pool errors etc.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Anytime the transaction can be forcefully aborted
-using the abort keyword.</p>
+                                  <p>Broadcast text to all connected clients.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">abort</span><span class="p">;</span>
-        <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The end curly bracket marks the end of the transaction
-and the transaction will be committed or rolled back at
-this point.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The aborted block will be executed if the transaction is
-rolled back due to an exception, or an abort statement or a throw statement.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The committed block will be executed if the transaction
-is successfully committed.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">ws</span><span class="p">:</span><span class="nx">broadcastText</span><span class="p">(</span><span class="s">&quot;New client connected&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -235,11 +142,64 @@ is successfully committed.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Close the connection pool.</p>
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nd">@ws:OnTextMessage {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Push text to the same client who sent the message.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">pushText</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span> <span class="o">+</span> <span class="nx">text</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Close client connection if requested by the text closeMe.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="s">&quot;closeMe&quot;</span> <span class="o">==</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">closeConnection</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nd">@ws:OnClose {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Broadcast text to all connected clients.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">testDB</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">ws</span><span class="p">:</span><span class="nx">broadcastText</span><span class="p">(</span><span class="s">&quot;Client left&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -255,12 +215,62 @@ is successfully committed.</p>
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>To run the program, put the code in <code>websocket-basic-functions.bal</code>
+ and use <code>ballerina run websocket-basic-functions.bal</code> command.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run websocket-basic-functions.bal
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check the sample,use Chrome or Firefox javascript console and run the below commands <br></p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> var <span class="nv">ws</span> <span class="o">=</span> new WebSocket<span class="o">(</span><span class="s2">&quot;ws://localhost:9090/functions/ws&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="gp">$</span> ws.onmessage <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame.data<span class="o">)}</span><span class="p">;</span>
+<span class="gp">$</span> ws.onclose <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame<span class="o">)}</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To send messages</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;hello world&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check closeConnection()</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;closeMe&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To close the connection</p>
+
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run transactions.bal
-<span class="go">Inserted count:1</span>
-<span class="go">Transaction committed</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.close<span class="o">()</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -272,14 +282,14 @@ is successfully committed.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="strings">Strings</a>.
+                          Next example: <a href="websocket-connection-groups">Websocket Connection Groups</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/transactions">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/websocket-basic-functions">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

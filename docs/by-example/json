@@ -218,7 +218,7 @@ Thus it is a built-in union type in Ballerina whose value can be any one of a st
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main json.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run json.bal
 <span class="go">Apple</span>
 <span class="go">5.36</span>
 <span class="go">true</span>

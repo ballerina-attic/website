@@ -206,7 +206,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main structs.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run structs.bal
 <span class="go">{name:&quot;&quot;,age:-1,parent:null,status:&quot;&quot;}</span>
 <span class="go">{name:&quot;Jack&quot;,age:20,</span>
 <span class="go">        parent:{name:&quot;&quot;,age:-1,parent:null,status:&quot;&quot;},</span>

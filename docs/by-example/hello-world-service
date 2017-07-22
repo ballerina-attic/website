@@ -177,11 +177,11 @@ that are given for the specific resource.</p>
                           <tr>
                               <td class="docs">
                                   <p>To start the service, put the code in &ldquo;hello-world-service.bal&rdquo;
- and use &ldquo;ballerina run service&rdquo; command.</p>
+ and use &ldquo;ballerina run&rdquo; command.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service hello-world-service.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run hello-world-service.bal
 <span class="go">ballerina: deploying service(s) in &#39;hello-world-service.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
 </pre></div>
@@ -191,15 +191,15 @@ that are given for the specific resource.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>To build a service archive, we can use the
- &ldquo;ballerina build service&rdquo; command followed by
- one or more packages to be included into the archive.</p>
+                                  <p>To build a compiled program file, we can use the
+ &ldquo;ballerina build&rdquo; command followed by
+ the service package.</p>
 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina build service hello-world-service.bal
 <span class="gp">$</span> ls
-<span class="go">hello-world-service.bsz	hello-world-service.bal</span>
+<span class="go">hello-world-service.balx	hello-world-service.bal</span>
 </pre></div>
 
                               </td>

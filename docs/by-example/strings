@@ -381,7 +381,7 @@ ending index should be specified.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main strings.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run strings.bal
 <span class="go">ToUpper: LION IN TOWN. CATCH THE LION</span>
 <span class="go">ToLower: lion in town. catch the lion</span>
 <span class="go">EqualsIgnoreCase: true</span>

@@ -165,7 +165,7 @@ Here we use workers which represent parallel threads of execution in Ballerina.<
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main hello-world-parallel.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run hello-world-parallel.bal
 <span class="go">Hello, World! #m</span>
 <span class="go">Hello, World! #k</span>
 <span class="go">Hello, World! #n</span>

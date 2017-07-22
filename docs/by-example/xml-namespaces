@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Var</title>
+    <title>Ballerina by Example: XML Namespaces</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -75,9 +75,9 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
-              <div class="example" id="var">
+              <div class="example" id="xml-namespaces">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Var</h2>
+                      <h2><a href="./">Ballerina by Example</a>: XML Namespaces</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -90,7 +90,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina supports variable declarations with &ldquo;var&rdquo;.</p>
+                                  <p>Ballerina has built-in support for defining and using XML namespaces.</p>
 
                               </td>
                               <td class="code leading">
@@ -105,9 +105,7 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+                                  <div class="highlight"><pre><span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -126,12 +124,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here the variable type is inferred type from the initial value. This is same as &ldquo;int k = 5&rdquo;;</p>
+                                  <p>Namespaces can be declared at package levels, as well as function level. The identifier followed by &lsquo;as&rsquo; keyword is the prefix bound to this namespace name.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/bb&quot;</span> <span class="k">as</span> <span class="nx">ns1</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -139,12 +136,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here the type of the &lsquo;strVar&rsquo; is &lsquo;string&rsquo;.</p>
+                                  <p>Namespace declaration without the prefix, will define a default namespace.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">strVar</span> <span class="p">=</span> <span class="s">&quot;Hello!&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">strVar</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/default&quot;</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -152,14 +148,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Multiple assignment with &lsquo;var&rsquo; allows you to define the variable then and there.
-Variable type is inferred from the right-hand side.</p>
+                                  <p>Namespaces can be used for xml qualified names.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q</span><span class="p">,</span> <span class="nx">r</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;06/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">foo</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -167,24 +160,12 @@ Variable type is inferred from the right-hand side.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>To ignore a particular return value in a multiple assignment statement, use &lsquo;_&lsquo;.</p>
+                                  <p>Package level namespaces can be overidden at function level.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">57</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;57/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;09/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/updated&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">foo</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -203,12 +184,9 @@ Variable type is inferred from the right-hand side.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run var.bal
-<span class="go">15</span>
-<span class="go">Hello!</span>
-<span class="go">06/10: quotient=0 remainder=6</span>
-<span class="go">57/10: quotient=5</span>
-<span class="go">09/10: remainder=9</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run xml-namespaces.bal
+<span class="go">{http://ballerina.com/aa}foo</span>
+<span class="go">{http://ballerina.com/updated}foo</span>
 </pre></div>
 
                               </td>
@@ -220,14 +198,14 @@ Variable type is inferred from the right-hand side.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="any-type">Any Type</a>.
+                          Next example: <a href="xml-literal">XML Literal</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/var">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/xml-namespaces">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

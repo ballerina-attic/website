@@ -108,7 +108,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@http:config {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">}</span>
+                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
 </pre></div>
 
@@ -178,7 +178,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service base-path-and-path.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run base-path-and-path.bal
 <span class="go">ballerina: deploying service(s) in &#39;.../base-path-and-path.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
 </pre></div>

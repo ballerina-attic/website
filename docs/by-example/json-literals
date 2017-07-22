@@ -118,8 +118,17 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">empty</span> <span class="p">=</span> <span class="p">{};</span>
-    
-    <span class="kt">int</span> <span class="nx">age</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">age</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -220,7 +229,7 @@ Values can be any expression.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main json-literals.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run json-literals.bal
 <span class="go">{&quot;fname&quot;:&quot;John&quot;,&quot;lname&quot;:&quot;Stallone&quot;,&quot;age&quot;:30}</span>
 <span class="go">John</span>
 <span class="go">Stallone</span>

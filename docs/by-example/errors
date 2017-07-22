@@ -176,7 +176,7 @@ This logic is used only to explain the concept.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main errors.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run errors.bal
 <span class="go">error: Account with id:23 is not found</span>
 </pre></div>
 

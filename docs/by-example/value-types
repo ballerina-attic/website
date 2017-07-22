@@ -176,7 +176,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main value-types.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run value-types.bal
 <span class="go">0</span>
 <span class="go">20.0</span>
 </pre></div>

@@ -90,12 +90,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina supports XML as a built-in data type. XML can be created, accessed, modified via ballerina.</p>
+                                  <p>The XML type in Ballerina represents a sequence of zero or more XML items. Each item can be an element, a text, a comment or a processing instruction.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">xmls</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -114,11 +113,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Declare an un-initialized XML. Value would be null</p>
+                                  <p>XML element. Can only have one root element.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x</span><span class="p">;</span>
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;book&gt;The Lost World&lt;/book&gt;`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -126,11 +126,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a XML text</p>
+                                  <p>XML text</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">someText</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x2</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`Hello, world!`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -138,12 +139,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a XML element</p>
+                                  <p>XML comment</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">book</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;book/&gt;&quot;</span><span class="p">);</span>
-    <span class="kt">xml</span> <span class="nx">bookName</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;Book1&lt;/name&gt;&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x3</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;!--I am a comment--&gt;`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x3</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -151,11 +152,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a XML comment</p>
+                                  <p>XML processing instruction</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">bookComment</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;!-- comment about the book--&gt;&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x4</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;?target data?&gt;`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x4</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -163,11 +165,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a processing instruction</p>
+                                  <p>Multiple XML items can be combined to form a sequence of XML. The resulting sequence is again an XML on its own.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">bookMeta</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;?doc document=\&quot;book.doc\&quot; ?&gt;&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x5</span> <span class="p">=</span> <span class="nx">x1</span> <span class="o">+</span> <span class="nx">x2</span> <span class="o">+</span> <span class="nx">x3</span> <span class="o">+</span> <span class="nx">x4</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nResulting XML sequence:&quot;</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x5</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -175,203 +179,10 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get the type of the XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getItemType</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">));</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get the name of an XML element</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getElementName</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get the text content of an XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getTextValue</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Set an attribute of an XML element</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">xmls</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;{http://ballerina.com/}year&quot;</span><span class="p">,</span> <span class="s">&quot;ns0&quot;</span><span class="p">,</span> <span class="s">&quot;2017&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get an attribute of an XML element</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">year</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;{http://ballerina.com/}year&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">year</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Concatenate XML. This will produce an XML sequence</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">someText</span> <span class="o">+</span> <span class="nx">bookName</span> <span class="o">+</span> <span class="nx">bookComment</span> <span class="o">+</span> <span class="nx">bookMeta</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Check whether the XML value is empty</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Check whether an XML sequence has only one element in it</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isSingleton</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get a subset of this XML sequence</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">slice</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get all the element-type items from an XML sequence</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">elements</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get a particular element-type item from an XML sequence</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">select</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Set the children of an XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">xmls</span><span class="p">:</span><span class="nx">setChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="nx">content</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get all the children of an XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">children</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get a particular child of an XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">selectChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Remove any text items from an XML sequence that are all whitespace</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Make a copy of an XML</p>
-
+                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-<span class="p">}</span>
+                                  <div class="highlight"><pre><span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -389,7 +200,11 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main xml.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run xml.bal
+<span class="go">&lt;book&gt;The Lost World&lt;/book&gt;</span>
+<span class="go">Hello, world!</span>
+<span class="go">&lt;!--I am a comment--&gt;</span>
+<span class="go">&lt;?target data?&gt;</span>
 </pre></div>
 
                               </td>
@@ -397,196 +212,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Type of the XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">comment</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Name of the XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">name</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Text content of the XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">Book1</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>XML after adding an attribute</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;book xmlns:ns0=&quot;http://ballerina.com/&quot; ns0:year=&quot;2017&quot;&gt;&lt;/book&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Attribute value</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">2017</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Concatenated XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
-<span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Is the XML emtpy?</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">false</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Has only one element?</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">false</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Subsequence of a sequence</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;!-- comment about the book--&gt;&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>All the element type items</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Selected element</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>XML after setting the children</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;book xmlns:ns0=&quot;http://ballerina.com/&quot; ns0:year=&quot;2017&quot;&gt;Hello, World!</span>
-<span class="go">&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;&lt;?doc  document=&quot;book.doc&quot; ?&gt;</span>
-<span class="go">&lt;/book&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>All the children</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
-<span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Selected child</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Stripped XML</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!-- comment about the book--&gt;</span>
-<span class="go">&lt;?doc document=&quot;book.doc&quot; ?&gt;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Coppied XML</p>
-
+                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="go">&lt;!-- comment about the book--&gt;</span>
+                                  <div class="highlight"><pre><span class="go">Resulting XML sequence:</span>
+<span class="go">&lt;book&gt;The Lost World&lt;/book&gt;Hello, world!&lt;!--I am a comment--&gt;&lt;?target data?&gt;</span>
 </pre></div>
 
                               </td>
@@ -598,7 +228,7 @@
                       
                       
                       <p class="next">
-                          Next example: <a href="worker">Worker</a>.
+                          Next example: <a href="xml-namespaces">XML Namespaces</a>.
                       </p>
                       
 

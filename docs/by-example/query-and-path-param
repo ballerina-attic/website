@@ -199,7 +199,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main query-and-path-param.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run query-and-path-param.bal
 <span class="go">ballerina: deploying service(s) in &#39;.../query-and-path-param.bal&#39;</span>
 <span class="go">ballerina: started server connector http-9090</span>
 </pre></div>

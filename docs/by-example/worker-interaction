@@ -197,7 +197,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main worker-interaction.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run worker-interaction.bal
 <span class="go">[default -&gt; w1] i: 100 k: 2.34</span>
 <span class="go">[w1 &lt;- default] iw: 100 kw: 2.34</span>
 <span class="go">[w1 -&gt; default] jw: {&quot;name&quot;:&quot;Ballerina&quot;}</span>

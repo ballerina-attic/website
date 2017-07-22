@@ -173,7 +173,7 @@ The global variables holds their value throughout the lifetime of Ballerina prog
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run main global-variables.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run global-variables.bal
 <span class="go">98</span>
 <span class="go">This is a sample text</span>
 </pre></div>
