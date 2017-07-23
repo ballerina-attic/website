@@ -1,0 +1,698 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.messages</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.messages package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addHeader">
+                                function addHeader(<a href="#message">message</a> m, <a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Adds a transport header to the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="clone">
+                                function clone(<a href="#message">message</a> m) (message )
+                            </h3>
+                            <p>Clones and creates a new instance of a message object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#message">message</a></td><td>The new instance of the message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBinaryPayload">
+                                function getBinaryPayload(<a href="#message">message</a> m) (blob )
+                            </h3>
+                            <p>Gets the message payload in BLOB format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>json: The BLOB reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeader">
+                                function getHeader(<a href="#message">message</a> m, <a href="#string">string</a> headerName) (string )
+                            </h3>
+                            <p>Gets a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>headerName</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeaders">
+                                function getHeaders(<a href="#message">message</a> m, <a href="#string">string</a> headerName) (string[] )
+                            </h3>
+                            <p>Gets transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>headerName</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: The header values</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getJsonPayload">
+                                function getJsonPayload(<a href="#message">message</a> m) (json )
+                            </h3>
+                            <p>Gets the message payload in JSON format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>The JSON reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getProperty">
+                                function getProperty(<a href="#message">message</a> msg, <a href="#string">string</a> propertyName) (string )
+                            </h3>
+                            <p>Retrieve a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>msg</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The property value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStringPayload">
+                                function getStringPayload(<a href="#message">message</a> m) (string )
+                            </h3>
+                            <p>Gets the message payload in string format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The string representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStringValue">
+                                function getStringValue(<a href="#message">message</a> m, <a href="#string">string</a> propertyName) (string )
+                            </h3>
+                            <p>To get the value for a string property in a map type message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>message: message</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>Name of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The value of the map property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getXmlPayload">
+                                function getXmlPayload(<a href="#message">message</a> m) (xml )
+                            </h3>
+                            <p>Gets the message payload in XML format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>The XML representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeAllHeaders">
+                                function removeAllHeaders(<a href="#message">message</a> m) 
+                            </h3>
+                            <p>Removes all transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeHeader">
+                                function removeHeader(<a href="#message">message</a> m, <a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setHeader">
+                                function setHeader(<a href="#message">message</a> m, <a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Sets the value of a transport header</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setJsonPayload">
+                                function setJsonPayload(<a href="#message">message</a> m, <a href="#json">json</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a JSON object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#json">json</a></td><td>The JSON payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setMapPayload">
+                                function setMapPayload(<a href="#message">message</a> msg, <a href="#map">map</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a map object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>msg</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#map">map</a></td><td>The map payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setProperty">
+                                function setProperty(<a href="#message">message</a> msg, <a href="#string">string</a> propertyName, <a href="#string">string</a> propertyValue) 
+                            </h3>
+                            <p>Sets a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>msg</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyValue</td><td><a href="#string">string</a></td><td>The value of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setStringPayload">
+                                function setStringPayload(<a href="#message">message</a> m, <a href="#string">string</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a string object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#string">string</a></td><td>The string payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setXmlPayload">
+                                function setXmlPayload(<a href="#message">message</a> m, <a href="#xml">xml</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using an XML object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>m</td><td><a href="#message">message</a></td><td>The current message object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td>The XML payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addHeader">addHeader(message m, string key, string value) </a>
+                                </li>
+                                <li><a href="#clone">clone(message m) (message )</a>
+                                </li>
+                                <li><a href="#getBinaryPayload">getBinaryPayload(message m) (blob )</a>
+                                </li>
+                                <li><a href="#getHeader">getHeader(message m, string headerName) (string )</a>
+                                </li>
+                                <li><a href="#getHeaders">getHeaders(message m, string headerName) (string[] )</a>
+                                </li>
+                                <li><a href="#getJsonPayload">getJsonPayload(message m) (json )</a>
+                                </li>
+                                <li><a href="#getProperty">getProperty(message msg, string propertyName) (string )</a>
+                                </li>
+                                <li><a href="#getStringPayload">getStringPayload(message m) (string )</a>
+                                </li>
+                                <li><a href="#getStringValue">getStringValue(message m, string propertyName) (string )</a>
+                                </li>
+                                <li><a href="#getXmlPayload">getXmlPayload(message m) (xml )</a>
+                                </li>
+                                <li><a href="#removeAllHeaders">removeAllHeaders(message m) </a>
+                                </li>
+                                <li><a href="#removeHeader">removeHeader(message m, string key) </a>
+                                </li>
+                                <li><a href="#setHeader">setHeader(message m, string key, string value) </a>
+                                </li>
+                                <li><a href="#setJsonPayload">setJsonPayload(message m, json payload) </a>
+                                </li>
+                                <li><a href="#setMapPayload">setMapPayload(message msg, map payload) </a>
+                                </li>
+                                <li><a href="#setProperty">setProperty(message msg, string propertyName, string propertyValue) </a>
+                                </li>
+                                <li><a href="#setStringPayload">setStringPayload(message m, string payload) </a>
+                                </li>
+                                <li><a href="#setXmlPayload">setXmlPayload(message m, xml payload) </a>
+                                </li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
