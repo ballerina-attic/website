@@ -67,6 +67,101 @@
  </script>
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
       <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+      
+      <style>
+          .cEventContent {
+      width: 100%;
+      display: inline-block;
+      min-height: unset !important;
+          }
+          .cEventBox {
+      display: inline-block;
+          }
+           .cTalk{
+      font-size: 1em;
+      font-weight: 600;
+          }
+          
+          
+             .cTalk.cHackathon {
+      font-size: 2em;
+      font-weight: 600;
+          }
+          .cSpeaker {
+      display: inline-block;
+      width: 100%;
+      font-size: 0.8em;
+          }
+          
+          .cSpeakerTitle {
+      display: block;
+      width: 100%;
+      font-size: 0.8em;
+      color: #898989;
+      margin-top: -9px;
+          }
+          .wso2conAgenda .container {
+              padding: 1em 0;
+              margin: 0;
+      
+          }
+          .wso2conAgenda h4 {
+      border-bottom: 1px solid #cecece;
+      width: 100%;
+      padding: 2em 0 1em 0;
+      font-weight: 600;
+      color: #898989;
+          }
+          .cTalkBox {
+      display: inline-block;
+      margin-bottom: 3em;
+          }
+       
+          .cLocation {
+      display: inline-block;
+      margin-top: 0;
+      float: left;
+          }
+          .cTime {
+       display: inline-block;
+      margin-top: 0;
+      float: left;
+      margin-right: 2em;
+          }
+          .cEventDescription {
+      font-size: 1.5em;
+          }
+          .cWSO2ConEU {
+              background-image: url("//wso2.cachefly.net/wso2/newsletter/images/wso2coneu2017/inner-page-banner.jpg");
+      
+          }
+          .cWSO2ConEU .cEventDescription p {
+      color: #ffffff;
+          }
+          .cWSO2ConEU img {
+      height: 50px;
+      float: right;
+          }
+          .cBallerinaDownloadButtons {
+    
+    border: 1px solid #e2e2e4;
+    bottom: 0;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 0.2em 1.5em 0.2em 1em;
+    text-align: center;
+    text-transform: none;
+    vertical-align: bottom;
+    width: auto;
+          }
+          .cBallerinaDownloadButtons:hover {
+      color: #ffffff !important;
+      background: #000000 !important;
+          }
+      </style>
+      
    </head>
    <body class="cBallerina">
       <div class="row cBallerinaNav" id="iBallerinaNavigation">
@@ -135,28 +230,218 @@
 
                </div>
      <a id="meetups"></a>
-<!--       <div class="row cBallerinaContentRow cGrayRow">
+       <div class="row cBallerinaContentRow cGrayRow">
            <div class="container">
            <div class="col-sm-12 col-md-12">
            <h2>Events</h2>
            </div>
            
-           <div class="col-sm-12 col-md-6">
+           <div class="col-sm-12 col-md12">
                <div class="cEventBox">
                    <div class="cEventContent">
-               <h3>Global Big Data Conference</h3>
-                 <div class="cEventInfo">
-               <h4 class="cTime"><span>Friday, June 9, 2017 </span></h4>
-               <p class="cLocation">Santa Clara, USA.</p>
-                 </div>
-               <p class="cEventDescription">Integration was treated as old-school technology when microservice architecture (MSA) was introduced. However, when theory became practice, the technologist who designed and implemented MSA identified the important role integration plays in this modern architecture paradigm. An architecture layer that connects many microservices and builds composite services, requests dispatching and service routing, connects microservices with legacy services and cloud providers are among common integration use cases across most enterprises. During this session, Asanka will discuss how integration fits into MSA and technologies that can be used to implement integration microservices.</p>
+                       <h3>WSO2Con Europe 2017</h3>
+                       <div class="cEventInfo">
+                           <h4 class="cTime"><span>November 6-8 </span></h4>
+                           <p class="cLocation">London</p>
+                       </div>
+                      
                    </div>
-               <a href="https://globalbigdataconference.com/santa-clara/global-software-architecture-conference-86/speaker-details/asanka-abeysinghe-51655.html" class="cBallerinaButtons cBallerinaDownloadButtons" id="iTheSiliconValley">More Info</a>
+               
+                   <div class="col-sm-12 col-md-12 wso2conAgenda">
+                        <a href="https://eu17.wso2con.com/agenda/?utm_source=balang&utm_campaign=balresorc_coneu_aug17">
+                       <div class="container cWSO2ConEU" style="padding-right:2em; padding-left: 2em;">
+                           <div class="col-sm-12 col-md-6">
+                              
+                           <img src="http://b.content.wso2.com/sites/all/images/wso2con-2017.svg"/>
+                         
+                           </div>
+                           
+                           <div class="col-sm-12 col-md-6">
+                              
+                           <div class="cBallerinaButtons cBallerinaDownloadButtons" style="margin-top: 5px;">BUY TICKETS</div>
+                           </div>
+                           
+                       </div>
+                        </a>
+                        <div class="container">
+                            <div>
+                         <p class="col-sm-12 col-md-12 cEventDescription" style="margin: 0; color: rgb(70,22,106); font-size: 1.2em; font-weight: 600; margin-top: 12px;">We’ll be exploring Ballerina in detail at WSO2Con EU 2017.
+                                    Here are the topics you can expect.
+                                </p>
+                            </div>
+                           <div class="col-sm-12 col-md-12">
+                         
+                               <h4>Monday, November 06</h4>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Microservice Architecture (MSA) and Integration Microservices</span>
+                               <span class="cSpeaker"> Kasun Indrasiri</span>
+                               <span class="cSpeakerTitle">Director – Integration Architecture,WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">How to Learn and Contribute to Ballerina</span>
+                               <span class="cSpeaker">Nuwan Dias</span>
+                               <span class="cSpeakerTitle">Associate Director/Architect, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Exploring Data Integration</span>
+                               <span class="cSpeaker">Anjana Fernando</span>
+                               <span class="cSpeakerTitle">Associate Director/Architect, WSO2</span>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Manipulating XML, JSON and SQL Data Types with Ballerina</span>
+                               <span class="cSpeaker">Mohamad Shafreen</span>
+                               <span class="cSpeakerTitle">Associate Technical Lead, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">File Processing and Websockets with Ballerina</span>
+                               <span class="cSpeaker">Chanaka Fernando</span>
+                               <span class="cSpeakerTitle">Senior Technical Lead, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Generating Connectors and Editing Microintegration Interfaces in Swagger</span>
+                               <span class="cSpeaker">Isuru Udana</span>
+                               <span class="cSpeakerTitle">Senior Technical Lead, WSO2</span>
+                           </div>
+                       </div>
+
+
+                   </div>
+                   
+                   
+                   <div class="col-sm-12 col-md-12 wso2conAgenda">
+                       <div class="container">
+                           <div class="col-sm-12 col-md-12">
+                               <h4>Monday, November 07</h4>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">The Role of Integration in Digital Transformation</span>
+                               <span class="cSpeaker">Kasun Indrasiri</span>
+                               <span class="cSpeakerTitle">Director – Integration Architecture,WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Message Brokering, Data Services, and Business Process Capabilities of WSO2 Enterprise Integrator</span>
+                               <span class="cSpeaker">Anjana Fernando</span>
+                               <span class="cSpeakerTitle">Associate Director/Architect, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">WSO2 Integration Cloud: End-to-End Demonstration Including a Hybrid Scenario</span>
+                               <span class="cSpeaker">Chathura Kulasinghe</span>
+                               <span class="cSpeakerTitle">Senior Solutions Engineer, WSO2</span>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">An Overview of Ballerina Composer</span>
+                               <span class="cSpeaker">Joseph Fonseka</span>
+                               <span class="cSpeakerTitle">Architect/Associate Director, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Exploring Ballerina Toolset – Docker, Testing, Tracing, Analytics, and more.</span>
+                               <span class="cSpeaker">Sameera Jayasoma</span>
+                               <span class="cSpeakerTitle">Director – Platform Architecture, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Writing a Connector</span>
+                               <span class="cSpeaker">Maheeka Jayasuriya</span>
+                               <span class="cSpeakerTitle">Associate Technical Lead, WSO2</span>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Writing Main Programs for One-off Integrations</span>
+                               <span class="cSpeaker">Kasun Indrasiri</span>
+                               <span class="cSpeakerTitle">Director – Integration Technology, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Lifecycle Management and DevOps</span>
+                               <span class="cSpeaker">Lakmal Warusawithana</span>
+                               <span class="cSpeakerTitle">Director – Cloud Architecture, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Writing Microservices Using MSF4J</span>
+                               <span class="cSpeaker">Afkham Azeez</span>
+                               <span class="cSpeakerTitle">Senior Director – Platform Architecture</span>
+                           </div>
+                       </div>
+
+
+                   </div>
+                   <div class="col-sm-12 col-md-12 wso2conAgenda">
+                       <div class="container">
+                           <div class="col-sm-12 col-md-12">
+                               <h4>Monday, November 08</h4>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Migrating to Ballerina from ESB/Synapse, Mule or Camel</span>
+                               <span class="cSpeaker">Kasun Indrasiri</span>
+                               <span class="cSpeakerTitle">Director – Integration Architecture,WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Performance Evaluation: Eat My Dust ESB, Mule, Camel, NGINX</span>
+                               <span class="cSpeaker">Isuru Udana</span>
+                               <span class="cSpeakerTitle">Senior Technical Lead, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Case Study: Implementing the API Gateway in Ballerina (the Good, Bad, and Ugly)</span>
+                               <span class="cSpeaker">Nuwan Dias</span>
+                               <span class="cSpeakerTitle">Associate Director/Architect, WSO2</span>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">An Overview of Ballerina Composer</span>
+                               <span class="cSpeaker">Joseph Fonseka</span>
+                               <span class="cSpeakerTitle">Architect/Associate Director, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Exploring Ballerina Toolset – Docker, Testing, Tracing, Analytics, and more.</span>
+                               <span class="cSpeaker">Sameera Jayasoma</span>
+                               <span class="cSpeakerTitle">Director – Platform Architecture, WSO2</span>
+                           </div>
+                           <div class="col-sm-12 col-md-4 cTalkBox">
+                               <span class="cTalk">Writing a Connector</span>
+                               <span class="cSpeaker">Maheeka Jayasuriya</span>
+                               <span class="cSpeakerTitle">Associate Technical Lead, WSO2</span>
+                           </div>
+                       </div>
+                       <div class="container">
+                           <div class="col-sm-12 col-md-12 cTalkBox">
+                               <span class="cTalk cHackathon">Hackathon</span>
+                               <br/>
+                               <span class="cTalk">Microservices (Ballerina + MSF4J)	</span>
+                               
+                               
+                               
+                           </div>
+                           
+                       </div>
+                       <div class="container">
+                   <div class="col-sm-12 col-md-3"></div>
+                   <div class="col-sm-12 col-md-6">
+               <a class="cBallerinaButtons cBallerinaDownloadButtons" style="background-color:rgb(70,22,106);"href="https://eu17.wso2con.com/agenda/?utm_source=balang&utm_campaign=balresorc_coneu_aug17">BUY TICKETS</a>
+                   </div>
+                   <div class="col-sm-12 col-md-3"></div>
+
+
+                   </div>
+               
+               
+               
+               
                </div>
            </div>
                
                
-            <div class="col-sm-12 col-md-6">
+<!--            <div class="col-sm-12 col-md-6">
                <div class="cEventBox">
                    <div class="cEventContent">
                <h3>June Microservices Meetup</h3>
@@ -168,10 +453,10 @@
                    </div>
                <a href="https://www.meetup.com/SF-Microservices/events/239669154/" class="cBallerinaButtons cBallerinaDownloadButtons" id="iJuneMicroservices">More Info</a>
                </div>
-           </div>
+           </div>-->
 
        </div>
-       </div>-->
+       </div>
                
                
                
