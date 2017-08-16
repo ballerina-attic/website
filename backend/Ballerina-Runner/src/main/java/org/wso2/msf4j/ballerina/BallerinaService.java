@@ -65,7 +65,6 @@ public class BallerinaService {
             List<String> processArgs = new ArrayList<>();
             processArgs.add(Application.ballerinaPath.toString());
             processArgs.add("run");
-            processArgs.add("main");
             processArgs.add(path.toString());
             processArgs.addAll(Arrays.asList(ballerinaContent.getArguments().split(";")));
             ProcessBuilder processBuilder = new ProcessBuilder(processArgs);
