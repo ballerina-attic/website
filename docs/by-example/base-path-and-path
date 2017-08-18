@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,22 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/bar&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">convertToResponse</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="base-path-and-path">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Base Path and Path</h2>
@@ -117,23 +133,15 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Post annotation constrains the resource only to accept post requests. Similarly, for each HTTP verb there are different annotations.</p>
+                                  <p>Post annotation constrains the resource only to accept post requests. Similarly, for each HTTP verb there are different annotations.
+Path attribute associates a sub-path to resource.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:POST {</span><span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Path annotation associates a sub-path to resource.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:Path {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/bar&quot;</span><span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/bar&quot;</span>
+    <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -167,7 +175,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -187,7 +195,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -206,7 +214,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -230,6 +238,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

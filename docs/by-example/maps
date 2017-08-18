@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,28 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="kt">map</span> <span class="nx">addrMap</span> <span class="p">=</span> <span class="p">{</span><span class="nx">line1</span><span class="p">:</span><span class="s">&quot;No. 20&quot;</span><span class="p">,</span> <span class="nx">line2</span><span class="p">:</span><span class="s">&quot;Palm Grove&quot;</span><span class="p">,</span>
+                      <span class="nx">city</span><span class="p">:</span><span class="s">&quot;Colombo 03&quot;</span><span class="p">,</span> <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span><span class="p">};</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">country</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;country&quot;</span><span class="p">];</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">country</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">city</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
+    <span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;postalCode&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;00300&quot;</span><span class="p">;</span>
+    <span class="nx">addrMap</span><span class="p">.</span><span class="nx">postalCode</span> <span class="p">=</span> <span class="s">&quot;00301&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
+    <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">,</span> <span class="s">&quot;postalCode&quot;</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="maps">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Maps</h2>
@@ -217,7 +239,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -229,24 +251,24 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run maps.bal
-<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;,&quot;line2&quot;:&quot;Palm Grove&quot;,</span>
-<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;,&quot;country&quot;:&quot;Sri Lanka&quot;}</span>
+<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;, &quot;line2&quot;:&quot;Palm Grove&quot;,</span>
+<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;, &quot;country&quot;:&quot;Sri Lanka&quot;}</span>
 <span class="go">Sri Lanka</span>
 <span class="go">Colombo 03</span>
-<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;,&quot;line2&quot;:&quot;Palm Grove&quot;,</span>
-<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;,&quot;country&quot;:&quot;Sri Lanka&quot;,</span>
+<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;, &quot;line2&quot;:&quot;Palm Grove&quot;,</span>
+<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;, &quot;country&quot;:&quot;Sri Lanka&quot;,</span>
 <span class="go">    &quot;postalCode&quot;:&quot;00301&quot;}</span>
-<span class="go">[&quot;country&quot;,&quot;city&quot;,&quot;postalCode&quot;,&quot;line2&quot;,&quot;line1&quot;]</span>
+<span class="go">[&quot;country&quot;, &quot;city&quot;, &quot;postalCode&quot;, &quot;line2&quot;, &quot;line1&quot;]</span>
 <span class="go">5</span>
-<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;,&quot;line2&quot;:&quot;Palm Grove&quot;,</span>
-<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;,&quot;country&quot;:&quot;Sri Lanka&quot;}</span>
+<span class="go">{&quot;line1&quot;:&quot;No. 20&quot;, &quot;line2&quot;:&quot;Palm Grove&quot;,</span>
+<span class="go">    &quot;city&quot;:&quot;Colombo 03&quot;, &quot;country&quot;:&quot;Sri Lanka&quot;}</span>
 </pre></div>
 
                               </td>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -270,6 +292,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

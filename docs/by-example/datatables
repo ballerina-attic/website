@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,44 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">datatables</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+<span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="nx">salary</span><span class="p">;</span>
+    <span class="kt">boolean</span> <span class="nx">status</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">birthdate</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">birthtime</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">updated</span><span class="p">;</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
+    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">datatables</span><span class="p">:</span><span class="nx">hasNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">next</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">rs</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Employee</span><span class="p">)</span><span class="nx">dataStruct</span><span class="p">;</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
+                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
+                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthdate</span> <span class="o">+</span>
+                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
+                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
+    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
+    <span class="nx">empDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="datatables">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Datatables</h2>
@@ -124,7 +162,7 @@ Use the following sql scripts to create table and
                           
                           <tr>
                               <td class="docs">
-                                  <p>This is the Employee struct. The field names of the this should match column names of the table. The field types should match with sql types.</p>
+                                  <p>This is the Employee struct. The field names of this should match column names of the table. The field types should match with sql types.</p>
 
                               </td>
                               <td class="code leading">
@@ -160,9 +198,9 @@ pool properties.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">props</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="s">&quot;jdbc:mysql://localhost:3306/db&quot;</span><span class="p">,</span>
-                    <span class="s">&quot;username&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -176,8 +214,7 @@ action can return a datatable.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">empDB</span><span class="p">,</span>
-                                              <span class="s">&quot;SELECT * from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -210,8 +247,7 @@ the data struct corresponding to each row.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">empDB</span><span class="p">,</span>
-                                    <span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
 </pre></div>
@@ -225,8 +261,7 @@ the data struct corresponding to each row.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">empDB</span><span class="p">,</span>
-                                    <span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
 </pre></div>
@@ -240,7 +275,7 @@ the data struct corresponding to each row.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">empDB</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">empDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -248,7 +283,7 @@ the data struct corresponding to each row.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -273,7 +308,7 @@ the data struct corresponding to each row.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -297,6 +332,6 @@ the data struct corresponding to each row.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

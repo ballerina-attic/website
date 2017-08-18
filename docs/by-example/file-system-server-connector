@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,26 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">fs</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+<span class="nd">@fs:configuration {</span>
+    <span class="nx">dirURI</span><span class="p">:</span><span class="s">&quot;/home/ballerina/fs-server-connector/observed-dir&quot;</span><span class="p">,</span>
+    <span class="nx">pollingInterval</span><span class="p">:</span><span class="s">&quot;5000&quot;</span><span class="p">,</span>
+    <span class="nx">actionAfterProcess</span><span class="p">:</span><span class="s">&quot;MOVE&quot;</span><span class="p">,</span>
+    <span class="nx">moveAfterProcess</span><span class="p">:</span><span class="s">&quot;/home/ballerina/fs-server-connector/moveDir/&quot;</span><span class="p">,</span>
+    <span class="nx">createMoveDir</span><span class="p">:</span><span class="s">&quot;true&quot;</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">fs</span><span class="p">&gt;</span> <span class="nx">fileSystem</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">fileResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">messages</span><span class="p">:</span><span class="nx">getStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">));</span>
+        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="file-system-server-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: File System Server Connector</h2>
@@ -152,7 +172,7 @@ Once the file is processed, it will be moved to another directory, specified by 
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -175,7 +195,7 @@ Once the file is processed, it will be moved to another directory, specified by 
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -199,6 +219,6 @@ Once the file is processed, it will be moved to another directory, specified by 
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

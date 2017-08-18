@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,58 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">session</span> <span class="p">{</span>    <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="s">&quot;status&quot;</span><span class="p">;</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">createSessionIfAbsent</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">result</span><span class="p">;</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">isNew</span><span class="p">(</span><span class="nx">session</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">result</span> <span class="p">=</span> <span class="s">&quot;Say hello to a new session&quot;</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">result</span> <span class="p">=</span> <span class="s">&quot;Say hello to an existing session&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="s">&quot;Session sample&quot;</span><span class="p">);</span>
+        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">doTask</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">attributeValue</span><span class="p">;</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">attributeValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">http</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">attributeValue</span> <span class="p">=</span> <span class="s">&quot;Session unavailable&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">attributeValue</span><span class="p">);</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">sayBye</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">string</span> <span class="nx">id</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getId</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">invalidate</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+            <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span>
+                            <span class="p">,</span> <span class="s">&quot;Session: &quot;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s">&quot; invalidated&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="s">&quot;Session unavailable&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="http-sessions">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: HTTP Sessions</h2>
@@ -90,7 +142,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>This example demonstrates the HTTP Session support in Ballerina.</p>
+                                  <p>This example demonstrates the HTTP Session support in Ballerina. More session related functions are described in <a href="https://ballerinalang.org/docs/api/">https://ballerinalang.org/docs/api/</a> under http package.</p>
 
                               </td>
                               <td class="code leading">
@@ -107,7 +159,20 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">session</span> <span class="p">{</span>
-    <span class="nd">@http:GET {</span><span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="s">&quot;status&quot;</span><span class="p">;</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -122,6 +187,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">createSessionIfAbsent</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">result</span><span class="p">;</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
 </pre></div>
 
                               </td>
@@ -133,32 +199,10 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">http</span><span class="p">:</span><span class="nx">isNew</span><span class="p">(</span><span class="nx">session</span><span class="p">))</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">isNew</span><span class="p">(</span><span class="nx">session</span><span class="p">))</span> <span class="p">{</span>
             <span class="nx">result</span> <span class="p">=</span> <span class="s">&quot;Say hello to a new session&quot;</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Gets the session creation time in milliseconds.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">createTime</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getCreationTime</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Sets inactive time interval in seconds.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">setMaxInactiveInterval</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">result</span> <span class="p">=</span> <span class="s">&quot;Say hello to an existing session&quot;</span><span class="p">;</span>
         <span class="p">}</span>
 </pre></div>
 
@@ -167,13 +211,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Binds an object in any type to this session with a key(string).</p>
+                                  <p>Binds a string attribute to this session with a key(string).</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;Session example&quot;</span><span class="p">);</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="s">&quot;Session sample&quot;</span><span class="p">);</span>
+        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -185,8 +229,10 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:GET {</span><span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">welcome</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">doTask</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -200,29 +246,8 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">attributeValue</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Returns an array of Strings containing the keys of all the objects.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="kt">string</span><span class="p">[]</span> <span class="nx">arr</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getAttributeNames</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -234,22 +259,12 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">attributeValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">http</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Gets the session last accessed time in milliseconds.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">lastAccessedTime</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getLastAccessedTime</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+                                  <div class="highlight"><pre>            <span class="nx">attributeValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">http</span><span class="p">:</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">attributeValue</span> <span class="p">=</span> <span class="s">&quot;Session unavailable&quot;</span><span class="p">;</span>
         <span class="p">}</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;Hi &quot;</span> <span class="o">+</span> <span class="nx">attributeValue</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">attributeValue</span><span class="p">);</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -261,23 +276,13 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:GET {</span><span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayBye</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">Session</span> <span class="nx">session</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        <span class="kt">string</span> <span class="nx">id</span><span class="p">;</span>
+        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">session</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Gets the session max inactive interval in seconds.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="kt">int</span> <span class="nx">inactiveInterval</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getMaxInactiveInterval</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -289,21 +294,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">id</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getId</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Removes the object bound with the specified key from this session.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">session</span><span class="p">,</span> <span class="s">&quot;key&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        
+                                  <div class="highlight"><pre>            <span class="kt">string</span> <span class="nx">id</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">getId</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -315,9 +306,13 @@
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">invalidate</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;Session: &quot;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s">&quot; invalidated&quot;</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">invalidate</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+            <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span>
+                            <span class="p">,</span> <span class="s">&quot;Session: &quot;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s">&quot; invalidated&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">messages</span><span class="p">:</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="s">&quot;Session unavailable&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -326,7 +321,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -346,7 +341,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -367,13 +362,13 @@
                           <tr>
                               <td class="docs">
                                   <p>Copy the BSESSIONID of session cookie in above response.
- Now invoke welcome resource as follows.</p>
+ Now invoke doTask resource as follows.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/session/welcome
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/session/doTask
 <span class="go">        -H &quot;Cookie: BSESSIONID=..(use above BSESSIONID)..&quot;</span>
-<span class="go">Hi Session example</span>
+<span class="go">Session sample</span>
 </pre></div>
 
                               </td>
@@ -394,12 +389,12 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
                       <p class="next">
-                          Next example: <a href="file-system-server-connector">File System Server Connector</a>.
+                          Next example: <a href="http-client-connector">HTTP Client Connector</a>.
                       </p>
                       
 
@@ -418,6 +413,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

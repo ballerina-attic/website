@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Lambda</title>
+    <title>Ballerina by Example: Typeof</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -77,19 +77,22 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">lambda</span> <span class="p">=</span>
-            <span class="kd">function</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">x</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">y</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">r</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-                <span class="k">return</span><span class="p">;</span>
-            <span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Output: &quot;</span> <span class="o">+</span> <span class="nx">lambda</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="p">,</span> <span class="s">&quot;world.!!!&quot;</span><span class="p">));</span>
-<span class="p">}</span>
+    <span class="kt">any</span> <span class="nx">variable</span><span class="p">;</span>
+    <span class="nx">variable</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">intVariable</span><span class="p">;</span>
+    <span class="nx">type</span> <span class="nx">typeOfVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">variable</span><span class="p">);</span>
+    <span class="nx">type</span> <span class="nx">typeOfIntVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">intVariable</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">typeOfVariable</span> <span class="o">==</span> <span class="nx">typeOfIntVariable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}}</span>
 </pre></div>
 
 		  	  </div>	
-              <div class="example" id="lambda">
+              <div class="example" id="typeof">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Lambda</h2>
+                      <h2><a href="./">Ballerina by Example</a>: Typeof</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -102,12 +105,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Lambdas are simply a syntactic shortcut for defining a function inline.
-In comparison to a normal function definition, the only missing part here
-is the name. Semantically, these inline anonymous functions will not be
-allowed to have any references to in-scope variables other than to global
-or package level variables. Thus, it behaves exactly like a regular function
-except that it cannot be called in another place as it has no name.</p>
+                                  <p>Ballerina supports &lsquo;typeof&rsquo; which returns type of a variable.</p>
 
                               </td>
                               <td class="code leading">
@@ -130,17 +128,75 @@ except that it cannot be called in another place as it has no name.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Define lambda function in-line to function pointer var.</p>
+                                  <p>Here you create any typed variable.</p>
 
                               </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">any</span> <span class="nx">variable</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Assign an Integer variable to any typed variable.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">variable</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Here you create integer typed variable.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">intVariable</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Use &lsquo;typeof&rsquo; unary operator to return variable type.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">type</span> <span class="nx">typeOfVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">variable</span><span class="p">);</span>
+    <span class="nx">type</span> <span class="nx">typeOfIntVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">intVariable</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Check for runtime type equivalency of any typed variable.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span><span class="nx">typeOfVariable</span> <span class="o">==</span> <span class="nx">typeOfIntVariable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="kd">function</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">lambda</span> <span class="p">=</span>
-            <span class="kd">function</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">x</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">y</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">r</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
-                <span class="k">return</span><span class="p">;</span>
-            <span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Output: &quot;</span> <span class="o">+</span> <span class="nx">lambda</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="p">,</span> <span class="s">&quot;world.!!!&quot;</span><span class="p">));</span>
-<span class="p">}</span>
+                                  <div class="highlight"><pre><span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -158,8 +214,8 @@ except that it cannot be called in another place as it has no name.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run lambda.bal
-<span class="go">Output: Hello world.!!!</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run typeof.bal
+<span class="go">This &#39;variable&#39; is an integer typed variable.</span>
 </pre></div>
 
                               </td>
@@ -171,14 +227,14 @@ except that it cannot be called in another place as it has no name.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="websocket-basic-endpoint">WebSocket Basic Endpoint</a>.
+                          Next example: <a href="structs">Structs</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/lambda">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/typeof">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

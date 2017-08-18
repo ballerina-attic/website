@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,36 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fork</span> <span class="p">{</span>
+        <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
+            <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; s: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
+            <span class="nx">i</span><span class="p">,</span> <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>        <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
+            <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.344</span><span class="p">;</span>
+            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
+            <span class="nx">f</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">some</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nx">resW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">];</span>
+            <span class="k">var</span> <span class="nx">iW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="k">var</span> <span class="nx">sW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] iW1: &quot;</span> <span class="o">+</span> <span class="nx">iW1</span> <span class="o">+</span> <span class="s">&quot; sW1: &quot;</span> <span class="o">+</span> <span class="nx">sW1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nx">resW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">];</span>
+            <span class="k">var</span> <span class="nx">fW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="nx">resW2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] fW2: &quot;</span> <span class="o">+</span> <span class="nx">fW2</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="fork-join-condition-some">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Fork/Join Condition Some</h2>
@@ -215,7 +245,7 @@ the returned messages from the workers.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -236,12 +266,12 @@ the returned messages from the workers.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
                       <p class="next">
-                          Next example: <a href="datatables">Datatables</a>.
+                          Next example: <a href="fork-join-variable-access">Fork/Join Variable Access</a>.
                       </p>
                       
 
@@ -260,6 +290,6 @@ the returned messages from the workers.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

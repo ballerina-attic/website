@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,27 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;book&gt;</span>
+<span class="s">                    &lt;name&gt;Sherlock Holmes&lt;/name&gt;</span>
+<span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
+<span class="s">                    &lt;!--Price: $10--&gt;</span>
+<span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
+    <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/&quot;</span><span class="p">;</span>
+    <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">x2</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;book ns0:status=&quot;available&quot;&gt;</span>
+<span class="s">                    &lt;ns0:name&gt;Sherlock Holmes&lt;/ns0:name&gt;</span>
+<span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
+<span class="s">                    &lt;!--Price: $10--&gt;</span>
+<span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">rootTag</span> <span class="p">=</span> <span class="s">&quot;{http://ballerina.com/aa}newBook&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">title</span> <span class="p">=</span> <span class="s">&quot;(Sir)&quot;</span><span class="p">;</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="xml-literal">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: XML Literal</h2>
@@ -164,7 +185,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">rootTag</span> <span class="p">=</span> <span class="s">&quot;newBook&quot;</span><span class="p">;</span>
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">rootTag</span> <span class="p">=</span> <span class="s">&quot;{http://ballerina.com/aa}newBook&quot;</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">title</span> <span class="p">=</span> <span class="s">&quot;(Sir)&quot;</span><span class="p">;</span>
 </pre></div>
 
@@ -189,7 +210,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -211,18 +232,18 @@
 <span class="go">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="go">                    &lt;!--Price: $10--&gt;</span>
 <span class="go">                  &lt;/book&gt;</span>
-<span class="go">&lt;newBook xmlns=&quot;http://ballerina.com/&quot; xmlns:ns0=&quot;http://ballerina.com/aa&quot;&gt;</span>
+<span class="go">&lt;ns0:newBook xmlns:ns0=&quot;http://ballerina.com/aa&quot; xmlns=&quot;http://ballerina.com/&quot;&gt;</span>
 <span class="go">                    &lt;name&gt;Sherlock Holmes&lt;/name&gt;</span>
 <span class="go">                    &lt;author&gt;(Sir) Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="go">                    &lt;!--Price: $ 12--&gt;</span>
-<span class="go">                  &lt;/newBook&gt;</span>
+<span class="go">                  &lt;/ns0:newBook&gt;</span>
 </pre></div>
 
                               </td>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -246,6 +267,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

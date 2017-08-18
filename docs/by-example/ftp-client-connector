@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,37 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ftp</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">c</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">();</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/aa.txt&quot;</span><span class="p">};</span>
+    <span class="kt">boolean</span> <span class="nx">filesExists</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;File exists: &quot;</span> <span class="o">+</span> <span class="nx">filesExists</span><span class="p">);</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newDir</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/new-dir/&quot;</span><span class="p">};</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="nx">newDir</span><span class="p">,</span> <span class="s">&quot;folder&quot;</span><span class="p">);</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">txtFile</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/bb.txt&quot;</span><span class="p">};</span>
+    <span class="kt">blob</span> <span class="nx">contentB</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">txtFile</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">contentB</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">copyOfTxt</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
+                            <span class="s">&quot;ftp://127.0.0.1/ballerina-user/new-dir/copy-of-bb.txt&quot;</span><span class="p">};</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="nx">txtFile</span><span class="p">,</span> <span class="nx">copyOfTxt</span><span class="p">);</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">mvSrc</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/aa.txt&quot;</span><span class="p">};</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">mvTarget</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
+                           <span class="s">&quot;ftp://127.0.0.1/ballerina-user/move/moved-aa.txt&quot;</span><span class="p">};</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="nx">mvSrc</span><span class="p">,</span> <span class="nx">mvTarget</span><span class="p">);</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">del</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/cc.txt&quot;</span><span class="p">};</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="nx">del</span><span class="p">);</span>
+    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">wrt</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/dd.txt&quot;</span><span class="p">};</span>
+    <span class="kt">blob</span> <span class="nx">contentD</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">contentD</span><span class="p">,</span> <span class="nx">wrt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="ftp-client-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: FTP Client Connector</h2>
@@ -134,7 +165,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/aa.txt&quot;</span><span class="p">};</span>
-    <span class="kt">boolean</span> <span class="nx">filesExists</span> <span class="p">=</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="nx">filesExists</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;File exists: &quot;</span> <span class="o">+</span> <span class="nx">filesExists</span><span class="p">);</span>
 </pre></div>
 
@@ -148,7 +179,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newDir</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/new-dir/&quot;</span><span class="p">};</span>
-    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">newDir</span><span class="p">,</span> <span class="s">&quot;folder&quot;</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="nx">newDir</span><span class="p">,</span> <span class="s">&quot;folder&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -161,7 +192,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">txtFile</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/bb.txt&quot;</span><span class="p">};</span>
-    <span class="kt">blob</span> <span class="nx">contentB</span> <span class="p">=</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">txtFile</span><span class="p">);</span>
+    <span class="kt">blob</span> <span class="nx">contentB</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">txtFile</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">contentB</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
 </pre></div>
 
@@ -176,7 +207,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">copyOfTxt</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
                             <span class="s">&quot;ftp://127.0.0.1/ballerina-user/new-dir/copy-of-bb.txt&quot;</span><span class="p">};</span>
-    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">txtFile</span><span class="p">,</span> <span class="nx">copyOfTxt</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="nx">txtFile</span><span class="p">,</span> <span class="nx">copyOfTxt</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -191,7 +222,7 @@
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">mvSrc</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/aa.txt&quot;</span><span class="p">};</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">mvTarget</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
                            <span class="s">&quot;ftp://127.0.0.1/ballerina-user/move/moved-aa.txt&quot;</span><span class="p">};</span>
-    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">mvSrc</span><span class="p">,</span> <span class="nx">mvTarget</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="nx">mvSrc</span><span class="p">,</span> <span class="nx">mvTarget</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -204,7 +235,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">del</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/cc.txt&quot;</span><span class="p">};</span>
-    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">del</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="nx">del</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -218,7 +249,7 @@
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">wrt</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/ballerina-user/dd.txt&quot;</span><span class="p">};</span>
     <span class="kt">blob</span> <span class="nx">contentD</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
-    <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">contentD</span><span class="p">,</span> <span class="nx">wrt</span><span class="p">);</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">contentD</span><span class="p">,</span> <span class="nx">wrt</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -226,7 +257,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -247,7 +278,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -271,6 +302,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>
