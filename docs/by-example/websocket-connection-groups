@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Websocket Connection Groups</title>
+    <title>Ballerina by Example: WebSocket Connection Groups</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,9 +75,48 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">jsons</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/groups&quot;</span><span class="p">}</span>
+<span class="nd">@ws:WebSocketUpgradePath {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/ws&quot;</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">echoServer</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">groupEven</span> <span class="p">=</span> <span class="s">&quot;even&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">groupOdd</span> <span class="p">=</span> <span class="s">&quot;odd&quot;</span><span class="p">;</span>    <span class="nd">@ws:OnOpen {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">addConnectionToGroup</span><span class="p">(</span><span class="nx">groupEven</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">addConnectionToGroup</span><span class="p">(</span><span class="nx">groupOdd</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>    <span class="nd">@ws:OnTextMessage {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">json</span> <span class="nx">jsonPayload</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">command</span> <span class="p">=</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">jsonPayload</span><span class="p">[</span><span class="s">&quot;command&quot;</span><span class="p">]);</span>
+        <span class="kt">string</span> <span class="nx">groupName</span> <span class="p">=</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">jsonPayload</span><span class="p">[</span><span class="s">&quot;group&quot;</span><span class="p">]);</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">jsonPayload</span><span class="p">[</span><span class="s">&quot;msg&quot;</span><span class="p">]);</span>        <span class="k">if</span> <span class="p">(</span><span class="s">&quot;send&quot;</span> <span class="o">==</span> <span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">pushTextToGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s">&quot;remove&quot;</span> <span class="o">==</span> <span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">removeConnectionFromGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s">&quot;removeGroup&quot;</span> <span class="o">==</span> <span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">removeConnectionGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s">&quot;closeGroup&quot;</span> <span class="o">==</span> <span class="nx">command</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ws</span><span class="p">:</span><span class="nx">closeConnectionGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>    <span class="nd">@ws:OnClose {</span><span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">broadcastText</span><span class="p">(</span><span class="s">&quot;Client left&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="websocket-connection-groups">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Websocket Connection Groups</h2>
+                      <h2><a href="./">Ballerina by Example</a>: WebSocket Connection Groups</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -245,7 +284,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -254,11 +293,11 @@
                           <tr>
                               <td class="docs">
                                   <p>To run the program, put the code in <code>websocket-connection-groups.bal</code>
- and use <code>ballerina run service websocket-connection-groups.bal</code>.</p>
+ and use <code>ballerina run websocket-connection-groups.bal</code>.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run service websocket-connection-groups.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run websocket-connection-groups.bal
 </pre></div>
 
                               </td>
@@ -348,12 +387,12 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
                       <p class="next">
-                          Next example: <a href="websocket-connection-store">Websocket Connection Store</a>.
+                          Next example: <a href="websocket-client-connector">WebSocket Client Connector</a>.
                       </p>
                       
 
@@ -372,6 +411,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,39 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ftp</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="nd">@ftp:configuration {</span>
+    <span class="nx">dirURI</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/observed-dir/&quot;</span><span class="p">,</span>
+    <span class="nx">pollingInterval</span><span class="p">:</span><span class="s">&quot;2000&quot;</span><span class="p">,</span>
+    <span class="nx">actionAfterProcess</span><span class="p">:</span><span class="s">&quot;MOVE&quot;</span><span class="p">,</span>
+    <span class="nx">moveAfterProcess</span><span class="p">:</span><span class="s">&quot;ftp://127.0.0.1/move-to/&quot;</span><span class="p">,</span>
+    <span class="nx">parallel</span><span class="p">:</span><span class="s">&quot;false&quot;</span><span class="p">,</span>
+    <span class="nx">createMoveDir</span><span class="p">:</span><span class="s">&quot;true&quot;</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ftp</span><span class="p">&gt;</span> <span class="nx">ftpServerConnector</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">fileResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">c</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">();</span>
+        <span class="kt">string</span> <span class="nx">url</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getStringPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">file</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="nx">url</span><span class="p">};</span>
+        <span class="kt">blob</span> <span class="nx">txt</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">txt</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Content of the file at: &quot;</span> <span class="o">+</span> <span class="nx">url</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+        <span class="nx">content</span> <span class="p">=</span> <span class="nx">content</span> <span class="o">+</span> <span class="s">&quot;ballerina&quot;</span><span class="p">;</span>
+        <span class="kt">blob</span> <span class="nx">output</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+        <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span>
+                             <span class="s">&quot;ftp://127.0.0.1/another-dir/current-output.txt&quot;</span><span class="p">};</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">output</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="ftp-server-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: FTP Server Connector</h2>
@@ -156,7 +189,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">txt</span> <span class="p">=</span> <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">txt</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">txt</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -208,7 +241,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">ftp</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">output</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">c</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">output</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -228,7 +261,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -236,7 +269,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>observed-dir contains only 2 files.</p>
+                                  <p>Observed-dir contains only 2 files.</p>
 
                               </td>
                               <td class="code leading">
@@ -262,12 +295,12 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
                       <p class="next">
-                          Next example: <a href="websocket-basic-endpoint">Websocket Basic Endpoint</a>.
+                          Next example: <a href="filter-connector">Filter Connector</a>.
                       </p>
                       
 
@@ -286,6 +319,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

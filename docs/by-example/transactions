@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,34 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">transaction</span> <span class="p">{</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">parameters</span> <span class="p">=</span> <span class="p">[];</span>
+        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Customers(id,name)</span>
+<span class="s">                          values (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Salary (id, salary)</span>
+<span class="s">                       values (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">abort</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+        <span class="nx">retry</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="transactions">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Transactions</h2>
@@ -115,9 +143,9 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">map</span> <span class="nx">props</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="s">&quot;jdbc:mysql://localhost:3306/db&quot;</span><span class="p">,</span>
-                    <span class="s">&quot;username&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -143,9 +171,8 @@ errors due to SQL errors, connection pool errors etc.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">parameters</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                            <span class="s">&quot;Insert into Customers(id,name) values</span>
-<span class="s">                             (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Customers(id,name)</span>
+<span class="s">                          values (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -157,9 +184,8 @@ errors due to SQL errors, connection pool errors etc.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">count</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                            <span class="s">&quot;Insert into Salary (id, salary) values</span>
-<span class="s">                            (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Salary (id, salary)</span>
+<span class="s">                       values (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -199,7 +225,38 @@ this point.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The failed block will be executed if the transaction is
+failed due to an exception or a throw statement. This block
+will execute each time transaction is failed until retry count
+is reached.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The retry count is the number times the transaction is
+tried before aborting. By default a transaction is tried three
+times before aborting. Only integer literals or constants are
+allowed for retry count.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">retry</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -208,7 +265,8 @@ this point.</p>
                           <tr>
                               <td class="docs">
                                   <p>The aborted block will be executed if the transaction is
-rolled back due to an exception, or an abort statement or a throw statement.</p>
+aborted using an abort statement or failed even after retrying
+the specified count.</p>
 
                               </td>
                               <td class="code leading">
@@ -239,7 +297,7 @@ is successfully committed.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">testDB</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -247,7 +305,7 @@ is successfully committed.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -267,12 +325,12 @@ is successfully committed.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
                       <p class="next">
-                          Next example: <a href="strings">Strings</a>.
+                          Next example: <a href="transform-structs">Transform Structs</a>.
                       </p>
                       
 
@@ -291,6 +349,6 @@ is successfully committed.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,18 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">logger</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
+    <span class="nx">logger</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="log-api">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Log API</h2>
@@ -120,7 +132,7 @@ By default, all log messages are logged to the console at the Info level.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -142,7 +154,7 @@ By default, all log messages are logged to the console at the Info level.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -166,6 +178,6 @@ By default, all log messages are logged to the console at the Info level.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

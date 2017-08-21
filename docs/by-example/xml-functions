@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,39 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">xmls</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">xml</span> <span class="nx">bookName</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;name&gt;Book1&lt;/name&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">bookComment</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;!--some comment--&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">someText</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`Hello, World!`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">someText</span> <span class="o">+</span> <span class="nx">bookName</span> <span class="o">+</span> <span class="nx">bookComment</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">book</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;book/&gt;&quot;</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getItemType</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">));</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getElementName</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">getTextValue</span><span class="p">(</span><span class="nx">bookName</span><span class="p">));</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmls</span><span class="p">:</span><span class="nx">isSingleton</span><span class="p">(</span><span class="nx">content</span><span class="p">));</span>
+    <span class="kt">xml</span> <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">slice</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">elements</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">select</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">xmls</span><span class="p">:</span><span class="nx">setChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="nx">content</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">children</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">selectChildren</span><span class="p">(</span><span class="nx">book</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="xml-functions">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: XML Functions</h2>
@@ -294,7 +327,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -468,7 +501,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -492,6 +525,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,24 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">strVar</span> <span class="p">=</span> <span class="s">&quot;Hello!&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">strVar</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">q</span><span class="p">,</span> <span class="nx">r</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;06/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">57</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;57/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span><span class="p">);</span>    <span class="k">var</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;09/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="var">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Var</h2>
@@ -192,7 +210,7 @@ Variable type is inferred from the right-hand side.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -215,7 +233,7 @@ Variable type is inferred from the right-hand side.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -239,6 +257,6 @@ Variable type is inferred from the right-hand side.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

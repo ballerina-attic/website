@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,29 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/cbr&quot;</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">contentBasedRouting</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/route&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">cbrResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">locationEP</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+                                          <span class="s">&quot;http://www.mocky.io&quot;</span><span class="p">);</span>
+        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
+        <span class="nx">nameString</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">jsonMsg</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;sanFrancisco&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">response</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">response</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+        <span class="p">}</span>        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="content-based-routing">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: Content Based Routing</h2>
@@ -119,8 +142,10 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:POST {</span><span class="p">}</span>
-    <span class="nd">@http:Path {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;/route&quot;</span><span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/route&quot;</span>
+    <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">cbrResource</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -167,19 +192,6 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Additionally HTTP HEAD request can be executed to verify the accessibility.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                  <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
                                   
                               </td>
                               <td class="code leading">
@@ -196,21 +208,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                                 <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Additionally, If the payload needed to be stored under requested resource path, PUT action will help as follows.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                     <span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+                                  <div class="highlight"><pre>            <span class="nx">response</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e018c1100002811d6d39a&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -222,21 +220,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">response</span> <span class="p">=</span> <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                                 <span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Requested resources can be deleted using DELETE action.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">http</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="nx">locationEP</span><span class="p">,</span>
-                                        <span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
+            <span class="nx">response</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e026c1100004011d6d39c&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">);</span>
         <span class="p">}</span>
 </pre></div>
 
@@ -257,7 +241,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -277,7 +261,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -320,7 +304,7 @@
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -344,6 +328,6 @@
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>

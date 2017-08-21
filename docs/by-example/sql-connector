@@ -57,15 +57,15 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="//b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="//b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
       
-      <script src="//b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="//wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
     <link rel=stylesheet href="site.css">
-    <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="//b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
     
     
   </head>
@@ -75,6 +75,61 @@
         </div>
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
+    <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;create table Students(id int auto_increment,</span>
+<span class="s">                    age int, name varchar(255), primary key (id))&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Table creation status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;create procedure getCount (IN pAge int,</span>
+<span class="s">                  OUT pCount int, INOUT pInt int)</span>
+<span class="s">                  begin select count(*) into pCount from Students</span>
+<span class="s">                  where age = pAge; select count(*) into pInt from</span>
+<span class="s">                  Students where id = pInt; end&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Stored proc creation status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">8</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;varchar&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="s">&quot;Sam&quot;</span><span class="p">};</span>
+    <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">,</span> <span class="nx">para2</span><span class="p">];</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Students (age,name) values (?,?)&quot;</span><span class="p">,</span>
+                       <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted row count:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="nx">keyColumns</span> <span class="p">=</span> <span class="p">[];</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="nx">ids</span><span class="p">;</span>
+    <span class="nx">ret</span><span class="p">,</span> <span class="nx">ids</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">updateWithGeneratedKeys</span><span class="p">(</span><span class="s">&quot;Insert into Students</span>
+<span class="s">                     (age,name) values (?,?)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">keyColumns</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted row count:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Generated key:&quot;</span> <span class="o">+</span> <span class="nx">ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    
+    <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
+    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from Students where age = ?&quot;</span><span class="p">,</span>
+                                 <span class="nx">params</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">p1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">10</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;varchar&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="s">&quot;Smith&quot;</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">item1</span> <span class="p">=</span> <span class="p">[</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">];</span>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">p3</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">20</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">p4</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;varchar&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">item2</span> <span class="p">=</span> <span class="p">[</span><span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">];</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[][]</span> <span class="nx">bPara</span> <span class="p">=</span> <span class="p">[</span><span class="nx">item1</span><span class="p">,</span> <span class="nx">item2</span><span class="p">];</span>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">batchUpdate</span><span class="p">(</span><span class="s">&quot;Insert into Students (age,name)</span>
+<span class="s">                                     values (?,?)&quot;</span><span class="p">,</span> <span class="nx">bPara</span><span class="p">);</span>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Batch item 1 status:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Batch item 2 status:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">pAge</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">10</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">pCount</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">direction</span><span class="p">:</span><span class="mi">1</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">pId</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">direction</span><span class="p">:</span><span class="mi">2</span><span class="p">};</span>
+    <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">pAge</span><span class="p">,</span> <span class="nx">pCount</span><span class="p">,</span> <span class="nx">pId</span><span class="p">];</span>    <span class="nx">testDB</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s">&quot;{call getCount(?,?,?)}&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>    <span class="k">var</span> <span class="nx">countValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">pCount</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Age 10 count:&quot;</span> <span class="o">+</span> <span class="nx">countValue</span><span class="p">);</span>
+    
+    <span class="k">var</span> <span class="nx">idValue</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">pId</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Id 1 count:&quot;</span> <span class="o">+</span> <span class="nx">idValue</span><span class="p">);</span>
+    <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
               <div class="example" id="sql-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
                       <h2><a href="./">Ballerina by Example</a>: SQL Connector</h2>
@@ -122,10 +177,9 @@ pool properties.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">props</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;jdbcUrl&quot;</span><span class="p">:</span><span class="s">&quot;jdbc:mysql://localhost:3306/db&quot;</span><span class="p">,</span>
-                    <span class="s">&quot;username&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;password&quot;</span><span class="p">:</span><span class="s">&quot;root&quot;</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span>
-                                 <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -139,9 +193,8 @@ statement execution is success update action returns 0</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
-    <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                    <span class="s">&quot;create table Students(id int auto_increment,  &quot;</span> <span class="o">+</span>
-                    <span class="s">&quot;age int, name varchar(255), primary key (id))&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;create table Students(id int auto_increment,</span>
+<span class="s">                    age int, name varchar(255), primary key (id))&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Table creation status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
 </pre></div>
 
@@ -154,9 +207,8 @@ statement execution is success update action returns 0</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                 <span class="s">&quot;create procedure getCount (IN pAge int,</span>
-<span class="s">                      OUT pCount int, INOUT pInt int)</span>
+                                  <div class="highlight"><pre>    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;create procedure getCount (IN pAge int,</span>
+<span class="s">                  OUT pCount int, INOUT pInt int)</span>
 <span class="s">                  begin select count(*) into pCount from Students</span>
 <span class="s">                  where age = pAge; select count(*) into pInt from</span>
 <span class="s">                  Students where id = pInt; end&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
@@ -176,8 +228,7 @@ is success update action returns the updated row count.</p>
                                   <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">8</span><span class="p">};</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;varchar&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="s">&quot;Sam&quot;</span><span class="p">};</span>
     <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">,</span> <span class="nx">para2</span><span class="p">];</span>
-    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                      <span class="s">&quot;Insert into Students (age,name) values (?,?)&quot;</span><span class="p">,</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Students (age,name) values (?,?)&quot;</span><span class="p">,</span>
                        <span class="nx">params</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted row count:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
 </pre></div>
@@ -198,9 +249,8 @@ Similar to the update action inserted row count is also returned.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span><span class="p">[]</span> <span class="nx">keyColumns</span> <span class="p">=</span> <span class="p">[];</span>
     <span class="kt">string</span><span class="p">[]</span> <span class="nx">ids</span><span class="p">;</span>
-    <span class="nx">ret</span><span class="p">,</span> <span class="nx">ids</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">updateWithGeneratedKeys</span>
-               <span class="p">(</span><span class="nx">testDB</span><span class="p">,</span> <span class="s">&quot;Insert into Students (age,name) values (?,?)&quot;</span><span class="p">,</span>
-                <span class="nx">params</span><span class="p">,</span> <span class="nx">keyColumns</span><span class="p">);</span>
+    <span class="nx">ret</span><span class="p">,</span> <span class="nx">ids</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">updateWithGeneratedKeys</span><span class="p">(</span><span class="s">&quot;Insert into Students</span>
+<span class="s">                     (age,name) values (?,?)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">keyColumns</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted row count:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Generated key:&quot;</span> <span class="o">+</span> <span class="nx">ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
     
@@ -217,8 +267,8 @@ and see datatables section for more details on how to access data.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                                <span class="s">&quot;SELECT * from Students where age = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from Students where age = ?&quot;</span><span class="p">,</span>
+                                 <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
 </pre></div>
@@ -260,8 +310,8 @@ of inserted rows for each insert in batch is returned as an array</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">batchUpdate</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span>
-                         <span class="s">&quot;Insert into Students (age,name) values (?,?)&quot;</span><span class="p">,</span> <span class="nx">bPara</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">batchUpdate</span><span class="p">(</span><span class="s">&quot;Insert into Students (age,name)</span>
+<span class="s">                                     values (?,?)&quot;</span><span class="p">,</span> <span class="nx">bPara</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -291,8 +341,17 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">pCount</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">direction</span><span class="p">:</span><span class="mi">1</span><span class="p">};</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">pId</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">direction</span><span class="p">:</span><span class="mi">2</span><span class="p">};</span>
     <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">pAge</span><span class="p">,</span> <span class="nx">pCount</span><span class="p">,</span> <span class="nx">pId</span><span class="p">];</span>
-    
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">testDB</span><span class="p">,</span> <span class="s">&quot;{call getCount(?,?,?)}&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">testDB</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s">&quot;{call getCount(?,?,?)}&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -319,7 +378,7 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">testDB</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -327,7 +386,7 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
 
@@ -355,7 +414,7 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
                           </tr>
                           
                       </table>
-
+					 
 
                       
                       
@@ -379,6 +438,6 @@ out - direction=1; inout - direction=2. Default directions is 0.</p>
       </div>
       <div class="row cBallerinaFooter" id="iBallerinaFooter">
       </div>
-      
+	    
   </body>
 </html>
