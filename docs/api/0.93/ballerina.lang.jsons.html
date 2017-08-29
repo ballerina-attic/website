@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.jsons</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.jsons package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getKeys">
+                                function getKeys(<a href="#json">json</a> j) (string[] )
+                            </h3>
+                            <p>Returns an array of keys contained in the specified JSON.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: A string array of keys contained in the specified JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="parse">
+                                function parse(<a href="#string">string</a> jsonStr) (json )
+                            </h3>
+                            <p>Parses the string argument as a JSON value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>jsonStr</td><td><a href="#string">string</a></td><td>String representation of JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>Parsed JSON value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                function remove(<a href="#json">json</a> j, <a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes each element that matches the given key.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>Key of the field to remove</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString(<a href="#json">json</a> j) (string )
+                            </h3>
+                            <p>Converts a JSON object to a string representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>String value of the converted JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toXML">
+                                function toXML(<a href="#json">json</a> j, <a href="ballerina.lang.jsons.html#Options" title="ballerina.lang.jsons:Options">Options</a> options) (xml )
+                            </h3>
+                            <p>Converts a JSON object to a XML representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>j</td><td><a href="#json">json</a></td><td>A JSON object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>options</td><td><a href="ballerina.lang.jsons.html#Options" title="ballerina.lang.jsons:Options">Options</a></td><td>j: A JSON object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>XML value of the converted JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.lang.jsons package</h2>
+                         
+                        <h3 id="Options">struct Options</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>attributePrefix</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>arrayEntryTag</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#getKeys">getKeys(json j) (string[] )</a>
+                                </li>
+                                <li><a href="#parse">parse(string jsonStr) (json )</a>
+                                </li>
+                                <li><a href="#remove">remove(json j, string key) </a>
+                                </li>
+                                <li><a href="#toString">toString(json j) (string )</a>
+                                </li>
+                                <li><a href="#toXML">toXML(json j, Options options) (xml )</a>
+                                </li>
+                            </ul>
+                        </li>  
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#Options ">Options</a></li>
+                                
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
