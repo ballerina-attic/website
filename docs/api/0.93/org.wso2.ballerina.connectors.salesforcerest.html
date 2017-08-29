@@ -1,0 +1,1266 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>org.wso2.ballerina.connectors.salesforcerest</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                         
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of org.wso2.ballerina.connectors.salesforcerest package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> accessToken, <a href="#string">string</a> clientId, <a href="#string">string</a> clientSecret, <a href="#string">string</a> refreshToken, <a href="#string">string</a> apiInstance, <a href="#string">string</a> refreshEndpoint)
+                        </h3>
+                        <p>Salesforcerest client connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>accessToken</td><td><a href="#string">string</a></td><td>The accessToken of the salesforce connected app to access the salesforce REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientId</td><td><a href="#string">string</a></td><td>The clientId of the salesforce connected app to access the salesforce REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>clientSecret</td><td><a href="#string">string</a></td><td>The clientSecret of the salesforce connected app to access the salesforce REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>refreshToken</td><td><a href="#string">string</a></td><td>The refreshToken of the salesforce connected app to access the salesforce REST API</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>apiInstance</td><td><a href="#string">string</a></td><td>The api instance of the organization</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>refreshEndpoint</td><td><a href="#string">string</a></td><td>accessToken: The accessToken of the salesforce connected app to access the salesforce REST API</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="createMultipleRecordsClientConnector">action createMultipleRecords()</h3>
+                        <p>Create multiple records</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>payload</td><td><a href="#json">json</a></td><td>json payload containing record data</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="createRecordClientConnector">action createRecord()</h3>
+                        <p>Creates new records</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>payload</td><td><a href="#json">json</a></td><td>json payload containing record data</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteClientConnector">action delete()</h3>
+                        <p>Deletes existing record</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>deleteId</td><td><a href="#string">string</a></td><td>apiVersion: The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="describeGlobalClientConnector">action describeGlobal()</h3>
+                        <p>Lists the available objects and their metadata for your organization’s data</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="listAvailableApiVersionClientConnector">action listAvailableApiVersion()</h3>
+                        <p>Lists summary information about each REST API version currently available</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="listOrganizationLimitsClientConnector">action listOrganizationLimits()</h3>
+                        <p>Lists limits information for your organization</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="listResourcesByApiVersionClientConnector">action listResourcesByApiVersion()</h3>
+                        <p>Lists the resources available for the specified API version</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>requestingApiVersion</td><td><a href="#string">string</a></td><td>The api version to get resources</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="listviewQueryPerformanceFeedbackClientConnector">action listviewQueryPerformanceFeedback()</h3>
+                        <p>Get feedback on how Salesforce will execute your list view</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>listViewId</td><td><a href="#string">string</a></td><td>The id of the listview to get the feedback from</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryClientConnector">action query()</h3>
+                        <p>Executes the specified SOQL query</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>queryString</td><td><a href="#string">string</a></td><td>The request SOQL query</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryAllClientConnector">action queryAll()</h3>
+                        <p>QueryAll will return records that have been deleted because of a merge or delete, archived Task
+     and Event records</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>queryString</td><td><a href="#string">string</a></td><td>The request SOQL query</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryAllMoreClientConnector">action queryAllMore()</h3>
+                        <p>If the queryAll results are too large, retrieve the next batch of results</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>nextRecordsUrl</td><td><a href="#string">string</a></td><td>The url sent with first batch of queryAll results to get the next batch</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryMoreClientConnector">action queryMore()</h3>
+                        <p>If the query results are too large, retrieve the next batch of results</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>nextRecordsUrl</td><td><a href="#string">string</a></td><td>The url sent with first batch of query results to get the next batch</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="queryPerformanceFeedbackClientConnector">action queryPerformanceFeedback()</h3>
+                        <p>Get feedback on how Salesforce will execute your query</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>queryString</td><td><a href="#string">string</a></td><td>The request SOQL query</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="retrieveFieldValuesClientConnector">action retrieveFieldValues()</h3>
+                        <p>Retrieve field values from a record</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>rowId</td><td><a href="#string">string</a></td><td>The row ID of the required record</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fields</td><td><a href="#string">string</a></td><td>The comma separated set of required fields</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="retrieveFieldValuesFromExternalObjectClientConnector">action retrieveFieldValuesFromExternalObject()</h3>
+                        <p>Retrieve field values from an external record</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>rowId</td><td><a href="#string">string</a></td><td>The row ID of the required record</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fields</td><td><a href="#string">string</a></td><td>The comma separated set of required fields</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="retrieveStandardFieldValuesFromExternalObjectWithExternalIdClientConnector">action retrieveStandardFieldValuesFromExternalObjectWithExternalId()</h3>
+                        <p>Retrieve field values from an external record with external ID</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>externalId</td><td><a href="#string">string</a></td><td>The row ID of the required external record</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fields</td><td><a href="#string">string</a></td><td>The comma separated set of required fields</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectBasicInfoClientConnector">action sObjectBasicInfo()</h3>
+                        <p>Describes the individual metadata for the specified object</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectDescribeClientConnector">action sObjectDescribe()</h3>
+                        <p>Completely describes the individual metadata at all levels for the specified object</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectGetDeletedClientConnector">action sObjectGetDeleted()</h3>
+                        <p>Retrieves the list of individual records that have been deleted within the given timespan
+     for the specified object</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>startTime</td><td><a href="#string">string</a></td><td>The start time of the time span</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>endTime</td><td><a href="#string">string</a></td><td>The end time of the time span</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectGetUpdatedClientConnector">action sObjectGetUpdated()</h3>
+                        <p>Retrieves the list of individual records that have been updated (added or changed)
+     within the given timespan for the specified object</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>startTime</td><td><a href="#string">string</a></td><td>The start time of the time span</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>endTime</td><td><a href="#string">string</a></td><td>The end time of the time span</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectPlatformActionClientConnector">action sObjectPlatformAction()</h3>
+                        <p>Query for actions displayed in the UI, given a user, a context, device format, and a record ID</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectRowsClientConnector">action sObjectRows()</h3>
+                        <p>Accesses records based on the specified object ID</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>rowId</td><td><a href="#string">string</a></td><td>apiVersion: The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="sObjectRowsByExternalIdClientConnector">action sObjectRowsByExternalId()</h3>
+                        <p>Creates new records or updates existing records (upserts records) based on the value of a
+     specified external ID field</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fieldId</td><td><a href="#string">string</a></td><td>The external field id</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fieldValue</td><td><a href="#string">string</a></td><td>The external field value</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateClientConnector">action update()</h3>
+                        <p>Updates an existing record</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobjectName</td><td><a href="#string">string</a></td><td>The relevant sobject name</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>recordId</td><td><a href="#string">string</a></td><td>apiVersion: The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>payload</td><td><a href="#json">json</a></td><td>json payload containing record data</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="upsertClientConnector">action upsert()</h3>
+                        <p>If record exists, update it else inserts it</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>apiVersion</td><td><a href="#string">string</a></td><td>The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>sobject</td><td><a href="#string">string</a></td><td>apiVersion: The api version to send request to</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>externalField</td><td><a href="#string">string</a></td><td>The external field id</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>fieldValueId</td><td><a href="#string">string</a></td><td>The external field value</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>payload</td><td><a href="#json">json</a></td><td>json payload containing record data</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#message">message</a></td><td>response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                         
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string accessToken, string clientId, string clientSecret, string refreshToken, string apiInstance, string refreshEndpoint)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#createMultipleRecordsClientConnector">createMultipleRecords(string apiVersion, string sobjectName, json payload)</a></li>
+                                        
+                                        <li><a href="#createRecordClientConnector">createRecord(string apiVersion, string sobjectName, json payload)</a></li>
+                                        
+                                        <li><a href="#deleteClientConnector">delete(string apiVersion, string sobjectName, string deleteId)</a></li>
+                                        
+                                        <li><a href="#describeGlobalClientConnector">describeGlobal(string apiVersion)</a></li>
+                                        
+                                        <li><a href="#listAvailableApiVersionClientConnector">listAvailableApiVersion()</a></li>
+                                        
+                                        <li><a href="#listOrganizationLimitsClientConnector">listOrganizationLimits(string apiVersion)</a></li>
+                                        
+                                        <li><a href="#listResourcesByApiVersionClientConnector">listResourcesByApiVersion(string requestingApiVersion)</a></li>
+                                        
+                                        <li><a href="#listviewQueryPerformanceFeedbackClientConnector">listviewQueryPerformanceFeedback(string apiVersion, string listViewId)</a></li>
+                                        
+                                        <li><a href="#queryClientConnector">query(string apiVersion, string queryString)</a></li>
+                                        
+                                        <li><a href="#queryAllClientConnector">queryAll(string apiVersion, string queryString)</a></li>
+                                        
+                                        <li><a href="#queryAllMoreClientConnector">queryAllMore(string apiVersion, string nextRecordsUrl)</a></li>
+                                        
+                                        <li><a href="#queryMoreClientConnector">queryMore(string apiVersion, string nextRecordsUrl)</a></li>
+                                        
+                                        <li><a href="#queryPerformanceFeedbackClientConnector">queryPerformanceFeedback(string apiVersion, string queryString)</a></li>
+                                        
+                                        <li><a href="#retrieveFieldValuesClientConnector">retrieveFieldValues(string apiVersion, string sobjectName, string rowId, string fields)</a></li>
+                                        
+                                        <li><a href="#retrieveFieldValuesFromExternalObjectClientConnector">retrieveFieldValuesFromExternalObject(string apiVersion, string sobjectName, string rowId, string fields)</a></li>
+                                        
+                                        <li><a href="#retrieveStandardFieldValuesFromExternalObjectWithExternalIdClientConnector">retrieveStandardFieldValuesFromExternalObjectWithExternalId(string apiVersion, string sobjectName, string externalId, string fields)</a></li>
+                                        
+                                        <li><a href="#sObjectBasicInfoClientConnector">sObjectBasicInfo(string sobjectName, string apiVersion)</a></li>
+                                        
+                                        <li><a href="#sObjectDescribeClientConnector">sObjectDescribe(string sobjectName, string apiVersion)</a></li>
+                                        
+                                        <li><a href="#sObjectGetDeletedClientConnector">sObjectGetDeleted(string apiVersion, string sobjectName, string startTime, string endTime)</a></li>
+                                        
+                                        <li><a href="#sObjectGetUpdatedClientConnector">sObjectGetUpdated(string apiVersion, string sobjectName, string startTime, string endTime)</a></li>
+                                        
+                                        <li><a href="#sObjectPlatformActionClientConnector">sObjectPlatformAction(string apiVersion)</a></li>
+                                        
+                                        <li><a href="#sObjectRowsClientConnector">sObjectRows(string apiVersion, string sobjectName, string rowId)</a></li>
+                                        
+                                        <li><a href="#sObjectRowsByExternalIdClientConnector">sObjectRowsByExternalId(string apiVersion, string sobjectName, string fieldId, string fieldValue)</a></li>
+                                        
+                                        <li><a href="#updateClientConnector">update(string apiVersion, string sobjectName, string recordId, json payload)</a></li>
+                                        
+                                        <li><a href="#upsertClientConnector">upsert(string apiVersion, string sobject, string externalField, string fieldValueId, json payload)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

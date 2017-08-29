@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>org.wso2.ballerina.connectors.soap</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of org.wso2.ballerina.connectors.soap package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="constructSoapRequest">
+                                function constructSoapRequest(<a href="#xml">xml</a> payload, <a href="#string">string</a> namespace, <a href="#xml[]">xml[]</a> headers) (xml )
+                            </h3>
+                            <p></p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespace</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>headers</td><td><a href="#xml[]">xml[]</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of org.wso2.ballerina.connectors.soap package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> url)
+                        </h3>
+                        <p>The SOAP client connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>url</td><td><a href="#string">string</a></td><td>The url</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="sendClientConnector">action send()</h3>
+                        <p>Call a soap endpoint</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>headers</td><td><a href="#xml[]">xml[]</a></td><td>Headers of the SOAP request</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>payload</td><td><a href="#xml">xml</a></td><td>The payload to request</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>soapAction</td><td><a href="#string">string</a></td><td>The soap action</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>url</td><td><a href="#string">string</a></td><td>The soap endpoint url</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>soapVersion</td><td><a href="#string">string</a></td><td>The soap version</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#xml">xml</a></td><td>response xml</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#constructSoapRequest">constructSoapRequest(xml payload, string namespace, xml[] headers) (xml )</a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string url)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#sendClientConnector">send(xml[] headers, xml payload, string soapAction, string url, string soapVersion)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

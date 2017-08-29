@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.ftp</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                         
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.ftp package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector ()
+                        </h3>
+                        <p></p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="copyClientConnector">action copy()</h3>
+                        <p>Copies a file from a given location to another</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>source</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>target: File/Directory that should be copied</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>destination</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>Location where the File/Directory should be pasted</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="createFileClientConnector">action createFile()</h3>
+                        <p>Create a file or folder</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>Path of the file</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>isDir</td><td><a href="#boolean">boolean</a></td><td>Specify whether it is a file or a folder</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="deleteClientConnector">action delete()</h3>
+                        <p>Deletes a file from a given location</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>target</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>File/Directory that should be deleted</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="existsClientConnector">action exists()</h3>
+                        <p>Checks the existence of a file</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>File struct containing path information</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#boolean">boolean</a></td><td>The availability of the file</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="moveClientConnector">action move()</h3>
+                        <p>Moves a file from a given location to another</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>target</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>File/Directory that should be moved</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>destination</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>Location where the File/Directory should be moved to</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="readClientConnector">action read()</h3>
+                        <p>Retrieves blob value of a file</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>The file to be read</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#blob">blob</a></td><td>data: The blob containing files read</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="writeClientConnector">action write()</h3>
+                        <p>Writes a file using the given blob</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>content</td><td><a href="#blob">blob</a></td><td>blob: Content to be written</td>
+                                        </tr>
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>file</td><td><a href="ballerina.lang.files.html#File" title="ballerina.lang.files:File">files:File</a></td><td>Path of the file</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.net.ftp package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="configuration">annotation configuration</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>dirURI</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>fileNamePattern</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>pollingInterval</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>cronExpression</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>ackTimeOut</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>perPollFileCount</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>fileSortAttribute</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>fileSortAscending</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>actionAfterProcess</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>actionAfterFailure</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>moveAfterProcess</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>moveAfterFailure</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>moveTimestampFormat</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>createMoveDir</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>parallel</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>threadPoolSize</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sftpIdentities</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sftpIdentityPassPhrase</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sftpUserDirIsRoot</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                         
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector ()</a>
+                                    <ul>
+                                        
+                                        <li><a href="#copyClientConnector">copy(files:File source, files:File destination)</a></li>
+                                        
+                                        <li><a href="#createFileClientConnector">createFile(files:File file, boolean isDir)</a></li>
+                                        
+                                        <li><a href="#deleteClientConnector">delete(files:File target)</a></li>
+                                        
+                                        <li><a href="#existsClientConnector">exists(files:File file)</a></li>
+                                        
+                                        <li><a href="#moveClientConnector">move(files:File target, files:File destination)</a></li>
+                                        
+                                        <li><a href="#readClientConnector">read(files:File file)</a></li>
+                                        
+                                        <li><a href="#writeClientConnector">write(blob content, files:File file)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#configuration ">configuration</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

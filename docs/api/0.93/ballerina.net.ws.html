@@ -1,0 +1,531 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.ws</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.net.ws package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addConnectionToGroup">
+                                function addConnectionToGroup(<a href="#string">string</a> connectionGroupName) 
+                            </h3>
+                            <p>This pushes text from server to all the connected clients of the service.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionGroupName</td><td><a href="#string">string</a></td><td>Name of the connection group</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="broadcastText">
+                                function broadcastText(<a href="#string">string</a> text) 
+                            </h3>
+                            <p>This pushes text from server to all the connected clients of the service.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>text</td><td><a href="#string">string</a></td><td>Text which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeConnection">
+                                function closeConnection() 
+                            </h3>
+                            <p>Close the current client connection</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeConnectionGroup">
+                                function closeConnectionGroup(<a href="#string">string</a> connectionGroupName) 
+                            </h3>
+                            <p>Close all the connections in connection group.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionGroupName</td><td><a href="#string">string</a></td><td>Name of the connection group</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeStoredConnection">
+                                function closeStoredConnection(<a href="#string">string</a> connectionName) 
+                            </h3>
+                            <p>Close stored connection.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionName</td><td><a href="#string">string</a></td><td>Name of the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pushText">
+                                function pushText(<a href="#string">string</a> text) 
+                            </h3>
+                            <p>This pushes text from server to the the same client who sent the message.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>text</td><td><a href="#string">string</a></td><td>Text which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pushTextToConnection">
+                                function pushTextToConnection(<a href="#string">string</a> connectionName, <a href="#string">string</a> text) 
+                            </h3>
+                            <p>Push text to the connection chose by the user from the connection store.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionName</td><td><a href="#string">string</a></td><td>Name of the connection</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>text</td><td><a href="#string">string</a></td><td>Text which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pushTextToGroup">
+                                function pushTextToGroup(<a href="#string">string</a> connectionGroupName, <a href="#string">string</a> text) 
+                            </h3>
+                            <p>Push text from server to all the connected clients of the service.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionGroupName</td><td><a href="#string">string</a></td><td>Name of the connection group</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>text</td><td><a href="#string">string</a></td><td>Text which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeConnectionFromGroup">
+                                function removeConnectionFromGroup(<a href="#string">string</a> connectionGroupName) 
+                            </h3>
+                            <p>Removes connection from a connection group.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionGroupName</td><td><a href="#string">string</a></td><td>Name of the connection group</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeConnectionGroup">
+                                function removeConnectionGroup(<a href="#string">string</a> connectionGroupName) 
+                            </h3>
+                            <p>Removes connection group.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionGroupName</td><td><a href="#string">string</a></td><td>Name of the connection group</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeStoredConnection">
+                                function removeStoredConnection(<a href="#string">string</a> connectionName) 
+                            </h3>
+                            <p>Removes connection from a connection store.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionName</td><td><a href="#string">string</a></td><td>Name of the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="storeConnection">
+                                function storeConnection(<a href="#string">string</a> connectionName) 
+                            </h3>
+                            <p>Store the connection globally for the use of other services.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>connectionName</td><td><a href="#string">string</a></td><td>Name of the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.ws package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> url, <a href="#string">string</a> callbackService)
+                        </h3>
+                        <p></p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>url</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>callbackService</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="pushTextClientConnector">action pushText()</h3>
+                        <p>Push text to the server</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    
+                                
+                                    
+                                        <tr>
+                                            <td>text</td><td><a href="#string">string</a></td><td>text which should be sent</td>
+                                        </tr>
+                                    
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.net.ws package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="ClientService">annotation ClientService</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="OnClose">annotation OnClose</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="OnOpen">annotation OnOpen</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="OnTextMessage">annotation OnTextMessage</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="WebSocketUpgradePath">annotation WebSocketUpgradePath</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addConnectionToGroup">addConnectionToGroup(string connectionGroupName) </a>
+                                </li>
+                                <li><a href="#broadcastText">broadcastText(string text) </a>
+                                </li>
+                                <li><a href="#closeConnection">closeConnection() </a>
+                                </li>
+                                <li><a href="#closeConnectionGroup">closeConnectionGroup(string connectionGroupName) </a>
+                                </li>
+                                <li><a href="#closeStoredConnection">closeStoredConnection(string connectionName) </a>
+                                </li>
+                                <li><a href="#pushText">pushText(string text) </a>
+                                </li>
+                                <li><a href="#pushTextToConnection">pushTextToConnection(string connectionName, string text) </a>
+                                </li>
+                                <li><a href="#pushTextToGroup">pushTextToGroup(string connectionGroupName, string text) </a>
+                                </li>
+                                <li><a href="#removeConnectionFromGroup">removeConnectionFromGroup(string connectionGroupName) </a>
+                                </li>
+                                <li><a href="#removeConnectionGroup">removeConnectionGroup(string connectionGroupName) </a>
+                                </li>
+                                <li><a href="#removeStoredConnection">removeStoredConnection(string connectionName) </a>
+                                </li>
+                                <li><a href="#storeConnection">storeConnection(string connectionName) </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string url, string callbackService)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#pushTextClientConnector">pushText(string text)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>    
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#ClientService ">ClientService</a></li>
+                                
+                                    <li><a href="#OnClose ">OnClose</a></li>
+                                
+                                    <li><a href="#OnOpen ">OnOpen</a></li>
+                                
+                                    <li><a href="#OnTextMessage ">OnTextMessage</a></li>
+                                
+                                    <li><a href="#WebSocketUpgradePath ">WebSocketUpgradePath</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

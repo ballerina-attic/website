@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.system</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.system package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="currentTimeMillis">
+                                function currentTimeMillis() (int )
+                            </h3>
+                            <p>Gets the current system time in milliseconds</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>System time in milliseconds</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="epochTime">
+                                function epochTime() (int )
+                            </h3>
+                            <p>Gets the current system time in epoch format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>System time in epoch time</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getDateFormat">
+                                function getDateFormat(<a href="#string">string</a> format) (string )
+                            </h3>
+                            <p></p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>format</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getEnv">
+                                function getEnv(<a href="#string">string</a> key) (string )
+                            </h3>
+                            <p>Gets the value of the specified environment variable.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The environment variable</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string): The value of the specified environment variable</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="log">
+                                function log(<a href="#int">int</a> logLevel, <a href="#any">any</a> value) 
+                            </h3>
+                            <p>Logs a float value</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>logLevel</td><td><a href="#int">int</a></td><td>Log level: 1 - Trace, 2 - Debug, 3 - Info, 4 - Warn, 5 - Error</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#any">any</a></td><td>any value to be logged</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="nanoTime">
+                                function nanoTime() (int )
+                            </h3>
+                            <p>Gets the current system time in nanoseconds</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>System time in nanoseconds</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#any">any</a> a) 
+                            </h3>
+                            <p>Prints a &#x27;any&#x27; value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>a</td><td><a href="#any">any</a></td><td>any value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#any">any</a> a) 
+                            </h3>
+                            <p>Prints an any value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>a</td><td><a href="#any">any</a></td><td>any value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="sleep">
+                                function sleep(<a href="#int">int</a> t) 
+                            </h3>
+                            <p>Halt the current thread for the specified time period</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>t</td><td><a href="#int">int</a></td><td>int: Sleep time in milliseconds</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#currentTimeMillis">currentTimeMillis() (int )</a>
+                                </li>
+                                <li><a href="#epochTime">epochTime() (int )</a>
+                                </li>
+                                <li><a href="#getDateFormat">getDateFormat(string format) (string )</a>
+                                </li>
+                                <li><a href="#getEnv">getEnv(string key) (string )</a>
+                                </li>
+                                <li><a href="#log">log(int logLevel, any value) </a>
+                                </li>
+                                <li><a href="#nanoTime">nanoTime() (int )</a>
+                                </li>
+                                <li><a href="#print">print(any a) </a>
+                                </li>
+                                <li><a href="#println">println(any a) </a>
+                                </li>
+                                <li><a href="#sleep">sleep(int t) </a>
+                                </li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
