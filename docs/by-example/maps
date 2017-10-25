@@ -136,7 +136,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here&rsquo;s how you create an empty map;</p>
+                                  <p>Here&rsquo;s how you create an empty map.</p>
 
                               </td>
                               <td class="code leading">
@@ -148,7 +148,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here&rsquo;s how you create a map with initial values;</p>
+                                  <p>Here&rsquo;s how you create a map with initial values.</p>
 
                               </td>
                               <td class="code leading">

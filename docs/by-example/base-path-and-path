@@ -83,9 +83,10 @@
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/bar&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">convertToResponse</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">json</span> <span class="nx">payload</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -142,7 +143,7 @@ Path attribute associates a sub-path to resource.</p>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/bar&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -150,11 +151,12 @@ Path attribute associates a sub-path to resource.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>A util method that can convert the request to a response.</p>
+                                  <p>A util method that can get the request payload.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">convertToResponse</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">payload</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -166,7 +168,7 @@ Path attribute associates a sub-path to resource.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -188,7 +190,7 @@ Path attribute associates a sub-path to resource.</p>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run base-path-and-path.bal
 <span class="go">ballerina: deploying service(s) in &#39;.../base-path-and-path.bal&#39;</span>
-<span class="go">ballerina: started server connector http-9090</span>
+<span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:9090</span>
 </pre></div>
 
                               </td>
@@ -206,7 +208,7 @@ Path attribute associates a sub-path to resource.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl http://localhost:9090/foo/bar -d <span class="o">{</span><span class="se">\&quot;</span>hello<span class="se">\&quot;</span>: <span class="se">\&quot;</span>world<span class="se">\&quot;</span><span class="o">}</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> curl http://localhost:9090/foo/bar -d <span class="s2">&quot;{\&quot;hello\&quot;: \&quot;world\&quot;}&quot;</span> -H <span class="s2">&quot;Content-Type: application/json&quot;</span>
 <span class="go">{&quot;hello&quot;: &quot;world&quot;}</span>
 </pre></div>
 

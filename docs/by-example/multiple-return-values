@@ -116,7 +116,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here&rsquo;s a function which returns 2 int values.</p>
+                                  <p>Here&rsquo;s a function which returns two int values.</p>
 
                               </td>
                               <td class="code leading">
@@ -143,7 +143,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Multiple variable assignment</p>
+                                  <p>Multiple variable assignment.</p>
 
                               </td>
                               <td class="code">

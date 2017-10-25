@@ -171,7 +171,7 @@ except that it cannot be called in another place as it has no name.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="websocket-basic-endpoint">WebSocket Basic Endpoint</a>.
+                          Next example: <a href="websocket-basic-sample">WebSocket Basic Sample</a>.
                       </p>
                       
 

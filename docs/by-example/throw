@@ -76,14 +76,13 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">struct</span> <span class="nx">Record</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">struct</span> <span class="nx">Record</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="nx">id</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">readRecord</span> <span class="p">(</span><span class="nx">Record</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">errors</span><span class="p">:</span><span class="nx">NullReferenceError</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">:</span><span class="s">&quot;Record is null&quot;</span><span class="p">};</span>
+        <span class="nx">error</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">:</span><span class="s">&quot;Record is null&quot;</span><span class="p">};</span>
         <span class="nx">throw</span> <span class="nx">err</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Record ID: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;, value: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
@@ -114,13 +113,12 @@
                           <tr>
                               <td class="docs">
                                   <p>In Ballerina, throwing an error means, something unexpected has happened
-that shouldn’t occur during the normal operation. A Thrown error causes
+that shouldn’t occur during the normal operation. A thrown error causes
 the call stack to be unwound until a matching catcher is found.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -148,7 +146,7 @@ the call stack to be unwound until a matching catcher is found.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">readRecord</span> <span class="p">(</span><span class="nx">Record</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">errors</span><span class="p">:</span><span class="nx">NullReferenceError</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">:</span><span class="s">&quot;Record is null&quot;</span><span class="p">};</span>
+        <span class="nx">error</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">:</span><span class="s">&quot;Record is null&quot;</span><span class="p">};</span>
         <span class="nx">throw</span> <span class="nx">err</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Record ID: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;, value: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>

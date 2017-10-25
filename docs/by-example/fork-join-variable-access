@@ -77,49 +77,50 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-  <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;WSO2&quot;</span><span class="p">;</span>
-  <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Abhaya&quot;</span><span class="p">,</span><span class="s">&quot;era&quot;</span><span class="p">:</span><span class="s">&quot;Anuradhapura&quot;</span><span class="p">};</span>
-  <span class="k">fork</span> <span class="p">{</span>
-    <span class="kd">worker</span> <span class="nx">W1</span> <span class="p">{</span>
-      <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
-      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Rajasinghe&quot;</span><span class="p">;</span>
-      <span class="kt">string</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
-      <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
-    <span class="p">}</span>    <span class="kd">worker</span> <span class="nx">W2</span> <span class="p">{</span>
-      <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
-      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Kandy&quot;</span><span class="p">;</span>
-      <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;WSO2&quot;</span><span class="p">;</span>
+    <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Abhaya&quot;</span><span class="p">,</span> <span class="s">&quot;era&quot;</span><span class="p">:</span><span class="s">&quot;Anuradhapura&quot;</span><span class="p">};</span>
+    <span class="k">fork</span> <span class="p">{</span>
+        <span class="kd">worker</span> <span class="nx">W1</span> <span class="p">{</span>
+            <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
+            <span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Rajasinghe&quot;</span><span class="p">;</span>
+            <span class="kt">string</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+            <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>        <span class="kd">worker</span> <span class="nx">W2</span> <span class="p">{</span>
+            <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
+            <span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Kandy&quot;</span><span class="p">;</span>
+            <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">any</span><span class="p">[]</span> <span class="nx">r1</span><span class="p">;</span>
+        <span class="kt">any</span><span class="p">[]</span> <span class="nx">r2</span><span class="p">;</span>
+        <span class="nx">r1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;W1&quot;</span><span class="p">];</span>
+        <span class="nx">r2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;W2&quot;</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="nx">p</span><span class="p">;</span>
+        <span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="kt">string</span> <span class="nx">l</span><span class="p">;</span>
+        <span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="kt">string</span> <span class="nx">q</span><span class="p">;</span>
+        <span class="nx">q</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of integer from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">p</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of string from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of string from W2 [&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
     <span class="p">}</span>
-  <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">){</span>
-      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r1</span><span class="p">;</span>
-      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r2</span><span class="p">;</span>
-      <span class="nx">r1</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W1&quot;</span><span class="p">];</span>
-      <span class="nx">r2</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W2&quot;</span><span class="p">];</span>
-      <span class="kt">int</span> <span class="nx">p</span><span class="p">;</span>
-      <span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-      <span class="kt">string</span> <span class="nx">l</span><span class="p">;</span>
-      <span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-      <span class="kt">string</span> <span class="nx">q</span><span class="p">;</span>
-      <span class="nx">q</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of integer from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">p</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of string from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of string from W2 [&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
-<span class="s">      Value of integer variable is [&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot;]</span>
-<span class="s">      Value of string variable is [&quot;</span> <span class="o">+</span> <span class="nx">s</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-  <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
-  <span class="kt">string</span> <span class="nx">era</span><span class="p">;</span>
-  <span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span>  <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
-  <span class="nx">era</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">];</span>
-  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
-<span class="s">      Value of name is [&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s">&quot;]</span>
-<span class="s">      Value of era is [&quot;</span> <span class="o">+</span> <span class="nx">era</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);}</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">Value of integer variable is [&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">Value of string variable is [&quot;</span> <span class="o">+</span> <span class="nx">s</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">era</span><span class="p">;</span>
+    <span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
+    <span class="nx">era</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">];</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">Value of name is [&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">Value of era is [&quot;</span> <span class="o">+</span> <span class="nx">era</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 		  	  </div>	
@@ -161,7 +162,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -173,9 +174,9 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>  <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-  <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;WSO2&quot;</span><span class="p">;</span>
-  <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Abhaya&quot;</span><span class="p">,</span><span class="s">&quot;era&quot;</span><span class="p">:</span><span class="s">&quot;Anuradhapura&quot;</span><span class="p">};</span>
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;WSO2&quot;</span><span class="p">;</span>
+    <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Abhaya&quot;</span><span class="p">,</span> <span class="s">&quot;era&quot;</span><span class="p">:</span><span class="s">&quot;Anuradhapura&quot;</span><span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -187,8 +188,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>  <span class="k">fork</span> <span class="p">{</span>
-    <span class="kd">worker</span> <span class="nx">W1</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="k">fork</span> <span class="p">{</span>
+        <span class="kd">worker</span> <span class="nx">W1</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -200,7 +201,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -212,7 +213,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Rajasinghe&quot;</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Rajasinghe&quot;</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -224,7 +225,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="kt">string</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -236,8 +237,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
-    <span class="p">}</span>
+                                  <div class="highlight"><pre>            <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -248,7 +249,7 @@ the respective workers.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">worker</span> <span class="nx">W2</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>        <span class="kd">worker</span> <span class="nx">W2</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -260,7 +261,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -272,7 +273,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Kandy&quot;</span><span class="p">;</span>
+                                  <div class="highlight"><pre>            <span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Kandy&quot;</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -284,9 +285,9 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">){</span>
+                                  <div class="highlight"><pre>            <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -298,8 +299,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r1</span><span class="p">;</span>
-      <span class="kt">any</span><span class="p">[]</span> <span class="nx">r2</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="kt">any</span><span class="p">[]</span> <span class="nx">r1</span><span class="p">;</span>
+        <span class="kt">any</span><span class="p">[]</span> <span class="nx">r2</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -313,7 +314,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">r1</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W1&quot;</span><span class="p">];</span>
+                                  <div class="highlight"><pre>        <span class="nx">r1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;W1&quot;</span><span class="p">];</span>
 </pre></div>
 
                               </td>
@@ -325,7 +326,7 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">r2</span><span class="p">,</span><span class="nx">_</span>   <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span> <span class="nx">results</span><span class="p">[</span><span class="s">&quot;W2&quot;</span><span class="p">];</span>
+                                  <div class="highlight"><pre>        <span class="nx">r2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;W2&quot;</span><span class="p">];</span>
 </pre></div>
 
                               </td>
@@ -337,8 +338,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="kt">int</span> <span class="nx">p</span><span class="p">;</span>
-      <span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                                  <div class="highlight"><pre>        <span class="kt">int</span> <span class="nx">p</span><span class="p">;</span>
+        <span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">r1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </pre></div>
 
                               </td>
@@ -350,8 +351,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">l</span><span class="p">;</span>
-      <span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">l</span><span class="p">;</span>
+        <span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 </pre></div>
 
                               </td>
@@ -363,8 +364,8 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="kt">string</span> <span class="nx">q</span><span class="p">;</span>
-      <span class="nx">q</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">q</span><span class="p">;</span>
+        <span class="nx">q</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </pre></div>
 
                               </td>
@@ -376,13 +377,13 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of integer from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">p</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of string from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-      <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
-<span class="s">      Value of string from W2 [&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-  <span class="p">}</span>
+                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of integer from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">p</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of string from W1 is [&quot;</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] within join:</span>
+<span class="s">Value of string from W2 [&quot;</span> <span class="o">+</span> <span class="nx">q</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -396,9 +397,9 @@ the respective workers.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
-<span class="s">      Value of integer variable is [&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot;]</span>
-<span class="s">      Value of string variable is [&quot;</span> <span class="o">+</span> <span class="nx">s</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">Value of integer variable is [&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">Value of string variable is [&quot;</span> <span class="o">+</span> <span class="nx">s</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -410,25 +411,15 @@ the respective workers.</p>
  reference to the workers</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>  <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
-  <span class="kt">string</span> <span class="nx">era</span><span class="p">;</span>
-  <span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span>  <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
-  <span class="nx">era</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">];</span>
-  <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
-<span class="s">      Value of name is [&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s">&quot;]</span>
-<span class="s">      Value of era is [&quot;</span> <span class="o">+</span> <span class="nx">era</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">era</span><span class="p">;</span>
+    <span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
+    <span class="nx">era</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;era&quot;</span><span class="p">];</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[default worker] after fork-join:</span>
+<span class="s">Value of name is [&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s">&quot;]</span>
+<span class="s">Value of era is [&quot;</span> <span class="o">+</span> <span class="nx">era</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -470,7 +461,7 @@ the respective workers.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="datatables">Datatables</a>.
+                          Next example: <a href="sql-connector">SQL Connector</a>.
                       </p>
                       
 

@@ -159,7 +159,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Namespaces can be used for xml qualified names.</p>
+                                  <p>Namespaces can be used for XML qualified names.</p>
 
                               </td>
                               <td class="code leading">
@@ -171,7 +171,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Package level namespaces can be overidden at function level.</p>
+                                  <p>Package level namespaces can be overridden at function level.</p>
 
                               </td>
                               <td class="code">

@@ -78,21 +78,19 @@
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">xmls</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">infoService</span> <span class="p">{</span>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span><span class="p">,</span>
-        <span class="nx">consumes</span><span class="p">:[</span><span class="s">&quot;text/json&quot;</span><span class="p">,</span><span class="s">&quot;application/json&quot;</span><span class="p">],</span>
+        <span class="nx">consumes</span><span class="p">:[</span><span class="s">&quot;text/json&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">],</span>
         <span class="nx">produces</span><span class="p">:[</span><span class="s">&quot;application/xml&quot;</span><span class="p">]</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">student</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+    <span class="kd">resource</span> <span class="nx">student</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
         <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
         <span class="nx">nameString</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">jsonMsg</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
-        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="kt">xml</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;&quot;</span><span class="o">+</span><span class="nx">nameString</span><span class="o">+</span><span class="s">&quot;&lt;/name&gt;&quot;</span><span class="p">);</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span><span class="nx">name</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+        <span class="kt">xml</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;&quot;</span> <span class="o">+</span> <span class="nx">nameString</span> <span class="o">+</span> <span class="s">&quot;&lt;/name&gt;&quot;</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -113,13 +111,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The sample explains the behaviour of @Consumes and @Produces annotations in ballerina.</p>
+                                  <p>The sample explains the behaviour of the Consumes and Produces annotation attributes of resourceConfig in ballerina.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">xmls</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -145,7 +142,7 @@
                                   <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span><span class="p">,</span>
-        <span class="nx">consumes</span><span class="p">:[</span><span class="s">&quot;text/json&quot;</span><span class="p">,</span><span class="s">&quot;application/json&quot;</span><span class="p">],</span>
+        <span class="nx">consumes</span><span class="p">:[</span><span class="s">&quot;text/json&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">],</span>
         <span class="nx">produces</span><span class="p">:[</span><span class="s">&quot;application/xml&quot;</span><span class="p">]</span>
     <span class="p">}</span>
 </pre></div>
@@ -160,7 +157,7 @@ Resource can produce application/xml payloads. Therefore Accept header should be
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">student</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">student</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -172,7 +169,7 @@ Resource can produce application/xml payloads. Therefore Accept header should be
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -186,7 +183,6 @@ Resource can produce application/xml payloads. Therefore Accept header should be
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
         <span class="nx">nameString</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">jsonMsg</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">];</span>
-        <span class="kt">message</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
 </pre></div>
 
                               </td>
@@ -198,9 +194,9 @@ Resource can produce application/xml payloads. Therefore Accept header should be
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="kt">xml</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;&quot;</span><span class="o">+</span><span class="nx">nameString</span><span class="o">+</span><span class="s">&quot;&lt;/name&gt;&quot;</span><span class="p">);</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span><span class="nx">name</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">response</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="kt">xml</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nb">parse</span><span class="p">(</span><span class="s">&quot;&lt;name&gt;&quot;</span> <span class="o">+</span> <span class="nx">nameString</span> <span class="o">+</span> <span class="s">&quot;&lt;/name&gt;&quot;</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -235,7 +231,7 @@ Resource can produce application/xml payloads. Therefore Accept header should be
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="go">ballerina: deploying service(s) in &#39;produces-consumes.bal&#39;</span>
-<span class="go">ballerina: started server connector http-9090</span>
+<span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:9090</span>
 </pre></div>
 
                               </td>
@@ -254,8 +250,7 @@ Resource can produce application/xml payloads. Therefore Accept header should be
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/infoService -H <span class="s2">&quot;Accept:application/xml&quot;</span>
-<span class="go">-H &quot;Content-Type:application/json&quot; -d &#39;{&quot;name&quot;:&quot;Ballerina&quot;}&#39;</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/infoService -H <span class="s2">&quot;Accept:application/xml&quot;</span> -H <span class="s2">&quot;Content-Type:application/json&quot;</span> -d <span class="s1">&#39;{&quot;name&quot;:&quot;Ballerina&quot;}&#39;</span>
 </pre></div>
 
                               </td>

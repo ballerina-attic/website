@@ -78,15 +78,20 @@
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">});</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">emptyParams</span> <span class="p">=</span> <span class="p">[];</span>
+    <span class="kt">int</span> <span class="nx">updatedRows</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS CUSTOMER (ID INT,</span>
+<span class="s">        NAME VARCHAR(30))&quot;</span><span class="p">,</span> <span class="nx">emptyParams</span><span class="p">);</span>
+    <span class="nx">updatedRows</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS SALARY (ID INT,</span>
+<span class="s">        MON_SALARY FLOAT)&quot;</span><span class="p">,</span> <span class="nx">emptyParams</span><span class="p">);</span>
     <span class="nx">transaction</span> <span class="p">{</span>
         <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">parameters</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Customers(id,name)</span>
-<span class="s">                          values (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
-        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Salary (id, salary)</span>
-<span class="s">                       values (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO CUSTOMER(ID,NAME)</span>
+<span class="s">                    VALUES (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, MON_SALARY)</span>
+<span class="s">                    VALUES (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">abort</span><span class="p">;</span>
         <span class="p">}</span>
@@ -120,13 +125,9 @@
                               <td class="docs">
                                   <p>Ballerina transaction is a series of data manipulation
  statements that must either fully complete or fully fail,
- leaving the system in a consistent state.
- Use the following sql scripts to create tables required
- to run the sample with a mysql database.
- create table Customers (id int, name varchar(30));
- create table Salary (id int, salary float); Before run
- the sample copy the JDBC driver to the
- BALLERINA_HOME/bre/lib folder.</p>
+ leaving the system in a consistent state. This sample use MySQL DB and before running the
+ sample copy the MySQL JDBC driver to the BALLERINA_HOME/bre/lib folder and change
+ the DB connection properties in the ballerina sample.</p>
 
                               </td>
                               <td class="code leading">
@@ -143,9 +144,9 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">});</span>
 </pre></div>
 
                               </td>
@@ -153,8 +154,24 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here is the transaction block. You can use a Try catch here since update action can throw
-errors due to SQL errors, connection pool errors etc.</p>
+                                  <p>Create the tables required for the transaction.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">emptyParams</span> <span class="p">=</span> <span class="p">[];</span>
+    <span class="kt">int</span> <span class="nx">updatedRows</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS CUSTOMER (ID INT,</span>
+<span class="s">        NAME VARCHAR(30))&quot;</span><span class="p">,</span> <span class="nx">emptyParams</span><span class="p">);</span>
+    <span class="nx">updatedRows</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS SALARY (ID INT,</span>
+<span class="s">        MON_SALARY FLOAT)&quot;</span><span class="p">,</span> <span class="nx">emptyParams</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Here is the transaction block. You can use a Try catch here since update action can
+throw errors due to SQL errors, connection pool errors etc.</p>
 
                               </td>
                               <td class="code leading">
@@ -171,8 +188,8 @@ errors due to SQL errors, connection pool errors etc.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">parameters</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Customers(id,name)</span>
-<span class="s">                          values (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO CUSTOMER(ID,NAME)</span>
+<span class="s">                    VALUES (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -184,8 +201,8 @@ errors due to SQL errors, connection pool errors etc.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;Insert into Salary (id, salary)</span>
-<span class="s">                       values (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, MON_SALARY)</span>
+<span class="s">                    VALUES (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -248,7 +265,7 @@ is reached.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>The retry count is the number times the transaction is
+                                  <p>The retry count is the number of times the transaction is
 tried before aborting. By default a transaction is tried three
 times before aborting. Only integer literals or constants are
 allowed for retry count.</p>

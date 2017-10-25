@@ -124,7 +124,7 @@
  getting changed are known as output and variable(s) or argument(s) that supply values
  for output is known as input. Transform statements is a set of assignments which
  make up the transformation from input to output. This sample is about transforming
- an input struct variable to an output struct variable</p>
+ an input struct variable to an output struct variable.</p>
 
                               </td>
                               <td class="code leading">
@@ -137,7 +137,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Defining Employee struct</p>
+                                  <p>Defining Employee struct.</p>
 
                               </td>
                               <td class="code leading">
@@ -153,7 +153,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Defining Person struct</p>
+                                  <p>Defining Person struct.</p>
 
                               </td>
                               <td class="code leading">
@@ -181,7 +181,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Initialize Person variable person</p>
+                                  <p>Initialize Person variable person.</p>
 
                               </td>
                               <td class="code leading">
@@ -193,7 +193,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Initialize an empty Employee as employee</p>
+                                  <p>Initialize an empty Employee as employee.</p>
 
                               </td>
                               <td class="code leading">
@@ -205,7 +205,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Transform statement using person as input to transform values of employee which is the output</p>
+                                  <p>Transform statement using person as input to transform values of employee which is the output.</p>
 
                               </td>
                               <td class="code leading">
@@ -217,7 +217,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert city of person to upper case and assign to address of employee</p>
+                                  <p>Convert city of person to upper case and assign to address of employee.</p>
 
                               </td>
                               <td class="code leading">
@@ -229,7 +229,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert first name of person to lower case and assign to name of employee</p>
+                                  <p>Convert first name of person to lower case and assign to name of employee.</p>
 
                               </td>
                               <td class="code leading">
@@ -241,7 +241,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Assign age of person to age of employee</p>
+                                  <p>Assign age of person to age of employee.</p>
 
                               </td>
                               <td class="code leading">
@@ -254,7 +254,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Print employee details</p>
+                                  <p>Print employee details.</p>
 
                               </td>
                               <td class="code">

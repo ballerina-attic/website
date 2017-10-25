@@ -140,7 +140,7 @@ variables, arguments to functions and also as function return values.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>function pointer as a parameter.</p>
+                                  <p>Function pointer as a parameter.</p>
 
                               </td>
                               <td class="code leading">
@@ -155,7 +155,7 @@ variables, arguments to functions and also as function return values.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>function pointer as a return type</p>
+                                  <p>Function pointer as a return type.</p>
 
                               </td>
                               <td class="code leading">
@@ -181,7 +181,7 @@ variables, arguments to functions and also as function return values.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>value &lsquo;test&rsquo; will serve as a pointer to &lsquo;test&rsquo; function.</p>
+                                  <p>Value &lsquo;test&rsquo; will serve as a pointer to &lsquo;test&rsquo; function.</p>
 
                               </td>
                               <td class="code leading">
@@ -194,7 +194,7 @@ variables, arguments to functions and also as function return values.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>function pointer as a variable;</p>
+                                  <p>Function pointer as a variable;</p>
 
                               </td>
                               <td class="code">

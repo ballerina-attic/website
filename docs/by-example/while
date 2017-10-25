@@ -91,7 +91,7 @@
     <span class="k">while</span> <span class="p">(</span><span class="nx">k</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">k</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">k</span> <span class="p">=</span> <span class="nx">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="k">continue</span><span class="p">;</span>
+            <span class="nx">next</span><span class="p">;</span>
         <span class="p">}</span>
                  
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>
@@ -206,13 +206,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Sample usage of the continue statement.</p>
+                                  <p>Sample usage of the next statement.</p>
 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">k</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">k</span> <span class="p">=</span> <span class="nx">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="k">continue</span><span class="p">;</span>
+            <span class="nx">next</span><span class="p">;</span>
         <span class="p">}</span>
                  
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>

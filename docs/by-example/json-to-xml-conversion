@@ -110,7 +110,7 @@
                                   <p>JSON to XML conversion can be done using jsons:toXML function. This function takes
 the JSON to be converted and struct of options as arguments. The options
 struct has two fields, attributePrefix which is used as the prefix to identify
-xml attribute where default value is &lsquo;@&rsquo;. And arrayEntryTag as the
+XML attribute where default value is &lsquo;@&rsquo;. And arrayEntryTag as the
 name of the tag to be added to each entry of JSON arrays.</p>
 
                               </td>
@@ -135,7 +135,7 @@ name of the tag to be added to each entry of JSON arrays.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create json.</p>
+                                  <p>Create JSON.</p>
 
                               </td>
                               <td class="code leading">
@@ -162,7 +162,7 @@ name of the tag to be added to each entry of JSON arrays.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert to XML with custom attribute prefix and with custom array tag.</p>
+                                  <p>Convert to XML with custom attribute prefix and custom array tag.</p>
 
                               </td>
                               <td class="code">

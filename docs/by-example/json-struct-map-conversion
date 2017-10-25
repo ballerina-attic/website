@@ -180,8 +180,8 @@ Converting from one type to another is very useful in certain situations.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here&rsquo;s how you can convert a struct to a json object.
-This conversion is unsafe</p>
+                                  <p>Here&rsquo;s how you can convert a struct to a JSON object.
+This conversion is unsafe.</p>
 
                               </td>
                               <td class="code leading">

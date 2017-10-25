@@ -1,0 +1,1313 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.lang.xmls</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.lang.xmls package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addAttribute">
+                                function addAttribute(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#string">string</a> name, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Adds an attribute to the XML element that matches the given XPath. If the XPath matches the text value of an existing element, or if the XPath does not match an existing element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the attribute to be added</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>Attribute value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addAttributeWithNamespace">
+                                function addAttributeWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#string">string</a> name, <a href="#string">string</a> value, <a href="#map">map</a> namespaces) 
+                            </h3>
+                            <p>Adds an attribute to the XML element that matches the given XPath. If the XPath matches the text value of an existing element, or if the XPath does not match an existing element, this operation will have no effect. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the attribute to be added</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>Attribute value</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addElement">
+                                function addElement(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#xml">xml</a> value) 
+                            </h3>
+                            <p>Adds an XML element to the location that matches the given XPath. If the XPath matches the text value of an existing element, or if the XPath does not match an existing element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#xml">xml</a></td><td>An XML value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addElementWithNamespace">
+                                function addElementWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#xml">xml</a> value, <a href="#map">map</a> namespaces) 
+                            </h3>
+                            <p>Adds an XML element to the location that matches the given XPath. If the XPath matches the text value of an existing element, or if the XPath does not match an existing element, this operation will have no effect. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#xml">xml</a></td><td>An XML value</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="children">
+                                function children(<a href="#xml">xml</a> x) (xml )
+                            </h3>
+                            <p>Selects all the children of the elements in an XML, and return as a sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the children of the elements in the xml</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="copy">
+                                function copy(<a href="#xml">xml</a> x) (xml )
+                            </h3>
+                            <p>Make a deep copy of an XML.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: A Copy of the XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="elements">
+                                function elements(<a href="#xml">xml</a> x) (xml )
+                            </h3>
+                            <p>Get all the items that are of element type in an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the elements-type items in the given XML sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getElementName">
+                                function getElementName(<a href="#xml">xml</a> x) (string )
+                            </h3>
+                            <p>Get the fully qualified name of the element as a string. Returns an empty string if the XML is not a singleton.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Qualified name of the XML as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getItemType">
+                                function getItemType(<a href="#xml">xml</a> x) (string )
+                            </h3>
+                            <p>Get the type of a XML as a string. If the XML is singleton, type can be one of &#x27;element&#x27;, &#x27;text&#x27;, &#x27;comment&#x27; or &#x27;pi&#x27;. Returns an empty string if the XML is not a singleton.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Type of the XML as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getString">
+                                function getString(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath) (string )
+                            </h3>
+                            <p>Evaluates the XPath on an XML object and returns the matching string value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: Matching string value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStringWithNamespace">
+                                function getStringWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#map">map</a> namespaces) (string )
+                            </h3>
+                            <p>Evaluates the XPath on an XML object and returns the matching string value. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: Matching string value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getTextValue">
+                                function getTextValue(<a href="#xml">xml</a> x) (string )
+                            </h3>
+                            <p>Get the text value of a XML. If the XML is a sequence, concatenation of the text values of the members of the sequence is returned. If the XML is an element, then the text value of the sequence of children is returned.  If the XML is a text item, then the text is returned. Otherwise, an empty string is returned.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Text value of the xml</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getXml">
+                                function getXml(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath) (xml )
+                            </h3>
+                            <p>Evaluates the XPath on an XML object and returns the matching XML object.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Matching XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getXmlWithNamespace">
+                                function getXmlWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#map">map</a> namespaces) (xml )
+                            </h3>
+                            <p>Evaluates the XPath on an XML object and returns the matching XML object. Namespaces are supported</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Matching XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isEmpty">
+                                function isEmpty(<a href="#xml">xml</a> x) (boolean )
+                            </h3>
+                            <p>Check whether the XML sequence is empty.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>xml: Boolean flag indicating whether the XML sequence is empty</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isSingleton">
+                                function isSingleton(<a href="#xml">xml</a> x) (boolean )
+                            </h3>
+                            <p>Check whether the XML sequence contains only a single element.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>xml: Boolean flag indicating whether the XML sequence contains only a single element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="parse">
+                                function parse(<a href="#string">string</a> xmlStr) (xml )
+                            </h3>
+                            <p>Parses a string as an XML.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xmlStr</td><td><a href="#string">string</a></td><td>String representation of XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Parsed XML value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                function remove(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath) 
+                            </h3>
+                            <p>Removes the element(s) that match the given XPath.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeWithNamespace">
+                                function removeWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#map">map</a> namespaces) 
+                            </h3>
+                            <p>Removes the element(s) that match the given XPath. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="select">
+                                function select(<a href="#xml">xml</a> x, <a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Get all the items that are of element type, and matches the given qualified name, in an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the elements-type items in the given XML sequence, that matches the qualified name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="selectChildren">
+                                function selectChildren(<a href="#xml">xml</a> x, <a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Selects all the children of the elements in this sequence that matches the given qualified name.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the children of the elements in this sequence that matches the given qualified name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="selectDescendants">
+                                function selectDescendants(<a href="#xml">xml</a> x, <a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Searches in children recursively for elements matching the qualified name and returns a sequence containing them all. Does not search within a matched result.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the descendants that matches the given qualified name, as a sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setAttributes">
+                                function setAttributes(<a href="#xml">xml</a> x, <a href="#map">map</a> attributes) 
+                            </h3>
+                            <p>Sets the attributes to the provided attributes map.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributes</td><td><a href="#map">map</a></td><td>Attributes map</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setChildren">
+                                function setChildren(<a href="#xml">xml</a> x, <a href="#xml">xml</a> children) 
+                            </h3>
+                            <p>Set the children of an XML if its a singleton. An Error otherwise. Any existing children will be removed.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>children</td><td><a href="#xml">xml</a></td><td>x: An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setString">
+                                function setString(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Sets the string value of an element that matches the given XPath. If the XPath matches an existing element, that element&#x27;s value will be updated. If the XPath does not match an existing element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>x: An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setStringWithNamespace">
+                                function setStringWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#string">string</a> value, <a href="#map">map</a> namespaces) 
+                            </h3>
+                            <p>Sets the string value of an element that matches the given XPath. If the XPath matches an existing element, that element&#x27;s value will be updated. If the XPath does not match an existing element, this operation will have no effect. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>A string value</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setXml">
+                                function setXml(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#xml">xml</a> value) 
+                            </h3>
+                            <p>Sets the XML value of an element that matches the given XPath. If the XPath matches an existing element, that element&#x27;s value will be updated. If the XPath does not match an existing element, this operation will have no effect.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#xml">xml</a></td><td>An XML value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setXmlWithNamespace">
+                                function setXmlWithNamespace(<a href="#xml">xml</a> x, <a href="#string">string</a> xPath, <a href="#xml">xml</a> value, <a href="#map">map</a> namespaces) 
+                            </h3>
+                            <p>Sets the XML value of an element that matches the given XPath. If the XPath matches an existing element, that element&#x27;s value will be updated. If the XPath does not match an existing element, this operation will have no effect. Namespaces are supported.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>xPath</td><td><a href="#string">string</a></td><td>An XPath</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#xml">xml</a></td><td>An XML value</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>namespaces</td><td><a href="#map">map</a></td><td>A map object consisting of namespaces</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="slice">
+                                function slice(<a href="#xml">xml</a> x, <a href="#int">int</a> startIndex, <a href="#int">int</a> endIndex) (xml )
+                            </h3>
+                            <p>Slice and return a subsequence of the an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>startIndex</td><td><a href="#int">int</a></td><td>Start index, inclusive</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>endIndex</td><td><a href="#int">int</a></td><td>End index, exclusive</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Sliced sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="strip">
+                                function strip(<a href="#xml">xml</a> x) (xml )
+                            </h3>
+                            <p>Strips any text items from an XML sequence that are all whitespace.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Striped sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toJSON">
+                                function toJSON(<a href="#xml">xml</a> x, <a href="ballerina.lang.xmls.html#Options" title="ballerina.lang.xmls:Options">Options</a> options) (json )
+                            </h3>
+                            <p>Converts a XML object to a JSON representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>A XML object</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>options</td><td><a href="ballerina.lang.xmls.html#Options" title="ballerina.lang.xmls:Options">Options</a></td><td>x: A XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>json: JSON representation of the given XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString(<a href="#xml">xml</a> x) (string )
+                            </h3>
+                            <p>Converts an XML object to a string representation.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>x</td><td><a href="#xml">xml</a></td><td>An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: String value of the converted XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.lang.xmls package</h2>
+                         
+                        <h3 id="Options">struct Options</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>attributePrefix</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>preserveNamespaces</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addAttribute">addAttribute(xml x, string xPath, string name, string value) </a>
+                                </li>
+                                <li><a href="#addAttributeWithNamespace">addAttributeWithNamespace(xml x, string xPath, string name, string value, map namespaces) </a>
+                                </li>
+                                <li><a href="#addElement">addElement(xml x, string xPath, xml value) </a>
+                                </li>
+                                <li><a href="#addElementWithNamespace">addElementWithNamespace(xml x, string xPath, xml value, map namespaces) </a>
+                                </li>
+                                <li><a href="#children">children(xml x) (xml )</a>
+                                </li>
+                                <li><a href="#copy">copy(xml x) (xml )</a>
+                                </li>
+                                <li><a href="#elements">elements(xml x) (xml )</a>
+                                </li>
+                                <li><a href="#getElementName">getElementName(xml x) (string )</a>
+                                </li>
+                                <li><a href="#getItemType">getItemType(xml x) (string )</a>
+                                </li>
+                                <li><a href="#getString">getString(xml x, string xPath) (string )</a>
+                                </li>
+                                <li><a href="#getStringWithNamespace">getStringWithNamespace(xml x, string xPath, map namespaces) (string )</a>
+                                </li>
+                                <li><a href="#getTextValue">getTextValue(xml x) (string )</a>
+                                </li>
+                                <li><a href="#getXml">getXml(xml x, string xPath) (xml )</a>
+                                </li>
+                                <li><a href="#getXmlWithNamespace">getXmlWithNamespace(xml x, string xPath, map namespaces) (xml )</a>
+                                </li>
+                                <li><a href="#isEmpty">isEmpty(xml x) (boolean )</a>
+                                </li>
+                                <li><a href="#isSingleton">isSingleton(xml x) (boolean )</a>
+                                </li>
+                                <li><a href="#parse">parse(string xmlStr) (xml )</a>
+                                </li>
+                                <li><a href="#remove">remove(xml x, string xPath) </a>
+                                </li>
+                                <li><a href="#removeWithNamespace">removeWithNamespace(xml x, string xPath, map namespaces) </a>
+                                </li>
+                                <li><a href="#select">select(xml x, string qname) (xml )</a>
+                                </li>
+                                <li><a href="#selectChildren">selectChildren(xml x, string qname) (xml )</a>
+                                </li>
+                                <li><a href="#selectDescendants">selectDescendants(xml x, string qname) (xml )</a>
+                                </li>
+                                <li><a href="#setAttributes">setAttributes(xml x, map attributes) </a>
+                                </li>
+                                <li><a href="#setChildren">setChildren(xml x, xml children) </a>
+                                </li>
+                                <li><a href="#setString">setString(xml x, string xPath, string value) </a>
+                                </li>
+                                <li><a href="#setStringWithNamespace">setStringWithNamespace(xml x, string xPath, string value, map namespaces) </a>
+                                </li>
+                                <li><a href="#setXml">setXml(xml x, string xPath, xml value) </a>
+                                </li>
+                                <li><a href="#setXmlWithNamespace">setXmlWithNamespace(xml x, string xPath, xml value, map namespaces) </a>
+                                </li>
+                                <li><a href="#slice">slice(xml x, int startIndex, int endIndex) (xml )</a>
+                                </li>
+                                <li><a href="#strip">strip(xml x) (xml )</a>
+                                </li>
+                                <li><a href="#toJSON">toJSON(xml x, Options options) (json )</a>
+                                </li>
+                                <li><a href="#toString">toString(xml x) (string )</a>
+                                </li>
+                            </ul>
+                        </li>  
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#Options ">Options</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

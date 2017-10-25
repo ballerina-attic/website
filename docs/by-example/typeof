@@ -105,7 +105,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina supports &lsquo;typeof&rsquo; which returns type of a variable.</p>
+                                  <p>Ballerina supports &lsquo;typeof&rsquo; which returns the type of a variable.</p>
 
                               </td>
                               <td class="code leading">
@@ -128,7 +128,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here you create any typed variable.</p>
+                                  <p>Here you create &lsquo;any&rsquo; typed variable.</p>
 
                               </td>
                               <td class="code leading">
@@ -140,7 +140,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Assign an Integer variable to any typed variable.</p>
+                                  <p>Assign an integer variable to &lsquo;any&rsquo; typed variable.</p>
 
                               </td>
                               <td class="code leading">
@@ -177,7 +177,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Check for runtime type equivalency of any typed variable.</p>
+                                  <p>Check for runtime type equivalency of &lsquo;any&rsquo; typed variable.</p>
 
                               </td>
                               <td class="code leading">
