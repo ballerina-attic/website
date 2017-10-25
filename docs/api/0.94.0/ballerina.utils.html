@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.utils</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.utils package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="base64ToBase16Encode">
+                                function base64ToBase16Encode(<a href="#string">string</a> baseString) (string )
+                            </h3>
+                            <p>Encodes a Base64 encoded string into a Base16 encoded string.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The input string to be encoded</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The Base16 encoded string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="base64decode">
+                                function base64decode(<a href="#string">string</a> s) (string )
+                            </h3>
+                            <p>Decodes a Base64 encoded string to a new string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>s</td><td><a href="#string">string</a></td><td>The input string to be decoded</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The decoded string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="base64encode">
+                                function base64encode(<a href="#string">string</a> s) (string )
+                            </h3>
+                            <p>Encodes the specified string into a string using the Base64 scheme</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>s</td><td><a href="#string">string</a></td><td>The input string to be encoded</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The encoded string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHash">
+                                function getHash(<a href="#string">string</a> baseString, <a href="#string">string</a> algorithm) (string )
+                            </h3>
+                            <p>Returns a hash of a given string using the SHA-256 algorithm </p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The string to be hashed</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>algorithm</td><td><a href="#string">string</a></td><td>The hashing algorithm to be used</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The hashed string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHmac">
+                                function getHmac(<a href="#string">string</a> baseString, <a href="#string">string</a> keyString, <a href="#string">string</a> algorithm) (string )
+                            </h3>
+                            <p>Returns a hash of a given string using the key provided </p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The string to be hashed</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyString</td><td><a href="#string">string</a></td><td>The key string</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>algorithm</td><td><a href="#string">string</a></td><td>The hashing algorithm to be used</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The hashed string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHmacFromBase64">
+                                function getHmacFromBase64(<a href="#string">string</a> baseString, <a href="#string">string</a> keyString, <a href="#string">string</a> algorithm) (string )
+                            </h3>
+                            <p>Returns a hash of a given string in Base64 format using the key provided </p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The string to be hashed</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyString</td><td><a href="#string">string</a></td><td>The key string</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>algorithm</td><td><a href="#string">string</a></td><td>The hashing algorithm to be used</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The hashed string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getRandomString">
+                                function getRandomString() (string )
+                            </h3>
+                            <p>Returns a random UUID string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The random string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#base64ToBase16Encode">base64ToBase16Encode(string baseString) (string )</a>
+                                </li>
+                                <li><a href="#base64decode">base64decode(string s) (string )</a>
+                                </li>
+                                <li><a href="#base64encode">base64encode(string s) (string )</a>
+                                </li>
+                                <li><a href="#getHash">getHash(string baseString, string algorithm) (string )</a>
+                                </li>
+                                <li><a href="#getHmac">getHmac(string baseString, string keyString, string algorithm) (string )</a>
+                                </li>
+                                <li><a href="#getHmacFromBase64">getHmacFromBase64(string baseString, string keyString, string algorithm) (string )</a>
+                                </li>
+                                <li><a href="#getRandomString">getRandomString() (string )</a>
+                                </li>
+                            </ul>
+                        </li>   
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

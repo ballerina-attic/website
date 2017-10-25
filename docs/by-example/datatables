@@ -88,13 +88,21 @@
     <span class="kt">string</span> <span class="nx">birthtime</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">updated</span><span class="p">;</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span><span class="p">;</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+            <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS EMPLOYEE (id INT,name</span>
+<span class="s">        VARCHAR(25),salary DOUBLE,status BOOLEAN,birthdate DATE,birthtime TIME,</span>
+<span class="s">        updated TIMESTAMP)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO EMPLOYEE VALUES(1, &#39;John&#39;, 1050.50, false,</span>
+<span class="s">        &#39;1990-12-31&#39;, &#39;11:30:45&#39;, &#39;2007-05-23 09:15:28&#39;)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO EMPLOYEE VALUES(2, &#39;Anne&#39;, 4060.50, true,</span>
+<span class="s">        &#39;1999-12-31&#39;, &#39;13:40:24&#39;, &#39;2017-05-23 09:15:28&#39;)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">datatables</span><span class="p">:</span><span class="nx">hasNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">))</span> <span class="p">{</span>
-        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">next</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
+        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">getNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
         <span class="k">var</span> <span class="nx">rs</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Employee</span><span class="p">)</span><span class="nx">dataStruct</span><span class="p">;</span>
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
                        <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
@@ -102,10 +110,10 @@
                        <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
                        <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
-    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
     <span class="nx">empDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
@@ -129,26 +137,9 @@
                           <tr>
                               <td class="docs">
                                   <p>The datatable type is used to hold tabular data, such as those returned from
-an SQL database query and provides cursor based access to the data.
-Use the following sql scripts to create table and
- sample data in a mysql database. Before run the sample copy the JDBC
- driver to the BALLERINA_HOME/bre/lib folder.</p>
-
-<p>create table employees (
-    id int,
-    name varchar(25),
-    salary double,
-    status boolean,
-    birthdate date,
-    birthtime time,
-    updated timestamp
-);</p>
-
-<p>insert into employees values(1, &lsquo;John&rsquo;, 1050.50, false,
-&lsquo;1990-12-31&rsquo;, &lsquo;11:30:45&rsquo;, &lsquo;2007-05-23 09:15:28&rsquo;);</p>
-
-<p>insert into employees values(2, &lsquo;Anne&rsquo;, 4060.50, true, &lsquo;1999-12-31&rsquo;,
-&lsquo;13:40:24&rsquo;, &lsquo;2017-05-23 09:15:28&rsquo;);</p>
+an SQL database query and provides cursor based access to the data.This sample use
+MySQL DB and before running the sample copy the MySQL JDBC driver to the
+ BALLERINA_HOME/bre/lib folder and change the DB connection properties in the ballerina sample.</p>
 
                               </td>
                               <td class="code leading">
@@ -186,6 +177,7 @@ Use the following sql scripts to create table and
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -199,8 +191,27 @@ pool properties.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">ConnectionProperties</span> <span class="nx">properties</span> <span class="p">=</span> <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">};</span>
-    <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-      <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;db&quot;</span><span class="p">,</span> <span class="s">&quot;sa&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">empDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+            <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create table named EMPLOYEE and populate sample data.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS EMPLOYEE (id INT,name</span>
+<span class="s">        VARCHAR(25),salary DOUBLE,status BOOLEAN,birthdate DATE,birthtime TIME,</span>
+<span class="s">        updated TIMESTAMP)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO EMPLOYEE VALUES(1, &#39;John&#39;, 1050.50, false,</span>
+<span class="s">        &#39;1990-12-31&#39;, &#39;11:30:45&#39;, &#39;2007-05-23 09:15:28&#39;)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO EMPLOYEE VALUES(2, &#39;Anne&#39;, 4060.50, true,</span>
+<span class="s">        &#39;1999-12-31&#39;, &#39;13:40:24&#39;, &#39;2017-05-23 09:15:28&#39;)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -213,8 +224,7 @@ action can return a datatable.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -228,7 +238,7 @@ the data struct corresponding to each row.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span><span class="nx">datatables</span><span class="p">:</span><span class="nx">hasNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">))</span> <span class="p">{</span>
-        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">next</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
+        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">getNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
         <span class="k">var</span> <span class="nx">rs</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Employee</span><span class="p">)</span><span class="nx">dataStruct</span><span class="p">;</span>
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
                        <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
@@ -243,11 +253,11 @@ the data struct corresponding to each row.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert a datatable to json.</p>
+                                  <p>Convert a datatable to JSON.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
 </pre></div>
@@ -257,11 +267,11 @@ the data struct corresponding to each row.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert a datatable to xml.</p>
+                                  <p>Convert a datatable to XML.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name from employees&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
 </pre></div>
@@ -313,7 +323,7 @@ the data struct corresponding to each row.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="sql-connector">SQL Connector</a>.
+                          Next example: <a href="transactions">Transactions</a>.
                       </p>
                       
 

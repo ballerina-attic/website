@@ -142,7 +142,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>XML text</p>
+                                  <p>XML text.</p>
 
                               </td>
                               <td class="code leading">
@@ -155,7 +155,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>XML comment</p>
+                                  <p>XML comment.</p>
 
                               </td>
                               <td class="code leading">

@@ -102,7 +102,7 @@
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
     <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -318,7 +318,7 @@
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">strip</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">xmls</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>

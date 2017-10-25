@@ -76,89 +76,19 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining people array&quot;</span>
-<span class="p">}</span>
-<span class="nx">Person</span><span class="p">[]</span> <span class="nx">people</span> <span class="p">=</span> <span class="p">[{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Ann Frank&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;London&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Tim Yank&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;New York&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;John Grisham&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Brisbane&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Sarah Paulin&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Chicago&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Trevor Noah&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Cape Town&quot;</span><span class="p">}];</span><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person struct&quot;</span>
-<span class="p">}</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 <span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">city</span><span class="p">;</span>
-<span class="p">}</span><span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
-    <span class="kt">string</span> <span class="nx">first_name</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">last_name</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">address</span><span class="p">;</span>
-<span class="p">}</span><span class="nd">@http:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/people&quot;</span>
-<span class="p">}</span>
-<span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Define people management service which can be accessed with /people&quot;</span>
-<span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">PeopleManagementService</span> <span class="p">{</span>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/employee/&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Resource to get employee for the person by index which&quot;</span> <span class="o">+</span>
-        <span class="s">&quot; can be invoked with /people/employee?index={index}&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">getEmployee</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">,</span> <span class="nd">@http:QueryParam {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;index&quot;</span><span class="p">}</span>
-                                     <span class="kt">int</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Employee</span><span class="p">&gt;</span> <span class="nx">employeeJson</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">transform</span> <span class="p">{</span>
-            <span class="kt">string</span><span class="p">[]</span> <span class="nx">_temp</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">split</span><span class="p">(</span><span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">first_name</span> <span class="p">=</span> <span class="nx">_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">last_name</span> <span class="p">=</span> <span class="nx">_temp</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">age</span><span class="p">;</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">city</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">employeeJson</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/update&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Resource to update person by index which can be invoked with &quot;</span> <span class="o">+</span>
-        <span class="s">&quot;/people/update?index={index}&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">updatePerson</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">,</span> <span class="nd">@http:QueryParam{</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;index&quot;</span><span class="p">}</span>
-                                      <span class="kt">int</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        <span class="k">var</span> <span class="nx">jsonPerson</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;)</span><span class="nx">j</span><span class="p">;</span>        <span class="nx">transform</span> <span class="p">{</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">age</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">city</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nx">m</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="mi">202</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Get all people which can be invoked as /people/&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">GetPeople</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">json</span> <span class="nx">jsonResponse</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">index</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">people</span><span class="p">.</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="nx">jsonResponse</span><span class="p">[</span><span class="nx">index</span><span class="p">],</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
-            <span class="nx">index</span> <span class="p">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">jsonResponse</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">person</span> <span class="p">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="s">&quot;Jon&quot;</span><span class="p">};</span>
+    <span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="nx">person</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+    <span class="kt">json</span> <span class="nx">employee</span> <span class="p">=</span> <span class="nx">person</span><span class="p">;</span>
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">profession</span> <span class="p">=</span> <span class="s">&quot;Software Engineer&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -180,14 +110,12 @@
                               <td class="docs">
                                   <p>A json can be constrained with a struct definition to restrict the fields of the json to that of the
  struct. If tried to access a field with an invalid field as per the struct definition or initialize
- a json with invalid fields, this will cause a semantic error. Restricting the fields of the json will
+ a json with invalid fields, this will cause a compilation error. Restricting the fields of the json will
  enforce the format of the json variable.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -195,31 +123,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining people array&quot;</span>
-<span class="p">}</span>
-<span class="nx">Person</span><span class="p">[]</span> <span class="nx">people</span> <span class="p">=</span> <span class="p">[{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Ann Frank&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;London&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Tim Yank&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;New York&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;John Grisham&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Brisbane&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Sarah Paulin&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Chicago&quot;</span><span class="p">},</span>
-                   <span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Trevor Noah&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span> <span class="s">&quot;Cape Town&quot;</span><span class="p">}];</span>
-</pre></div>
+                                  <p>Defining Person struct.</p>
 
                               </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person struct&quot;</span>
-<span class="p">}</span>
-<span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">city</span><span class="p">;</span>
@@ -234,12 +142,7 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
-    <span class="kt">string</span> <span class="nx">first_name</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">last_name</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">address</span><span class="p">;</span>
-<span class="p">}</span>
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -247,49 +150,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/people&quot;</span>
-<span class="p">}</span>
-<span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Define people management service which can be accessed with /people&quot;</span>
-<span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">PeopleManagementService</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/employee/&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Resource to get employee for the person by index which&quot;</span> <span class="o">+</span>
-        <span class="s">&quot; can be invoked with /people/employee?index={index}&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">getEmployee</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">,</span> <span class="nd">@http:QueryParam {</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;index&quot;</span><span class="p">}</span>
-                                     <span class="kt">int</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Define a struct constrained by Employee struct. With this constraint, the json, employeeJson can only
- contain the fields of Employee struct</p>
+                                  <p>Create a new json which is constrained by Person struct. Only the fields
+ defined in the Person struct can be accessed. If we try to access a non
+ existing field, it will produce a compilation error.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Employee</span><span class="p">&gt;</span> <span class="nx">employeeJson</span> <span class="p">=</span> <span class="p">{};</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">person</span> <span class="p">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="s">&quot;Jon&quot;</span><span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -297,11 +164,13 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Transform statement to construct the employeeJson json with Person with the given index from the people array</p>
+                                  <p>We can access fields defined in the Person struct without any issue.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">transform</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="nx">person</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -309,15 +178,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>split name from &ldquo; &rdquo; to separate first and last names</p>
+                                  <p>We can assign this Constrained JSON to a JSON. This will allow us to
+ add new elements which are not in the struct.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="kt">string</span><span class="p">[]</span> <span class="nx">_temp</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">split</span><span class="p">(</span><span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">first_name</span> <span class="p">=</span> <span class="nx">_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">last_name</span> <span class="p">=</span> <span class="nx">_temp</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">age</span><span class="p">;</span>
-            <span class="nx">employeeJson</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">city</span><span class="p">;</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">employee</span> <span class="p">=</span> <span class="nx">person</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -325,182 +191,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Accessing an invalid field that is not a field in Employee struct will give an error.
- E.g. : employeeJson.city will give an error as &ldquo;unknown field &lsquo;city&rsquo; in json with struct constraint &lsquo;Employee&rsquo;&rdquo;</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Set the new employeeJson as the payload</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">employeeJson</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/update&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Resource to update person by index which can be invoked with &quot;</span> <span class="o">+</span>
-        <span class="s">&quot;/people/update?index={index}&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">updatePerson</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">,</span> <span class="nd">@http:QueryParam{</span><span class="nx">value</span><span class="p">:</span><span class="s">&quot;index&quot;</span><span class="p">}</span>
-                                      <span class="kt">int</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Get the json payload from the request message m</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        <span class="k">var</span> <span class="nx">jsonPerson</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;)</span><span class="nx">j</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Define an error that can be used during conversion from json to person struct.</p>
-
-                              </td>
-                              <td class="code empty leading">
-                                  
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">transform</span> <span class="p">{</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">age</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
-            <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">city</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">jsonPerson</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Accessing an invalid field that is not a field in Employee struct will give an error.
- E.g. : employeeJson.address will give an error as &ldquo;unknown field &lsquo;address&rsquo; in json with struct constraint &lsquo;Person&rsquo;&rdquo;</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>empty the message</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">m</span> <span class="p">=</span> <span class="p">{};</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>set the status code to 202 Accepted</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="mi">202</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
-        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
-    <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Get all people which can be invoked as /people/&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">GetPeople</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>define empty json array</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">jsonResponse</span> <span class="p">=</span> <span class="p">[];</span>
-        <span class="kt">int</span> <span class="nx">index</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">people</span><span class="p">.</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>convert each person from people array to a json and set to the array</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">jsonResponse</span><span class="p">[</span><span class="nx">index</span><span class="p">],</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span> <span class="nx">people</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
-            <span class="nx">index</span> <span class="p">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>set the people array as the json response in the message</p>
+                                  <p>After that, we can add new elements to the json.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">jsonResponse</span><span class="p">);</span>
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
-    <span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="nx">employee</span><span class="p">.</span><span class="nx">profession</span> <span class="p">=</span> <span class="s">&quot;Software Engineer&quot;</span><span class="p">;</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -516,73 +212,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>To start the service, put the code in &ldquo;constrained-json.bal&rdquo;
- and use &ldquo;ballerina run&rdquo; command.</p>
-
+                                  
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run constrained-json.bal
-<span class="go">ballerina: deploying service(s) in &#39;constrained-json.bal&#39;</span>
-<span class="go">ballerina: started server connector http-9090</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                      </table>
-					 
-
-                      
-
-                      <table>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Invoke the service using &ldquo;curl&rdquo;.</p>
-
-                              </td>
-                              <td class="code empty leading">
-                                  
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Invoke the get employee resource</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl http://localhost:9090/people/employee?index<span class="o">=</span>2
-<span class="go">{&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Bernes&quot;,&quot;age&quot;:62,&quot;address&quot;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Invoke the update person resource</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -X POST -d <span class="s1">&#39;{&quot;name&quot;: &quot;John Bernes Grisham&quot;,&quot;age&quot;: 62,&quot;city&quot;: &quot;Melbourne&quot;}&#39;</span> http://localhost:9090/people/update?index<span class="o">=</span>2
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>To view all persons</p>
-
-                              </td>
-                              <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl http://localhost:9090/people/
-<span class="go">[{&quot;name&quot;:&quot;Ann Frank&quot;,&quot;age&quot;:30,&quot;city&quot;:&quot;London&quot;},</span>
-<span class="go">{&quot;name&quot;:&quot;Tim Yank&quot;,&quot;age&quot;:20,&quot;city&quot;:&quot;New York&quot;},</span>
-<span class="go">{&quot;name&quot;:&quot;John Grisham&quot;,&quot;age&quot;:25,&quot;city&quot;:&quot;Brisbane&quot;},</span>
-<span class="go">{&quot;name&quot;:&quot;Sarah Paulin&quot;,&quot;age&quot;:10,&quot;city&quot;:&quot;Chicago&quot;},</span>
-<span class="go">{&quot;name&quot;:&quot;Trevor Noah&quot;,&quot;age&quot;:45,&quot;city&quot;:&quot;Cape Town&quot;}]</span>
+<span class="go">{&quot;name&quot;:&quot;Jon&quot;,&quot;age&quot;:25,&quot;city&quot;:&quot;Colombo&quot;}</span>
+<span class="go">{&quot;name&quot;:&quot;Jon&quot;,&quot;age&quot;:25,&quot;city&quot;:&quot;Colombo&quot;,&quot;profession&quot;:&quot;Software Engineer&quot;}</span>
 </pre></div>
 
                               </td>

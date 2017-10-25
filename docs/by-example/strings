@@ -371,7 +371,7 @@ ending index should be specified.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Splits the string with the given regular expression to produce a string array</p>
+                                  <p>Splits the string with the given regular expression to produce a string array.</p>
 
                               </td>
                               <td class="code leading">
@@ -386,7 +386,7 @@ ending index should be specified.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Converts string to a BLOB</p>
+                                  <p>Converts string to a BLOB.</p>
 
                               </td>
                               <td class="code leading">
@@ -399,7 +399,7 @@ ending index should be specified.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Converts the BLOB to the string</p>
+                                  <p>Converts the BLOB to the string.</p>
 
                               </td>
                               <td class="code">

@@ -110,7 +110,7 @@
                           <tr>
                               <td class="docs">
                                   <p>Ballerina supports Identifier literals, that means, it is possible to define
-  symbols without restrictions like &ldquo;no spaces, no special character&rdquo; etc in Ballerina.</p>
+  symbols without restrictions like &ldquo;no spaces, no special character&rdquo; etc. in Ballerina.</p>
 
                               </td>
                               <td class="code leading">
@@ -176,7 +176,7 @@ This is similar to string literals (using double quote characters to demarcate).
                           
                           <tr>
                               <td class="docs">
-                                  <p>Struct defined using identifier literals</p>
+                                  <p>Struct defined using identifier literals.</p>
 
                               </td>
                               <td class="code">

@@ -86,7 +86,7 @@
     <span class="kt">string</span> <span class="nx">attributeName</span> <span class="p">=</span> <span class="s">&quot;count&quot;</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
     <span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Not Available&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">);</span>
     <span class="kt">map</span> <span class="nx">attributeMap</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span> <span class="nx">x1</span><span class="err">@</span><span class="p">;</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">);</span>
@@ -194,7 +194,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Accessing an attribute using with a dynamic name.</p>
+                                  <p>Accessing an attribute using a dynamic name.</p>
 
                               </td>
                               <td class="code leading">
@@ -212,7 +212,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Not Available&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -263,7 +263,7 @@
 <span class="go">available</span>
 <span class="go">5</span>
 <span class="go">5</span>
-<span class="go">5</span>
+<span class="go">Not Available</span>
 <span class="go">{&quot;{http://www.w3.org/2000/xmlns/}ns0&quot;:&quot;http://ballerina.com/aa&quot;,&quot;{http://ballerina.com/aa}status&quot;:&quot;Not Available&quot;,&quot;count&quot;:&quot;5&quot;}</span>
 <span class="go">{&quot;{http://www.w3.org/2000/xmlns/}ns0&quot;:&quot;http://ballerina.com/aa&quot;,&quot;{http://ballerina.com/aa}status&quot;:&quot;Not Available&quot;,&quot;count&quot;:&quot;5&quot;}</span>
 <span class="go">5</span>

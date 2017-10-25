@@ -83,7 +83,7 @@
     <span class="kt">json</span> <span class="nx">jsonArray</span> <span class="p">=</span> <span class="p">[{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="mi">31</span><span class="p">},</span>
                       <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Neal&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">}];</span>
     <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">jsonArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Json array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -103,7 +103,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Ballerina supports &lsquo;lengthof&rsquo; which returns length of an array.</p>
+                                  <p>Ballerina supports &lsquo;lengthof&rsquo; which returns the length of an array.</p>
 
                               </td>
                               <td class="code leading">
@@ -149,7 +149,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Print the created integer array length calculated by &lsquo;lengthof&rsquo; unary operator.</p>
+                                  <p>Print the length of the created integer array calculated by the &lsquo;lengthof&rsquo; unary operator.</p>
 
                               </td>
                               <td class="code leading">
@@ -162,7 +162,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here you create json array with with several json elements.</p>
+                                  <p>Here you create JSON array with several JSON elements.</p>
 
                               </td>
                               <td class="code leading">
@@ -175,12 +175,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Print the created json array length calculated by &lsquo;lengthof&rsquo; unary operator.</p>
+                                  <p>Print the length of the created JSON array calculated by the &lsquo;lengthof&rsquo; unary operator.</p>
 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">jsonArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Json array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -201,7 +201,7 @@
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run lengthof.bal
 <span class="go">Integer array size : 3</span>
-<span class="go">Json array size : 2</span>
+<span class="go">JSON array size : 2</span>
 </pre></div>
 
                               </td>

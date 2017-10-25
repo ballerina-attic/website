@@ -77,52 +77,35 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person struct&quot;</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 <span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">city</span><span class="p">;</span>
 <span class="p">}</span><span class="nd">@http:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/person&quot;</span>
-<span class="p">}</span>
-<span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person service which provides person details&quot;</span>
+    <span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/person&quot;</span>
 <span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">PersonService</span> <span class="p">{</span>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining POST resource for the service to get person details&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">getPerson</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        
+    <span class="kd">resource</span> <span class="nx">getPerson</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
         <span class="nx">Person</span> <span class="nx">p</span><span class="p">;</span>
-        
-        <span class="nx">errors</span><span class="p">:</span><span class="nx">TypeConversionError</span> <span class="nx">err</span><span class="p">;</span>
-        <span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">j</span><span class="p">;</span>
-        
+        <span class="nx">TypeConversionError</span> <span class="nx">err</span><span class="p">;</span>
+        <span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span><span class="nx">j</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
         <span class="p">}</span>
-        
         <span class="kt">string</span> <span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;London&quot;</span><span class="p">;</span>
-        
         <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">response</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">transform</span> <span class="p">{</span>
             <span class="nx">response</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
             <span class="nx">response</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
             <span class="nx">response</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="nx">city</span><span class="p">;</span>
         <span class="p">}</span>
-        
-        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
-        
-        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -148,13 +131,11 @@
  getting changed are known as output and variable(s) or argument(s) that supply values
  for output is known as input. Transform statements is a set of assignments which
  make up the transformation from input to output. This sample is about transforming
- an input struct variable to an output json variable which is constraint by a struct type</p>
+ an input struct variable to an output &lsquo;json&rsquo; variable which is constraint by a struct type.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">errors</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
 </pre></div>
 
@@ -163,13 +144,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>Defining Person struct.</p>
+
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person struct&quot;</span>
-<span class="p">}</span>
-<span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">city</span><span class="p">;</span>
@@ -185,12 +164,20 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="nd">@http:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/person&quot;</span>
+    <span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/person&quot;</span>
 <span class="p">}</span>
-<span class="nd">@doc:Description {</span>
-    <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining Person service which provides person details&quot;</span>
-<span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">PersonService</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Defining Person service which provides person details.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">PersonService</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -205,10 +192,6 @@
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
-    <span class="nd">@doc:Description {</span>
-        <span class="nx">value</span><span class="p">:</span> <span class="s">&quot;Defining POST resource for the service to get person details&quot;</span>
-    <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">getPerson</span> <span class="p">(</span><span class="kt">message</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -216,12 +199,23 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get the json payload from the request</p>
+                                  <p>Defining POST resource for the service to get person details.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">messages</span><span class="p">:</span><span class="nx">getJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
-        
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">getPerson</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the JSON payload from the request</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -234,7 +228,6 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">Person</span> <span class="nx">p</span><span class="p">;</span>
-        
 </pre></div>
 
                               </td>
@@ -246,7 +239,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">errors</span><span class="p">:</span><span class="nx">TypeConversionError</span> <span class="nx">err</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="nx">TypeConversionError</span> <span class="nx">err</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -254,12 +247,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert json to a Person type variable</p>
+                                  <p>Convert JSON to a Person type variable</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">j</span><span class="p">;</span>
-        
+                                  <div class="highlight"><pre>        <span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span><span class="nx">j</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -274,7 +266,6 @@
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
         <span class="p">}</span>
-        
 </pre></div>
 
                               </td>
@@ -282,12 +273,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Define a constant city value as &ldquo;London&rdquo;</p>
+                                  <p>Define a constant city value as &ldquo;London&rdquo;.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;London&quot;</span><span class="p">;</span>
-        
 </pre></div>
 
                               </td>
@@ -295,7 +285,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a new json variable constrained by Person struct</p>
+                                  <p>Create a new json variable constrained by Person struct.</p>
 
                               </td>
                               <td class="code leading">
@@ -307,7 +297,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Use p, Person variable as input to transform fields of response json which is the output</p>
+                                  <p>Use p, Person variable as input to transform fields of response JSON which is the output.</p>
 
                               </td>
                               <td class="code leading">
@@ -316,7 +306,6 @@
             <span class="nx">response</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
             <span class="nx">response</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="nx">city</span><span class="p">;</span>
         <span class="p">}</span>
-        
 </pre></div>
 
                               </td>
@@ -324,12 +313,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Set the new json payload to the message</p>
+                                  <p>Set the new JSON payload to the message</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">messages</span><span class="p">:</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
-        
+                                  <div class="highlight"><pre>        <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -337,11 +325,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Reply from the resource with message m</p>
+                                  <p>Reply from the resource with message m.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">reply</span> <span class="nx">m</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -365,7 +353,7 @@
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run transform-json.bal
 <span class="go">ballerina: deploying service(s) in &#39;transform-json.bal&#39;</span>
-<span class="go">ballerina: started server connector http-9090</span>
+<span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:9090</span>
 </pre></div>
 
                               </td>

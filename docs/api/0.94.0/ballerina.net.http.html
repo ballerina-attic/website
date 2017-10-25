@@ -1,0 +1,2416 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.http</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.net.http package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addHeader">
+                                function addHeader(<a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Adds a transport header to the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addHeader">
+                                function addHeader(<a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Adds a transport header to the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="clone">
+                                function clone() (Request )
+                            </h3>
+                            <p>Clones and creates a new instance of a request message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>request: The new instance of the request message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="clone">
+                                function clone() (Response )
+                            </h3>
+                            <p>Clones and creates a new instance of a response message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The new instance of the response message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="createSessionIfAbsent">
+                                function createSessionIfAbsent() (Session )
+                            </h3>
+                            <p>Gets the session struct for valid id, otherwise create new</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.net.http.html#Session" title="ballerina.net.http:Session">Session</a></td><td>Session: HTTP session struct</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="forward">
+                                function forward(<a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a> resp) 
+                            </h3>
+                            <p>Forwards client service response directly to the caller.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>resp</td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>The new instance of the response message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getAttribute">
+                                function getAttribute(<a href="#string">string</a> attributeKey) (any )
+                            </h3>
+                            <p>Gets the session attribute</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributeKey</td><td><a href="#string">string</a></td><td>HTTPSession attribute key</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#any">any</a></td><td>any: HTTPSession attribute value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getAttributeNames">
+                                function getAttributeNames() (string[] )
+                            </h3>
+                            <p>Gets the session attribute names</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: HTTPSession attribute name array</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBinaryPayload">
+                                function getBinaryPayload() (blob )
+                            </h3>
+                            <p>Gets the message payload in BLOB format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>json: The BLOB reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getBinaryPayload">
+                                function getBinaryPayload() (blob )
+                            </h3>
+                            <p>Gets the message payload in BLOB format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>json: The BLOB reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getContentLength">
+                                function getContentLength() (int )
+                            </h3>
+                            <p>Gets the Content-Length header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: length of the message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getContentLength">
+                                function getContentLength() (int )
+                            </h3>
+                            <p>Gets the Content-Length header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: length of the message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getCreationTime">
+                                function getCreationTime() (int )
+                            </h3>
+                            <p>Gets the session creation time</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: HTTPSession creation time</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getFormParams">
+                                function getFormParams() (map )
+                            </h3>
+                            <p>Gets formParam map from HTTP message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>map: The map of form params</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeader">
+                                function getHeader(<a href="#string">string</a> headerName) (string )
+                            </h3>
+                            <p>Gets a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>headerName</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeader">
+                                function getHeader(<a href="#string">string</a> headerName) (string )
+                            </h3>
+                            <p>Gets a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>headerName</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeaders">
+                                function getHeaders() (string[] )
+                            </h3>
+                            <p>Gets transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: The header values</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHeaders">
+                                function getHeaders() (string[] )
+                            </h3>
+                            <p>Gets transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: The header values</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getId">
+                                function getId() (string )
+                            </h3>
+                            <p>Gets the session id</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: HTTPSession id</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getJsonPayload">
+                                function getJsonPayload() (json )
+                            </h3>
+                            <p>Gets the message payload in JSON format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>json: The JSON reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getJsonPayload">
+                                function getJsonPayload() (json )
+                            </h3>
+                            <p>Gets the message payload in JSON format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>json: The JSON reresentation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getLastAccessedTime">
+                                function getLastAccessedTime() (int )
+                            </h3>
+                            <p>Gets the session last accessed time</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: HTTPSession last accessed time</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getMaxInactiveInterval">
+                                function getMaxInactiveInterval() (int )
+                            </h3>
+                            <p>Gets the session max inactive interval</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: HTTPSession max inactive interval</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getMethod">
+                                function getMethod() (string )
+                            </h3>
+                            <p>Gets the HTTP method from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: http method value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getProperty">
+                                function getProperty(<a href="#string">string</a> propertyName) (string )
+                            </h3>
+                            <p>Retrieve a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The property value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getProperty">
+                                function getProperty(<a href="#string">string</a> propertyName) (string )
+                            </h3>
+                            <p>Retrieve a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The property value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getQueryParams">
+                                function getQueryParams() (map )
+                            </h3>
+                            <p>Gets queryParam map from HTTP message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>map: The map of query params</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getRequestURL">
+                                function getRequestURL() (string )
+                            </h3>
+                            <p>Gets the request URL from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The request URL value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getSession">
+                                function getSession() (Session )
+                            </h3>
+                            <p>Gets the session struct for valid id</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.net.http.html#Session" title="ballerina.net.http:Session">Session</a></td><td>Session: HTTP session struct</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStatusCode">
+                                function getStatusCode() (int )
+                            </h3>
+                            <p>Gets the HTTP status code from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: http status code</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStringPayload">
+                                function getStringPayload() (string )
+                            </h3>
+                            <p>Gets the message payload in string format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The string representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getStringPayload">
+                                function getStringPayload() (string )
+                            </h3>
+                            <p>Gets the message payload in string format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The string representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getXmlPayload">
+                                function getXmlPayload() (xml )
+                            </h3>
+                            <p>Gets the message payload in XML format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: The XML representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getXmlPayload">
+                                function getXmlPayload() (xml )
+                            </h3>
+                            <p>Gets the message payload in XML format</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: The XML representation of the message payload</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="invalidate">
+                                function invalidate() 
+                            </h3>
+                            <p>Gets the session attribute</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isNew">
+                                function isNew() (boolean )
+                            </h3>
+                            <p>Gets the session status</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: HTTPSession status</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeAllHeaders">
+                                function removeAllHeaders() 
+                            </h3>
+                            <p>Removes all transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeAllHeaders">
+                                function removeAllHeaders() 
+                            </h3>
+                            <p>Removes all transport headers from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeAttribute">
+                                function removeAttribute(<a href="#string">string</a> attributeKey) 
+                            </h3>
+                            <p>Remove the session attribute</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributeKey</td><td><a href="#string">string</a></td><td>HTTPSession attribute key</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeHeader">
+                                function removeHeader(<a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeHeader">
+                                function removeHeader(<a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes a transport header from the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="send">
+                                function send() 
+                            </h3>
+                            <p>Sends outbound response to the caller.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setAttribute">
+                                function setAttribute(<a href="#string">string</a> attributeKey, <a href="#any">any</a> attributeValue) 
+                            </h3>
+                            <p>Sets session attributes to the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributeKey</td><td><a href="#string">string</a></td><td>HTTPSession attribute key</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributeValue</td><td><a href="#any">any</a></td><td>HTTPSession attribute Value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setContentLength">
+                                function setContentLength(<a href="#int">int</a> contentLength) 
+                            </h3>
+                            <p>Sets the Content-Length header on the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>contentLength</td><td><a href="#int">int</a></td><td>Length of the message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setContentLength">
+                                function setContentLength(<a href="#int">int</a> contentLength) 
+                            </h3>
+                            <p>Sets the Content-Length header on the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>contentLength</td><td><a href="#int">int</a></td><td>Length of the message</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setHeader">
+                                function setHeader(<a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Sets the value of a transport header</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setHeader">
+                                function setHeader(<a href="#string">string</a> key, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Sets the value of a transport header</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The header name</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>The header value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setJsonPayload">
+                                function setJsonPayload(<a href="#json">json</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a JSON object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#json">json</a></td><td>The JSON payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setJsonPayload">
+                                function setJsonPayload(<a href="#json">json</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a JSON object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#json">json</a></td><td>The JSON payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setMaxInactiveInterval">
+                                function setMaxInactiveInterval(<a href="#int">int</a> timeInterval) 
+                            </h3>
+                            <p>Sets session max inactive interval</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>timeInterval</td><td><a href="#int">int</a></td><td>HTTPSession max inactive interval</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setProperty">
+                                function setProperty(<a href="#string">string</a> propertyName, <a href="#string">string</a> propertyValue) 
+                            </h3>
+                            <p>Sets a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyValue</td><td><a href="#string">string</a></td><td>The value of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setProperty">
+                                function setProperty(<a href="#string">string</a> propertyName, <a href="#string">string</a> propertyValue) 
+                            </h3>
+                            <p>Sets a message property</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyName</td><td><a href="#string">string</a></td><td>The name of the property</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>propertyValue</td><td><a href="#string">string</a></td><td>The value of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setReasonPhrase">
+                                function setReasonPhrase(<a href="#string">string</a> reasonPhrase) 
+                            </h3>
+                            <p>Sets a custom HTTP Reason phrase</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>reasonPhrase</td><td><a href="#string">string</a></td><td>Reason phrase value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setStatusCode">
+                                function setStatusCode(<a href="#int">int</a> statusCode) 
+                            </h3>
+                            <p>Sets the HTTP StatusCode on the message</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>statusCode</td><td><a href="#int">int</a></td><td>HTTP status code</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setStringPayload">
+                                function setStringPayload(<a href="#string">string</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a string object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#string">string</a></td><td>The string payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setStringPayload">
+                                function setStringPayload(<a href="#string">string</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using a string object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#string">string</a></td><td>The string payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setXmlPayload">
+                                function setXmlPayload(<a href="#xml">xml</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using an XML object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td>The XML payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setXmlPayload">
+                                function setXmlPayload(<a href="#xml">xml</a> payload) 
+                            </h3>
+                            <p>Sets the message payload using an XML object</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>payload</td><td><a href="#xml">xml</a></td><td>The XML payload object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.http package</h2>
+                         
+                        <h3 id="ClientConnector">
+                            connector ClientConnector (<a href="#string">string</a> serviceUri, <a href="ballerina.net.http.html#Options" title="ballerina.net.http:Options">Options</a> connectorOptions)
+                        </h3>
+                        <p></p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>serviceUri</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectorOptions</td><td><a href="ballerina.net.http.html#Options" title="ballerina.net.http:Options">Options</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <b>Actions:</b><br><br>  
+                        <h3 id="deleteClientConnector">action delete(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>The DELETE action implementation of the HTTP connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="executeClientConnector">action execute(<a href="#string">string</a> httpVerb, <a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>Invokes an HTTP call with the specified HTTP verb.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>httpVerb</td><td><a href="#string">string</a></td><td>HTTP verb value</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="getClientConnector">action get(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>GET action implementation of the HTTP Connector</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Request path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="headClientConnector">action head(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>The HEAD action implementation of the HTTP Connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="patchClientConnector">action patch(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>The PATCH action implementation of the HTTP Connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="postClientConnector">action post(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>The POST action implementation of the HTTP Connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="putClientConnector">action put(<a href="#string">string</a> path, <a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a> req)</h3>
+                        <p>The PUT action implementation of the HTTP Connector.</p>
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>Resource path</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>req</td><td><a href="ballerina.net.http.html#Request" title="ballerina.net.http:Request">Request</a></td><td>A request message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.http.html#Response" title="ballerina.net.http:Response">Response</a></td><td>response: The response message</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.net.http package</h2>
+                         
+                        <h3 id="FollowRedirects">struct FollowRedirects</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>enabled</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>maxCount</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Options">struct Options</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>port</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>endpointTimeout</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>followRedirects</td><td><a href="ballerina.net.http.html#FollowRedirects" title="ballerina.net.http:FollowRedirects">FollowRedirects</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>ssl</td><td><a href="ballerina.net.http.html#SSL" title="ballerina.net.http:SSL">SSL</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Request">struct Request</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Response">struct Response</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="SSL">struct SSL</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>trustStoreFile</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>trustStorePassword</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>keyStoreFile</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>keyStorePassword</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sslEnabledProtocols</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>ciphers</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sslProtocol</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Session">struct Session</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.net.http package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="configuration">annotation configuration</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>host</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>port</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>httpsPort</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>basePath</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyStoreFile</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyStorePassword</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>trustStoreFile</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>trustStorePassword</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sslVerifyClient</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>certPassword</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sslEnabledProtocols</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>ciphers</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>sslProtocol</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowOrigins</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowCredentials</td><td><a href="#boolean">boolean</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowMethods</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowHeaders</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>maxAge</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>exposeHeaders</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="resourceConfig">annotation resourceConfig</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>methods</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>path</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>consumes</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>produces</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowOrigins</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowCredentials</td><td><a href="#boolean">boolean</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowMethods</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>allowHeaders</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>maxAge</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>exposeHeaders</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#addHeader">addHeader(string key, string value) </a>
+                                </li>
+                                <li><a href="#addHeader">addHeader(string key, string value) </a>
+                                </li>
+                                <li><a href="#clone">clone() (Request )</a>
+                                </li>
+                                <li><a href="#clone">clone() (Response )</a>
+                                </li>
+                                <li><a href="#createSessionIfAbsent">createSessionIfAbsent() (Session )</a>
+                                </li>
+                                <li><a href="#forward">forward(Response resp) </a>
+                                </li>
+                                <li><a href="#getAttribute">getAttribute(string attributeKey) (any )</a>
+                                </li>
+                                <li><a href="#getAttributeNames">getAttributeNames() (string[] )</a>
+                                </li>
+                                <li><a href="#getBinaryPayload">getBinaryPayload() (blob )</a>
+                                </li>
+                                <li><a href="#getBinaryPayload">getBinaryPayload() (blob )</a>
+                                </li>
+                                <li><a href="#getContentLength">getContentLength() (int )</a>
+                                </li>
+                                <li><a href="#getContentLength">getContentLength() (int )</a>
+                                </li>
+                                <li><a href="#getCreationTime">getCreationTime() (int )</a>
+                                </li>
+                                <li><a href="#getFormParams">getFormParams() (map )</a>
+                                </li>
+                                <li><a href="#getHeader">getHeader(string headerName) (string )</a>
+                                </li>
+                                <li><a href="#getHeader">getHeader(string headerName) (string )</a>
+                                </li>
+                                <li><a href="#getHeaders">getHeaders() (string[] )</a>
+                                </li>
+                                <li><a href="#getHeaders">getHeaders() (string[] )</a>
+                                </li>
+                                <li><a href="#getId">getId() (string )</a>
+                                </li>
+                                <li><a href="#getJsonPayload">getJsonPayload() (json )</a>
+                                </li>
+                                <li><a href="#getJsonPayload">getJsonPayload() (json )</a>
+                                </li>
+                                <li><a href="#getLastAccessedTime">getLastAccessedTime() (int )</a>
+                                </li>
+                                <li><a href="#getMaxInactiveInterval">getMaxInactiveInterval() (int )</a>
+                                </li>
+                                <li><a href="#getMethod">getMethod() (string )</a>
+                                </li>
+                                <li><a href="#getProperty">getProperty(string propertyName) (string )</a>
+                                </li>
+                                <li><a href="#getProperty">getProperty(string propertyName) (string )</a>
+                                </li>
+                                <li><a href="#getQueryParams">getQueryParams() (map )</a>
+                                </li>
+                                <li><a href="#getRequestURL">getRequestURL() (string )</a>
+                                </li>
+                                <li><a href="#getSession">getSession() (Session )</a>
+                                </li>
+                                <li><a href="#getStatusCode">getStatusCode() (int )</a>
+                                </li>
+                                <li><a href="#getStringPayload">getStringPayload() (string )</a>
+                                </li>
+                                <li><a href="#getStringPayload">getStringPayload() (string )</a>
+                                </li>
+                                <li><a href="#getXmlPayload">getXmlPayload() (xml )</a>
+                                </li>
+                                <li><a href="#getXmlPayload">getXmlPayload() (xml )</a>
+                                </li>
+                                <li><a href="#invalidate">invalidate() </a>
+                                </li>
+                                <li><a href="#isNew">isNew() (boolean )</a>
+                                </li>
+                                <li><a href="#removeAllHeaders">removeAllHeaders() </a>
+                                </li>
+                                <li><a href="#removeAllHeaders">removeAllHeaders() </a>
+                                </li>
+                                <li><a href="#removeAttribute">removeAttribute(string attributeKey) </a>
+                                </li>
+                                <li><a href="#removeHeader">removeHeader(string key) </a>
+                                </li>
+                                <li><a href="#removeHeader">removeHeader(string key) </a>
+                                </li>
+                                <li><a href="#send">send() </a>
+                                </li>
+                                <li><a href="#setAttribute">setAttribute(string attributeKey, any attributeValue) </a>
+                                </li>
+                                <li><a href="#setContentLength">setContentLength(int contentLength) </a>
+                                </li>
+                                <li><a href="#setContentLength">setContentLength(int contentLength) </a>
+                                </li>
+                                <li><a href="#setHeader">setHeader(string key, string value) </a>
+                                </li>
+                                <li><a href="#setHeader">setHeader(string key, string value) </a>
+                                </li>
+                                <li><a href="#setJsonPayload">setJsonPayload(json payload) </a>
+                                </li>
+                                <li><a href="#setJsonPayload">setJsonPayload(json payload) </a>
+                                </li>
+                                <li><a href="#setMaxInactiveInterval">setMaxInactiveInterval(int timeInterval) </a>
+                                </li>
+                                <li><a href="#setProperty">setProperty(string propertyName, string propertyValue) </a>
+                                </li>
+                                <li><a href="#setProperty">setProperty(string propertyName, string propertyValue) </a>
+                                </li>
+                                <li><a href="#setReasonPhrase">setReasonPhrase(string reasonPhrase) </a>
+                                </li>
+                                <li><a href="#setStatusCode">setStatusCode(int statusCode) </a>
+                                </li>
+                                <li><a href="#setStringPayload">setStringPayload(string payload) </a>
+                                </li>
+                                <li><a href="#setStringPayload">setStringPayload(string payload) </a>
+                                </li>
+                                <li><a href="#setXmlPayload">setXmlPayload(xml payload) </a>
+                                </li>
+                                <li><a href="#setXmlPayload">setXmlPayload(xml payload) </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (string serviceUri, Options connectorOptions)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#deleteClientConnector">delete(Request req)</a></li>
+                                        
+                                        <li><a href="#executeClientConnector">execute(string path, Request req)</a></li>
+                                        
+                                        <li><a href="#getClientConnector">get(Request req)</a></li>
+                                        
+                                        <li><a href="#headClientConnector">head(Request req)</a></li>
+                                        
+                                        <li><a href="#patchClientConnector">patch(Request req)</a></li>
+                                        
+                                        <li><a href="#postClientConnector">post(Request req)</a></li>
+                                        
+                                        <li><a href="#putClientConnector">put(Request req)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#FollowRedirects ">FollowRedirects</a></li>
+                                
+                                    <li><a href="#Options ">Options</a></li>
+                                
+                                    <li><a href="#Request ">Request</a></li>
+                                
+                                    <li><a href="#Response ">Response</a></li>
+                                
+                                    <li><a href="#SSL ">SSL</a></li>
+                                
+                                    <li><a href="#Session ">Session</a></li>
+                                
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#configuration ">configuration</a></li>
+                                
+                                    <li><a href="#resourceConfig ">resourceConfig</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

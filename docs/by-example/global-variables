@@ -101,7 +101,7 @@
                               <td class="docs">
                                   <p>In Ballerina, global variables are defined as top level constructs.
 They are usually defined on top of the Ballerina program.
-The global variables holds their value throughout the lifetime of Ballerina program.</p>
+The global variables holds their value throughout the lifetime of the Ballerina program.</p>
 
                               </td>
                               <td class="code leading">
@@ -113,7 +113,7 @@ The global variables holds their value throughout the lifetime of Ballerina prog
                           
                           <tr>
                               <td class="docs">
-                                  <p>global variable declaration.</p>
+                                  <p>Global variable declaration.</p>
 
                               </td>
                               <td class="code leading">

@@ -112,7 +112,7 @@
                                   <p>XML to JSON conversion can be done using xmls:toJSON function. This function takes
 the XML to be converted and struct of options as arguments. The options
 struct has two fields, attributePrefix which is the prefix to add to the key,
-to identify a xml attribute and namespaces where default value is &lsquo;@&rsquo;. And
+to identify a XML attribute and namespaces where default value is &lsquo;@&rsquo;. And
 preserveNamespaces to indicate whether to preserve namespace prefixes when
 converting or not.</p>
 
@@ -138,7 +138,7 @@ converting or not.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create xml</p>
+                                  <p>Create a XML.</p>
 
                               </td>
                               <td class="code leading">

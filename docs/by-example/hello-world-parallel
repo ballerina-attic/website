@@ -77,9 +77,9 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #m&quot;</span><span class="p">);</span>
-    <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #m&quot;</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #n&quot;</span><span class="p">);</span>
     <span class="p">}</span>    <span class="kd">worker</span> <span class="nx">w3</span> <span class="p">{</span>
         <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #k&quot;</span><span class="p">);</span>
@@ -116,7 +116,7 @@ Here we use workers which represent parallel threads of execution in Ballerina.<
                           
                           <tr>
                               <td class="docs">
-                                  <p>The default worker does not result in a thread of its own - it inherits a thread from the caller.</p>
+                                  <p>Workers don’t need to be explicitly started. They start at the same time as the default worker.</p>
 
                               </td>
                               <td class="code leading">
@@ -128,11 +128,12 @@ Here we use workers which represent parallel threads of execution in Ballerina.<
                           
                           <tr>
                               <td class="docs">
-                                  <p>This statement will be executed by the default worker.</p>
-
+                                  
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #m&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, World! #m&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
 </pre></div>
 
                               </td>
@@ -140,8 +141,7 @@ Here we use workers which represent parallel threads of execution in Ballerina.<
                           
                           <tr>
                               <td class="docs">
-                                  <p>Workers don’t need to be explicitly started. They start at the same time as the default worker.</p>
-
+                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>

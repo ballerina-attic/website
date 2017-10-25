@@ -88,7 +88,6 @@
             <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
             <span class="nx">f</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
         <span class="p">}</span>    <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">all</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
-        
         <span class="k">var</span> <span class="nx">resW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">];</span>
         <span class="k">var</span> <span class="nx">iW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
         <span class="k">var</span> <span class="nx">sW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
@@ -141,7 +140,7 @@ The join part of the fork statement allows one to define how the caller of fork 
                           
                           <tr>
                               <td class="docs">
-                                  <p>fork-join allows developers to spawn(fork) multiple workers within a ballerina program and join
+                                  <p>The fork-join allows developers to spawn(fork) multiple workers within a ballerina program and join
 the results from those workers and execute code on joined results.</p>
 
                               </td>
@@ -213,10 +212,8 @@ When the join condition has been satisfied, results &lsquo;map&rsquo; will be fi
 the returned messages from the workers.</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        
-</pre></div>
-
+                              <td class="code empty leading">
+                                  
                               </td>
                           </tr>
                           

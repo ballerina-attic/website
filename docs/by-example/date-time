@@ -89,7 +89,7 @@
                                       <span class="s">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Parsed Time:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">timeParsed</span><span class="p">));</span>
     <span class="kt">string</span> <span class="nx">standardTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in iso format:&quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in ISO format:&quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">customeTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">format</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">,</span> <span class="s">&quot;yyyy-MM-dd-E&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in custom format:&quot;</span> <span class="o">+</span> <span class="nx">customeTimeString</span><span class="p">);</span>
     <span class="kt">int</span> <span class="nx">year</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">year</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">);</span>
@@ -118,7 +118,7 @@
     <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">tmSub</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">subtractDuration</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;After subtract duration:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">tmSub</span><span class="p">));</span>
     <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">t1</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span>
-                                                            <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+                                   <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Before convert zone:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">t1</span><span class="p">));</span>
     <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">t2</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toTimezone</span><span class="p">(</span><span class="nx">t1</span><span class="p">,</span> <span class="s">&quot;Asia/Colombo&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;After convert zone:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">t2</span><span class="p">));</span>
@@ -167,7 +167,7 @@
                           <tr>
                               <td class="docs">
                                   <p>Time struct can be created by currentTime, createTime or parse functions.
-Get the current time</p>
+Get the current time.</p>
 
                               </td>
                               <td class="code leading">
@@ -198,7 +198,7 @@ time and zone information.</p>
                           <tr>
                               <td class="docs">
                                   <p>Returns the time for the given string representation
-based on the given format string</p>
+based on the given format string.</p>
 
                               </td>
                               <td class="code leading">
@@ -213,12 +213,12 @@ based on the given format string</p>
                           <tr>
                               <td class="docs">
                                   <p>String representation of time can be retrieved via toString or format
-functions.Get the ISO 8601 formatted string of a given time</p>
+functions.Get the ISO 8601 formatted string of a given time.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">standardTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">currentTime</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in iso format:&quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in ISO format:&quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -226,7 +226,7 @@ functions.Get the ISO 8601 formatted string of a given time</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get the formatted string of a given time</p>
+                                  <p>Get the formatted string of a given time.</p>
 
                               </td>
                               <td class="code leading">
@@ -331,7 +331,7 @@ functions.Get the year of a given time.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get the weed day of a given time.</p>
+                                  <p>Get the week day of a given time.</p>
 
                               </td>
                               <td class="code leading">
@@ -344,7 +344,7 @@ functions.Get the year of a given time.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get date components of time using a single function</p>
+                                  <p>Get date components of time using a single function.</p>
 
                               </td>
                               <td class="code leading">
@@ -357,7 +357,7 @@ functions.Get the year of a given time.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get time components using a single function</p>
+                                  <p>Get time components using a single function.</p>
 
                               </td>
                               <td class="code leading">
@@ -372,7 +372,7 @@ functions.Get the year of a given time.</p>
                           <tr>
                               <td class="docs">
                                   <p>Add a given duration to the time. Here we are adding
-one year, one month and one second to the current time</p>
+one year, one month and one second to the current time.</p>
 
                               </td>
                               <td class="code leading">
@@ -399,12 +399,12 @@ one month and one second from the current time.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Convert</p>
+                                  <p>Convert to a different time zone.</p>
 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">t1</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span>
-                                                            <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+                                   <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Before convert zone:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">t1</span><span class="p">));</span>
     <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">t2</span> <span class="p">=</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toTimezone</span><span class="p">(</span><span class="nx">t1</span><span class="p">,</span> <span class="s">&quot;Asia/Colombo&quot;</span><span class="p">);</span>
     <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;After convert zone:&quot;</span> <span class="o">+</span> <span class="nx">time</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">t2</span><span class="p">));</span>
@@ -430,7 +430,7 @@ one month and one second from the current time.</p>
 <span class="go">Current system time in milliseconds since epoch:1499259606928</span>
 <span class="go">Created Time:2017-03-28T23:42:45.554-05:00</span>
 <span class="go">Parsed Time:2017-06-26T09:46:22.444-05:00</span>
-<span class="go">Current system time in iso format:2017-07-05T18:30:06.928+05:30</span>
+<span class="go">Current system time in ISO format:2017-07-05T18:30:06.928+05:30</span>
 <span class="go">Current system time in custom format:2017-07-05-Wed</span>
 <span class="go">Year:2017</span>
 <span class="go">Month:7</span>
