@@ -76,23 +76,22 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="kt">map</span> <span class="nx">addrMap</span> <span class="p">=</span> <span class="p">{</span><span class="nx">line1</span><span class="p">:</span><span class="s">&quot;No. 20&quot;</span><span class="p">,</span> <span class="nx">line2</span><span class="p">:</span><span class="s">&quot;Palm Grove&quot;</span><span class="p">,</span>
                       <span class="nx">city</span><span class="p">:</span><span class="s">&quot;Colombo 03&quot;</span><span class="p">,</span> <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">country</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;country&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">country</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">country</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">city</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
     <span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;postalCode&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;00300&quot;</span><span class="p">;</span>
     <span class="nx">addrMap</span><span class="p">.</span><span class="nx">postalCode</span> <span class="p">=</span> <span class="s">&quot;00301&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
-    <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">,</span> <span class="s">&quot;postalCode&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">keys</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span>
+    <span class="nx">addrMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s">&quot;postalCode&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -114,18 +113,6 @@
                               <td class="docs">
                                   <p>The &lsquo;map&rsquo; type is a hash map with keys of type string to values of &lsquo;any&rsquo; type.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -154,7 +141,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">addrMap</span> <span class="p">=</span> <span class="p">{</span><span class="nx">line1</span><span class="p">:</span><span class="s">&quot;No. 20&quot;</span><span class="p">,</span> <span class="nx">line2</span><span class="p">:</span><span class="s">&quot;Palm Grove&quot;</span><span class="p">,</span>
                       <span class="nx">city</span><span class="p">:</span><span class="s">&quot;Colombo 03&quot;</span><span class="p">,</span> <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -167,7 +154,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">country</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;country&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">country</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">country</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -180,7 +167,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">city</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -194,7 +181,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">addrMap</span><span class="p">[</span><span class="s">&quot;postalCode&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;00300&quot;</span><span class="p">;</span>
     <span class="nx">addrMap</span><span class="p">.</span><span class="nx">postalCode</span> <span class="p">=</span> <span class="s">&quot;00301&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -206,7 +193,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">keys</span><span class="p">());</span>
 </pre></div>
 
                               </td>
@@ -218,7 +205,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">maps</span><span class="p">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">));</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span>
 </pre></div>
 
                               </td>
@@ -230,8 +217,8 @@
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">,</span> <span class="s">&quot;postalCode&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">addrMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s">&quot;postalCode&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">addrMap</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

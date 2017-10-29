@@ -76,8 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
     <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/proxy/ws&quot;</span><span class="p">,</span>
     <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span>
 <span class="p">}</span>
@@ -99,7 +98,7 @@
     <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
         <span class="nx">clientConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
-        <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">clientConnMap</span><span class="p">,</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">clientConnMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="nd">@ws:clientService {</span><span class="p">}</span>
@@ -139,8 +138,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -229,7 +227,7 @@ when new client connects to this service endpoint</p>
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
         <span class="nx">clientConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
-        <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">clientConnMap</span><span class="p">,</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">clientConnMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

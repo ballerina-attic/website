@@ -76,12 +76,11 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="nx">iw</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">kw</span> <span class="p">=</span> <span class="mf">5.44</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -111,24 +110,12 @@ Worker execution starts immediately after invoking the relevant function,
 action or resource which encloses the worker(s).</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Workers in ballerina allow users to delegate tasks to a new worker thread.</p>
-
-                              </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="nx">iw</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">kw</span> <span class="p">=</span> <span class="mf">5.44</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

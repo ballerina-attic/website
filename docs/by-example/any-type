@@ -76,18 +76,17 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">getValue</span> <span class="p">()</span> <span class="p">(</span><span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getValue</span> <span class="p">()</span> <span class="p">(</span><span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span> <span class="p">=</span> <span class="s">&quot;cat&quot;</span><span class="p">;</span>
     <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">any</span> <span class="nx">a</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
     <span class="kt">int</span><span class="p">[]</span> <span class="nx">ia</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
     <span class="kt">any</span> <span class="nx">ar</span> <span class="p">=</span> <span class="nx">ia</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">getValue</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span>    <span class="nb">println</span><span class="p">(</span><span class="nx">getValue</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -111,18 +110,6 @@
 It is a powerful way to deal with variables that we do not know during the compile time.
 Values of these variables can come from dynamic content, e.g. request and response messages, user input etc.
 Any type allows you to skip compile-time type checks</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>This function return an &lsquo;any&rsquo; typed value.</p>
 
                               </td>
                               <td class="code leading">
@@ -153,7 +140,7 @@ Any type allows you to skip compile-time type checks</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">any</span> <span class="nx">a</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -166,7 +153,7 @@ Any type allows you to skip compile-time type checks</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -180,7 +167,7 @@ Any type allows you to skip compile-time type checks</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">ia</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
     <span class="kt">any</span> <span class="nx">ar</span> <span class="p">=</span> <span class="nx">ia</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -191,7 +178,7 @@ Any type allows you to skip compile-time type checks</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">getValue</span><span class="p">());</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">getValue</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 

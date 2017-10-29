@@ -76,24 +76,23 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="nx">Person</span> <span class="nx">parent</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">status</span><span class="p">;</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">Person</span> <span class="nx">p1</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
     <span class="nx">Person</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nx">parent</span><span class="p">:</span><span class="nx">p1</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
     <span class="nx">p1</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&quot;Peter&quot;</span><span class="p">;</span>
     <span class="nx">p1</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -114,18 +113,6 @@
                           <tr>
                               <td class="docs">
                                   <p>Structs in ballerina is the way to create new user-defined data types. They are collections of typed fields.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Defining a Person struct. Contains field names and their types. <br/>Optionally, for value type fields, can define the default value. Otherwise, the default value will be set to the zero-value.</p>
 
                               </td>
                               <td class="code leading">
@@ -158,7 +145,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">Person</span> <span class="nx">p1</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -171,7 +158,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">Person</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nx">parent</span><span class="p">:</span><span class="nx">p1</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -183,8 +170,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -196,7 +183,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -210,8 +197,8 @@
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">p1</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="s">&quot;Peter&quot;</span><span class="p">;</span>
     <span class="nx">p1</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

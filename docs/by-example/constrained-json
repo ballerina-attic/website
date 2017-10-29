@@ -76,8 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">city</span><span class="p">;</span>
@@ -85,10 +84,10 @@
     <span class="kt">json</span><span class="p">&lt;</span><span class="nx">Person</span><span class="p">&gt;</span> <span class="nx">person</span> <span class="p">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">:</span><span class="s">&quot;Jon&quot;</span><span class="p">};</span>
     <span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
     <span class="nx">person</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">employee</span> <span class="p">=</span> <span class="nx">person</span><span class="p">;</span>
     <span class="nx">employee</span><span class="p">.</span><span class="nx">profession</span> <span class="p">=</span> <span class="s">&quot;Software Engineer&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -115,18 +114,6 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Defining Person struct.</p>
-
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
@@ -150,9 +137,9 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a new json which is constrained by Person struct. Only the fields
- defined in the Person struct can be accessed. If we try to access a non
- existing field, it will produce a compilation error.</p>
+                                  <p>Create a new JSON which is constrained by the Person struct. Only the
+ fields defined in the Person struct can be accessed. If we try to
+ access a non existing field, it will produce a compilation error.</p>
 
                               </td>
                               <td class="code leading">
@@ -170,7 +157,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">25</span><span class="p">;</span>
     <span class="nx">person</span><span class="p">.</span><span class="nx">city</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -196,7 +183,7 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">employee</span><span class="p">.</span><span class="nx">profession</span> <span class="p">=</span> <span class="s">&quot;Software Engineer&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

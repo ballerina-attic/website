@@ -76,10 +76,9 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nx">total</span> <span class="p">=</span> <span class="mi">98</span><span class="p">;</span><span class="kt">string</span> <span class="nx">content</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">total</span><span class="p">);</span>    <span class="nx">content</span> <span class="p">=</span> <span class="nx">content</span> <span class="o">+</span> <span class="s">&quot;This is a sample text\n&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+			  	<div class="highlight"><pre><span class="kt">int</span> <span class="nx">total</span> <span class="p">=</span> <span class="mi">98</span><span class="p">;</span><span class="kt">string</span> <span class="nx">content</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">total</span><span class="p">);</span>    <span class="nx">content</span> <span class="p">=</span> <span class="nx">content</span> <span class="o">+</span> <span class="s">&quot;This is a sample text\n&quot;</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -102,18 +101,6 @@
                                   <p>In Ballerina, global variables are defined as top level constructs.
 They are usually defined on top of the Ballerina program.
 The global variables holds their value throughout the lifetime of the Ballerina program.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Global variable declaration.</p>
 
                               </td>
                               <td class="code leading">
@@ -151,7 +138,7 @@ The global variables holds their value throughout the lifetime of the Ballerina 
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">total</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">total</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -163,7 +150,7 @@ The global variables holds their value throughout the lifetime of the Ballerina 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">content</span> <span class="p">=</span> <span class="nx">content</span> <span class="o">+</span> <span class="s">&quot;This is a sample text\n&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

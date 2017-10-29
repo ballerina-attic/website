@@ -68,7 +68,7 @@ tr td:first-child {
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */      
+  user-select: none;          /* Likely future */
 }
 
 div.example {
@@ -155,8 +155,8 @@ img.run {
 
 /* Syntax highlighting */
 body .hll { background-color: #ffffcc }
-/*body .err { border: 1px solid #FF0000 }         /* Error */
-*/body .c  { color: #408080; font-style: italic } /* Comment */
+/*body .err { border: 1px solid #FF0000 }          Error */
+body .c  { color: #408080; font-style: italic } /* Comment */
 body .k  { color: #954121 }                     /* Keyword */
 body .o  { color: #666666 }                     /* Operator */
 body .cm { color: #408080; font-style: italic } /* Comment.Multiline */

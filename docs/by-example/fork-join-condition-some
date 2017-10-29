@@ -76,16 +76,16 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">fork</span> <span class="p">{</span>
         <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
             <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
             <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; s: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; s: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
             <span class="nx">i</span><span class="p">,</span> <span class="nx">s</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
         <span class="p">}</span>        <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
             <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.344</span><span class="p">;</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
             <span class="nx">f</span> <span class="o">-&gt;</span> <span class="k">fork</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span> <span class="k">join</span> <span class="p">(</span><span class="nx">some</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">map</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
@@ -93,12 +93,12 @@
             <span class="k">var</span> <span class="nx">resW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">iW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">sW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] iW1: &quot;</span> <span class="o">+</span> <span class="nx">iW1</span> <span class="o">+</span> <span class="s">&quot; sW1: &quot;</span> <span class="o">+</span> <span class="nx">sW1</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] iW1: &quot;</span> <span class="o">+</span> <span class="nx">iW1</span> <span class="o">+</span> <span class="s">&quot; sW1: &quot;</span> <span class="o">+</span> <span class="nx">sW1</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">var</span> <span class="nx">resW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">fW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="nx">resW2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] fW2: &quot;</span> <span class="o">+</span> <span class="nx">fW2</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] fW2: &quot;</span> <span class="o">+</span> <span class="nx">fW2</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -124,17 +124,6 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -151,7 +140,7 @@
         <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
             <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">23</span><span class="p">;</span>
             <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="s">&quot;Colombo&quot;</span><span class="p">;</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; s: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; s: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -177,7 +166,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
             <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.344</span><span class="p">;</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2] f: &quot;</span> <span class="o">+</span> <span class="nx">f</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -219,7 +208,7 @@ the returned messages from the workers.</p>
             <span class="k">var</span> <span class="nx">resW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">iW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">sW1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">resW1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] iW1: &quot;</span> <span class="o">+</span> <span class="nx">iW1</span> <span class="o">+</span> <span class="s">&quot; sW1: &quot;</span> <span class="o">+</span> <span class="nx">sW1</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] iW1: &quot;</span> <span class="o">+</span> <span class="nx">iW1</span> <span class="o">+</span> <span class="s">&quot; sW1: &quot;</span> <span class="o">+</span> <span class="nx">sW1</span><span class="p">);</span>
         <span class="p">}</span>
 </pre></div>
 
@@ -235,7 +224,7 @@ the returned messages from the workers.</p>
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">var</span> <span class="nx">resW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">any</span><span class="p">[])</span><span class="nx">results</span><span class="p">[</span><span class="s">&quot;w2&quot;</span><span class="p">];</span>
             <span class="k">var</span> <span class="nx">fW2</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="nx">resW2</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-            <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] fW2: &quot;</span> <span class="o">+</span> <span class="nx">fW2</span><span class="p">);</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[join-block] fW2: &quot;</span> <span class="o">+</span> <span class="nx">fW2</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>

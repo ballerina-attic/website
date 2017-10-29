@@ -76,13 +76,13 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="nx">i</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">20.0</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">20.0</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">s</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -108,17 +108,6 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -132,7 +121,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -144,7 +133,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">20.0</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -157,7 +146,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -169,7 +158,7 @@ Ballerina Value types include int, float, string, boolean and blob.</p>
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

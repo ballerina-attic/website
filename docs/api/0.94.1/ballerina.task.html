@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.task</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.task package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="scheduleTimer">
+                                function scheduleTimer(<a href="#function()returns([UserDefinedType:Pkg alias:  type name :error])">function()returns([UserDefinedType:Pkg alias:  type name :error])</a> onTrigger, <a href="#function([UserDefinedType:Pkg alias:  type name :error])">function([UserDefinedType:Pkg alias:  type name :error])</a> onError, <a href="ballerina.task.html#$anonStruct$1" title="ballerina.task:$anonStruct$1">$anonStruct$1</a> timerScheduler) (string taskId, error e)
+                            </h3>
+                            <p>Schedules the task service with delay and interval</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onTrigger</td><td><a href="#function()returns([UserDefinedType:Pkg alias:  type name :error])">function()returns([UserDefinedType:Pkg alias:  type name :error])</a></td><td>This is the function which is executed while scheduling the task</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onError</td><td><a href="#function([UserDefinedType:Pkg alias:  type name :error])">function([UserDefinedType:Pkg alias:  type name :error])</a></td><td>This is the function which is executed in case of failure in scheduling the task</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>timerScheduler</td><td><a href="ballerina.task.html#$anonStruct$1" title="ballerina.task:$anonStruct$1">$anonStruct$1</a></td><td>onTrigger: This is the function which is executed while scheduling the task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>taskId</td><td><a href="#string">string</a></td><td>string: The identifier of the scheduled task</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>e</td><td><a href="" title="error">error</a></td><td>string: The identifier of the scheduled task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="stopTask">
+                                function stopTask(<a href="#string">string</a> taskID) (error )
+                            </h3>
+                            <p>Stops the task service which corresponds to the task identifier</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>taskID</td><td><a href="#string">string</a></td><td>The identifier of the scheduled task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="error">error</a></td><td>error: The error which is occurred while stopping the task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.task package</h2>
+                         
+                        <h3 id="$anonStruct$1">struct $anonStruct$1</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>delay</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>interval</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#scheduleTimer">scheduleTimer(function()returns([UserDefinedType:Pkg alias:  type name :error]) onTrigger, function([UserDefinedType:Pkg alias:  type name :error]) onError, $anonStruct$1 timerScheduler) (string taskId, error e)</a>
+                                </li>
+                            
+                                <li><a href="#stopTask">stopTask(string taskID) (error )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                         
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#$anonStruct$1 ">$anonStruct$1</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

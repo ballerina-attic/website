@@ -76,21 +76,21 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;ns0:book ns0:status=&quot;available&quot; count=&quot;5&quot;/&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
     <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="nx">x1</span><span class="nd">@[&quot;{</span><span class="nx">http</span><span class="p">:</span><span class="c1">//ballerina.com/aa}status&quot;];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
     <span class="kt">string</span> <span class="nx">attributeName</span> <span class="p">=</span> <span class="s">&quot;count&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
     <span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Not Available&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">);</span>
-    <span class="kt">map</span> <span class="nx">attributeMap</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span> <span class="nx">x1</span><span class="err">@</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">);</span>
+    <span class="kt">map</span> <span class="nx">attributeMap</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span><span class="nx">x1</span><span class="err">@</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -112,17 +112,6 @@
                               <td class="docs">
                                   <p>XML elements may have any number of attributes and any number of namespace declarations that apply for that element. In Ballerina both of these types are treated in the same way. Attributes are accessed from an XML sequence using the &ldquo;@&rdquo; postfix operator.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span>
@@ -149,7 +138,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;ns0:book ns0:status=&quot;available&quot; count=&quot;5&quot;/&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -161,7 +150,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -174,7 +163,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="nx">x1</span><span class="nd">@[&quot;{</span><span class="nx">http</span><span class="p">:</span><span class="c1">//ballerina.com/aa}status&quot;];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -186,7 +175,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -199,7 +188,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">attributeName</span> <span class="p">=</span> <span class="s">&quot;count&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">attributeName</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -212,7 +201,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;Not Available&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">[</span><span class="nx">ns0</span><span class="p">:</span><span class="nx">status</span><span class="p">]);</span>
 </pre></div>
 
                               </td>
@@ -224,7 +213,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="err">@</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -236,9 +225,9 @@
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">attributeMap</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span> <span class="nx">x1</span><span class="err">@</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
+                                  <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">attributeMap</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span><span class="nx">x1</span><span class="err">@</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">attributeMap</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]);</span>
 <span class="p">}</span>
 </pre></div>
 

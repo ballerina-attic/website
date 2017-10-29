@@ -76,8 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">getAccountBalance</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">accountID</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getAccountBalance</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">accountID</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">accountID</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">error</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">:</span><span class="s">&quot;Account with id:&quot;</span> <span class="o">+</span> <span class="nx">accountID</span> <span class="o">+</span> <span class="s">&quot; is not found&quot;</span><span class="p">};</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">err</span><span class="p">;</span>
@@ -87,7 +86,7 @@
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nx">balance</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">getAccountBalance</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -111,18 +110,6 @@
                                   <p>Ballerina errors can both be returned as yet another return value or be thrown.
 Any Ballerina error type should structurally equivalent to the
 ballerina.lang.errors:Error struct.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>As a best practice, error will be the last return value. It&rsquo;s type should be &lsquo;errors:Error&rsquo;, a built-in reference type.</p>
 
                               </td>
                               <td class="code leading">
@@ -170,7 +157,7 @@ This logic is used only to explain the concept.</p>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">balance</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">getAccountBalance</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

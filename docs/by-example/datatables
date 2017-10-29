@@ -76,9 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">datatables</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
 <span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="nx">id</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
@@ -101,21 +99,21 @@
     <span class="nx">count</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO EMPLOYEE VALUES(2, &#39;Anne&#39;, 4060.50, true,</span>
 <span class="s">        &#39;1999-12-31&#39;, &#39;13:40:24&#39;, &#39;2017-05-23 09:15:28&#39;)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * from EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">datatables</span><span class="p">:</span><span class="nx">hasNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">))</span> <span class="p">{</span>
-        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">getNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">dt</span><span class="p">.</span><span class="nx">hasNext</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">dt</span><span class="p">.</span><span class="nx">getNext</span><span class="p">();</span>
         <span class="k">var</span> <span class="nx">rs</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Employee</span><span class="p">)</span><span class="nx">dataStruct</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthdate</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthdate</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
     <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
     <span class="nx">empDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
@@ -143,9 +141,7 @@ MySQL DB and before running the sample copy the MySQL JDBC driver to the
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">datatables</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -237,14 +233,14 @@ the data struct corresponding to each row.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span><span class="nx">datatables</span><span class="p">:</span><span class="nx">hasNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">))</span> <span class="p">{</span>
-        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">datatables</span><span class="p">:</span><span class="nx">getNext</span><span class="p">(</span><span class="nx">dt</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span><span class="nx">dt</span><span class="p">.</span><span class="nx">hasNext</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">any</span> <span class="nx">dataStruct</span> <span class="p">=</span> <span class="nx">dt</span><span class="p">.</span><span class="nx">getNext</span><span class="p">();</span>
         <span class="k">var</span> <span class="nx">rs</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Employee</span><span class="p">)</span><span class="nx">dataStruct</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthdate</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
-                       <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee:&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthdate</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">birthtime</span> <span class="o">+</span>
+                <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -259,7 +255,7 @@ the data struct corresponding to each row.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -273,7 +269,7 @@ the data struct corresponding to each row.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">dt</span> <span class="p">=</span> <span class="nx">empDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT id,name FROM EMPLOYEE&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">xmlRes</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">xmlRes</span><span class="p">);</span>
 </pre></div>
 
                               </td>

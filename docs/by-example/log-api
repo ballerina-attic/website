@@ -76,13 +76,13 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">logger</span><span class="p">;</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -102,11 +102,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>From version 0.89, a new log API was introduced to facilitate logging in Ballerina. It is available in the ballerina.utils.logger package.</p>
+                                  <p>From version 0.94.1, the log API is available in the ballerina.log package.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">logger</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -114,17 +114,17 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The new Ballerina log API provides functions to log at 5 levels: Debug, Error, Info, Trace and Warn.
+                                  <p>The Ballerina log API provides functions to log at 5 levels: Debug, Error, Info, Trace and Warn.
 By default, all log messages are logged to the console at the Info level.</p>
 
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
-    <span class="nx">logger</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">debug</span><span class="p">(</span><span class="s">&quot;debug log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">error</span><span class="p">(</span><span class="s">&quot;error log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">info</span><span class="p">(</span><span class="s">&quot;info log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">trace</span><span class="p">(</span><span class="s">&quot;trace log&quot;</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">warn</span><span class="p">(</span><span class="s">&quot;warn log&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

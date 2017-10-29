@@ -76,9 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">struct</span> <span class="nx">Employee</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">address</span><span class="p">;</span>
@@ -92,14 +90,14 @@
     <span class="nx">Person</span> <span class="nx">person</span> <span class="p">=</span> <span class="p">{</span><span class="nx">first_name</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="nx">last_name</span><span class="p">:</span><span class="s">&quot;Doe&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="nx">city</span><span class="p">:</span><span class="s">&quot;London&quot;</span><span class="p">};</span>
     <span class="nx">Employee</span> <span class="nx">employee</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">transform</span> <span class="p">{</span>
-        <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">city</span><span class="p">);</span>
-        <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">first_name</span><span class="p">);</span>
+        <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">city</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+        <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">first_name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
         <span class="nx">employee</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee details : &quot;</span> <span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Address : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Age : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee details : &quot;</span> <span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Address : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Age : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -125,19 +123,6 @@
  for output is known as input. Transform statements is a set of assignments which
  make up the transformation from input to output. This sample is about transforming
  an input struct variable to an output struct variable.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Defining Employee struct.</p>
 
                               </td>
                               <td class="code leading">
@@ -221,7 +206,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">city</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span> <span class="p">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">city</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -233,7 +218,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">first_name</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span> <span class="p">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">first_name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -258,10 +243,10 @@
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee details : &quot;</span> <span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Address : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Age : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Employee details : &quot;</span> <span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Address : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Age : &quot;</span> <span class="o">+</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

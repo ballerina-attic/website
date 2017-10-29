@@ -76,7 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">x</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">s</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">float</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">x</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">s</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">float</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">s</span><span class="p">;</span>
     <span class="nx">f</span> <span class="p">=</span> <span class="nx">x</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
     <span class="k">return</span><span class="p">;</span>
@@ -89,10 +89,10 @@
     <span class="nx">f</span> <span class="p">=</span> <span class="nx">test</span><span class="p">;</span>
     <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">test</span><span class="p">));</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">getIt</span><span class="p">()));</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">test</span><span class="p">));</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">getIt</span><span class="p">()));</span>
     <span class="kd">function</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="nx">f</span> <span class="p">=</span> <span class="nx">getIt</span><span class="p">();</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">f</span><span class="p">));</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">f</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -115,17 +115,6 @@
                                   <p>A function pointer is Ballerina type, that allows passing functions as
 variables, arguments to functions and also as function return values.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">x</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">s</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">float</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
@@ -185,8 +174,8 @@ variables, arguments to functions and also as function return values.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">test</span><span class="p">));</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">getIt</span><span class="p">()));</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">test</span><span class="p">));</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">getIt</span><span class="p">()));</span>
 </pre></div>
 
                               </td>
@@ -199,7 +188,7 @@ variables, arguments to functions and also as function return values.</p>
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="kd">function</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="nx">f</span> <span class="p">=</span> <span class="nx">getIt</span><span class="p">();</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">f</span><span class="p">));</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Answer: &quot;</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">f</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 

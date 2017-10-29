@@ -76,13 +76,13 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">xml</span> <span class="nx">x1</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;book&gt;</span>
 <span class="s">                    &lt;name&gt;Sherlock Holmes&lt;/name&gt;</span>
 <span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="s">                    &lt;!--Price: $10--&gt;</span>
 <span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
     <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/&quot;</span><span class="p">;</span>
     <span class="nx">xmlns</span> <span class="s">&quot;http://ballerina.com/aa&quot;</span> <span class="k">as</span> <span class="nx">ns0</span><span class="p">;</span>
     <span class="kt">xml</span> <span class="nx">x2</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;book ns0:status=&quot;available&quot;&gt;</span>
@@ -90,7 +90,7 @@
 <span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="s">                    &lt;!--Price: $10--&gt;</span>
 <span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">rootTag</span> <span class="p">=</span> <span class="s">&quot;{http://ballerina.com/aa}newBook&quot;</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">title</span> <span class="p">=</span> <span class="s">&quot;(Sir)&quot;</span><span class="p">;</span>
 </pre></div>
@@ -115,17 +115,6 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -143,7 +132,7 @@
 <span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="s">                    &lt;!--Price: $10--&gt;</span>
 <span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -173,7 +162,7 @@
 <span class="s">                    &lt;author&gt;Sir Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="s">                    &lt;!--Price: $10--&gt;</span>
 <span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -202,7 +191,7 @@
 <span class="s">                    &lt;author&gt;{{title}} Arthur Conan Doyle&lt;/author&gt;</span>
 <span class="s">                    &lt;!--Price: $ {{ 40 / 5 + 4 }}--&gt;</span>
 <span class="s">                  &lt;/{{rootTag}}&gt;`</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x3</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x3</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
