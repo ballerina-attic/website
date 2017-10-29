@@ -76,10 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
 <span class="nd">@ws:configuration {</span>
     <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/basic/ws&quot;</span><span class="p">,</span>
     <span class="nx">subProtocols</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="s">&quot;json&quot;</span><span class="p">],</span>
@@ -91,54 +88,63 @@
     <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span><span class="p">,</span>
     <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span>
 <span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>    <span class="kt">string</span> <span class="nx">ping</span> <span class="p">=</span> <span class="s">&quot;ping&quot;</span><span class="p">;</span>
+    <span class="kt">blob</span> <span class="nx">pingData</span> <span class="p">=</span> <span class="nx">ping</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
         <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">upgradeHeaders</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
         <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeaders</span><span class="p">());</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">onTextMessage</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
-        <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;ping&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pinging...&quot;</span><span class="p">);</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">pingData</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;You asked me to close connection&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">conn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
         <span class="kt">blob</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
         <span class="nx">conn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
     <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onPing</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PingFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pong</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onPong</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PongFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pong received&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Connection timeout&quot;</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">closeFrame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">printHeaders</span><span class="p">(</span><span class="kt">map</span> <span class="nx">headers</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">headers</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">headers</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
     <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">headerKeys</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="nx">headerKeys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
         <span class="k">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">headers</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
         <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -164,10 +170,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -198,14 +201,26 @@
                           
                           <tr>
                               <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">ping</span> <span class="p">=</span> <span class="s">&quot;ping&quot;</span><span class="p">;</span>
+    <span class="kt">blob</span> <span class="nx">pingData</span> <span class="p">=</span> <span class="nx">ping</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
                                   <p>This resource is responsible for handling user logic on handshake time. Note that the connection is not yet established while this code is running.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -216,7 +231,7 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
         <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">upgradeHeaders</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
@@ -231,13 +246,13 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
         <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeaders</span><span class="p">());</span>
     <span class="p">}</span>
 </pre></div>
@@ -252,9 +267,22 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
         <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;ping&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pinging...&quot;</span><span class="p">);</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">pingData</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;You asked me to close connection&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">conn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
@@ -272,10 +300,38 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
         <span class="kt">blob</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
         <span class="nx">conn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a ping message is received from the client</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onPing</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PingFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pong</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a pong message is received</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onPong</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PongFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pong received&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -300,8 +356,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Connection timeout&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
@@ -316,7 +372,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">closeFrame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -330,13 +386,13 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">printHeaders</span><span class="p">(</span><span class="kt">map</span> <span class="nx">headers</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">headers</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">headers</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
     <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">headerKeys</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="nx">headerKeys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
         <span class="k">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">headers</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
         <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -404,6 +460,19 @@
                           
                           <tr>
                               <td class="docs">
+                                  <p>Use more advance client to check the ping pong since browser client does not have capability to send pings.
+ But to check the the behavior when server sends a ping message to the browser client use the following command</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;ping&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
                                   <p>To close the connection</p>
 
                               </td>
@@ -419,10 +488,21 @@
                                   <p>To close connection from server side</p>
 
                               </td>
-                              <td class="code">
+                              <td class="code leading">
                                   <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;closeMe&quot;</span><span class="o">)</span><span class="p">;</span>
 </pre></div>
 
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check the connection closure due to connection timeout wait for 120 seconds
+ or change the timeout in configuration annotation</p>
+
+                              </td>
+                              <td class="code empty">
+                                  
                               </td>
                           </tr>
                           

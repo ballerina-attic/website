@@ -76,17 +76,18 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">any</span> <span class="nx">variable</span><span class="p">;</span>
     <span class="nx">variable</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">intVariable</span><span class="p">;</span>
     <span class="nx">type</span> <span class="nx">typeOfVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">variable</span><span class="p">);</span>
     <span class="nx">type</span> <span class="nx">typeOfIntVariable</span> <span class="p">=</span> <span class="p">(</span><span class="nx">typeof</span> <span class="nx">intVariable</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">typeOfVariable</span> <span class="o">==</span> <span class="nx">typeOfIntVariable</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
-    <span class="p">}}</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 		  	  </div>	
@@ -107,17 +108,6 @@
                               <td class="docs">
                                   <p>Ballerina supports &lsquo;typeof&rsquo; which returns the type of a variable.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -180,23 +170,13 @@
                                   <p>Check for runtime type equivalency of &lsquo;any&rsquo; typed variable.</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span><span class="nx">typeOfVariable</span> <span class="o">==</span> <span class="nx">typeOfIntVariable</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span><span class="nx">typeOfVariable</span> <span class="o">==</span> <span class="nx">typeOfIntVariable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;This &#39;variable&#39; is &#39;NOT&#39; an integer typed variable.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
                               </td>

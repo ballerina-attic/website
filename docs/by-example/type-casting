@@ -76,13 +76,13 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">any</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;Jungle cat&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">castErr</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">castErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
     <span class="p">}</span>    
 <span class="p">}</span>
 </pre></div>
@@ -106,17 +106,6 @@
                                   <p>Type casting allows you to look at a value as being of a different type than it’s original type.
 There are safe and unsafe casts. For unsafe casts, Ballerina compiler will enforce you to use multi-return cast expression.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -147,9 +136,9 @@ Therefore the compiler will enforce you to use multi-return type cast expression
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">castErr</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">castErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
     <span class="p">}</span>    
 <span class="p">}</span>
 </pre></div>

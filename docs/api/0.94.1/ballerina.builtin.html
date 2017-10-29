@@ -1,0 +1,2875 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.builtin</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.builtin package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString(<a href="#string">string</a> encoding) (string )
+                            </h3>
+                            <p>Converts BLOB to a string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>encoding</td><td><a href="#string">string</a></td><td>Encoding to used in blob conversion to string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: String representation of the given BLOB</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="createTime">
+                                function createTime(<a href="#int">int</a> year, <a href="#int">int</a> month, <a href="#int">int</a> date, <a href="#int">int</a> hour, <a href="#int">int</a> minute, <a href="#int">int</a> second, <a href="#int">int</a> milliSecond, <a href="#string">string</a> zoneId) (Time )
+                            </h3>
+                            <p>Returns the the date and time components and timezone.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>year</td><td><a href="#int">int</a></td><td>The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>month</td><td><a href="#int">int</a></td><td>The month-of-year to represent, from 1 (January) to 12 (December)</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>date</td><td><a href="#int">int</a></td><td>The day-of-month to represent, from 1 to 31</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>hour</td><td><a href="#int">int</a></td><td>The hour-of-day to represent, from 0 to 23</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>minute</td><td><a href="#int">int</a></td><td>The minute-of-hour to represent, from 0 to 59</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>second</td><td><a href="#int">int</a></td><td>The second-of-minute to represent, from 0 to 59</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>milliSecond</td><td><a href="#int">int</a></td><td>The milli-of-second to represent, from 0 to 999</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>zoneId</td><td><a href="#string">string</a></td><td>The zone id of the required timezone</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>ballerina.lang.time:Time: Time struct containing time and zone information.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="currentTime">
+                                function currentTime() (Time )
+                            </h3>
+                            <p>Returns the current time value with the system default timezone.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>ballerina.lang.time:Time: Time struct containing the time and zone information.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="close">
+                                function close() 
+                            </h3>
+                            <p>Releases the database connection.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getNext">
+                                function getNext() (any )
+                            </h3>
+                            <p>Retrives the current row and return a struct with the data in the columns</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#any">any</a></td><td>any: The resulting row as a struct</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="hasNext">
+                                function hasNext() (boolean )
+                            </h3>
+                            <p>Checks for a new row in the given datatable. If a new row is found, moves the cursor to it.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: True if there is a new row; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getKeys">
+                                function getKeys() (string[] )
+                            </h3>
+                            <p>Returns an array of keys contained in the specified JSON.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: A string array of keys contained in the specified JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                function remove(<a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes each element that matches the given key.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>Key of the field to remove</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString() (string )
+                            </h3>
+                            <p>Converts a JSON object to a string representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: String value of the converted JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toXML">
+                                function toXML(<a href="" title="jsonOptions">jsonOptions</a> options) (xml )
+                            </h3>
+                            <p>Converts a JSON object to a XML representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>options</td><td><a href="" title="jsonOptions">jsonOptions</a></td><td>j: A JSON object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: XML value of the converted JSON</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="contains">
+                                function contains(<a href="#string">string</a> subString) (boolean )
+                            </h3>
+                            <p>Returns a Boolean value indicating whether a string contains the specified substring</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>subString</td><td><a href="#string">string</a></td><td>The substring to be compared</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: True if the string contains the substring; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="equalsIgnoreCase">
+                                function equalsIgnoreCase(<a href="#string">string</a> anotherString) (boolean )
+                            </h3>
+                            <p>Compares two strings, ignoring the case of the strings</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>anotherString</td><td><a href="#string">string</a></td><td>The string to be compared</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: True if the strings are equal; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="hasPrefix">
+                                function hasPrefix(<a href="#string">string</a> prefix) (boolean )
+                            </h3>
+                            <p>Returns a Boolean value indicating whether a string starts with the specified prefix</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>prefix</td><td><a href="#string">string</a></td><td>The prefix to be compared</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: True if the string starts with the prefix; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="hasSuffix">
+                                function hasSuffix(<a href="#string">string</a> suffix) (boolean )
+                            </h3>
+                            <p>Returns a Boolean value indicating whether the string ends with specified suffix</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>suffix</td><td><a href="#string">string</a></td><td>The suffix to be compared</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: True if the string ends with the suffix; false otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="indexOf">
+                                function indexOf(<a href="#string">string</a> subString) (int )
+                            </h3>
+                            <p>Returns the first index of the first occurence of the substring within the specified string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>subString</td><td><a href="#string">string</a></td><td>The substring to search for</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The index of the first occurence of the substring</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="lastIndexOf">
+                                function lastIndexOf(<a href="#string">string</a> subString) (int )
+                            </h3>
+                            <p>Returns the first index of the last occurence of the substring within the specified string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>subString</td><td><a href="#string">string</a></td><td>The substring to search for</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The index of the last occurence of the substring</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="length">
+                                function length() (int )
+                            </h3>
+                            <p>Returns the length of the specified string </p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The length of the specified string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="replace">
+                                function replace(<a href="#string">string</a> replacePattern, <a href="#string">string</a> replaceWith) (string )
+                            </h3>
+                            <p>Replaces all instances of the replacePattern string with the replaceWith string and returns the result</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replacePattern</td><td><a href="#string">string</a></td><td>The pattern to search for</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replaceWith</td><td><a href="#string">string</a></td><td>The replacement string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="replaceAll">
+                                function replaceAll(<a href="#string">string</a> replacePattern, <a href="#string">string</a> replaceWith) (string )
+                            </h3>
+                            <p>Replaces each substring of the mainString that matches the given regular expression with the given replacement</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replacePattern</td><td><a href="#string">string</a></td><td>The regular expression to search for</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replaceWith</td><td><a href="#string">string</a></td><td>The replacement string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="replaceFirst">
+                                function replaceFirst(<a href="#string">string</a> replacePattern, <a href="#string">string</a> replaceWith) (string )
+                            </h3>
+                            <p>Replaces the first instance of the replacePattern with the replaceWith string and returns the result</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replacePattern</td><td><a href="#string">string</a></td><td>The pattern to search for</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>replaceWith</td><td><a href="#string">string</a></td><td>The replacement string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="split">
+                                function split(<a href="#string">string</a> regex) (string[] )
+                            </h3>
+                            <p>Splits the string with the given regular expression to produce a string array.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>regex</td><td><a href="#string">string</a></td><td>The regex to split the string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: The split string array</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="subString">
+                                function subString(<a href="#int">int</a> from, <a href="#int">int</a> to) (string )
+                            </h3>
+                            <p>Returns a new string that is the substring of the specified string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>from</td><td><a href="#int">int</a></td><td>The starting index</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>to</td><td><a href="#int">int</a></td><td>The ending index</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived sub string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toBlob">
+                                function toBlob(<a href="#string">string</a> encoding) (blob )
+                            </h3>
+                            <p>Converts string to a BLOB</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>encoding</td><td><a href="#string">string</a></td><td>Encoding to used in the conversion</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>blob: BLOB representation of the given String</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toLowerCase">
+                                function toLowerCase() (string )
+                            </h3>
+                            <p>Returns a string with all the characters converted to lowercase</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The string converted to lowercase</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toUpperCase">
+                                function toUpperCase() (string )
+                            </h3>
+                            <p>Returns a string with all the characters converted to uppercase</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The string converted to uppercase</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="trim">
+                                function trim() (string )
+                            </h3>
+                            <p>Returns a trimmed string by omitting the leading and trailing whitespaces of the original string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="unescape">
+                                function unescape() (string )
+                            </h3>
+                            <p>Returns an unescaped string by omitting the escape characters of the original string</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The derived string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="keys">
+                                function keys() (string[] )
+                            </h3>
+                            <p>Returns an array of keys contained in the specified map</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>string[]: A string array of keys contained in the specified map </td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="length">
+                                function length() (int )
+                            </h3>
+                            <p>Returns the length of the specified map</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The number of elements in the map object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                function remove(<a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes the specified element from the map</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>The key to be removed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="parse">
+                                function parse(<a href="#string">string</a> data, <a href="#string">string</a> format) (Time )
+                            </h3>
+                            <p>Returns the time for the given string representation based on the given format string.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>data</td><td><a href="#string">string</a></td><td>The time text to parse</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>format</td><td><a href="#string">string</a></td><td>The format which is used to parse the given text</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>ballerina.lang.time:Time: Time struct containing time and zone information.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="print">
+                                function print(<a href="#any">any</a> a) 
+                            </h3>
+                            <p>Prints a &#x27;any&#x27; value to the STDOUT</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>a</td><td><a href="#any">any</a></td><td>any value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="println">
+                                function println(<a href="#any">any</a> a) 
+                            </h3>
+                            <p>Prints an any value to the STDOUT in a new line</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>a</td><td><a href="#any">any</a></td><td>any value to be printed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="sleep">
+                                function sleep(<a href="#int">int</a> t) 
+                            </h3>
+                            <p>Halt the current thread for the specified time period</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>t</td><td><a href="#int">int</a></td><td>int: Sleep time in milliseconds</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="addDuration">
+                                function addDuration(<a href="#int">int</a> years, <a href="#int">int</a> months, <a href="#int">int</a> days, <a href="#int">int</a> hours, <a href="#int">int</a> minutes, <a href="#int">int</a> seconds, <a href="#int">int</a> milliSeconds) (Time )
+                            </h3>
+                            <p>Add specified durations to the given time value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>years</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>months</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>days</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>hours</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>minutes</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>seconds</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>milliSeconds</td><td><a href="#int">int</a></td><td>time: The time struct which needs to add the given duration</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>Time: Time struct containing time and zone information after the addition.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="day">
+                                function day() (int )
+                            </h3>
+                            <p>Returns the date representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The day-of-month, from 1 to 31.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="format">
+                                function format(<a href="#string">string</a> format) (string )
+                            </h3>
+                            <p>Returns formatted string representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>format</td><td><a href="#string">string</a></td><td>The format which is used to format the given text</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The formatted string of the given time.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getDate">
+                                function getDate() (int , int , int )
+                            </h3>
+                            <p>Returns the date representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The year representation.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The year representation.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The year representation.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getTime">
+                                function getTime() (int , int , int , int )
+                            </h3>
+                            <p>Returns the time representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The hour-of-day, from 0 to 23.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The hour-of-day, from 0 to 23.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The hour-of-day, from 0 to 23.</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The hour-of-day, from 0 to 23.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="hour">
+                                function hour() (int )
+                            </h3>
+                            <p>Returns the hour representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The hour-of-day, from 0 to 23.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="milliSecond">
+                                function milliSecond() (int )
+                            </h3>
+                            <p>Returns the millisecond representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The milli-of-second, from 0 to 999.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="minute">
+                                function minute() (int )
+                            </h3>
+                            <p>Returns the minute representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The minute-of-hour to represent, from 0 to 59.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="month">
+                                function month() (int )
+                            </h3>
+                            <p>Returns the month representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The month-of-year, from 1 (January) to 12 (December).</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="second">
+                                function second() (int )
+                            </h3>
+                            <p>Returns the second representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The second-of-minute, from 0 to 59.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="subtractDuration">
+                                function subtractDuration(<a href="#int">int</a> years, <a href="#int">int</a> months, <a href="#int">int</a> days, <a href="#int">int</a> hours, <a href="#int">int</a> minutes, <a href="#int">int</a> seconds, <a href="#int">int</a> milliSeconds) (Time )
+                            </h3>
+                            <p>Subtract specified durations from the given time value.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>years</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>months</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>days</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>hours</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>minutes</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>seconds</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>milliSeconds</td><td><a href="#int">int</a></td><td>year: The year representation</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>Time: Time struct containing time and zone information after the subtraction.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toString">
+                                function toString() (string )
+                            </h3>
+                            <p>Returns ISO 8601 string representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The ISO 8601 formatted string of the given time.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toTimezone">
+                                function toTimezone(<a href="#string">string</a> zoneId) (Time )
+                            </h3>
+                            <p>Change the timezone of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>zoneId</td><td><a href="#string">string</a></td><td>The new timezone id</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>Time: Time struct containing time and zone information after the conversion.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="weekday">
+                                function weekday() (string )
+                            </h3>
+                            <p>Returns the weekday representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: The weekday representation from SUNDAY to SATURDAY.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="year">
+                                function year() (int )
+                            </h3>
+                            <p>Returns the year representation of the given time.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The year representation.</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="children">
+                                function children() (xml )
+                            </h3>
+                            <p>Selects all the children of the elements in an XML, and return as a sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the children of the elements in the xml</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="copy">
+                                function copy() (xml )
+                            </h3>
+                            <p>Make a deep copy of an XML.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: A Copy of the XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="elements">
+                                function elements() (xml )
+                            </h3>
+                            <p>Get all the items that are of element type in an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the elements-type items in the given XML sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getElementName">
+                                function getElementName() (string )
+                            </h3>
+                            <p>Get the fully qualified name of the element as a string. Returns an empty string if the XML is not a singleton.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Qualified name of the XML as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getItemType">
+                                function getItemType() (string )
+                            </h3>
+                            <p>Get the type of a XML as a string. If the XML is singleton, type can be one of &#x27;element&#x27;, &#x27;text&#x27;, &#x27;comment&#x27; or &#x27;pi&#x27;. Returns an empty string if the XML is not a singleton.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Type of the XML as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getTextValue">
+                                function getTextValue() (string )
+                            </h3>
+                            <p>Get the text value of a XML. If the XML is a sequence, concatenation of the text values of the members of the sequence is returned. If the XML is an element, then the text value of the sequence of children is returned.  If the XML is a text item, then the text is returned. Otherwise, an empty string is returned.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>xml: Text value of the xml</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isEmpty">
+                                function isEmpty() (boolean )
+                            </h3>
+                            <p>Check whether the XML sequence is empty.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>xml: Boolean flag indicating whether the XML sequence is empty</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isSingleton">
+                                function isSingleton() (boolean )
+                            </h3>
+                            <p>Check whether the XML sequence contains only a single element.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>xml: Boolean flag indicating whether the XML sequence contains only a single element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="removeAttribute">
+                                function removeAttribute(<a href="#string">string</a> qname) 
+                            </h3>
+                            <p>Remove an attribute from an XML.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the attribute</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="select">
+                                function select(<a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Get all the items that are of element type, and matches the given qualified name, in an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the elements-type items in the given XML sequence, that matches the qualified name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="selectChildren">
+                                function selectChildren(<a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Selects all the children of the elements in this sequence that matches the given qualified name.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the children of the elements in this sequence that matches the given qualified name</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="selectDescendants">
+                                function selectDescendants(<a href="#string">string</a> qname) (xml )
+                            </h3>
+                            <p>Searches in children recursively for elements matching the qualified name and returns a sequence containing them all. Does not search within a matched result.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>qname</td><td><a href="#string">string</a></td><td>Qualified name of the element</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: All the descendants that matches the given qualified name, as a sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setAttributes">
+                                function setAttributes(<a href="#map">map</a> attributes) 
+                            </h3>
+                            <p>Sets the attributes to the provided attributes map.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>attributes</td><td><a href="#map">map</a></td><td>Attributes map</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setChildren">
+                                function setChildren(<a href="#xml">xml</a> children) 
+                            </h3>
+                            <p>Set the children of an XML if its a singleton. An Error otherwise. Any existing children will be removed.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>children</td><td><a href="#xml">xml</a></td><td>x: An XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="slice">
+                                function slice(<a href="#int">int</a> startIndex, <a href="#int">int</a> endIndex) (xml )
+                            </h3>
+                            <p>Slice and return a subsequence of the an XML sequence.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>startIndex</td><td><a href="#int">int</a></td><td>Start index, inclusive</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>endIndex</td><td><a href="#int">int</a></td><td>End index, exclusive</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Sliced sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="strip">
+                                function strip() (xml )
+                            </h3>
+                            <p>Strips any text items from an XML sequence that are all whitespace.</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#xml">xml</a></td><td>xml: Striped sequence</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toJSON">
+                                function toJSON(<a href="" title="xmlOptions">xmlOptions</a> options) (json )
+                            </h3>
+                            <p>Converts a XML object to a JSON representation</p>
+
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>options</td><td><a href="" title="xmlOptions">xmlOptions</a></td><td>x: A XML object</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#json">json</a></td><td>json: JSON representation of the given XML</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.builtin package</h2>
+                         
+                        <h3 id="IllegalStateException">struct IllegalStateException</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="NullReferenceException">struct NullReferenceException</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="StackFrame">struct StackFrame</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>caller</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>packageName</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>fileName</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>lineNumber</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Time">struct Time</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>time</td><td><a href="#int">int</a></td><td>Time value as milliseconds since epoch.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>zone</td><td><a href="" title="Timezone">Timezone</a></td><td>The time   zone of the time.</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="Timezone">struct Timezone</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>zoneId</td><td><a href="#string">string</a></td><td>Zone short ID or offset string.</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>zoneOffset</td><td><a href="#int">int</a></td><td>The offset in seconds.</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="TypeCastError">struct TypeCastError</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sourceType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>targetType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="TypeConversionError">struct TypeConversionError</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sourceType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>targetType</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="error">struct error</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="jsonOptions">struct jsonOptions</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>attributePrefix</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>arrayEntryTag</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                         
+                        <h3 id="xmlOptions">struct xmlOptions</h3>
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>attributePrefix</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>preserveNamespaces</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        <br> 
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.builtin package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="Description">annotation Description</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="Field">annotation Field</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="Param">annotation Param</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="Return">annotation Return</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#toString">[blob] toString(string encoding) (string )</a>
+                                </li>
+                            
+                                <li><a href="#createTime">createTime(int year, int month, int date, int hour, int minute, int second, int milliSecond, string zoneId) (Time )</a>
+                                </li>
+                            
+                                <li><a href="#currentTime">currentTime() (Time )</a>
+                                </li>
+                            
+                                <li><a href="#close">[datatable] close() </a>
+                                </li>
+                            
+                                <li><a href="#getNext">[datatable] getNext() (any )</a>
+                                </li>
+                            
+                                <li><a href="#hasNext">[datatable] hasNext() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#getKeys">[json] getKeys() (string[] )</a>
+                                </li>
+                            
+                                <li><a href="#remove">[json] remove(string key) </a>
+                                </li>
+                            
+                                <li><a href="#toString">[json] toString() (string )</a>
+                                </li>
+                            
+                                <li><a href="#toXML">[json] toXML(jsonOptions options) (xml )</a>
+                                </li>
+                            
+                                <li><a href="#contains">[string] contains(string subString) (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#equalsIgnoreCase">[string] equalsIgnoreCase(string anotherString) (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#hasPrefix">[string] hasPrefix(string prefix) (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#hasSuffix">[string] hasSuffix(string suffix) (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#indexOf">[string] indexOf(string subString) (int )</a>
+                                </li>
+                            
+                                <li><a href="#lastIndexOf">[string] lastIndexOf(string subString) (int )</a>
+                                </li>
+                            
+                                <li><a href="#length">[string] length() (int )</a>
+                                </li>
+                            
+                                <li><a href="#replace">[string] replace(string replacePattern, string replaceWith) (string )</a>
+                                </li>
+                            
+                                <li><a href="#replaceAll">[string] replaceAll(string replacePattern, string replaceWith) (string )</a>
+                                </li>
+                            
+                                <li><a href="#replaceFirst">[string] replaceFirst(string replacePattern, string replaceWith) (string )</a>
+                                </li>
+                            
+                                <li><a href="#split">[string] split(string regex) (string[] )</a>
+                                </li>
+                            
+                                <li><a href="#subString">[string] subString(int from, int to) (string )</a>
+                                </li>
+                            
+                                <li><a href="#toBlob">[string] toBlob(string encoding) (blob )</a>
+                                </li>
+                            
+                                <li><a href="#toLowerCase">[string] toLowerCase() (string )</a>
+                                </li>
+                            
+                                <li><a href="#toUpperCase">[string] toUpperCase() (string )</a>
+                                </li>
+                            
+                                <li><a href="#trim">[string] trim() (string )</a>
+                                </li>
+                            
+                                <li><a href="#unescape">[string] unescape() (string )</a>
+                                </li>
+                            
+                                <li><a href="#keys">[map] keys() (string[] )</a>
+                                </li>
+                            
+                                <li><a href="#length">[map] length() (int )</a>
+                                </li>
+                            
+                                <li><a href="#remove">[map] remove(string key) </a>
+                                </li>
+                            
+                                <li><a href="#parse">parse(string data, string format) (Time )</a>
+                                </li>
+                            
+                                <li><a href="#print">print(any a) </a>
+                                </li>
+                            
+                                <li><a href="#println">println(any a) </a>
+                                </li>
+                            
+                                <li><a href="#sleep">sleep(int t) </a>
+                                </li>
+                            
+                                <li><a href="#addDuration">[Time] addDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) (Time )</a>
+                                </li>
+                            
+                                <li><a href="#day">[Time] day() (int )</a>
+                                </li>
+                            
+                                <li><a href="#format">[Time] format(string format) (string )</a>
+                                </li>
+                            
+                                <li><a href="#getDate">[Time] getDate() (int , int , int )</a>
+                                </li>
+                            
+                                <li><a href="#getTime">[Time] getTime() (int , int , int , int )</a>
+                                </li>
+                            
+                                <li><a href="#hour">[Time] hour() (int )</a>
+                                </li>
+                            
+                                <li><a href="#milliSecond">[Time] milliSecond() (int )</a>
+                                </li>
+                            
+                                <li><a href="#minute">[Time] minute() (int )</a>
+                                </li>
+                            
+                                <li><a href="#month">[Time] month() (int )</a>
+                                </li>
+                            
+                                <li><a href="#second">[Time] second() (int )</a>
+                                </li>
+                            
+                                <li><a href="#subtractDuration">[Time] subtractDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) (Time )</a>
+                                </li>
+                            
+                                <li><a href="#toString">[Time] toString() (string )</a>
+                                </li>
+                            
+                                <li><a href="#toTimezone">[Time] toTimezone(string zoneId) (Time )</a>
+                                </li>
+                            
+                                <li><a href="#weekday">[Time] weekday() (string )</a>
+                                </li>
+                            
+                                <li><a href="#year">[Time] year() (int )</a>
+                                </li>
+                            
+                                <li><a href="#children">[xml] children() (xml )</a>
+                                </li>
+                            
+                                <li><a href="#copy">[xml] copy() (xml )</a>
+                                </li>
+                            
+                                <li><a href="#elements">[xml] elements() (xml )</a>
+                                </li>
+                            
+                                <li><a href="#getElementName">[xml] getElementName() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getItemType">[xml] getItemType() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getTextValue">[xml] getTextValue() (string )</a>
+                                </li>
+                            
+                                <li><a href="#isEmpty">[xml] isEmpty() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#isSingleton">[xml] isSingleton() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#removeAttribute">[xml] removeAttribute(string qname) </a>
+                                </li>
+                            
+                                <li><a href="#select">[xml] select(string qname) (xml )</a>
+                                </li>
+                            
+                                <li><a href="#selectChildren">[xml] selectChildren(string qname) (xml )</a>
+                                </li>
+                            
+                                <li><a href="#selectDescendants">[xml] selectDescendants(string qname) (xml )</a>
+                                </li>
+                            
+                                <li><a href="#setAttributes">[xml] setAttributes(map attributes) </a>
+                                </li>
+                            
+                                <li><a href="#setChildren">[xml] setChildren(xml children) </a>
+                                </li>
+                            
+                                <li><a href="#slice">[xml] slice(int startIndex, int endIndex) (xml )</a>
+                                </li>
+                            
+                                <li><a href="#strip">[xml] strip() (xml )</a>
+                                </li>
+                            
+                                <li><a href="#toJSON">[xml] toJSON(xmlOptions options) (json )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                         
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#IllegalStateException ">IllegalStateException</a></li>
+                                
+                                    <li><a href="#NullReferenceException ">NullReferenceException</a></li>
+                                
+                                    <li><a href="#StackFrame ">StackFrame</a></li>
+                                
+                                    <li><a href="#Time ">Time</a></li>
+                                
+                                    <li><a href="#Timezone ">Timezone</a></li>
+                                
+                                    <li><a href="#TypeCastError ">TypeCastError</a></li>
+                                
+                                    <li><a href="#TypeConversionError ">TypeConversionError</a></li>
+                                
+                                    <li><a href="#error ">error</a></li>
+                                
+                                    <li><a href="#jsonOptions ">jsonOptions</a></li>
+                                
+                                    <li><a href="#xmlOptions ">xmlOptions</a></li>
+                                
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#Description ">Description</a></li>
+                                
+                                    <li><a href="#Field ">Field</a></li>
+                                
+                                    <li><a href="#Param ">Param</a></li>
+                                
+                                    <li><a href="#Return ">Return</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

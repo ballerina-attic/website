@@ -76,14 +76,14 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span><span class="p">[]</span> <span class="nx">intArray</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>    <span class="kt">int</span> <span class="nx">arrayLength</span><span class="p">;</span>
     <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">intArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Integer array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Integer array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">jsonArray</span> <span class="p">=</span> <span class="p">[{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="mi">31</span><span class="p">},</span>
                       <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Neal&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">}];</span>
     <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">jsonArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -105,17 +105,6 @@
                               <td class="docs">
                                   <p>Ballerina supports &lsquo;lengthof&rsquo; which returns the length of an array.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -154,7 +143,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">intArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Integer array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Integer array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -180,7 +169,7 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">arrayLength</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">jsonArray</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;JSON array size : &quot;</span> <span class="o">+</span> <span class="nx">arrayLength</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

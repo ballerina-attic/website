@@ -76,33 +76,43 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-    <span class="kt">blob</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Sample Content&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file written: /tmp/result.txt&quot;</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">exists</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file existence: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-    <span class="k">var</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">read</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="mi">100000</span><span class="p">);</span>
-    <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file content: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">source</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/copy.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file copied: /tmp/result.txt to /tmp/copy.txt&quot;</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/copy.txt&quot;</span><span class="p">);</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">time</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">file</span><span class="p">:</span><span class="nx">W</span><span class="p">);</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">exists</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file exists: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">source</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/copy.txt&quot;</span><span class="p">};</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file copied: /tmp/result.txt to /tmp/copy.txt&quot;</span><span class="p">);</span>
+    <span class="nx">destination</span><span class="p">.</span><span class="nx">delete</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/copy.txt&quot;</span><span class="p">);</span>
     <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/move.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">move</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file moved: /tmp/result.txt to /tmp/move.txt&quot;</span><span class="p">);</span>    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/move.txt&quot;</span><span class="p">);</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">move</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file moved: /tmp/result.txt to /tmp/move.txt&quot;</span><span class="p">);</span>    <span class="nx">destination</span><span class="p">.</span><span class="nx">delete</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/move.txt&quot;</span><span class="p">);</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">dirs</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/def&quot;</span><span class="p">};</span>
+    <span class="k">var</span> <span class="nx">dirCreated</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">dirs</span><span class="p">.</span><span class="nx">mkdirs</span><span class="p">();</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">possibleDir</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc&quot;</span><span class="p">};</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file is a directory: &quot;</span> <span class="o">+</span> <span class="nx">possibleDir</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">());</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file1.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file2.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile2</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile3</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file3.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile3</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>
+    <span class="k">var</span> <span class="nx">filesList</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">possibleDir</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">i</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">lengthof</span> <span class="nx">filesList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">filesList</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">string</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+    <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">lastModifiedTime</span><span class="p">;</span>
+    <span class="nx">lastModifiedTime</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">getModifiedTime</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; modified at: &quot;</span> <span class="o">+</span> <span class="nx">lastModifiedTime</span><span class="p">.</span><span class="nx">time</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; is readable: &quot;</span> <span class="o">+</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">isReadable</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; is writable: &quot;</span> <span class="o">+</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">isWritable</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -122,14 +132,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The &lsquo;ballerina.lang.files&rsquo; package contains basic file handling functions.</p>
+                                  <p>The &lsquo;ballerina.file&rsquo; package contains basic file handling functions.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">blobs</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">time</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -152,22 +160,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Here&rsquo;s how you can write a string into a file.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">blob</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Sample Content&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file written: /tmp/result.txt&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">file</span><span class="p">:</span><span class="nx">W</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -179,7 +173,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">target</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -191,24 +185,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">exists</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file existence: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Open file in read mode. Returns the content as blob and the number of bytes read.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-    <span class="k">var</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">files</span><span class="p">:</span><span class="nx">read</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="mi">100000</span><span class="p">);</span>
-    <span class="kt">string</span> <span class="nx">s</span> <span class="p">=</span> <span class="nx">blobs</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file content: &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">);</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">exists</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file exists: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -220,10 +198,10 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">source</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/copy.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file copied: /tmp/result.txt to /tmp/copy.txt&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">source</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/copy.txt&quot;</span><span class="p">};</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">copy</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file copied: /tmp/result.txt to /tmp/copy.txt&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -235,8 +213,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/copy.txt&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">destination</span><span class="p">.</span><span class="nx">delete</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/copy.txt&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -249,8 +227,8 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">destination</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/move.txt&quot;</span><span class="p">};</span>
-    <span class="nx">files</span><span class="p">:</span><span class="nx">move</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file moved: /tmp/result.txt to /tmp/move.txt&quot;</span><span class="p">);</span>
+    <span class="nx">file</span><span class="p">:</span><span class="nx">move</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file moved: /tmp/result.txt to /tmp/move.txt&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -260,9 +238,117 @@
                               <td class="docs">
                                   
                               </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">destination</span><span class="p">.</span><span class="nx">delete</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/move.txt&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create a directory, along with the parent directories</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">dirs</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/def&quot;</span><span class="p">};</span>
+    <span class="k">var</span> <span class="nx">dirCreated</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">dirs</span><span class="p">.</span><span class="nx">mkdirs</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Check if a file is a directory</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">possibleDir</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc&quot;</span><span class="p">};</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;file is a directory: &quot;</span> <span class="o">+</span> <span class="nx">possibleDir</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create new files inside a directory (ignoring all 3 possible return values)</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file1.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file2.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile2</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">newFile3</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/dir/abc/file3.txt&quot;</span><span class="p">};</span>
+    <span class="nx">_</span><span class="p">,</span><span class="nx">_</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile3</span><span class="p">.</span><span class="nx">createNewFile</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the list of files in a directory</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">filesList</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">possibleDir</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Print the list of files in directory &ldquo;/tmp/dir/abc&rdquo;</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">i</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">lengthof</span> <span class="nx">filesList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">filesList</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get file meta data</p>
+
+                              </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">files</span><span class="p">:</span><span class="nx">delete</span><span class="p">(</span><span class="nx">destination</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;file deleted: /tmp/move.txt&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">name</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+    <span class="nx">time</span><span class="p">:</span><span class="nx">Time</span> <span class="nx">lastModifiedTime</span><span class="p">;</span>
+    <span class="nx">lastModifiedTime</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">getModifiedTime</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; modified at: &quot;</span> <span class="o">+</span> <span class="nx">lastModifiedTime</span><span class="p">.</span><span class="nx">time</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; is readable: &quot;</span> <span class="o">+</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">isReadable</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&quot; is writable: &quot;</span> <span class="o">+</span> <span class="nx">newFile1</span><span class="p">.</span><span class="nx">isWritable</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -282,13 +368,19 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run file-api.bal
-<span class="go">file written: /tmp/result.txt</span>
-<span class="go">file existence: true</span>
-<span class="go">file content: Sample Content</span>
+<span class="go">file exists: true</span>
 <span class="go">file copied: /tmp/result.txt to /tmp/copy.txt</span>
 <span class="go">file deleted: /tmp/copy.txt</span>
 <span class="go">file moved: /tmp/result.txt to /tmp/move.txt</span>
 <span class="go">file deleted: /tmp/move.txt</span>
+<span class="go">file is a directory: true</span>
+<span class="go">{path:&quot;/tmp/dir/abc/file3.txt&quot;}</span>
+<span class="go">{path:&quot;/tmp/dir/abc/file2.txt&quot;}</span>
+<span class="go">{path:&quot;/tmp/dir/abc/file1.txt&quot;}</span>
+<span class="go">{path:&quot;/tmp/dir/abc/def&quot;}</span>
+<span class="go">file1.txt modified at: 1509125400000</span>
+<span class="go">file1.txt is readable: true</span>
+<span class="go">file1.txt is writable: true</span>
 </pre></div>
 
                               </td>

@@ -76,8 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">remainder</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">divideBy10</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">remainder</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">d</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">divideBy5</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">d</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">quotient</span><span class="p">,</span> <span class="kt">int</span> <span class="nx">remainder</span><span class="p">)</span> <span class="p">{</span>
@@ -90,17 +89,15 @@
     <span class="k">return</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">;</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>    <span class="k">var</span> <span class="nx">q2</span><span class="p">,</span> <span class="nx">r2</span> <span class="p">=</span> <span class="nx">divideBy5</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/5: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q2</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>    <span class="kt">int</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>    <span class="k">var</span> <span class="nx">q2</span><span class="p">,</span> <span class="nx">r2</span> <span class="p">=</span> <span class="nx">divideBy5</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/5: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q2</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>    <span class="kt">int</span> <span class="nx">a</span><span class="p">;</span>
     <span class="kt">float</span> <span class="nx">b</span><span class="p">;</span>
     <span class="kt">boolean</span> <span class="nx">c</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">d</span><span class="p">;</span>
-    <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span> <span class="p">=</span> <span class="nx">getDefaultValues</span><span class="p">();</span>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;c: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;d: &quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">);</span>
+    <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span> <span class="p">=</span> <span class="nx">getDefaultValues</span><span class="p">();</span>    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;c: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;d: &quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -121,18 +118,6 @@
                           <tr>
                               <td class="docs">
                                   <p>Return values in the function signature can be named in Ballerina. They should be used to document the meaning of the return values.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>These names are treated as variables defined at the top of the function.</p>
 
                               </td>
                               <td class="code leading">
@@ -182,8 +167,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nx">q1</span><span class="p">,</span> <span class="nx">r1</span> <span class="p">=</span> <span class="nx">divideBy10</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/10: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r1</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -195,8 +179,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">q2</span><span class="p">,</span> <span class="nx">r2</span> <span class="p">=</span> <span class="nx">divideBy5</span><span class="p">(</span><span class="mi">93</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/5: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q2</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>
-                   <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;93/5: &quot;</span> <span class="o">+</span> <span class="s">&quot;quotient=&quot;</span> <span class="o">+</span> <span class="nx">q2</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;remainder=&quot;</span> <span class="o">+</span> <span class="nx">r2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -222,10 +205,10 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;c: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;d: &quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;c: &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;d: &quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

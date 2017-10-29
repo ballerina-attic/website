@@ -76,23 +76,21 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">jsons</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">k</span> <span class="p">=</span> <span class="mf">2.34</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 -&gt; w2] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; k: &quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 -&gt; w2] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; k: &quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
         <span class="nx">i</span><span class="p">,</span> <span class="nx">k</span> <span class="o">-&gt;</span> <span class="nx">w2</span><span class="p">;</span>
         <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">j</span> <span class="o">&lt;-</span> <span class="nx">w2</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 &lt;- w2] j: &quot;</span> <span class="o">+</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">j</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 &lt;- w2] j: &quot;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
     <span class="p">}</span>    <span class="kd">worker</span> <span class="nx">w2</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="nx">iw</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">kw</span><span class="p">;</span>
         <span class="nx">iw</span><span class="p">,</span> <span class="nx">kw</span> <span class="o">&lt;-</span> <span class="nx">w1</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 &lt;- w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 &lt;- w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
         <span class="kt">json</span> <span class="nx">jw</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 -&gt; w1] jw: &quot;</span> <span class="o">+</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">jw</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 -&gt; w1] jw: &quot;</span> <span class="o">+</span> <span class="nx">jw</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
         <span class="nx">jw</span> <span class="o">-&gt;</span> <span class="nx">w1</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -118,19 +116,6 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">jsons</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Workers interact with each other by sending and receiving messages. Ballerina checks the send/receive signatures of every pair of workers and validate in order to avoid deadlocks.</p>
-
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -145,7 +130,7 @@
                                   <div class="highlight"><pre>    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">k</span> <span class="p">=</span> <span class="mf">2.34</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 -&gt; w2] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; k: &quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 -&gt; w2] i: &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s">&quot; k: &quot;</span> <span class="o">+</span> <span class="nx">k</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -171,7 +156,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">j</span> <span class="o">&lt;-</span> <span class="nx">w2</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 &lt;- w2] j: &quot;</span> <span class="o">+</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">j</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w1 &lt;- w2] j: &quot;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -198,7 +183,7 @@
                                   <div class="highlight"><pre>        <span class="kt">int</span> <span class="nx">iw</span><span class="p">;</span>
         <span class="kt">float</span> <span class="nx">kw</span><span class="p">;</span>
         <span class="nx">iw</span><span class="p">,</span> <span class="nx">kw</span> <span class="o">&lt;-</span> <span class="nx">w1</span><span class="p">;</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 &lt;- w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 &lt;- w1] iw: &quot;</span> <span class="o">+</span> <span class="nx">iw</span> <span class="o">+</span> <span class="s">&quot; kw: &quot;</span> <span class="o">+</span> <span class="nx">kw</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -211,7 +196,7 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">jw</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 -&gt; w1] jw: &quot;</span> <span class="o">+</span> <span class="nx">jsons</span><span class="p">:</span><span class="nx">toString</span><span class="p">(</span><span class="nx">jw</span><span class="p">));</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;[w2 -&gt; w1] jw: &quot;</span> <span class="o">+</span> <span class="nx">jw</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
         <span class="nx">jw</span> <span class="o">-&gt;</span> <span class="nx">w1</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>

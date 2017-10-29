@@ -76,29 +76,29 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.0</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">i</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">f</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
     <span class="kt">int</span> <span class="nx">intVal</span> <span class="p">=</span> <span class="mi">45</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">strVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="nx">intVal</span><span class="p">;</span>
     <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;Sri Lanka&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nx">conversionErr</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">conversionErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">conversionErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">conversionErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;5&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
     <span class="kt">boolean</span> <span class="nx">boolVal</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="nx">intVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">boolVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span><span class="p">);</span>
     <span class="nx">intVal</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
     <span class="nx">boolVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span> <span class="nx">intVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
     <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;true&quot;</span><span class="p">;</span>
     <span class="nx">boolVal</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -123,17 +123,6 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
@@ -149,7 +138,7 @@ There are safe and unsafe conversions. For unsafe conversions, Ballerina compile
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">float</span> <span class="nx">f</span> <span class="p">=</span> <span class="mf">10.0</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">i</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">f</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -178,7 +167,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;Sri Lanka&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nx">conversionErr</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">conversionErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">conversionErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">conversionErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -193,7 +182,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;5&quot;</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -207,7 +196,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">boolVal</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="nx">intVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">boolVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">intVal</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -221,7 +210,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">intVal</span> <span class="p">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
     <span class="nx">boolVal</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span> <span class="nx">intVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -235,7 +224,7 @@ Compiler will enforce you to use multi-return conversion expression as follows.<
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">strVal</span> <span class="p">=</span> <span class="s">&quot;true&quot;</span><span class="p">;</span>
     <span class="nx">boolVal</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">boolean</span><span class="p">&gt;</span><span class="nx">strVal</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

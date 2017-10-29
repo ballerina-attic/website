@@ -76,26 +76,25 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">string</span><span class="p">[]</span> <span class="nx">data</span> <span class="p">=</span> <span class="kc">null</span><span class="p">;</span>
     <span class="nx">files</span><span class="p">:</span><span class="nx">File</span> <span class="nx">target</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="s">&quot;/tmp/result.txt&quot;</span><span class="p">};</span>
     <span class="nx">try</span> <span class="p">{</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-        <span class="kt">blob</span> <span class="nx">c1</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Content1&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">content</span><span class="p">=</span> <span class="s">&quot;Content1&quot;</span><span class="p">;</span>
+        <span class="kt">blob</span> <span class="nx">c1</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c1</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
-        <span class="kt">blob</span> <span class="nx">c2</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+        <span class="kt">blob</span> <span class="nx">c2</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c2</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">NullReferenceException</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;NullReferenceException error occurred&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;NullReferenceException error occurred&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">finally</span> <span class="p">{</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;File Closed&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File Closed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -124,8 +123,6 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -163,9 +160,10 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">try</span> <span class="p">{</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">open</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-        <span class="kt">blob</span> <span class="nx">c1</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;Content1&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">content</span><span class="p">=</span> <span class="s">&quot;Content1&quot;</span><span class="p">;</span>
+        <span class="kt">blob</span> <span class="nx">c1</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
         <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c1</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -177,7 +175,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">c2</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">:</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="kt">blob</span> <span class="nx">c2</span> <span class="p">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -190,7 +188,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">files</span><span class="p">:</span><span class="nx">write</span><span class="p">(</span><span class="nx">c2</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;content is written to file&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -206,7 +204,7 @@ error type and catch clause&rsquo;s error type are structurally equivalent.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -219,7 +217,7 @@ error type and catch clause&rsquo;s error type are structurally equivalent.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="p">}</span> <span class="nx">catch</span> <span class="p">(</span><span class="nx">NullReferenceException</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;NullReferenceException error occurred&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;NullReferenceException error occurred&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">finally</span> <span class="p">{</span>
 </pre></div>
 
@@ -233,7 +231,7 @@ error type and catch clause&rsquo;s error type are structurally equivalent.</p>
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>        <span class="nx">files</span><span class="p">:</span><span class="nx">close</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;File Closed&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File Closed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

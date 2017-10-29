@@ -76,8 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span> <span class="nx">testDB</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
         <span class="nx">sql</span><span class="p">:</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
         <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">5</span><span class="p">});</span>
@@ -91,17 +90,17 @@
         <span class="kt">int</span> <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO CUSTOMER(ID,NAME)</span>
 <span class="s">                    VALUES (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
         <span class="nx">count</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, MON_SALARY)</span>
-<span class="s">                    VALUES (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
+<span class="s">                    VALUES (1, 2500)&quot;</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">abort</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
         <span class="nx">retry</span> <span class="mi">4</span><span class="p">;</span>
     <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -131,8 +130,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -213,7 +211,7 @@ throw errors due to SQL errors, connection pool errors etc.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -257,7 +255,7 @@ is reached.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -287,7 +285,7 @@ the specified count.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
 </pre></div>
 
@@ -301,7 +299,7 @@ is successfully committed.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 

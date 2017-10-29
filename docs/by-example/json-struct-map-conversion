@@ -76,7 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">struct</span> <span class="nx">person</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">struct</span> <span class="nx">person</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">fname</span><span class="p">;</span>
     <span class="kt">string</span> <span class="nx">lname</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
@@ -90,18 +90,18 @@
                             <span class="nx">released</span><span class="p">:</span><span class="s">&quot;08 Jan 2016&quot;</span><span class="p">,</span>
                             <span class="nx">writer</span><span class="p">:{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Michael&quot;</span><span class="p">,</span>
                                        <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Punke&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">30</span><span class="p">}};</span>
-    <span class="k">var</span> <span class="nx">j</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">lname</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">lname</span><span class="p">);</span>
     <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">writer</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">person</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;writer&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">writer</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">writer</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">inceptionJ</span> <span class="p">=</span> <span class="p">{</span><span class="nx">title</span><span class="p">:</span><span class="s">&quot;Inception&quot;</span><span class="p">,</span> <span class="nx">year</span><span class="p">:</span><span class="s">&quot;2010&quot;</span><span class="p">,</span>
                           <span class="nx">released</span><span class="p">:</span><span class="s">&quot;16 Jul 2010&quot;</span><span class="p">,</span>
                           <span class="nx">writer</span><span class="p">:{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Christopher&quot;</span><span class="p">,</span>
                                      <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Nolan&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">30</span><span class="p">}};</span>
     <span class="k">var</span> <span class="nx">inception</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">movie</span><span class="p">&gt;</span><span class="nx">inceptionJ</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">inceptionJ</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">inceptionJ</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -124,17 +124,6 @@
                                   <p>We use Ballerina structs, maps and JSON objects to hold records, where records are collections of fields with each field value accessed by a key.
 Converting from one type to another is very useful in certain situations.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">struct</span> <span class="nx">person</span> <span class="p">{</span>
@@ -185,9 +174,9 @@ This conversion is unsafe.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">j</span><span class="p">,</span><span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">lname</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">lname</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -201,7 +190,7 @@ This conversion is unsafe.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">m</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">map</span><span class="p">&gt;</span><span class="nx">theRevenant</span><span class="p">;</span>
     <span class="k">var</span> <span class="nx">writer</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">person</span><span class="p">)</span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;writer&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">writer</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">writer</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -218,7 +207,7 @@ This conversion is unsafe.</p>
                           <span class="nx">writer</span><span class="p">:{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Christopher&quot;</span><span class="p">,</span>
                                      <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Nolan&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span><span class="mi">30</span><span class="p">}};</span>
     <span class="k">var</span> <span class="nx">inception</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="nx">movie</span><span class="p">&gt;</span><span class="nx">inceptionJ</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">inceptionJ</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">inceptionJ</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 

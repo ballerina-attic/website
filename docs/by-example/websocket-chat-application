@@ -76,9 +76,7 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
     <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/chat/ws&quot;</span><span class="p">,</span>
     <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span><span class="p">,</span>
     <span class="nx">idleTimeoutInSeconds</span><span class="p">:</span> <span class="mi">3600</span>
@@ -87,17 +85,17 @@
         <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;New client connected&quot;</span><span class="p">);</span>
         <span class="nx">consMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">;</span>
     <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
         <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
     <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">con</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s">&quot;Closing connection due to inactivity in chat&quot;</span><span class="p">);</span>
     <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">consMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;User left&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">broadcast</span><span class="p">(</span><span class="kt">map</span> <span class="nx">consMap</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span><span class="p">[]</span> <span class="nx">conKeys</span> <span class="p">=</span> <span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">consMap</span><span class="p">);</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="nx">conKeys</span> <span class="p">=</span> <span class="nx">consMap</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
     <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">conKeys</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
@@ -128,9 +126,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">maps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -183,7 +179,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
         <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
@@ -208,7 +204,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">con</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s">&quot;Closing connection due to inactivity in chat&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
@@ -222,7 +218,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">maps</span><span class="p">:</span><span class="nx">remove</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">consMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
         <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;User left&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -237,7 +233,7 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">broadcast</span><span class="p">(</span><span class="kt">map</span> <span class="nx">consMap</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span><span class="p">[]</span> <span class="nx">conKeys</span> <span class="p">=</span> <span class="nx">maps</span><span class="p">:</span><span class="nx">keys</span><span class="p">(</span><span class="nx">consMap</span><span class="p">);</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="nx">conKeys</span> <span class="p">=</span> <span class="nx">consMap</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
     <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">conKeys</span><span class="p">;</span>
     <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>

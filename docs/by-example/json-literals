@@ -76,23 +76,29 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">json</span> <span class="nx">empty</span> <span class="p">=</span> <span class="p">{};</span>    <span class="kt">int</span> <span class="nx">age</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
     <span class="kt">json</span> <span class="nx">p</span> <span class="p">=</span> <span class="p">{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">firstName</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">fname</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">firstName</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">firstName</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">lastName</span> <span class="p">=</span> <span class="nx">p</span><span class="p">[</span><span class="s">&quot;lname&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">lastName</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">lastName</span><span class="p">);</span>
     <span class="nx">p</span><span class="p">.</span><span class="nx">lname</span> <span class="p">=</span> <span class="s">&quot;Silva&quot;</span><span class="p">;</span>
     <span class="nx">p</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">31</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
-    <span class="kt">json</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span> <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">,</span>
-                  <span class="nx">address</span><span class="p">:{</span><span class="nx">line</span><span class="p">:</span><span class="s">&quot;20 Palm Grove&quot;</span><span class="p">,</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+    <span class="kt">json</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span>
+                  <span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span>
+                  <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span>
+                  <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">,</span>
+                  <span class="nx">address</span><span class="p">:{</span>
+                              <span class="nx">line</span><span class="p">:</span><span class="s">&quot;20 Palm Grove&quot;</span><span class="p">,</span>
                               <span class="nx">city</span><span class="p">:</span><span class="s">&quot;Colombo 03&quot;</span><span class="p">,</span>
-                              <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span><span class="p">}};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>    <span class="nx">p2</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">province</span> <span class="p">=</span> <span class="s">&quot;Western&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+                              <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span>
+                          <span class="p">}</span>
+              <span class="p">};</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>    <span class="nx">p2</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">province</span> <span class="p">=</span> <span class="s">&quot;Western&quot;</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -114,17 +120,6 @@
                               <td class="docs">
                                   <p>JSON literals are written exactly the same way as Ballerina structs and maps.</p>
 
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">lang</span><span class="p">.</span><span class="nx">system</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -164,7 +159,7 @@ Values can be any expression.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">p</span> <span class="p">=</span> <span class="p">{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -177,7 +172,7 @@ Values can be any expression.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">firstName</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">fname</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">firstName</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">firstName</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -190,7 +185,7 @@ Values can be any expression.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">lastName</span> <span class="p">=</span> <span class="nx">p</span><span class="p">[</span><span class="s">&quot;lname&quot;</span><span class="p">];</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">lastName</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">lastName</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -204,7 +199,7 @@ Values can be any expression.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">p</span><span class="p">.</span><span class="nx">lname</span> <span class="p">=</span> <span class="s">&quot;Silva&quot;</span><span class="p">;</span>
     <span class="nx">p</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">31</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -216,11 +211,17 @@ Values can be any expression.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span><span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span> <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">,</span>
-                  <span class="nx">address</span><span class="p">:{</span><span class="nx">line</span><span class="p">:</span><span class="s">&quot;20 Palm Grove&quot;</span><span class="p">,</span>
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">p2</span> <span class="p">=</span> <span class="p">{</span>
+                  <span class="nx">fname</span><span class="p">:</span><span class="s">&quot;Peter&quot;</span><span class="p">,</span>
+                  <span class="nx">lname</span><span class="p">:</span><span class="s">&quot;Stallone&quot;</span><span class="p">,</span>
+                  <span class="s">&quot;age&quot;</span><span class="p">:</span><span class="nx">age</span><span class="p">,</span>
+                  <span class="nx">address</span><span class="p">:{</span>
+                              <span class="nx">line</span><span class="p">:</span><span class="s">&quot;20 Palm Grove&quot;</span><span class="p">,</span>
                               <span class="nx">city</span><span class="p">:</span><span class="s">&quot;Colombo 03&quot;</span><span class="p">,</span>
-                              <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span><span class="p">}};</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+                              <span class="nx">country</span><span class="p">:</span><span class="s">&quot;Sri Lanka&quot;</span>
+                          <span class="p">}</span>
+              <span class="p">};</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -232,7 +233,7 @@ Values can be any expression.</p>
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre>    <span class="nx">p2</span><span class="p">.</span><span class="nx">address</span><span class="p">.</span><span class="nx">province</span> <span class="p">=</span> <span class="s">&quot;Western&quot;</span><span class="p">;</span>
-    <span class="nx">system</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
