@@ -83,7 +83,7 @@
     <span class="kd">resource</span> <span class="nx">params</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">map</span> <span class="nx">params</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getQueryParams</span><span class="p">();</span>
         <span class="k">var</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">params</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span>
-        <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;queryParam&quot;</span><span class="p">:</span><span class="nx">foo</span><span class="p">,</span> <span class="s">&quot;pathParam&quot;</span><span class="p">:</span><span class="nx">bar</span><span class="p">};</span>
+        <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;queryParam&quot;</span><span class="p">:</span><span class="nx">bar</span><span class="p">,</span> <span class="s">&quot;pathParam&quot;</span><span class="p">:</span><span class="nx">foo</span><span class="p">};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">);</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
@@ -172,7 +172,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;queryParam&quot;</span><span class="p">:</span><span class="nx">foo</span><span class="p">,</span> <span class="s">&quot;pathParam&quot;</span><span class="p">:</span><span class="nx">bar</span><span class="p">};</span>
+                                  <div class="highlight"><pre>        <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;queryParam&quot;</span><span class="p">:</span><span class="nx">bar</span><span class="p">,</span> <span class="s">&quot;pathParam&quot;</span><span class="p">:</span><span class="nx">foo</span><span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -237,7 +237,7 @@
                               </td>
                               <td class="code">
                                   <div class="highlight"><pre><span class="gp">$</span> curl http://localhost:9090/sample/path/value1?bar<span class="o">=</span>value2
-<span class="go">{&quot;queryParam&quot;: &quot;value1&quot;, &quot;pathParam&quot;: &quot;value2&quot;}</span>
+<span class="go">{&quot;queryParam&quot;: &quot;value2&quot;, &quot;pathParam&quot;: &quot;value1&quot;}</span>
 </pre></div>
 
                               </td>
