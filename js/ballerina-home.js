@@ -1,7 +1,7 @@
 function callBackend(e, t, a) {
     $(t).text("Waiting for response from server");
     var o = {
-        content: ace && ace.edit ? ace.edit(e).getSession().getValue() : $(e).val(),
+        content: ace && ace.edit ? ace.edit(e.substr(1)).getSession().getValue() : $(e).val(),
         arguments: $(a).val()
     };
     $.ajax({
