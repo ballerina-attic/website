@@ -1,0 +1,56 @@
+
+/**  syntax highlight **/
+.ace_ballerina-keyword-control {
+    color: #CC7832;
+}
+
+.ace_ballerina-numeric {
+    color: #6897BB;
+}
+
+.ace_ballerina-keyword-other {
+    color: #9876AA;
+}
+
+.ace_ballerina-package-reference {
+    color: #9876AA;
+}
+
+.ace_ballerina-keyword-primitive-type {
+    color: #FFC66D;
+}
+
+.ace_ballerina-keyword-non-primitive-type {
+    color: #FFC66D;
+}
+
+.ace_ballerina-keyword-definition {
+    color: #CC7832;
+}
+
+.ace_ballerina-annotation {
+    color: #BBB529;
+}
+
+.ace_ballerina-strings {
+    color: #629755;
+}
+
+.ace_ballerina-comments {
+    color: #808080;
+}
+
+.ace_ballerina-keyword-language {
+    color: #CC7832;
+}
+
+.ace_ballerina-keyword-identifier {
+    color: #fff;
+}
+
+.ace_editor {
+    width: 100%;
+    min-height: 85%;
+    border: none;
+    display: block;
+}
