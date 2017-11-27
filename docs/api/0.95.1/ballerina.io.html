@@ -1,0 +1,633 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.io</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.io package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="close">
+                                public function &lt;ByteChannel channel&gt; close() 
+                            </h3>
+                            <p>Function to close a byte channel</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">ByteChannel</a></td><td>The ByteChannel to be closed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeCharacterChannel">
+                                public function &lt;CharacterChannel channel&gt; closeCharacterChannel() 
+                            </h3>
+                            <p>Function to close a character channel</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">CharacterChannel</a></td><td>The CharacterChannel to be closed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeTextRecordChannel">
+                                public function &lt;TextRecordChannel channel&gt; closeTextRecordChannel() 
+                            </h3>
+                            <p>Function to close the text record channel</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">TextRecordChannel</a></td><td>The TextRecordChannel to be closed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="readBytes">
+                                public function &lt;ByteChannel channel&gt; readBytes(<a href="#int">int</a> numberOfBytes) (blob, int)
+                            </h3>
+                            <p>Function to read bytes</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">ByteChannel</a></td><td>The ByteChannel to read bytes from</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>numberOfBytes</td><td><a href="#int">int</a></td><td>Number of bytes which should be read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#blob">blob</a></td><td>The bytes which were read</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>Number of bytes read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="readCharacters">
+                                public function &lt;CharacterChannel channel&gt; readCharacters(<a href="#int">int</a> numberOfChars) (string)
+                            </h3>
+                            <p>Function to read characters</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">CharacterChannel</a></td><td>The CharacterChannel to read characters from</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>numberOfChars</td><td><a href="#int">int</a></td><td>Number of characters which should be read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The character sequence which was read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="readTextRecord">
+                                public function &lt;TextRecordChannel channel&gt; readTextRecord() (string[])
+                            </h3>
+                            <p>Function to read text records</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">TextRecordChannel</a></td><td>The TextRecordChannel to read text records from</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>Fields listed in the record</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toCharacterChannel">
+                                public function &lt;ByteChannel channel&gt; toCharacterChannel(<a href="#string">string</a> encoding) (CharacterChannel)
+                            </h3>
+                            <p>Function to convert a ByteChannel to CharacterChannel</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">ByteChannel</a></td><td>The ByteChannel to be converted</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>encoding</td><td><a href="#string">string</a></td><td>The charset/encoding of the content (i.e UTF-8, ASCII)</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.io.html#CharacterChannel" title="ballerina.io:CharacterChannel">CharacterChannel</a></td><td>CharacterChannel converted from ByteChannel</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="toTextRecordChannel">
+                                public function &lt;CharacterChannel channel&gt; toTextRecordChannel(<a href="#string">string</a> recordSeparator, <a href="#string">string</a> fieldSeparator) (TextRecordChannel)
+                            </h3>
+                            <p>Function to convert a CharacterChannel to TextRecordChannel</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">CharacterChannel</a></td><td>The CharacterChannel to be converted</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>recordSeparator</td><td><a href="#string">string</a></td><td>Terminating expression to distinguish between records</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>fieldSeparator</td><td><a href="#string">string</a></td><td>Terminating expression to distinguish between fields</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.io.html#TextRecordChannel" title="ballerina.io:TextRecordChannel">TextRecordChannel</a></td><td>TextRecordChannel converted from CharacterChannel</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="writeBytes">
+                                public function &lt;ByteChannel channel&gt; writeBytes(<a href="#blob">blob</a> content, <a href="#int">int</a> startOffset) (int)
+                            </h3>
+                            <p>Function to write bytes</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">ByteChannel</a></td><td>The ByteChannel to write bytes to</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>content</td><td><a href="#blob">blob</a></td><td>Bytes which should be written</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>startOffset</td><td><a href="#int">int</a></td><td>If the bytes need to be written with an offset, the value of that offset</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>Number of bytes written</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="writeCharacters">
+                                public function &lt;CharacterChannel channel&gt; writeCharacters(<a href="#string">string</a> content, <a href="#int">int</a> startOffset) (int)
+                            </h3>
+                            <p>Function to write characters</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">CharacterChannel</a></td><td>The CharacterChannel to write characters to</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>content</td><td><a href="#string">string</a></td><td>Text content which should be written</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>startOffset</td><td><a href="#int">int</a></td><td>If the content needs to be written with an offset, the value of that offset</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>Number of characters written</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="writeTextRecord">
+                                public function &lt;TextRecordChannel channel&gt; writeTextRecord(<a href="#string[]">string[]</a> records) 
+                            </h3>
+                            <p>Function to write text records</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>channel</td><td><a href="">TextRecordChannel</a></td><td>The TextRecordChannel to write text records to</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>records</td><td><a href="#string[]">string[]</a></td><td>Fields which are included in the record</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.io package</h2>
+                         
+                        
+                        <h3 id="ByteChannel">public struct ByteChannel</h3>
+                        <p>Ballerina ByteChannel represents a channel which will allow I/O operations to be done</p>
+                        
+                         
+                        
+                        <h3 id="CharacterChannel">public struct CharacterChannel</h3>
+                        <p>Ballerina CharacterChannel represents a channel which will allow to read/write characters</p>
+                        
+                         
+                        
+                        <h3 id="TextRecordChannel">public struct TextRecordChannel</h3>
+                        <p>Ballerina TextRecordChannel represents a channel which will allow to read/write text records</p>
+                        
+                        <br> 
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#close">&lt;ByteChannel&gt; close() </a>
+                                </li>
+                            
+                                <li><a href="#closeCharacterChannel">&lt;CharacterChannel&gt; closeCharacterChannel() </a>
+                                </li>
+                            
+                                <li><a href="#closeTextRecordChannel">&lt;TextRecordChannel&gt; closeTextRecordChannel() </a>
+                                </li>
+                            
+                                <li><a href="#readBytes">&lt;ByteChannel&gt; readBytes(int numberOfBytes) (blob , int )</a>
+                                </li>
+                            
+                                <li><a href="#readCharacters">&lt;CharacterChannel&gt; readCharacters(int numberOfChars) (string )</a>
+                                </li>
+                            
+                                <li><a href="#readTextRecord">&lt;TextRecordChannel&gt; readTextRecord() (string[] )</a>
+                                </li>
+                            
+                                <li><a href="#toCharacterChannel">&lt;ByteChannel&gt; toCharacterChannel(string encoding) (CharacterChannel )</a>
+                                </li>
+                            
+                                <li><a href="#toTextRecordChannel">&lt;CharacterChannel&gt; toTextRecordChannel(string recordSeparator, string fieldSeparator) (TextRecordChannel )</a>
+                                </li>
+                            
+                                <li><a href="#writeBytes">&lt;ByteChannel&gt; writeBytes(blob content, int startOffset) (int )</a>
+                                </li>
+                            
+                                <li><a href="#writeCharacters">&lt;CharacterChannel&gt; writeCharacters(string content, int startOffset) (int )</a>
+                                </li>
+                            
+                                <li><a href="#writeTextRecord">&lt;TextRecordChannel&gt; writeTextRecord(string[] records) </a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                         
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#ByteChannel ">ByteChannel</a></li>
+                                
+                                    <li><a href="#CharacterChannel ">CharacterChannel</a></li>
+                                
+                                    <li><a href="#TextRecordChannel ">TextRecordChannel</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

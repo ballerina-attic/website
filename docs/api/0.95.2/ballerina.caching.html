@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.caching</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.caching package</h2>
+                         
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="get">
+                                public function &lt;Cache cache&gt; get(<a href="#string">string</a> key) (any)
+                            </h3>
+                            <p>Returns the cached value associated with the given key. Returns null if the provided key does not exist in the cache.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>cache</td><td><a href="">Cache</a></td><td>key: key which is used to retrieve the cached value</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>key which is used to retrieve the cached value</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#any">any</a></td><td>The cached value associated with the given key</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="put">
+                                public function &lt;Cache cache&gt; put(<a href="#string">string</a> key, <a href="#any">any</a> value) 
+                            </h3>
+                            <p>Adds the given key, value pair to the provided cache.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>cache</td><td><a href="">Cache</a></td><td>key: value which should be used as the key</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>value which should be used as the key</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#any">any</a></td><td>value to be cached</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="remove">
+                                public function &lt;Cache cache&gt; remove(<a href="#string">string</a> key) 
+                            </h3>
+                            <p>Removes a cached value from a cache.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>cache</td><td><a href="">Cache</a></td><td>key: key of the cache entry which needs to be removed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>key of the cache entry which needs to be removed</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="size">
+                                public function &lt;Cache cache&gt; size() (int)
+                            </h3>
+                            <p>Returns the size of the cache.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>cache</td><td><a href="">Cache</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#int">int</a></td><td>int: The size of the cache</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="createCache">
+                                public function createCache(<a href="#string">string</a> name, <a href="#int">int</a> expiryTimeMillis, <a href="#int">int</a> capacity, <a href="#float">float</a> evictionFactor) (Cache)
+                            </h3>
+                            <p>Creates a new cache.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>name of the cache</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>expiryTimeMillis</td><td><a href="#int">int</a></td><td>expiryTime of the cache in ms</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>capacity</td><td><a href="#int">int</a></td><td>capacitry of the cache which should be greater than 0</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>evictionFactor</td><td><a href="#float">float</a></td><td>eviction factor to be used for cache eviction</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.caching.html#Cache" title="ballerina.caching:Cache">Cache</a></td><td>cache: a new cache</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                         
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.caching package</h2>
+                         
+                        
+                        <h3 id="Cache">public struct Cache</h3>
+                        <p>Map which stores all of the caches.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>name</td><td><a href="#string">string</a></td><td>name of the cache</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>expiryTimeMillis</td><td><a href="#int">int</a></td><td>cache expiry time in ms</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>capacity</td><td><a href="#int">int</a></td><td>capacity of the cache</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>evictionFactor</td><td><a href="#float">float</a></td><td>eviction factor to be used for cache eviction</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>entries</td><td><a href="#map">map</a></td><td>map which contains the cache entries</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        <br> 
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#get">&lt;Cache&gt; get(string key) (any )</a>
+                                </li>
+                            
+                                <li><a href="#put">&lt;Cache&gt; put(string key, any value) </a>
+                                </li>
+                            
+                                <li><a href="#remove">&lt;Cache&gt; remove(string key) </a>
+                                </li>
+                            
+                                <li><a href="#size">&lt;Cache&gt; size() (int )</a>
+                                </li>
+                            
+                                <li><a href="#createCache">createCache(string name, int expiryTimeMillis, int capacity, float evictionFactor) (Cache )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                         
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#Cache ">Cache</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900');
+.wy-nav-content-wrap {
+    background-color: transparent;
+}
+body.wy-body-for-nav {
+    background-image: url(../img/ballerina-bg.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    transition: all 0.5s ease 0s;
+    background-color: #ffffff !important;
+}
+section li {
+    font-size: 1.1em;
+}
+.wy-nav-content {
+    background: #ffffff;
+}
+.wy-side-nav-search {
+    background: #ffffff;
+}
+.wy-nav-content-wrap {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
+    font-family: 'Cairo', sans-serif;
+    color: #404041;
+}
+h1 {
+    font-size: 2.2em;
+}
+.rst-versions {
+    display: none;
+}
+.wy-side-nav-search img {
+    background-color: transparent;
+    border-radius: 0;
+    display: block;
+    height: auto;
+    margin: auto auto 0.809em;
+    padding: 5px;
+    width: 140px;
+}
+.wy-side-nav-search input[type="text"],
+form .search-query {
+    border: 1px solid #cccccc;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1em;
+    margin-bottom: .1em;
+    padding: 0.5em 1em;
+    width: 100%;
+}
+.wy-menu-vertical li.current {
+    background-color: #F0F0F1;
+    color: #404041;
+}
+h2 {
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+body.wy-body-for-nav {} .wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+.wy-menu.wy-menu-vertical span {
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 1.3em;
+    color: #ffffff;
+}
+.wy-menu.wy-menu-vertical ul li ul li span {
+    padding: 0.5em 1em 0.5em 1.5em;
+}
+.wy-menu-vertical .subnav a {
+    padding: 0.5em 2em;
+}
+.wy-menu.wy-menu-vertical ul li ul li ul li a {
+    padding: 0.5em 2em 0.5em 3em;
+}
+.wy-menu-vertical li ul.subnav ul.subnav {
+    padding-left: 0;
+}
+.wy-menu-vertical li {
+    border-bottom: 1px solid #4E4A4A;
+}
+.wy-menu-vertical li.current {
+    background-color: #4E4A4A;
+}
+.wy-menu-vertical .subnav li.current > ul li a {
+    padding: 0.5em 2em 0.5em 3em;
+    color: #b3b3b3;
+}
+.wy-menu-vertical .subnav li.current > ul li {
+    border-bottom: 1px solid #3d3d3d;
+}
+li.cMainLink {
+    padding-bottom: 2em;
+}

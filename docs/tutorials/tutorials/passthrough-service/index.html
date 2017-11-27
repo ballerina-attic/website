@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>passthrough-service - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "passthrough-service";
+    var mkdocs_page_input_path = "tutorials/passthrough-service.md";
+    var mkdocs_page_url = "/tutorials/passthrough-service/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-archive/">create-archive</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-docker-container/">create-docker-container</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../custom-client-connector/">custom-client-connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../main-program/">main-program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">passthrough-service</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#write-a-passthrough-service">Write a Passthrough Service</a></li>
+                
+                 <li><a class="toctree-l4" href="#about-service-urls">About service URLs</a></li>
+                
+                 <li><a class="toctree-l4" href="#add-a-service">Add a service</a></li>
+                
+                 <li><a class="toctree-l4" href="#add-integration-logic-to-your-service">Add integration logic to your service</a></li>
+                
+                 <li><a class="toctree-l4" href="#view-the-swagger-definition-for-your-service">View the Swagger definition for your service</a></li>
+                
+                 <li><a class="toctree-l4" href="#add-a-client-connector">Add a client connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#call-the-client-connector">Call the client connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#extract-content-from-the-json">Extract content from the JSON</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>tutorials &raquo;</li>
+        
+      
+    
+    <li>passthrough-service</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/tutorials/passthrough-service.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="write-a-passthrough-service">Write a Passthrough Service</h1>
+<p>Now that you have <a href="../main-program/">written a main program</a> for an integration scenario, it is time to work with services.</p>
+<blockquote>
+<p>This tutorial provides instructions on how to write a REST service that uses the Google Books API to get books about a given topic. This scenario is demonstrated by querying books on WSO2.</p>
+</blockquote>
+<p>This tutorial consists of the following main sections.</p>
+<ul>
+<li><a href="../about-service-urls">About service URLs</a></li>
+<li><a href="../add-a-service">Add a service</a></li>
+<li><a href="../add-integration-logic-to-your-service">Add integration logic to your service</a></li>
+<li><a href="../view-the-swagger-definition-for-your-service">View the Swagger definition for your service</a></li>
+<li><a href="../add-a-client-connector">Add a client connector</a></li>
+<li><a href="../call-the-client-connector">Call the client connector</a></li>
+<li><a href="../extract-content-from-the-json">Extract content from the JSON</a></li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong>: Download Ballerina and set it up. For instructions on how to do this, see the <a href="../quick-tour.md">Quick Tour</a>. it is also recommended to try to <a href="../main-program/">write a main program</a> as some concepts are explored in detail in that tutorial. It may also be useful to read and understand the section <a href="../about-service-urls">about service URLs</a>.</p>
+</blockquote>
+<p>When defining a Ballerina program as a service instead of an executable program, the <code>service</code> construct acts as the top-level container that holds all the integration logic and can interact with the rest of the world. Its base path is the context part of the URL that clients use when sending requests to the service. You create one service per Ballerina program file.</p>
+<p>A service is a container of <code>resources</code>, each of which defines the logic for handling one type of request. Services are singletons, so all variables defined within a service scope are shared across all resource invocations. A service can have state for as long as it's active.</p>
+<h2 id="about-service-urls">About service URLs</h2>
+<p>In this tutorial, the service and the resource are also represented by the URL that you are calling. For example, the basepath for a resource can be as follows: </p>
+<blockquote>
+<p>http://localhost:9090/</p>
+</blockquote>
+<p>The following is the URL for the <code>books</code> service:</p>
+<blockquote>
+<p>http://localhost:9090/books</p>
+</blockquote>
+<p>If you are accessing a different service, like <code>magazines</code> for example, you can have magazines instead of books in the above URL.</p>
+<p>If you are accessing a resource within this service, like book titles for example, the URL is as follows:</p>
+<blockquote>
+<p>http://localhost:9090/books/title</p>
+</blockquote>
+<p>This is how resources and services can equate to the URL that you are calling.</p>
+<p>In addition to this, there can be a query parameter added to the title. In this scenario, you are querying books that have "WSO2" in the title, so the URL is as follows.</p>
+<blockquote>
+<p>http://localhost:9090/books/title?title=wso2</p>
+</blockquote>
+<h2 id="add-a-service">Add a service</h2>
+<p>To get started, add a service in the Ballerina Composer.</p>
+<ol>
+<li>
+<p>To define a service in the Composer, drag the service from the tool palette to the canvas. You can then set the base path annotation using the <code>Annotations</code> button in the upper right corner of the service, and define any variables the service needs by clicking the <code>Variables</code> button in the upper left corner. </p>
+<p><img alt="alt text" src="../../images/AddService.gif" />
+A new resource is added automatically with the service. This happens because a resource is required if you need to invoke something or get something back from the service. 
+1. You can rename the service by providing an appropriate name.
+<img alt="alt text" src="../../images/ServiceName.png" />
+1. You can also rename the resourse to something appropriate.
+<img alt="alt text" src="../../images/ResourceName.png" /></p>
+<p>You can start adding your integration logic.</p>
+</li>
+</ol>
+<h2 id="add-integration-logic-to-your-service">Add integration logic to your service</h2>
+<p>Now that you have added a service, you must set up this service so that it can be used in your integration scenario.</p>
+<ol>
+<li>Select an HTTP identifier from the dropdown available. In this case, you can use GET as the HTTP verb, since you are aiming to get the information using a URL. If you use both a GET and a POST, you need to add a new resource. You can add more resources by dragging them from the tool palette and adding them to the service.
+    <img alt="alt text" src="../../images/IdentifierHTTP.png" /></li>
+<li>As mentioned in <a href="#about-service-URLs">About service URLs</a>, the path for the books service is <code>http://localhost:9090/books</code>. Add an annotation by clicking on the label in the service and selecting <code>ballerina.net.http</code> from the dropdown.
+    <img alt="alt text" src="../../images/AddAnnotation.png" /></li>
+<li>
+<p>Once you add the annotation, you are asked to add an identifier. Select <code>config</code> as the identifier from the dropdown.</p>
+<p><img alt="alt text" src="../../images/ConfigIdentifier.png" />
+1. Click the <code>+</code> sign and select <code>basePath</code> from the dropdown to select the basepath.
+<img alt="alt text" src="../../images/BasepathConfig.png" />
+1. Enter the base path as <code>/books</code> to define <code>http://localhost:9090/books</code> as the service.
+<img alt="alt text" src="../../images/BasePathBooksService.png" />
+1. Add an annotation to the service itself by clicking the label in the service and selecting <code>ballerina.net.http</code> from the dropdown.</p>
+<p><img alt="alt text" src="../../images/AddAnnotation2.png" />
+1. Add a HTTP Path from the dropdown that appears.
+<img alt="alt text" src="../../images/AddPath.png" />
+1. Click the <code>+</code> sign next to <code>@Http:Path</code> and select value in the dropdown that appears. Define the value as <code>/title</code> and assign it to the HTTP Path variable. This enables the Ballerina service and the resource to be mapped properly to the title of the book. This is linked to the URL to be called: <code>http://localhost:9090/books/title</code>.
+<img alt="alt text" src="../../images/AddValuetoPath2.png" /></p>
+</li>
+</ol>
+<h2 id="view-the-swagger-definition-for-your-service">View the Swagger definition for your service</h2>
+<p>If your Ballerina program contains services and resources, you can view the generated Swagger definition for your program by switching to the Swagger view. All the changes made on the Swagger definition will reflect on the Ballerina program when you switch back to Source or Design view.</p>
+<p>You can also import Swagger files by clicking <strong>File</strong> in the top menu and selecting <strong>Import Swagger</strong>.</p>
+<ol>
+<li>
+<p>Click the Swagger definition icon on the right of your service to view the Swagger definition. You can switch back to the <strong>Design View</strong> or <strong>Source View</strong> by clicking the buttons at the bottom right of your screen.</p>
+<p><img alt="alt text" src="../../images/SwaggerView.png" /></p>
+<p>The Swagger UI Editor provides numerous usage options to easily interact with APIs.
+<img alt="alt text" src="../../images/SwaggerUI.png" />
+1. Click <code>GET</code> to see the details in the Swagger UI.
+<img alt="alt text" src="../../images/SwaggerGET.png" /></p>
+</li>
+</ol>
+<h2 id="add-a-client-connector">Add a client connector</h2>
+<p>Now that you have added a service, you need a connector to connect to the external books API.</p>
+<ol>
+<li>On the tool palette, click <strong>More Connectors</strong> to see a list of all available connectors.
+    <img alt="alt text" src="../../images/MoreConnectors.png" /></li>
+<li>From the list that appears, expand <strong>ballerina.net.http</strong> and drag a <strong>ClientConnector</strong> onto the canvas.
+    <img alt="alt text" src="../../images/addConnector.gif" /></li>
+<li>Add the endpoint URL (https://www.googleapis.com/books/v1/) within quotation marks "" as the connector endpoint. You can also change the name of the endpoint to something suitable.
+    <img alt="alt text" src="../../images/EndpointURL.png" />
+    &gt; The endpoint URL, in this instance, is not the complete URL and does not include the title or the book and other details. You can directly add the complete URL here if you wish. This is not done in this scenario for the purposes of the tutorial and to highlight a different means of achieving the same outcome, i.e., the title will be appended in the request.</li>
+</ol>
+<h2 id="call-the-client-connector">Call the client connector</h2>
+<ol>
+<li>Add a HTTP GET request by dragging it from the tool palette to the canvas.
+    <img alt="alt text" src="../../images/AddGET.gif" /></li>
+<li>To call the connector from the main program, draw an arrow to the connector from the GET action.
+    <img alt="alt text" src="../../images/callConnector2.gif" /></li>
+<li>Pass a message from the main program to the connector by specifying the remaining part of the endpoint URL (volumes?q=intitle:wso2) and message <code>m</code>. Also rename the HTTP GET message name to <code>m</code>.
+    <img alt="alt text" src="../../images/ConnectorMessage.png" />
+    &gt; Note that a message is passed by default in a service. This will not be the case in a main program application. In this case, it is message <code>m</code> that is passed. The full endpoint URL is https://www.googleapis.com/books/v1/volumes?q=intitle:wso2.</li>
+<li>Add the query parameter to the resource by going to the source view and modifying the resource to the following.
+    <code>resource getBooksByTitle (message m, @http:QueryParam {value:"title"} string title)</code></li>
+<li>Now that you have specified a query parameter, you can use the value of the query parameter in your connector call. Change the message passed to the following.
+    <img alt="alt text" src="../../images/ConnectorMessage2.png" /></li>
+</ol>
+<h2 id="extract-content-from-the-json">Extract content from the JSON</h2>
+<ol>
+<li>Use the search, or navigate to a function called <code>getJsonPayload</code>, which is in the <code>ballerina.lang.messages</code> library. This library contains functions that enable you to modify and use messages in various ways.</li>
+<li>Drag and drop this onto the main program in the canvas. This automatically applies this function on message m since that is the default message.
+    <img alt="alt text" src="../../images/getJSONPayload2.gif" /></li>
+<li>
+<p>Rename the JSON as <code>j</code>.</p>
+<p><img alt="alt text" src="../../images/JSONName.png" />
+1. Add a variable from the tool palette to the main function in the canvas.
+<img alt="alt text" src="../../images/JSONVariable.gif" />
+1. Modify the variable so that you can get the data under list. In this example, <code>.list</code> is a JSON path. 
+ <code>json bookList = j.items</code></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../main-program/" class="btn btn-neutral" title="main-program"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../main-program/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>custom-client-connector - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "custom-client-connector";
+    var mkdocs_page_input_path = "tutorials/custom-client-connector.md";
+    var mkdocs_page_url = "/tutorials/custom-client-connector/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-archive/">create-archive</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-docker-container/">create-docker-container</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">custom-client-connector</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#create-a-custom-client-connector">Create a Custom Client Connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#about-connectors-and-actions">About connectors and actions</a></li>
+                
+                 <li><a class="toctree-l4" href="#about-custom-client-connectors">About custom client connectors</a></li>
+                
+                 <li><a class="toctree-l4" href="#create-a-custom-client-connector_1">Create a custom client connector</a></li>
+                
+                 <li><a class="toctree-l4" href="#using-the-connector">Using the connector</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../main-program/">main-program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../passthrough-service/">passthrough-service</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>tutorials &raquo;</li>
+        
+      
+    
+    <li>custom-client-connector</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/tutorials/custom-client-connector.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="create-a-custom-client-connector">Create a Custom Client Connector</h1>
+<p>Now that you have <a href="../main-program/">written a main program</a> and <a href="../passthrough-service/">written a passthrough service</a> for integration scenarios, it is time to write a custom client connector to solve a problem.</p>
+<blockquote>
+<p>This tutorial provides instructions on how to write a custom connector that invokes <a href="https://developer.github.com/v3/guides/getting-started/">GitHub REST APIs</a>.</p>
+</blockquote>
+<p>This tutorial consists of the following main sections.</p>
+<ul>
+<li><a href="../about-connectors-and-actions">About connectors and actions</a></li>
+<li><a href="../about-custom-client-connectors">About custom client connectors</a></li>
+<li><a href="../create-a-custom-client-connector">Create a custom client connector</a></li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong>: Download Ballerina and set it up. For instructions on how to do this, see the <a href="../quick-tour.md">Quick Tour</a>. Use the Quick Tour to also get an understanding of the Ballerina Composer and how it works. It is also recommended to try to <a href="../main-program/">write a main program</a> and <a href="../passthrough-service/">write a passthrough service</a> before trying this out. This helps you to get familiar with Ballerina and how it can help achieve integration scenarios.</p>
+</blockquote>
+<h2 id="about-connectors-and-actions">About connectors and actions</h2>
+<p>When integrating and making a robust application, a need arises to make messaging channels in between various interfaces and weave a structure to encompass them together. When interacting with commonly available interfaces, rather than creating the structure of the messaging channel each and every time through code, it is worth keeping a programmed unit that can be reused. This component interacts with the given interface with ease and less complexity. In a way, such a unit can be described as a facade as it will mask any complexities that exist when interacting with the real interface and can be a facade to any party connecting to the particular interface.</p>
+<p>Ballerina brings out a concept called connectors that makes the above possible with ease. Using Ballerina connectors, a custom Ballerina implementation can be made that can be used to communicate with a given interface. This custom connector can be made out-of-the-box just using Ballerina itself. The use of these custom connectors can span from a database to a REST endpoint and can even extend to a JMS queue as the requirement demands.</p>
+<p>Connectors represents network services that are used by a Ballerina program. The term "network services" here is meant in the broadest possible sense - Ballerina is designed to connect with everything from a database to a JMS queue to an OAuth protected API to LDAP servers and more. Therefore, connectors are the representation of any such remote service in Ballerina.</p>
+<p>Graphically, connectors are modeled as a separate lifeline to represent their independent and parallel execution. However, that lifeline is not a programmable thread of execution for the Ballerina developer - it only exists to represent the remote system.</p>
+<p>Connectors may need to have usage specific parameters and, hence, must be instantiated prior to use. For example, an HTTP connector needs at least the URL to connect to.</p>
+<p>A connector comes with a set of actions that represent the interactions that one can have with the remote service. Actions can be one directional or bi-directional and represent blocking from the calling worker's perspective. That is, the calling thread is blocked until the action has completed its remote interaction.</p>
+<p>A connector contains the following syntax in Ballerina.</p>
+<pre><code>[ConnectorAnnotations]
+[public] connector ConnectorName ([Connector initialize parameters]) {
+    VariableDeclaration;*
+    ActionDefinition;+
+}
+
+</code></pre>
+
+<p>Any variables declared at the connector level is visible to all actions. The lifetime of the connector also defines the lifetime of the variables and they are local to each connector instance.</p>
+<p>The structure of an action definition is as follows.</p>
+<pre><code>[ActionAnnotations]
+action actionName ([Input parameters]) ([Output parameters]){
+}
+
+</code></pre>
+
+<p>The execution semantics of an action are the same as that of a function: it runs using the caller's thread and the caller blocks until the action completes execution.</p>
+<h2 id="about-custom-client-connectors">About custom client connectors</h2>
+<p>When creating a custom client connector, you need to be aware of the following.</p>
+<ul>
+<li>The capabilities you need to expose through the connector and logical separation. These is represented by separate actions when the connector is being created.</li>
+<li>Supportive extensions needed. These can be achieved by Ballerina itself or by integrating to an existing entity through Ballerina</li>
+<li>Packaging the connector </li>
+</ul>
+<p>In order to demonstrate the above aspects, this tutorial uses a connector that can invoke GitHub REST APIs. GitHub contains a set of REST APIs that can be used to achieve a vast set of functionalities. Out of the collection, REST APIs that cover the following functionalities are used.</p>
+<ul>
+<li><a href="https://developer.github.com/v3/repos/#list-your-repositories">View repositories for the authenticated user</a>.</li>
+<li><a href="https://developer.github.com/v3/repos/#list-organization-repositories">List repositories for an organization</a>.</li>
+<li><a href="https://developer.github.com/v3/issues/#list-issues">List issues per repository according to the state</a></li>
+</ul>
+<p>The above can be categorized as the capabilities expected from the connector and these are represented by separate actions.</p>
+<p>Furthermore, in order to invoke the APIs, an authentication header must be sent that encompasses the base64 encoded value of the username and the token. This is a supportive extension and can be powered by Ballerina itself by using its inbuilt <a href="https://ballerinalang.org/docs/api/0.94.1/ballerina.util.html#base64encode">base64encoder</a>.</p>
+<p>After creating the connector, you need to package it in a way that the connector can be distributed. As a comprehensive packaging mechanism is work in progress, currently we will be using the available packaging model to demonstrate the usage of the connector. The reason for using the package is that, when the inbuilt packaging is available, the structure available now can be extended and packaged to a distributable mode.</p>
+<h2 id="create-a-custom-client-connector_1">Create a custom client connector</h2>
+<p>This section of the tutorial explains the way a sample custom client connector is built.</p>
+<ol>
+<li>
+<p>On the tool palette, click <strong>More Connectors</strong> to see a list of all available connectors.
+    <img alt="alt text" src="../../images/MoreConnectors.png" /></p>
+</li>
+<li>
+<p>From the list that appears, expand <strong>ballerina.net.http</strong> and drag a <strong>ClientConnector</strong> onto the canvas.</p>
+</li>
+<li>Provide the connector parameter list. In order to connect to GitHub APIs, this connector uses an authenticated user and a token obtained for that user.  Furthermore, you need to initialize the connection to the GitHub API as shown below.
+    <code>public connector ClientConnector (string username, string token) {
+         endpoint&lt;http:HttpClient&gt; gitEP { create http:HttpClient("https://api.github.com", {});}
+    }</code></li>
+<li>Prepare the base64 encoded key value to be sent in authorization header to the back end. The Ballerina built-in base64encoder is used for this purpose and the logic in this scenario is written in another function that resides in the same package as the connector.
+    <code>package org.wso2.ballerina.connectors.github;
+    import ballerina.util;
+    function getBase64EncodedKey (string value1,string value2) (string encodedString) {
+        string toEncode = value1 + ":" + value2;
+        encodedString = &lt;string&gt;util:base64encode(toEncode);
+        return;
+    }</code></li>
+<li>The above function is called within the connector to obtain the encoded string as shown below.
+    <code>public connector ClientConnector (string username, string token) {
+    endpoint&lt;http:HttpClient&gt; gitEP { create http:HttpClient("https://api.github.com", {});}
+    string authHeader = getBase64EncodedKey(username, token);
+    }</code></li>
+<li>The first action retrieves the list of repositories per organization. The action defined takes in the desired organization as a parameter and returns a HTTP response and, within the action, the relevant REST API is invoked.
+    <code>action getReposOfOrg (string orgnization) (http:Response, http:HttpConnectorError) {
+        http:Request request = {};
+        string gitPath = string `/orgs/{{orgnization}}/repos`;
+        request.setHeader("Authorization", "Basic "+ authHeader);
+        http:Response response = {};
+        http:HttpConnectorError err;
+        response, err = gitEP.get(gitPath, request);
+        return response, err;}</code>
+    Other actions can be configured in a similar manner.</li>
+</ol>
+<h2 id="using-the-connector">Using the connector</h2>
+<p>In order to test the connector, you must have a Ballerina program with either a main function or a service. This tutorial uses a service for the purpose. This test service is created in another package.</p>
+<ol>
+<li>Import the client connector made above to the file where the service is written.
+    <code>package com.test.sample;
+    import org.wso2.ballerina.connectors.github;</code></li>
+<li>Inside a resource initialize and invoke the client connector as follows.
+    <code>resource getReposForOrganization (http:Request req,http:Response res, string org) {
+        endpoint&lt;github:ClientConnector&gt; gitHubConnector{
+        }
+        string username = req.getHeader("Username");
+        string tokenEnc = req.getHeader("Token");
+        github:ClientConnector gitHubConn = create github:ClientConnector(username, tokenEnc);
+        bind gitHubConn with gitHubConnector;
+        http:Response gitHubResponse = {};
+        gitHubResponse, _ = gitHubConnector.getReposOfOrg(org);
+        res.forward(gitHubResponse);
+            }</code>
+The following is the full code of the sample.</li>
+</ol>
+<pre><code>package org.wso2.ballerina.connectors.github;
+
+import ballerina.net.http;
+
+@Description {
+    value:&quot;GitHub Client Connector&quot;
+}
+@Param {
+    value:&quot;username: github username&quot;
+}
+@Param {
+    value:&quot;token: github personal token&quot;
+}
+public connector ClientConnector (string username, string token) {
+    endpoint&lt;http:HttpClient&gt; gitEP { create http:HttpClient(&quot;https://api.github.com&quot;, {});}
+
+    string authHeader = getBase64EncodedKey(username, token);
+    @Description {
+        value:&quot;Retrieve repositories for the authenticated user&quot;
+    }
+    @Return {
+        value:&quot;Response object&quot;
+    }
+
+    action getReposOfUser () (http:Response, http:HttpConnectorError) {
+         http:Request request = {};
+         string gitPath = &quot;/user/repos&quot;;
+         request.setHeader(&quot;Authorization&quot;, &quot;Basic &quot;+ authHeader);
+         http:Response response = {};
+         http:HttpConnectorError err;
+         response, err = gitEP.get(gitPath, request);
+         return response, err;
+    }
+    @Description {
+        value:&quot;List repositories for an organization&quot;
+    }
+    @Param {
+        value:&quot;organization: name of the orgnization on which repositories should be fetched&quot;
+    }
+    @Return {
+        value:&quot;Response object&quot;
+    }
+    action getReposOfOrg (string orgnization) (http:Response, http:HttpConnectorError) {
+        http:Request request = {};
+        string gitPath = string `/orgs/{{orgnization}}/repos`;
+        request.setHeader(&quot;Authorization&quot;, &quot;Basic &quot;+ authHeader);
+        http:Response response = {};
+        http:HttpConnectorError err;
+        response, err = gitEP.get(gitPath, request);
+        return response, err;
+    }
+
+    @Description {
+        value:&quot;List all issues under a given repository&quot;
+    }
+    @Param {
+        value:&quot;organization: name of the orgnization on which issues should be fetched&quot;
+    }
+    @Return {
+        value:&quot;Response object&quot;
+    }
+    action getIssuesOfRepoByState (string orgnization, string repository, string state) (http:Response, http:HttpConnectorError) {
+        http:Request request = {};
+        string gitPath = string `/repos/{{orgnization}}/{{repository}}/issues?state={{state}}`;
+        request.setHeader(&quot;Authorization&quot;, &quot;Basic &quot;+ authHeader);
+        http:Response response = {};
+        http:HttpConnectorError err;
+        response, err = gitEP.get(gitPath, request);
+        return response, err;
+    }
+
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../main-program/" class="btn btn-neutral float-right" title="main-program">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../create-docker-container/" class="btn btn-neutral" title="create-docker-container"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../create-docker-container/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../main-program/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
