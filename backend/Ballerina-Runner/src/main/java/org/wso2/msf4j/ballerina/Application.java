@@ -52,7 +52,7 @@ public class Application {
 
     // Extract the Ballerina distribution and copy psfinder script.
     static {
-        String DISTRIBUTION_ZIP = "ballerina-0.95.0.zip";
+        String DISTRIBUTION_ZIP = "ballerina-0.95.2.zip";
         URL inputUrl = Application.class.getResource("/" + DISTRIBUTION_ZIP);
         File ballerinaDist = new File(DISTRIBUTION_ZIP);
         try {
@@ -67,7 +67,7 @@ public class Application {
             }
             unzip(ballerinaDist.getPath(), tmp);
 
-            String DISTRIBUTION_NAME = "ballerina-0.95.0";
+            String DISTRIBUTION_NAME = "ballerina-0.95.2";
             ballerinaPath = Paths.get(tmp, DISTRIBUTION_NAME, "bin", "ballerina");
             ballerinaPath.toFile().setExecutable(true);
             psFinder.toFile().setExecutable(true);
