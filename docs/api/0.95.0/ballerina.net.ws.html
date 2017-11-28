@@ -1,0 +1,1072 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.net.ws</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.net.ws package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="cancelHandshake">
+                                public function &lt;HandshakeConnection conn&gt; cancelHandshake(<a href="#int">int</a> statusCode, <a href="#string">string</a> reason) 
+                            </h3>
+                            <p>Cancel the handshake</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">HandshakeConnection</a></td><td>statusCode: Status code for closing the connection</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>statusCode</td><td><a href="#int">int</a></td><td>Status code for closing the connection</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>reason</td><td><a href="#string">string</a></td><td>Reason for closing the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="closeConnection">
+                                public function &lt;Connection conn&gt; closeConnection(<a href="#int">int</a> statusCode, <a href="#string">string</a> reason) 
+                            </h3>
+                            <p>Close the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>statusCode: Status code for closing the connection</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>statusCode</td><td><a href="#int">int</a></td><td>Status code for closing the connection</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>reason</td><td><a href="#string">string</a></td><td>Reason for closing the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getID">
+                                public function &lt;Connection conn&gt; getID() (string )
+                            </h3>
+                            <p>Get the ID of the WebSocket connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: ID of the connection</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getNegotiatedSubProtocol">
+                                public function &lt;Connection conn&gt; getNegotiatedSubProtocol() (string )
+                            </h3>
+                            <p>Get the Negotiated sub protocol for given connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: Negotiated sub protocol</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getParentConnection">
+                                public function &lt;Connection conn&gt; getParentConnection() (Connection )
+                            </h3>
+                            <p>Get parent connection if exisits</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>connection which the parent connection should be retrieved</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.net.ws.html#Connection" title="ballerina.net.ws:Connection">Connection</a></td><td>Connection: The parent connection if exisits else null</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getUpgradeHeader">
+                                public function &lt;Connection conn&gt; getUpgradeHeader(<a href="#string">string</a> key) (string )
+                            </h3>
+                            <p>Get a value of a header</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>key: Key of the header which the value should be retrieved</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>key</td><td><a href="#string">string</a></td><td>Key of the header which the value should be retrieved</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>string: Value of the key if exists else null</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getUpgradeHeaders">
+                                public function &lt;Connection conn&gt; getUpgradeHeaders() (map )
+                            </h3>
+                            <p>Get a map of all the upgrade headers of the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>map&lt;string&gt;: Map of all the headers received in the connection upgrade</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isOpen">
+                                public function &lt;Connection conn&gt; isOpen() (boolean )
+                            </h3>
+                            <p>Check whether the connection is still open or not.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isSecure">
+                                public function &lt;Connection conn&gt; isSecure() (boolean )
+                            </h3>
+                            <p>Check whether the connection is secured or not</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td></td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>boolean: true if the connection is secured</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="ping">
+                                public function &lt;Connection conn&gt; ping(<a href="#blob">blob</a> data) 
+                            </h3>
+                            <p>Ping the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>data: Binary data which should be sent</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>data</td><td><a href="#blob">blob</a></td><td>Binary data which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pong">
+                                public function &lt;Connection conn&gt; pong(<a href="#blob">blob</a> data) 
+                            </h3>
+                            <p>Send pong message to the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>data: Binary data which should be sent</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>data</td><td><a href="#blob">blob</a></td><td>Binary data which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pushBinary">
+                                public function &lt;Connection conn&gt; pushBinary(<a href="#blob">blob</a> data) 
+                            </h3>
+                            <p>Push binary data to the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>data: Binary data which should be sent</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>data</td><td><a href="#blob">blob</a></td><td>Binary data which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="pushText">
+                                public function &lt;Connection conn&gt; pushText(<a href="#string">string</a> text) 
+                            </h3>
+                            <p>Push text to the connection</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>conn</td><td><a href="">Connection</a></td><td>text: Text which should be sent</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>text</td><td><a href="#string">string</a></td><td>Text which should be sent</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.net.ws package</h2>
+                         
+                        
+                        <h3 id="WsClient">
+                            public connector WsClient (<a href="#string">string</a> url, <a href="#string">string</a> callbackService)
+                        </h3>
+                        <p>WebSocket client connector for connecting to WebSocket backend</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>url</td><td><a href="#string">string</a></td><td>WebSocket url for the backend</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>callbackService</td><td><a href="#string">string</a></td><td>Callback service to listen to the incoming messages from the backend</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <b>Actions:</b><br><br>  
+                        <h3 id="connectWsClient">action connect(<a href="ballerina.net.ws.html#ClientConnectorConfig" title="ballerina.net.ws:ClientConnectorConfig">ClientConnectorConfig</a> config)</h3>
+                        <p>Connect to remote endpoint</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>config</td><td><a href="ballerina.net.ws.html#ClientConnectorConfig" title="ballerina.net.ws:ClientConnectorConfig">ClientConnectorConfig</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.ws.html#Connection" title="ballerina.net.ws:Connection">Connection</a></td><td>Connection: New WebSocket connection for the connected backend</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.ws.html#WsConnectorError" title="ballerina.net.ws:WsConnectorError">WsConnectorError</a></td><td>Connection: New WebSocket connection for the connected backend</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="connectWithDefaultWsClient">action connectWithDefault()</h3>
+                        <p>Connect to remote endpoint with default configuration</p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.ws.html#Connection" title="ballerina.net.ws:Connection">Connection</a></td><td>Connection: New WebSocket connection for the connected backend</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="ballerina.net.ws.html#WsConnectorError" title="ballerina.net.ws:WsConnectorError">WsConnectorError</a></td><td>Connection: New WebSocket connection for the connected backend</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.net.ws package</h2>
+                         
+                        
+                        <h3 id="BinaryFrame">public struct BinaryFrame</h3>
+                        <p>Represent WebSocket binary frame in Ballerina</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>data</td><td><a href="#blob">blob</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>isFinalFragment</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="ClientConnectorConfig">public struct ClientConnectorConfig</h3>
+                        <p>Configuration struct for WebSocket client connection</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>subProtocols</td><td><a href="#string[]">string[]</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parentConnectionID</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>customHeaders</td><td><a href="#map">map</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>idleTimeoutInSeconds</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="CloseFrame">public struct CloseFrame</h3>
+                        <p>Represent WebSocket close frame in Ballerina</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>statusCode</td><td><a href="#int">int</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>reason</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="Connection">public struct Connection</h3>
+                        <p>Represent WebSocket connection in ballerina. This include all connection oriented operations</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>attributes</td><td><a href="#map">map</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="HandshakeConnection">public struct HandshakeConnection</h3>
+                        <p>Represent the details needed before the Handshake is done</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectionID</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>isSecure</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>upgradeHeaders</td><td><a href="#map">map</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="PingFrame">public struct PingFrame</h3>
+                        <p>Represent WebSocket ping frame in Ballerina</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>data</td><td><a href="#blob">blob</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="PongFrame">public struct PongFrame</h3>
+                        <p>Represent WebSocket pong frame in Ballerina</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>data</td><td><a href="#blob">blob</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="TextFrame">public struct TextFrame</h3>
+                        <p>Represent WebSocket text frame in Ballerina</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>text</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>isFinalFragment</td><td><a href="#boolean">boolean</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="WsConnectorError">public struct WsConnectorError</h3>
+                        <p></p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td></td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <br> 
+                        
+                        <!-- Annotations -->
+                        <h2>Annotations of ballerina.net.ws package</h2>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="clientService">annotation clientService</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                         
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="configuration">annotation configuration</h3>
+                            <p></p>
+
+                            <p>
+                                <b>Attributes:</b>
+                                <table>
+                                    <tr>
+                                        <th>Attribute Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>basePath</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>subProtocols</td><td><a href="#string[]">string[]</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>host</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>port</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>wssPort</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>idleTimeoutInSeconds</td><td><a href="#int">int</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyStoreFile</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyStorePassword</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>certPassword</td><td><a href="#string">string</a></td><td></td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                        </div>
+                        
+                        <p></p>
+                        <br> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#cancelHandshake">&lt;HandshakeConnection&gt; cancelHandshake(int statusCode, string reason) </a>
+                                </li>
+                            
+                                <li><a href="#closeConnection">&lt;Connection&gt; closeConnection(int statusCode, string reason) </a>
+                                </li>
+                            
+                                <li><a href="#getID">&lt;Connection&gt; getID() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getNegotiatedSubProtocol">&lt;Connection&gt; getNegotiatedSubProtocol() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getParentConnection">&lt;Connection&gt; getParentConnection() (Connection )</a>
+                                </li>
+                            
+                                <li><a href="#getUpgradeHeader">&lt;Connection&gt; getUpgradeHeader(string key) (string )</a>
+                                </li>
+                            
+                                <li><a href="#getUpgradeHeaders">&lt;Connection&gt; getUpgradeHeaders() (map )</a>
+                                </li>
+                            
+                                <li><a href="#isOpen">&lt;Connection&gt; isOpen() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#isSecure">&lt;Connection&gt; isSecure() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#ping">&lt;Connection&gt; ping(blob data) </a>
+                                </li>
+                            
+                                <li><a href="#pong">&lt;Connection&gt; pong(blob data) </a>
+                                </li>
+                            
+                                <li><a href="#pushBinary">&lt;Connection&gt; pushBinary(blob data) </a>
+                                </li>
+                            
+                                <li><a href="#pushText">&lt;Connection&gt; pushText(string text) </a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                        
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#WsClient ">WsClient (string url, string callbackService)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#connectWsClient">connect()</a></li>
+                                        
+                                        <li><a href="#connectWithDefaultWsClient">connectWithDefault()</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#BinaryFrame ">BinaryFrame</a></li>
+                                
+                                    <li><a href="#ClientConnectorConfig ">ClientConnectorConfig</a></li>
+                                
+                                    <li><a href="#CloseFrame ">CloseFrame</a></li>
+                                
+                                    <li><a href="#Connection ">Connection</a></li>
+                                
+                                    <li><a href="#HandshakeConnection ">HandshakeConnection</a></li>
+                                
+                                    <li><a href="#PingFrame ">PingFrame</a></li>
+                                
+                                    <li><a href="#PongFrame ">PongFrame</a></li>
+                                
+                                    <li><a href="#TextFrame ">TextFrame</a></li>
+                                
+                                    <li><a href="#WsConnectorError ">WsConnectorError</a></li>
+                                
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Annotations</span>
+                            <ul>
+                                
+                                    <li><a href="#clientService ">clientService</a></li>
+                                
+                                    <li><a href="#configuration ">configuration</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

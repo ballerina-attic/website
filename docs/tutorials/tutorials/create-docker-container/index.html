@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>create-docker-container - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "create-docker-container";
+    var mkdocs_page_input_path = "tutorials/create-docker-container.md";
+    var mkdocs_page_url = "/tutorials/create-docker-container/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-archive/">create-archive</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">create-docker-container</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#create-a-docker-image-with-a-ballerina-program">Create a Docker Image with a Ballerina Program</a></li>
+                
+                 <li><a class="toctree-l4" href="#create-your-own-docker-image">Create your own Docker image</a></li>
+                
+                 <li><a class="toctree-l4" href="#adding-your-services-to-an-existing-docker-container">Adding your services to an existing Docker container</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../custom-client-connector/">custom-client-connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../main-program/">main-program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../passthrough-service/">passthrough-service</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>tutorials &raquo;</li>
+        
+      
+    
+    <li>create-docker-container</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/tutorials/create-docker-container.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="create-a-docker-image-with-a-ballerina-program">Create a Docker Image with a Ballerina Program</h1>
+<p>Businesses and enterprises worldwide are now faced with the challenge of digital transformation. However, digital transformation has to be implemented under certain restrictions related to existing applications and infrastructure. Docker plays a key role in digital transformation by creating independance between applications and infrastructure and enabling them all to collaborate easily. A Docker container is a stand-alone piece of software that comes in a lightweight, runnable, executable package.</p>
+<blockquote>
+<p>This tutorial explores the methods used to create a docker container that has a Ballerina service embedded within. Ballerina supports dockerizing out-of-the-box.</p>
+</blockquote>
+<p>This tutorial includes instructions of creating a Docker image using the following methods.</p>
+<ul>
+<li><a href="../create-your-own-docker-image">Create your own Docker image</a></li>
+<li><a href="../adding-your-services-to-an-existing-docker-container">Adding your services to an existing Docker container</a></li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong>: You need to have Docker configured and running. Some expertise with cURL commands will also be useful. For more information on starting up and the Ballerina Composer, see <a href="../quick-tour.md">Quick Tour</a>.</p>
+</blockquote>
+<h2 id="create-your-own-docker-image">Create your own Docker image</h2>
+<ol>
+<li>First download the Ballerina tools distribution. The latest Ballerina pack can be found at: https://ballerinalang.org/downloads/</li>
+<li>Extract the downloaded .zip file, set up the Ballerina runtime, and run Ballerina. For more information on how to do this, see <a href="../quick-tour.md">Quick Tour</a>.</li>
+<li>
+<p>Create a Ballerina service to be added to the Docker container. Create the following service in the Ballerina Composer <strong>Source View</strong> (you can alternatively create a main function). Name the file: <code>docker-service.bal</code>.
+    ```
+    import ballerina.net.http;</p>
+<p>@http:configuration {basePath:"/echo"}
+service<http> echo {</p>
+<pre><code>@http:resourceConfig {
+    methods:["POST"],
+    path:"/"
+}
+resource echo (http:Request req, http:Response resp) {
+    string payload = req.getStringPayload();
+    resp.setStringPayload(payload);
+    resp.send();
+}
+</code></pre>
+<p>}
+<code>1. Create the Docker image using the following command.</code>
+ballerina docker docker-service.bal
+<code>If the above command succeeds you can see something similar to the following.
+![alt text](../images/DockerImage1.png)
+1. To verify image creation, execute the following command, which lists all the images in local docker registry.</code>
+docker images
+<code>1. Start the container with the following command.</code>
+docker run -p 39165:9090 --name docker-sample -d docker-service:latest<br />
+<code>1. The service should be up and running. You can verify this by listing all the docker processes.</code>
+docker ps
+<code>1. Invoke the service with following command.</code>
+curl -X POST http://localhost:39165/echo -d 'This is a sample message'
+```
+If everything is successful, you can see the echoed response from the Ballerina server.</p>
+</li>
+</ol>
+<h2 id="adding-your-services-to-an-existing-docker-container">Adding your services to an existing Docker container</h2>
+<p>The Docker distribution for Ballerina is available on Docker Hub as ballerinalang/ballerina. To run a Ballerina package using the Ballerina Docker image, simply mount the folder containing the file to /ballerina/files folder inside the container. The following steps have instructions on how you can do this.</p>
+<ol>
+<li>Pull the ballerina docker image using the following command.
+      <code>docker pull ballerinalang/ballerina</code></li>
+<li>Create a directory and copy the packages needed to be run.
+      <code>mkdir -p ~/ballerina/service/</code></li>
+<li>
+<p>Add the following service to ~/ballerina/service
+    ```
+    import ballerina.net.http;</p>
+<p>@http:configuration {basePath:"/echo"}
+service<http> echo {</p>
+<pre><code>@http:resourceConfig {
+    methods:["POST"],
+    path:"/"
+}
+resource echo (http:Request req, http:Response resp) {
+    string payload = req.getStringPayload();
+    resp.setStringPayload(payload);
+    resp.send();
+}
+</code></pre>
+<p>}
+<code>1. Mount the volume and start the Docker container.</code>
+docker run -v ~/ballerina/service:/ballerina/files -p 9090:9090 -it ballerinalang/ballerina:0.95.0
+<code>1. Now invoke the service with following cURL command.</code>
+curl -X POST http://localhost:9090/echo -d 'This is a sample message'
+```
+If everything is successful, you can see the echoed response from the Ballerina server</p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../custom-client-connector/" class="btn btn-neutral float-right" title="custom-client-connector">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../create-archive/" class="btn btn-neutral" title="create-archive"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../create-archive/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../custom-client-connector/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

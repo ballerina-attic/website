@@ -1,0 +1,908 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.file</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                            <h2>Global variables of ballerina.file package</h2>
+                            <p>
+                            <table>
+                                <tr>
+                                    <th>Variable Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                    <tr>
+                                        <td id="R">R</td><td><a href="#string">string</a></td><td>The Read access mode</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td id="W">W</td><td><a href="#string">string</a></td><td>The Write access mode</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td id="RW">RW</td><td><a href="#string">string</a></td><td>The Read Write access mode</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td id="A">A</td><td><a href="#string">string</a></td><td>The Append access mode</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td id="RA">RA</td><td><a href="#string">string</a></td><td>The Read Append access mode</td>
+                                    </tr>
+                                
+                            </table>
+                            </p>
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.file package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="copy">
+                                public function copy(<a href="ballerina.file.html#File" title="ballerina.file:File">File</a> source, <a href="ballerina.file.html#File" title="ballerina.file:File">File</a> destination) 
+                            </h3>
+                            <p>Copies a file from a given location to another</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>source</td><td><a href="ballerina.file.html#File" title="ballerina.file:File">File</a></td><td>File/Directory that should be copied</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>destination</td><td><a href="ballerina.file.html#File" title="ballerina.file:File">File</a></td><td>Destination directory or path to which the source should be copied</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="close">
+                                public function &lt;File file&gt; close() 
+                            </h3>
+                            <p>Closes a given file and its stream</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be closed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="createNewFile">
+                                public function &lt;File file&gt; createNewFile() (boolean, AccessDeniedError, IOError)
+                            </h3>
+                            <p>Creates a new file given by the path in the File struct</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be created</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the new file was successfully created</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#AccessDeniedError" title="ballerina.file:AccessDeniedError">AccessDeniedError</a></td><td>Returns an AccessDeniedError if the user does not have the necessary permissions to create the file</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#IOError" title="ballerina.file:IOError">IOError</a></td><td>Returns an IOError if the file could not be created due to an I/O error</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="delete">
+                                public function &lt;File file&gt; delete() 
+                            </h3>
+                            <p>Deletes a file from a given location</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be deleted</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="exists">
+                                public function &lt;File file&gt; exists() (boolean)
+                            </h3>
+                            <p>Checks whether the file exists</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be checked for existence</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the file exists</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getModifiedTime">
+                                public function &lt;File file&gt; getModifiedTime() (Time, AccessDeniedError, IOError)
+                            </h3>
+                            <p>Returns the last modified time of the file</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file of which the modified time needs to be checked</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="Time">Time</a></td><td>Returns a Time struct</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#AccessDeniedError" title="ballerina.file:AccessDeniedError">AccessDeniedError</a></td><td>Returns an AccessDeniedError if the user does not have the necessary permissions to read the file</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#IOError" title="ballerina.file:IOError">IOError</a></td><td>Returns an IOError if the file could not be read</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getName">
+                                public function &lt;File file&gt; getName() (string)
+                            </h3>
+                            <p>Returns the name of the file</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file of which the name needs to be looked up</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>Returns the file name as a string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isDirectory">
+                                public function &lt;File file&gt; isDirectory() (boolean)
+                            </h3>
+                            <p>Checks whether the file is a directory</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be checked to determine whether it is a directory</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the file is a directory</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isReadable">
+                                public function &lt;File file&gt; isReadable() (boolean)
+                            </h3>
+                            <p>Checks whether the user has read access to the file</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be checked for read permission</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the user has read access</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="isWritable">
+                                public function &lt;File file&gt; isWritable() (boolean)
+                            </h3>
+                            <p>Checks whether the user has write access to the file</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to be checked for write permission</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the user has write access</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="list">
+                                public function &lt;File file&gt; list() (File[], AccessDeniedError, IOError)
+                            </h3>
+                            <p>Lists the files in the specified directory</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The directory whose files list is needed</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#File[]">File[]</a></td><td>Returns an array of File structs if successful</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#AccessDeniedError" title="ballerina.file:AccessDeniedError">AccessDeniedError</a></td><td>Returns an AccessDeniedError if the user does not have the necessary permissions to read the directory</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#IOError" title="ballerina.file:IOError">IOError</a></td><td>Returns an IOError if the directory could not be opened due to an I/O error</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="mkdirs">
+                                public function &lt;File file&gt; mkdirs() (boolean, AccessDeniedError, IOError)
+                            </h3>
+                            <p>Creates the directory structure specified by the file struct</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The directory or directory structure to be created</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#boolean">boolean</a></td><td>Returns true if the directory/directories were successfully created</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#AccessDeniedError" title="ballerina.file:AccessDeniedError">AccessDeniedError</a></td><td>Returns an AccessDeniedError if the user does not have the necessary permissions to modify the directory</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.file.html#IOError" title="ballerina.file:IOError">IOError</a></td><td>Returns an IOError if the directory could not be created</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="open">
+                                public function &lt;File file&gt; open(<a href="#string">string</a> accessMode) 
+                            </h3>
+                            <p>Retrieves the stream from a local file</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file which needs to be opened</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>accessMode</td><td><a href="#string">string</a></td><td>The file access mode used when opening the file</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="openChannel">
+                                public function &lt;File file&gt; openChannel(<a href="#string">string</a> accessMode) (ByteChannel)
+                            </h3>
+                            <p>Function to return a ByteChannel related to the file. This ByteChannel can then be used to read/write from/to the file.</p>
+
+                            
+                            <p>
+                                <b>Receiver:</b>
+                                <table>
+                                    <tr>
+                                        <th>Receiver Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>file</td><td><a href="">File</a></td><td>The file to which a channel needs to be opened</td>
+                                    </tr>
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>accessMode</td><td><a href="#string">string</a></td><td>Specifies whether the file should be opened for reading or writing (r/w)</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="ballerina.io.html#ByteChannel" title="ballerina.io:ByteChannel">ByteChannel</a></td><td>ByteChannel which will allow to perform I/O operations</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="move">
+                                public function move(<a href="ballerina.file.html#File" title="ballerina.file:File">File</a> target, <a href="ballerina.file.html#File" title="ballerina.file:File">File</a> destination) 
+                            </h3>
+                            <p>Moves a file from a given location to another</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>target</td><td><a href="ballerina.file.html#File" title="ballerina.file:File">File</a></td><td>File/Directory that should be moved</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>destination</td><td><a href="ballerina.file.html#File" title="ballerina.file:File">File</a></td><td>Location where the File/Directory should be moved to</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.file package</h2>
+                         
+                        
+                        <h3 id="AccessDeniedError">public struct AccessDeniedError</h3>
+                        <p>Represents an error which occurs when attempting to perform operations on a file without the required privileges.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td>The error message</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td>The error which caused the access denied error</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td>The stack trace of the error</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="File">public struct File</h3>
+                        <p>Represents a file in the file system and can perform various file operations on this.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>path</td><td><a href="#string">string</a></td><td>The path of the file</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="FileNotFoundError">public struct FileNotFoundError</h3>
+                        <p>Represents an error which occurs when attempting to perform operations on a non-existent file.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td>The error message</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td>The error which caused the file not found error</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td>The stack trace of the error</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="FileNotOpenedError">public struct FileNotOpenedError</h3>
+                        <p>Represents an error which occurs when attempting to perform operations on a file without opening it.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td>The error message</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td>The error which caused the file not opened error</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td>The stack trace of the error</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="IOError">public struct IOError</h3>
+                        <p>Represents an I/O error which could occur when processing a file.</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>msg</td><td><a href="#string">string</a></td><td>The error message</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>cause</td><td><a href="" title="error">error</a></td><td>The error which caused the I/O error</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>stackTrace</td><td><a href="#StackFrame[]">StackFrame[]</a></td><td>The stack trace of the error</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <br> 
+                         
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                            <li>
+                                <span class="opener">Global Variables</span>
+                                <ul>
+                                    
+                                        <li><a href="#R">R</a></li>
+                                    
+                                        <li><a href="#W">W</a></li>
+                                    
+                                        <li><a href="#RW">RW</a></li>
+                                    
+                                        <li><a href="#A">A</a></li>
+                                    
+                                        <li><a href="#RA">RA</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#copy">copy(File source, File destination) </a>
+                                </li>
+                            
+                                <li><a href="#close">&lt;File&gt; close() </a>
+                                </li>
+                            
+                                <li><a href="#createNewFile">&lt;File&gt; createNewFile() (boolean , AccessDeniedError , IOError )</a>
+                                </li>
+                            
+                                <li><a href="#delete">&lt;File&gt; delete() </a>
+                                </li>
+                            
+                                <li><a href="#exists">&lt;File&gt; exists() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#getModifiedTime">&lt;File&gt; getModifiedTime() (Time , AccessDeniedError , IOError )</a>
+                                </li>
+                            
+                                <li><a href="#getName">&lt;File&gt; getName() (string )</a>
+                                </li>
+                            
+                                <li><a href="#isDirectory">&lt;File&gt; isDirectory() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#isReadable">&lt;File&gt; isReadable() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#isWritable">&lt;File&gt; isWritable() (boolean )</a>
+                                </li>
+                            
+                                <li><a href="#list">&lt;File&gt; list() (File[] , AccessDeniedError , IOError )</a>
+                                </li>
+                            
+                                <li><a href="#mkdirs">&lt;File&gt; mkdirs() (boolean , AccessDeniedError , IOError )</a>
+                                </li>
+                            
+                                <li><a href="#open">&lt;File&gt; open(string accessMode) </a>
+                                </li>
+                            
+                                <li><a href="#openChannel">&lt;File&gt; openChannel(string accessMode) (ByteChannel )</a>
+                                </li>
+                            
+                                <li><a href="#move">move(File target, File destination) </a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                         
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#AccessDeniedError ">AccessDeniedError</a></li>
+                                
+                                    <li><a href="#File ">File</a></li>
+                                
+                                    <li><a href="#FileNotFoundError ">FileNotFoundError</a></li>
+                                
+                                    <li><a href="#FileNotOpenedError ">FileNotOpenedError</a></li>
+                                
+                                    <li><a href="#IOError ">IOError</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

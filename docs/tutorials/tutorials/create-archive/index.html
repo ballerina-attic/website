@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92163714-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW2LLTW');</script>
+<!-- End Google Tag Manager -->
+
+  
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>create-archive - Ballerina Documentation</title>
+<!--  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+   <link rel="stylesheet" href="../../css/ballerina.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "create-archive";
+    var mkdocs_page_input_path = "tutorials/create-archive.md";
+    var mkdocs_page_url = "/tutorials/create-archive/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  
+  
+  
+  <!--TOC-->
+
+
+
+<!--TOC END-->
+  
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="http://ballerinalang.org" class="cBallerinaLogo"><img src="../../img/ballerina-logo.svg"/></a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+<!--            <li><a href="../..">Documentation Home</li>-->
+          
+            <li>
+
+  <li class="cMainLink"><span>tutorials</span>
+    <ul class="subnav">
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Architecture Design Documents</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 current">
+        <a class="current" href="./">create-archive</a>
+        
+            <ul>
+                <li><a href="../..">Home</a></li>
+            
+                <li class="toctree-l3"><a href="#create-an-archive-of-your-program">Create an Archive of your Program</a></li>
+                
+                 <li><a class="toctree-l4" href="#declare-the-package-name">Declare the package name</a></li>
+                
+                 <li><a class="toctree-l4" href="#create-the-archive">Create the archive</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../create-docker-container/">create-docker-container</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../custom-client-connector/">custom-client-connector</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../main-program/">main-program</a>
+        
+    </li>
+
+
+        
+            
+
+
+    <li class="toctree-l1 ">
+        <a class="" href="../passthrough-service/">passthrough-service</a>
+        
+    </li>
+
+
+        
+    </ul>
+      </li>
+
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Ballerina Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>tutorials &raquo;</li>
+        
+      
+    
+    <li>create-archive</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/ballerinalang/ballerina/edit/master/docs/tutorials/create-archive.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="create-an-archive-of-your-program">Create an Archive of your Program</h1>
+<p>You can execute Ballerina programs (<code>.bal</code> files) directly from the command line. However, if you want to create a self-contained package containing all the program code and third-party dependencies, you must build the program into a packaged format: a <strong>service archive</strong> <code>.bsz</code> (if your program's logic is defined as a service) or <strong>executable archive</strong> <code>.bmz</code> (if your program's logic is defined in the <code>main()</code> function). For example, if you want to deploy your Ballerina service to <a href="http://wso2.com/integration/cloud/">WSO2 Integration Cloud</a> so that others can access that service in the cloud, you create a service archive of your Ballerina program and upload it to the cloud. This tutorial shows you how to create an archive of the HelloWorldService sample. </p>
+<h2 id="declare-the-package-name">Declare the package name</h2>
+<p>Before you can create your archive, you must declare a package name for your Ballerina program. This package name provides a unique identifier for your program. The path in the package name must match the directory structure where the Ballerina file is located, starting from the top directory where your programs are located. For example, if you want to create archives of the Ballerina sample programs, you would declare the package names in each of the samples as <code>samples.&lt;sampleName&gt;</code>, such as <code>samples.helloWorldService</code>. When you create an archive of your program, you will use the package name with the <code>ballerina build</code> command to specify which program you want to archive.</p>
+<p>You declare the package name at the very top of the Ballerina program file. Let's declare a package name for the HelloWorldService sample.</p>
+<ol>
+<li>In your <code>&lt;ballerina_home&gt;/samples/helloWorldService</code> directory, open the <code>helloWorldService.bal</code> file for editing. You can use the Composer or any text editor.</li>
+<li>At the top of the file, add the following line to declare the package name:</li>
+</ol>
+<pre><code>package samples.helloWorldService;
+</code></pre>
+
+<p>The sample should now look like this:</p>
+<pre><code>package samples.helloWorldService;
+import ballerina.lang.messages;
+@http:BasePath (&quot;/hello&quot;)
+service helloWorld {
+
+    @http:GET
+    resource sayHello (message m) {
+        message response = {};
+        messages:setStringPayload(response, &quot;Hello, World!&quot;);
+        reply response;
+
+    }
+
+}
+</code></pre>
+
+<p>Now that you have declared the package name for the HelloWorldService program, you can build an archive of it by specifying its package name.</p>
+<h2 id="create-the-archive">Create the archive</h2>
+<p>To create the archive, you will use the <code>ballerina build</code> command followed by the archive type (<code>service</code> or <code>main</code>), specify one or more packages to include in the archive, and optionally specify the output name to give the archive file. When you specify the package name in this command, note that you will use slashes instead of periods to delineate the path, such as <code>samples/helloWorldService</code> instead of <code>samples.helloWorldService</code>. If you don't specify an output name for the archive file, the last part of the package name is used as the name, e.g., <code>helloWorldService.bsz</code>. In this tutorial, we will name the archive file <code>hello.bsz</code>.</p>
+<p>Let's create the archive.</p>
+<ol>
+<li>Navigate to your <code>&lt;ballerina_home&gt;</code> directory.</li>
+<li>If your <code>&lt;ballerina_home&gt;/bin</code> directory is already in your path, type the <code>ballerina</code> command as shown below. If it's not in your path, type <code>bin/ballerina</code> (or <code>bin\ballerina</code> on Windows) instead of <code>ballerina</code>. </li>
+</ol>
+<p><code>ballerina build service samples/helloWorldService -o hello.bsz</code></p>
+<p>You now have a service archive file of your Ballerina program, which you can upload to WSO2 Integration Cloud, run in a Docker container, or distribute to other Ballerina users.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../create-docker-container/" class="btn btn-neutral float-right" title="create-docker-container">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Architecture Design Documents"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2017 WSO2, Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ballerinalang/ballerina" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../create-docker-container/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
