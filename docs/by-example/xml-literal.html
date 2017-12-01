@@ -92,7 +92,13 @@
 <span class="s">                  &lt;/book&gt;`</span><span class="p">;</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">x2</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">rootTag</span> <span class="p">=</span> <span class="s">&quot;{http://ballerina.com/aa}newBook&quot;</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">title</span> <span class="p">=</span> <span class="s">&quot;(Sir)&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">title</span> <span class="p">=</span> <span class="s">&quot;(Sir)&quot;</span><span class="p">;</span>    <span class="kt">xml</span> <span class="nx">x3</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;{{rootTag}}&gt;</span>
+<span class="s">                    &lt;name&gt;Sherlock Holmes&lt;/name&gt;</span>
+<span class="s">                    &lt;author&gt;{{title}} Arthur Conan Doyle&lt;/author&gt;</span>
+<span class="s">                    &lt;!--Price: ${{ 40 / 5 + 4 }}--&gt;</span>
+<span class="s">                  &lt;/{{rootTag}}&gt;`</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x3</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 		  	  </div>	
@@ -189,7 +195,7 @@
                                   <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x3</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;{{rootTag}}&gt;</span>
 <span class="s">                    &lt;name&gt;Sherlock Holmes&lt;/name&gt;</span>
 <span class="s">                    &lt;author&gt;{{title}} Arthur Conan Doyle&lt;/author&gt;</span>
-<span class="s">                    &lt;!--Price: $ {{ 40 / 5 + 4 }}--&gt;</span>
+<span class="s">                    &lt;!--Price: ${{ 40 / 5 + 4 }}--&gt;</span>
 <span class="s">                  &lt;/{{rootTag}}&gt;`</span><span class="p">;</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">x3</span><span class="p">);</span>
 <span class="p">}</span>
