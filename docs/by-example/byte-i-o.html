@@ -102,13 +102,27 @@
         <span class="nx">readContent</span><span class="p">,</span> <span class="nx">readCount</span> <span class="p">=</span> <span class="nx">readBytes</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">bytesChunk</span><span class="p">);</span>
         <span class="nx">numberOfBytesWritten</span> <span class="p">=</span> <span class="nx">writeBytes</span><span class="p">(</span><span class="nx">dst</span><span class="p">,</span> <span class="nx">readContent</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
     <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">copyAll</span> <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">dst</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">blob</span> <span class="nx">readContent</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">numberOfBytesRead</span><span class="p">;</span>
+    <span class="nx">readContent</span><span class="p">,</span><span class="nx">numberOfBytesRead</span> <span class="p">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">readAllBytes</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">numberOfBytesWritten</span> <span class="p">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">writeBytes</span><span class="p">(</span><span class="nx">readContent</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">srcFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerina.jpg&quot;</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy.jpg&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy1.jpg&quot;</span><span class="p">;</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">sourceChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">srcFilePath</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">destinationChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">dstFilePath</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Start to copy files from &quot;</span> <span class="o">+</span> <span class="nx">srcFilePath</span> <span class="o">+</span> <span class="s">&quot; to &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
     <span class="nx">copy</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File copy completed. The copied file could be located in &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
+    <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy2.jpg&quot;</span><span class="p">;</span>
+    <span class="nx">sourceChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">srcFilePath</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="nx">destinationChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">dstFilePath</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Start to copy files from &quot;</span> <span class="o">+</span> <span class="nx">srcFilePath</span> <span class="o">+</span> <span class="s">&quot; to &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
+    <span class="nx">copyAll</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File copy completed. The copied file could be located in &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
     <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
     <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
@@ -236,7 +250,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>This function will copy all content from source channel to a destination channel.</p>
+                                  <p>This function will copy content from source channel to a destination channel.</p>
 
                               </td>
                               <td class="code leading">
@@ -280,16 +294,85 @@ source and copy it to the destination.</p>
                           
                           <tr>
                               <td class="docs">
+                                  <p>This function will copy all content from source channel to a destination channel.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">copyAll</span> <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">dst</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">blob</span> <span class="nx">readContent</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">numberOfBytesRead</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Here&rsquo;s how we read all content from the source</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">readContent</span><span class="p">,</span><span class="nx">numberOfBytesRead</span> <span class="p">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">readAllBytes</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">numberOfBytesWritten</span> <span class="p">=</span> <span class="nx">dst</span><span class="p">.</span><span class="nx">writeBytes</span><span class="p">(</span><span class="nx">readContent</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
                                   
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">string</span> <span class="nx">srcFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerina.jpg&quot;</span><span class="p">;</span>
-    <span class="kt">string</span> <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy.jpg&quot;</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Read specified number of bytes from the given channel and write.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">srcFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerina.jpg&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy1.jpg&quot;</span><span class="p">;</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">sourceChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">srcFilePath</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">destinationChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">dstFilePath</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Start to copy files from &quot;</span> <span class="o">+</span> <span class="nx">srcFilePath</span> <span class="o">+</span> <span class="s">&quot; to &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
     <span class="nx">copy</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File copy completed. The copied file could be located in &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Close the created connections.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Read all bytes from the given channel and write.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">dstFilePath</span> <span class="p">=</span> <span class="s">&quot;./files/ballerinaCopy2.jpg&quot;</span><span class="p">;</span>
+    <span class="nx">sourceChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">srcFilePath</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="nx">destinationChannel</span> <span class="p">=</span> <span class="nx">getFileChannel</span><span class="p">(</span><span class="nx">dstFilePath</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Start to copy files from &quot;</span> <span class="o">+</span> <span class="nx">srcFilePath</span> <span class="o">+</span> <span class="s">&quot; to &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
+    <span class="nx">copyAll</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File copy completed. The copied file could be located in &quot;</span> <span class="o">+</span> <span class="nx">dstFilePath</span><span class="p">);</span>
 </pre></div>
 
@@ -322,9 +405,11 @@ source and copy it to the destination.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run io-bytes.bal
-<span class="go">Start to copy files from ./files/ballerina.jpg to ./files/ballerinaCopy.jpg</span>
-<span class="go">File copy completed. The copied file could be located in ./files/ballerinaCopy.jpg</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run byte-i-o.bal
+<span class="go">Start to copy files from ./files/ballerina.jpg to ./files/ballerinaCopy1.jpg</span>
+<span class="go">File copy completed. The copied file could be located in ./files/ballerinaCopy1.jpg</span>
+<span class="go">Start to copy files from ./files/ballerina.jpg to ./files/ballerinaCopy2.jpg</span>
+<span class="go">File copy completed. The copied file could be located in ./files/ballerinaCopy2.jpg</span>
 </pre></div>
 
                               </td>

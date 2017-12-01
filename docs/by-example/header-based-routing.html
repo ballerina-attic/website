@@ -93,12 +93,11 @@
         <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
-        <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
-        <span class="kt">boolean</span> <span class="nx">headerExists</span><span class="p">;</span>
-        <span class="nx">nameString</span><span class="p">,</span> <span class="nx">headerExists</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">headerExists</span> <span class="o">&amp;&amp;</span> <span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>            <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">weatherEP</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">weatherEP</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">res</span><span class="p">.</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
@@ -192,10 +191,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span><span class="p">;</span>
-        <span class="kt">boolean</span> <span class="nx">headerExists</span><span class="p">;</span>
-        <span class="nx">nameString</span><span class="p">,</span> <span class="nx">headerExists</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">headerExists</span> <span class="o">&amp;&amp;</span> <span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -218,15 +215,6 @@
                               <td class="docs">
                                   <p>&ldquo;get&rdquo; action can be used to make http GET call.</p>
 
-                              </td>
-                              <td class="code empty leading">
-                                  
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>            <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">weatherEP</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>

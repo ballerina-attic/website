@@ -79,7 +79,7 @@
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">getFileCharacterChannel</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">filePath</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">permission</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">encoding</span><span class="p">)</span>
-                                 <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">src</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="nx">filePath</span><span class="p">};</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">channel</span> <span class="p">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">openChannel</span><span class="p">(</span><span class="nx">permission</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">characterChannel</span> <span class="p">=</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">toCharacterChannel</span><span class="p">(</span><span class="nx">encoding</span><span class="p">);</span>
@@ -97,10 +97,20 @@
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">sourceChannel</span> <span class="p">=</span>
     <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sample.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">destinationChannel</span> <span class="p">=</span>
-    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse1.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Started to process the file.&quot;</span><span class="p">);</span>
     <span class="nx">process</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File processing complete.&quot;</span><span class="p">);</span>
+    <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
+    <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
+    <span class="nx">sourceChannel</span> <span class="p">=</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sample.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">destinationChannel</span> <span class="p">=</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse2.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Started to read all characters in file.&quot;</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">sourceContent</span> <span class="p">=</span> <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">readAllCharacters</span><span class="p">();</span>
+    <span class="nx">_</span> <span class="p">=</span> <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">writeCharacters</span><span class="p">(</span><span class="nx">sourceContent</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;All characters are read and copied.&quot;</span><span class="p">);</span>
     <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
     <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
 <span class="p">}</span>
@@ -140,7 +150,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">getFileCharacterChannel</span> <span class="p">(</span><span class="kt">string</span> <span class="nx">filePath</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">permission</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">encoding</span><span class="p">)</span>
-                                 <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">file</span><span class="p">:</span><span class="nx">File</span> <span class="nx">src</span> <span class="p">=</span> <span class="p">{</span><span class="nx">path</span><span class="p">:</span><span class="nx">filePath</span><span class="p">};</span>
 </pre></div>
 
@@ -268,10 +278,42 @@
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">sourceChannel</span> <span class="p">=</span>
     <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sample.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">destinationChannel</span> <span class="p">=</span>
-    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse1.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Started to process the file.&quot;</span><span class="p">);</span>
     <span class="nx">process</span><span class="p">(</span><span class="nx">sourceChannel</span><span class="p">,</span> <span class="nx">destinationChannel</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;File processing complete.&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Close the created connections.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
+    <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">closeCharacterChannel</span><span class="p">();</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Read all characters in a file and write to the source file.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">sourceChannel</span> <span class="p">=</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sample.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">destinationChannel</span> <span class="p">=</span>
+    <span class="nx">getFileCharacterChannel</span><span class="p">(</span><span class="s">&quot;./files/sampleResponse2.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Started to read all characters in file.&quot;</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">sourceContent</span> <span class="p">=</span> <span class="nx">sourceChannel</span><span class="p">.</span><span class="nx">readAllCharacters</span><span class="p">();</span>
+    <span class="nx">_</span> <span class="p">=</span> <span class="nx">destinationChannel</span><span class="p">.</span><span class="nx">writeCharacters</span><span class="p">(</span><span class="nx">sourceContent</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;All characters are read and copied.&quot;</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -303,9 +345,11 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run io-chars.bal
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run character-i-o.bal
 <span class="go">Started to process the file.</span>
 <span class="go">File processing complete.</span>
+<span class="go">Started to read all characters in file.</span>
+<span class="go">All characters are read and copied.</span>
 </pre></div>
 
                               </td>

@@ -107,7 +107,7 @@
     <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s">&quot;Sample-Name&quot;</span><span class="p">,</span> <span class="s">&quot;http-client-connector&quot;</span><span class="p">);</span>
     <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
-    <span class="nx">contentType</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">);</span>
+    <span class="nx">contentType</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nContent-Type: &quot;</span> <span class="o">+</span> <span class="nx">contentType</span><span class="p">);</span>    <span class="kt">int</span> <span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">();</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Status code: &quot;</span> <span class="o">+</span> <span class="nx">statusCode</span><span class="p">);</span>
 <span class="p">}</span>
@@ -296,7 +296,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
-    <span class="nx">contentType</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">);</span>
+    <span class="nx">contentType</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nContent-Type: &quot;</span> <span class="o">+</span> <span class="nx">contentType</span><span class="p">);</span>
 </pre></div>
 
