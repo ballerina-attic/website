@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: XML Functions</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">xml</span> <span class="nx">bookName</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;name&gt;Book1&lt;/name&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">bookComment</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;!--some comment--&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">someText</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`Hello, World!`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">someText</span> <span class="o">+</span> <span class="nx">bookName</span> <span class="o">+</span> <span class="nx">bookComment</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">xmlString</span> <span class="p">=</span> <span class="s">&quot;&lt;book/&gt;&quot;</span><span class="p">;</span>
+    <span class="k">var</span> <span class="nx">book</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">xmlString</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">.</span><span class="nx">getItemType</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">bookName</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">bookName</span><span class="p">.</span><span class="nx">getTextValue</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">isSingleton</span><span class="p">());</span>
+    <span class="kt">xml</span> <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">elements</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">book</span><span class="p">.</span><span class="nx">setChildren</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">book</span><span class="p">.</span><span class="nx">children</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">book</span><span class="p">.</span><span class="nx">selectChildren</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">strip</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">x</span> <span class="p">=</span> <span class="nx">bookComment</span><span class="p">.</span><span class="nx">copy</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="xml-functions">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: XML Functions</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Ballerina supports various built-in functions to manipulate XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">xml</span> <span class="nx">bookName</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;name&gt;Book1&lt;/name&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">bookComment</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;!--some comment--&gt;`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">someText</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`Hello, World!`</span><span class="p">;</span>
+    <span class="kt">xml</span> <span class="nx">content</span> <span class="p">=</span> <span class="nx">someText</span> <span class="o">+</span> <span class="nx">bookName</span> <span class="o">+</span> <span class="nx">bookComment</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Other than the XML literal syntax, XML can be parsed using a string. The string should be a valid XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">xmlString</span> <span class="p">=</span> <span class="s">&quot;&lt;book/&gt;&quot;</span><span class="p">;</span>
+    <span class="k">var</span> <span class="nx">book</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">xml</span><span class="p">&gt;</span><span class="nx">xmlString</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the type of the XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">bookComment</span><span class="p">.</span><span class="nx">getItemType</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the name of an XML element.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">bookName</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the text content of an XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">bookName</span><span class="p">.</span><span class="nx">getTextValue</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Is the XML emtpy?</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Does the element have only one element?</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nb">println</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">isSingleton</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get a subsequence of an XML sequence.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>All the element-type items from an taken from an XML sequence.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">elements</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>An element with a particular name can also be retrieved.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Set the children of an XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">book</span><span class="p">.</span><span class="nx">setChildren</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get all the children of an XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">book</span><span class="p">.</span><span class="nx">children</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get a particular child of an XML.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">book</span><span class="p">.</span><span class="nx">selectChildren</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Remove any text items from an XML sequence that are all whitespace.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">strip</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Make a copy of an XML.</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="nx">x</span> <span class="p">=</span> <span class="nx">bookComment</span><span class="p">.</span><span class="nx">copy</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run xml-functions.bal
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Type of the XML</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">comment</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Name of the XML</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">name</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Text content of the XML</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">Book1</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Is the XML emtpy?</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">false</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Has only one element?</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">false</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Subsequence of a sequence</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">&lt;!--some comment--&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>All the element type items</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Selected element</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>XML after setting the children</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">&lt;book&gt;Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!--some comment--&gt;&lt;/book&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>All the children</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!--some comment--&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Selected child</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">&lt;name&gt;Book1&lt;/name&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Stripped XML</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">Hello, World!&lt;name&gt;Book1&lt;/name&gt;&lt;!--some comment--&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Coppied XML</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="go">&lt;!--some comment--&gt;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="json-to-xml-conversion">JSON To XML Conversion</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/xml-functions">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

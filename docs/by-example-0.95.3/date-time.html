@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: Date Time</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Time</span> <span class="nx">time</span> <span class="p">=</span> <span class="nx">currentTime</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">currentTimeMills</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">time</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in milliseconds: &quot;</span> <span class="o">+</span> <span class="nx">currentTimeMills</span><span class="p">);</span>
+    <span class="nx">Time</span> <span class="nx">timeCreated</span> <span class="p">=</span> <span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Created Time: &quot;</span> <span class="o">+</span> <span class="nx">timeCreated</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">Time</span> <span class="nx">t1</span> <span class="p">=</span> <span class="nb">parse</span><span class="p">(</span><span class="s">&quot;2017-06-26T09:46:22.444-0500&quot;</span><span class="p">,</span> <span class="s">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Parsed Time: &quot;</span> <span class="o">+</span> <span class="nx">t1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="kt">string</span> <span class="nx">standardTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in ISO format: &quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">customTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd-E&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in custom format: &quot;</span> <span class="o">+</span> <span class="nx">customTimeString</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">year</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">year</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Year: &quot;</span> <span class="o">+</span> <span class="nx">year</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">month</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">month</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Month: &quot;</span> <span class="o">+</span> <span class="nx">month</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">day</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">day</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Day: &quot;</span> <span class="o">+</span> <span class="nx">day</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">hour</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">hour</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hour: &quot;</span> <span class="o">+</span> <span class="nx">hour</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">minute</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">minute</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Minute: &quot;</span> <span class="o">+</span> <span class="nx">minute</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">second</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Second: &quot;</span> <span class="o">+</span> <span class="nx">second</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">milliSecond</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">milliSecond</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Millisecond: &quot;</span> <span class="o">+</span> <span class="nx">milliSecond</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">weekday</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">weekday</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Weekday: &quot;</span> <span class="o">+</span> <span class="nx">weekday</span><span class="p">);</span>
+    <span class="nx">year</span><span class="p">,</span> <span class="nx">month</span><span class="p">,</span> <span class="nx">day</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Date: &quot;</span> <span class="o">+</span> <span class="nx">year</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">day</span><span class="p">);</span>
+    <span class="nx">hour</span><span class="p">,</span> <span class="nx">minute</span><span class="p">,</span> <span class="nx">second</span><span class="p">,</span> <span class="nx">milliSecond</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Time:&quot;</span> <span class="o">+</span> <span class="nx">hour</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">minute</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">second</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">milliSecond</span><span class="p">);</span>
+    <span class="nx">Time</span> <span class="nx">tmAdd</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">addDuration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After add duration: &quot;</span> <span class="o">+</span> <span class="nx">tmAdd</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">Time</span> <span class="nx">tmSub</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">subtractDuration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After subtract duration: &quot;</span> <span class="o">+</span> <span class="nx">tmSub</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">Time</span> <span class="nx">t2</span> <span class="p">=</span> <span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Before convert zone: &quot;</span> <span class="o">+</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">Time</span> <span class="nx">t3</span> <span class="p">=</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">toTimezone</span><span class="p">(</span><span class="s">&quot;Asia/Colombo&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After convert zone:&quot;</span> <span class="o">+</span> <span class="nx">t3</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="date-time">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: Date Time</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Ballerina Date time API is used to manipulate date and time
+ related data.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Time struct can be created by currentTime, createTime or parse functions.
+Get the current time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">time</span> <span class="p">=</span> <span class="nx">currentTime</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">currentTimeMills</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">time</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in milliseconds: &quot;</span> <span class="o">+</span> <span class="nx">currentTimeMills</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create a time with the required year, month ,date,
+time and zone information.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">timeCreated</span> <span class="p">=</span> <span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Created Time: &quot;</span> <span class="o">+</span> <span class="nx">timeCreated</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns the time for the given string representation
+based on the given format string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">t1</span> <span class="p">=</span> <span class="nb">parse</span><span class="p">(</span><span class="s">&quot;2017-06-26T09:46:22.444-0500&quot;</span><span class="p">,</span> <span class="s">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Parsed Time: &quot;</span> <span class="o">+</span> <span class="nx">t1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>String representation of time can be retrieved via toString or format
+functions.Get the ISO 8601 formatted string of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">standardTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in ISO format: &quot;</span> <span class="o">+</span> <span class="nx">standardTimeString</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the formatted string of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">customTimeString</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd-E&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Current system time in custom format: &quot;</span> <span class="o">+</span> <span class="nx">customTimeString</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Information of time can be retrieved via following
+functions.Get the year of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">year</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">year</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Year: &quot;</span> <span class="o">+</span> <span class="nx">year</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the month of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">month</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">month</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Month: &quot;</span> <span class="o">+</span> <span class="nx">month</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the day of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">day</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">day</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Day: &quot;</span> <span class="o">+</span> <span class="nx">day</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the hour of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">hour</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">hour</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hour: &quot;</span> <span class="o">+</span> <span class="nx">hour</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the minute of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">minute</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">minute</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Minute: &quot;</span> <span class="o">+</span> <span class="nx">minute</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the second of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">second</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Second: &quot;</span> <span class="o">+</span> <span class="nx">second</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the milli second of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">milliSecond</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">milliSecond</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Millisecond: &quot;</span> <span class="o">+</span> <span class="nx">milliSecond</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get the week day of a given time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">weekday</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">weekday</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Weekday: &quot;</span> <span class="o">+</span> <span class="nx">weekday</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get date components of time using a single function.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">year</span><span class="p">,</span> <span class="nx">month</span><span class="p">,</span> <span class="nx">day</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Date: &quot;</span> <span class="o">+</span> <span class="nx">year</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">day</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Get time components using a single function.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">hour</span><span class="p">,</span> <span class="nx">minute</span><span class="p">,</span> <span class="nx">second</span><span class="p">,</span> <span class="nx">milliSecond</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Time:&quot;</span> <span class="o">+</span> <span class="nx">hour</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">minute</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">second</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">milliSecond</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Add a given duration to the time. Here we are adding
+one year, one month and one second to the current time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">tmAdd</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">addDuration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After add duration: &quot;</span> <span class="o">+</span> <span class="nx">tmAdd</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Subtract a given duration from the time. Here we are subtracting one year,
+one month and one second from the current time.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">tmSub</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">subtractDuration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After subtract duration: &quot;</span> <span class="o">+</span> <span class="nx">tmSub</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Convert to a different time zone.</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="nx">Time</span> <span class="nx">t2</span> <span class="p">=</span> <span class="nx">createTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="s">&quot;America/Panama&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Before convert zone: &quot;</span> <span class="o">+</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">Time</span> <span class="nx">t3</span> <span class="p">=</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">toTimezone</span><span class="p">(</span><span class="s">&quot;Asia/Colombo&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;After convert zone:&quot;</span> <span class="o">+</span> <span class="nx">t3</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run date-time.bal
+<span class="go">Current system time in milliseconds: 1509122456117</span>
+<span class="go">Created Time: 2017-03-28T23:42:45.554-05:00</span>
+<span class="go">Parsed Time: 2017-06-26T09:46:22.444-05:00</span>
+<span class="go">Current system time in ISO format: 2017-10-27T22:10:56.117+05:30</span>
+<span class="go">Current system time in custom format: 2017-10-27-Fri</span>
+<span class="go">Year: 2017</span>
+<span class="go">Month: 10</span>
+<span class="go">Day: 27</span>
+<span class="go">Hour: 22</span>
+<span class="go">Minute: 10</span>
+<span class="go">Second: 56</span>
+<span class="go">Millisecond: 117</span>
+<span class="go">Weekday: FRIDAY</span>
+<span class="go">Date: 2017:10:27</span>
+<span class="go">Time:22:10:56:117</span>
+<span class="go">After add duration: 2018-11-27T22:10:57.117+05:30</span>
+<span class="go">After subtract duration: 2016-09-27T22:10:55.117+05:30</span>
+<span class="go">Before convert zone: 2017-03-28T23:42:45.554-05:00</span>
+<span class="go">After convert zone:2017-03-29T10:12:45.554+05:30</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="file-api">File API</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/date-time">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

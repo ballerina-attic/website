@@ -84,9 +84,9 @@
     <span class="nx">host</span><span class="p">:</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span>
     <span class="nx">port</span><span class="p">:</span> <span class="mi">9090</span><span class="p">,</span>
     <span class="nx">wssPort</span><span class="p">:</span> <span class="mi">9095</span><span class="p">,</span>
-    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/wso2carbon.jks&quot;</span><span class="p">,</span>
-    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span><span class="p">,</span>
-    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span>
+    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;</span><span class="p">,</span>
+    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span><span class="p">,</span>
+    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span>
 <span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>    <span class="kt">string</span> <span class="nx">ping</span> <span class="p">=</span> <span class="s">&quot;ping&quot;</span><span class="p">;</span>
     <span class="kt">blob</span> <span class="nx">pingData</span> <span class="p">=</span> <span class="nx">ping</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
@@ -189,9 +189,9 @@
     <span class="nx">host</span><span class="p">:</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span>
     <span class="nx">port</span><span class="p">:</span> <span class="mi">9090</span><span class="p">,</span>
     <span class="nx">wssPort</span><span class="p">:</span> <span class="mi">9095</span><span class="p">,</span>
-    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/wso2carbon.jks&quot;</span><span class="p">,</span>
-    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span><span class="p">,</span>
-    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;wso2carbon&quot;</span>
+    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;</span><span class="p">,</span>
+    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span><span class="p">,</span>
+    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span>
 <span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>
 </pre></div>
