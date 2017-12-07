@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.security.crypto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Enums -->
+                        
+                        <h2>Enums of ballerina.security.crypto package</h2>
+                         
+                            
+                                <div style="padding-bottom: 30px;">
+                                    <h3 id="Algorithm">public enum Algorithm</h3>
+                                    <p>The algorithms which can be used in crypto functions.</p>
+
+                                    
+                                        <p>
+                                            <b>Enumerators:</b>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            
+                                                <tr>
+                                                    <td>SHA1</td>
+                                                    <td>SHA1 algorithm</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>SHA256</td>
+                                                    <td>SHA256 algorithm</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>MD5</td>
+                                                    <td>MD5 algorithm</td>
+                                                </tr>
+                                            
+                                        </table>
+                                        </p>
+                                    
+                                </div>
+                            
+                        
+                        <p></p>
+                        <br>
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.security.crypto package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHash">
+                                public function getHash(<a href="#string">string</a> baseString, <a href="ballerina.security.crypto.html#Algorithm" title="ballerina.security.crypto:Algorithm">Algorithm</a> algorithm) (string)
+                            </h3>
+                            <p>Returns the hash of the given string using the specified algorithm.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The string to be hashed</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>algorithm</td><td><a href="ballerina.security.crypto.html#Algorithm" title="ballerina.security.crypto:Algorithm">Algorithm</a></td><td>The hashing algorithm to be used</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The hashed string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getHmac">
+                                public function getHmac(<a href="#string">string</a> baseString, <a href="#string">string</a> keyString, <a href="ballerina.security.crypto.html#Algorithm" title="ballerina.security.crypto:Algorithm">Algorithm</a> algorithm) (string)
+                            </h3>
+                            <p>Returns the HMAC value of the provided base string.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>baseString</td><td><a href="#string">string</a></td><td>The string to be hashed</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>keyString</td><td><a href="#string">string</a></td><td>The key string</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>algorithm</td><td><a href="ballerina.security.crypto.html#Algorithm" title="ballerina.security.crypto:Algorithm">Algorithm</a></td><td>The hashing algorithm to be used</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>The hashed string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                        </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                            <li>
+                                <span class="opener">Enums</span>
+                                <ul>
+                                    
+                                        <li><a href="#Algorithm ">Algorithm</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#getHash">getHash(string baseString, Algorithm algorithm) (string )</a>
+                                </li>
+                            
+                                <li><a href="#getHmac">getHmac(string baseString, string keyString, Algorithm algorithm) (string )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                          
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

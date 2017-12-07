@@ -77,36 +77,37 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpConnector</span> <span class="p">{</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
     <span class="p">}</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;POST: Hello World&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPOST request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
     <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="p">{</span><span class="nx">method</span><span class="p">:</span><span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">jsonMsg</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPUT request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
     <span class="kt">xml</span> <span class="nx">xmlMsg</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;request&gt;&lt;method&gt;PATCH&lt;/method&gt;&lt;payload&gt;Hello World!&lt;/payload&gt;&lt;/request&gt;`</span><span class="p">;</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">xmlMsg</span><span class="p">);</span>
     <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPATCH request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;DELETE: Hello World&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nDELETE request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;CUSTOM: Hello World&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span> <span class="nx">httpConn</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+    <span class="nx">bind</span> <span class="nx">httpConn</span> <span class="nx">with</span> <span class="nx">httpEndpoint</span><span class="p">;</span>
     <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s">&quot;Sample-Name&quot;</span><span class="p">,</span> <span class="s">&quot;http-client-connector&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
     <span class="nx">contentType</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nContent-Type: &quot;</span> <span class="o">+</span> <span class="nx">contentType</span><span class="p">);</span>    <span class="kt">int</span> <span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">();</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Status code: &quot;</span> <span class="o">+</span> <span class="nx">statusCode</span><span class="p">);</span>
@@ -145,7 +146,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpConnector</span> <span class="p">{</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
     <span class="p">}</span>
 </pre></div>
@@ -171,7 +172,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
 </pre></div>
@@ -186,7 +187,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;POST: Hello World&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPOST request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
 </pre></div>
@@ -202,7 +203,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="p">{</span><span class="nx">method</span><span class="p">:</span><span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">jsonMsg</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPUT request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
 </pre></div>
@@ -231,7 +232,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPATCH request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
 </pre></div>
@@ -245,7 +246,7 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;DELETE: Hello World&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nDELETE request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
 </pre></div>
@@ -270,7 +271,30 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span> <span class="nx">httpConn</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>bind statement can be used to bind new connections to existing endpoints.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">bind</span> <span class="nx">httpConn</span> <span class="nx">with</span> <span class="nx">httpEndpoint</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -284,7 +308,7 @@
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s">&quot;Sample-Name&quot;</span><span class="p">,</span> <span class="s">&quot;http-client-connector&quot;</span><span class="p">);</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpConnector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
 </pre></div>
 
                               </td>
