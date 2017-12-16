@@ -85,18 +85,19 @@
 <span class="s">        NAME VARCHAR(30))&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
     <span class="nx">updatedRows</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS SALARY (ID INT,</span>
 <span class="s">        MON_SALARY FLOAT)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="nx">transaction</span> <span class="p">{</span>
+    <span class="kt">boolean</span> <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">transaction</span> <span class="nx">with</span> <span class="nx">retries</span><span class="p">(</span><span class="mi">4</span><span class="p">){</span>
         <span class="kt">int</span> <span class="nx">c</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO CUSTOMER(ID,NAME) VALUES (1, &#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
         <span class="nx">c</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, MON_SALARY) VALUES (1, 2500)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count:&quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">c</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">abort</span><span class="p">;</span>
         <span class="p">}</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
         <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
-        <span class="nx">retry</span> <span class="mi">4</span><span class="p">;</span>
-    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">transactionSuccess</span><span class="p">)</span> <span class="p">{</span>
         <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nx">testDB</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
@@ -166,11 +167,15 @@
                           <tr>
                               <td class="docs">
                                   <p>Here is the transaction block. You can use a Try catch here since update action can
-throw errors due to SQL errors, connection pool errors etc.</p>
+throw errors due to SQL errors, connection pool errors etc. The retry count is the
+number of times the transaction is tried before aborting. By default a transaction
+is tried three times before aborting. Only integer literals or constants are
+allowed for retry count.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">transaction</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">transaction</span> <span class="nx">with</span> <span class="nx">retries</span><span class="p">(</span><span class="mi">4</span><span class="p">){</span>
 </pre></div>
 
                               </td>
@@ -220,6 +225,7 @@ throw errors due to SQL errors, connection pool errors etc.</p>
                                   <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">c</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">abort</span><span class="p">;</span>
         <span class="p">}</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -247,48 +253,10 @@ transaction is failed until retry count is reached.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The retry count is the number of times the transaction is tried before
-aborting. By default a transaction is tried three times before aborting.
-Only integer literals or constants are allowed for retry count.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">retry</span> <span class="mi">4</span><span class="p">;</span>
-    <span class="p">}</span> <span class="nx">aborted</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The aborted block will be executed if the transaction is aborted using an abort
-statement or failed even after retrying the specified count.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction aborted&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="nx">committed</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>The committed block will be executed if the transaction
-is successfully committed.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">transactionSuccess</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 

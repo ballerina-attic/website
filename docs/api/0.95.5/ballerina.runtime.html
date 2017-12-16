@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.runtime</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Enums -->
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.runtime package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getCurrentDirectory">
+                                public function getCurrentDirectory() (string)
+                            </h3>
+                            <p>Returns the current working directory.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>Current working directory or an empty string if the current working directory cannot be determined</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getFileEncoding">
+                                public function getFileEncoding() (string)
+                            </h3>
+                            <p>Returns the charset encoding used in the runtime.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>Encoding if it is available, an empty string otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getProperties">
+                                public function getProperties() (map)
+                            </h3>
+                            <p>Returns all system properties.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#map">map</a></td><td>All system properties</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getProperty">
+                                public function getProperty(<a href="#string">string</a> name) (string)
+                            </h3>
+                            <p>Returns the value associated with the specified property name.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>Value of the property if the property exists, an empty string otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="setProperty">
+                                public function setProperty(<a href="#string">string</a> name, <a href="#string">string</a> value) 
+                            </h3>
+                            <p>Adds the given name, value pair to the system properties.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the property</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>value</td><td><a href="#string">string</a></td><td>Value of the property</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="sleepCurrentThread">
+                                public function sleepCurrentThread(<a href="#int">int</a> millis) 
+                            </h3>
+                            <p>Halts the current thread for a predefined amount of time.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>millis</td><td><a href="#int">int</a></td><td>Amount of time to sleep in milliseconds</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                        </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#getCurrentDirectory">getCurrentDirectory() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getFileEncoding">getFileEncoding() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getProperties">getProperties() (map )</a>
+                                </li>
+                            
+                                <li><a href="#getProperty">getProperty(string name) (string )</a>
+                                </li>
+                            
+                                <li><a href="#setProperty">setProperty(string name, string value) </a>
+                                </li>
+                            
+                                <li><a href="#sleepCurrentThread">sleepCurrentThread(int millis) </a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                          
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

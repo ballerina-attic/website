@@ -77,22 +77,21 @@
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/chat/ws&quot;</span><span class="p">,</span>
-    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span><span class="p">,</span>
-    <span class="nx">idleTimeoutInSeconds</span><span class="p">:</span> <span class="mi">3600</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/chat/{fname}+{lname}/{age}&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span>
 <span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">ChatApp</span> <span class="p">{</span>    <span class="kt">map</span> <span class="nx">consMap</span> <span class="p">=</span> <span class="p">{};</span>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;New client connected&quot;</span><span class="p">);</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">ChatApp</span> <span class="p">{</span>    <span class="kt">map</span> <span class="nx">consMap</span> <span class="p">=</span> <span class="p">{};</span>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">lname</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">consMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">;</span>
-    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
-    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">con</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s">&quot;Closing connection due to inactivity in chat&quot;</span><span class="p">);</span>
-    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}} {{lname}} with age {{age}} connected to chat`</span><span class="p">;</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}}: {{frame.text}}`</span><span class="p">;</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}} left the chat`</span><span class="p">;</span>
         <span class="nx">consMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;User left&quot;</span><span class="p">);</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">broadcast</span><span class="p">(</span><span class="kt">map</span> <span class="nx">consMap</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">string</span><span class="p">[]</span> <span class="nx">conKeys</span> <span class="p">=</span> <span class="nx">consMap</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
@@ -138,9 +137,8 @@
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="nd">@ws:configuration {</span>
-    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/chat/ws&quot;</span><span class="p">,</span>
-    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span><span class="p">,</span>
-    <span class="nx">idleTimeoutInSeconds</span><span class="p">:</span> <span class="mi">3600</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/chat/{fname}+{lname}/{age}&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span>
 <span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">ChatApp</span> <span class="p">{</span>
 </pre></div>
@@ -164,9 +162,10 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;New client connected&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">lname</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">consMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">;</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}} {{lname}} with age {{age}} connected to chat`</span><span class="p">;</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -178,9 +177,10 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}}: {{frame.text}}`</span><span class="p">;</span>
+        <span class="nb">println</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -192,34 +192,10 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">)</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Connection is closed due to inactivity after 1 hour.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Idle timeout: &quot;</span> <span class="o">+</span> <span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">con</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s">&quot;Closing connection due to inactivity in chat&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">con</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">,</span> <span class="kt">string</span> <span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">msg</span> <span class="p">=</span> <span class="kt">string</span> <span class="s">`{{fname}} left the chat`</span><span class="p">;</span>
         <span class="nx">consMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">con</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
-        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="s">&quot;User left&quot;</span><span class="p">);</span>
+        <span class="nx">broadcast</span><span class="p">(</span><span class="nx">consMap</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -270,11 +246,12 @@
                           <tr>
                               <td class="docs">
                                   <p>To check the sample,use Chrome or Firefox javascript console and run the below commands <br>
- Run first 3 lines of the below code in two or more consoles and see how the messages are received by sending messages</p>
+ Run first 3 lines of the below code in two or more consoles and see how the messages are received by sending messages
+ To check the capability of change the names the URI such that /chat/fistName+LastName/age with multiple clients</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> var <span class="nv">ws</span> <span class="o">=</span> new WebSocket<span class="o">(</span><span class="s2">&quot;ws://localhost:9090/chat/ws&quot;</span><span class="o">)</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> var <span class="nv">ws</span> <span class="o">=</span> new WebSocket<span class="o">(</span><span class="s2">&quot;ws://localhost:9090/chat/bruce+wayne/30&quot;</span><span class="o">)</span><span class="p">;</span>
 <span class="gp">$</span> ws.onmessage <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame.data<span class="o">)}</span><span class="p">;</span>
 <span class="gp">$</span> ws.onclose <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame<span class="o">)}</span><span class="p">;</span>
 </pre></div>
@@ -287,32 +264,8 @@
                                   <p>To send messages</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;hello world&quot;</span><span class="o">)</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>To close the connection</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ws.close<span class="o">(</span>1000, <span class="s2">&quot;I want to go&quot;</span><span class="o">)</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>To close connection from server side</p>
-
-                              </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;closeMe&quot;</span><span class="o">)</span><span class="p">;</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;hello world&quot;</span><span class="o">)</span><span class="p">;</span>
 </pre></div>
 
                               </td>
