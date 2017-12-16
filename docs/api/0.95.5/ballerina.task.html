@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.task</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Enums -->
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.task package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="scheduleAppointment">
+                                public function scheduleAppointment(<a href="#function()returns(error)">function()returns(error)</a> onTrigger, <a href="#function(error)">function(error)</a> onError, <a href="#string">string</a> scheduleCronExpression) (string taskId, error e)
+                            </h3>
+                            <p>Schedules an appointment task</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onTrigger</td><td><a href="#function()returns(error)">function()returns(error)</a></td><td>The function which gets called when the appointment falls due</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onError</td><td><a href="#function(error)">function(error)</a></td><td>The function that gets called if the onTrigger function returns an error</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>scheduleCronExpression</td><td><a href="#string">string</a></td><td>Specifies the Cron expression of the schedule</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>taskId</td><td><a href="#string">string</a></td><td>The unique ID of the appointment task that was scheduled</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>e</td><td><a href="" title="error">error</a></td><td>This error will be returned if an occurs while scheduling the appointment task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="scheduleTimer">
+                                public function scheduleTimer(<a href="#function()returns(error)">function()returns(error)</a> onTrigger, <a href="#function(error)">function(error)</a> onError, <a href="ballerina.task.html#$anonStruct$1" title="ballerina.task:$anonStruct$1">struct {int delay, int interval}</a> schedule) (string taskId, error e)
+                            </h3>
+                            <p>Schedules a timer task</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onTrigger</td><td><a href="#function()returns(error)">function()returns(error)</a></td><td>The function which gets called when the timer goes off</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>onError</td><td><a href="#function(error)">function(error)</a></td><td>The function that gets called if the onTrigger function returns an error</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>schedule</td><td><a href="ballerina.task.html#$anonStruct$1" title="ballerina.task:$anonStruct$1">struct {int delay, int interval}</a></td><td>Specifies the initial delay and interval of the timer task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>taskId</td><td><a href="#string">string</a></td><td>The unique ID of the timer task that was scheduled</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>e</td><td><a href="" title="error">error</a></td><td>This error will be returned if an occurs while scheduling the timer task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="stopTask">
+                                public function stopTask(<a href="#string">string</a> taskID) (error)
+                            </h3>
+                            <p>Stops the timer task with ID taskID</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>taskID</td><td><a href="#string">string</a></td><td>The unique ID of the timer task that has to be stopped</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="" title="error">error</a></td><td>This error will be returned if an error occurs while stopping the task</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                        </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#scheduleAppointment">scheduleAppointment(function()returns(error) onTrigger, function(error) onError, string scheduleCronExpression) (string taskId, error e)</a>
+                                </li>
+                            
+                                <li><a href="#scheduleTimer">scheduleTimer(function()returns(error) onTrigger, function(error) onError, struct {int delay, int interval} schedule) (string taskId, error e)</a>
+                                </li>
+                            
+                                <li><a href="#stopTask">stopTask(string taskID) (error )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                          
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

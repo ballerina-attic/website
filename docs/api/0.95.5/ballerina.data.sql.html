@@ -1,0 +1,790 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.data.sql</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Enums -->
+                        
+                        <h2>Enums of ballerina.data.sql package</h2>
+                         
+                            
+                                <div style="padding-bottom: 30px;">
+                                    <h3 id="DB">public enum DB</h3>
+                                    <p>The Databases which has direct parameter support.</p>
+
+                                    
+                                        <p>
+                                            <b>Enumerators:</b>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            
+                                                <tr>
+                                                    <td>MYSQL</td>
+                                                    <td>MySQL DB with connection url in the format of  jdbc:mysql://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>SQLSERVER</td>
+                                                    <td>SQL Server DB with connection url in the format of jdbc:sqlserver://[HOST]:[PORT];databaseName&#x3D;[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>ORACLE</td>
+                                                    <td>Oracle DB with connection url in the format of  jdbc:oracle:thin:[username/password]@[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>SYBASE</td>
+                                                    <td>Sybase DB with connection url in the format of  jdbc:sybase:Tds:[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>POSTGRES</td>
+                                                    <td>PostgreSQL DB with connection url in the format of  jdbc:postgresql://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>IBMDB2</td>
+                                                    <td>IBMDB2 DB with connection url in the format of  jdbc:db2://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>HSQLDB_SERVER</td>
+                                                    <td>HSQL Server with connection url in the format of jdbc:hsqldb:hsql://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>HSQLDB_FILE</td>
+                                                    <td>HSQL Server with connection url in the format of jdbc:hsqldb:file:[path]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>H2_SERVER</td>
+                                                    <td>H2 Server DB with connection url in the format of jdbc:h2:tcp://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>H2_FILE</td>
+                                                    <td>H2 File DB with connection url in the format of jdbc:h2:file://[path]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DERBY_SERVER</td>
+                                                    <td>DERBY server DB with connection url in the format of jdbc:derby://[HOST]:[PORT]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DERBY_FILE</td>
+                                                    <td>Derby file DB with connection url in the format of jdbc:derby://[path]/[database]</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>GENERIC</td>
+                                                    <td>Custom DB connection with given connection url</td>
+                                                </tr>
+                                            
+                                        </table>
+                                        </p>
+                                    
+                                </div>
+                            
+                         
+                            
+                                <div style="padding-bottom: 30px;">
+                                    <h3 id="Direction">public enum Direction</h3>
+                                    <p>The direction of the parameter</p>
+
+                                    
+                                        <p>
+                                            <b>Enumerators:</b>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            
+                                                <tr>
+                                                    <td>IN</td>
+                                                    <td>IN parameters are used to send values to stored procedures</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>OUT</td>
+                                                    <td>OUT parameters are used to get values from stored procedures</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>INOUT</td>
+                                                    <td>INOUT parameters are used to send values and get values from stored procedures</td>
+                                                </tr>
+                                            
+                                        </table>
+                                        </p>
+                                    
+                                </div>
+                            
+                         
+                            
+                                <div style="padding-bottom: 30px;">
+                                    <h3 id="Type">public enum Type</h3>
+                                    <p>The SQL Datatype of the parameter</p>
+
+                                    
+                                        <p>
+                                            <b>Enumerators:</b>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            
+                                                <tr>
+                                                    <td>VARCHAR</td>
+                                                    <td>Small, variable-length character string</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>CHAR</td>
+                                                    <td>Small, fixed-length character string</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>LONGVARCHAR</td>
+                                                    <td>Large, variable-length character string</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>NCHAR</td>
+                                                    <td>Small, fixed-length character string with unicode support</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>LONGNVARCHAR</td>
+                                                    <td>Large, variable-length character string with unicode support</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>NVARCHAR</td>
+                                                    <td>VARCHAR: Small, variable-length character string</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>BIT</td>
+                                                    <td>Single bit value that can be zero or one, or null</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>BOOLEAN</td>
+                                                    <td>Boolean value either True or false</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>TINYINT</td>
+                                                    <td>8-bit integer value which may be unsigned or signed</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>SMALLINT</td>
+                                                    <td>16-bit signed integer value which may be unsigned or signed</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>INTEGER</td>
+                                                    <td>32-bit signed integer value which may be unsigned or signed</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>BIGINT</td>
+                                                    <td>64-bit signed integer value which may be unsigned or signed</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>NUMERIC</td>
+                                                    <td>Fixed-precision and scaled decimal values</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DECIMAL</td>
+                                                    <td>Fixed-precision and scaled decimal values</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>REAL</td>
+                                                    <td>Single precision floating point number</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>FLOAT</td>
+                                                    <td>Double precision floating point number</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DOUBLE</td>
+                                                    <td>Double precision floating point number</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>BINARY</td>
+                                                    <td>Small, fixed-length binary value</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>BLOB</td>
+                                                    <td>Binary Large Object</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>LONGVARBINARY</td>
+                                                    <td>Large, variable-length binary value</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>VARBINARY</td>
+                                                    <td>Small, variable-length binary value</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>CLOB</td>
+                                                    <td>Character Large Object</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>NCLOB</td>
+                                                    <td>Character large objects in multibyte national character set</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DATE</td>
+                                                    <td>Date consisting of day, month, and year</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>TIME</td>
+                                                    <td>Time consisting of hours, minutes, and seconds</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>DATETIME</td>
+                                                    <td>Both DATE and TIME with additional a nanosecond field</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>TIMESTAMP</td>
+                                                    <td>Both DATE and TIME with additional a nanosecond field</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>ARRAY</td>
+                                                    <td>Composite data value that consists of zero or more elements of a specified data type</td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>STRUCT</td>
+                                                    <td>User defined structured type, consists of one or more attributes</td>
+                                                </tr>
+                                            
+                                        </table>
+                                        </p>
+                                    
+                                </div>
+                            
+                        
+                        <p></p>
+                        <br>
+                         
+                        
+                        <!-- Connectors -->
+                        <h2>Connectors of ballerina.data.sql package</h2>
+                         
+                        
+                        <h3 id="ClientConnector">
+                            public connector ClientConnector (<a href="ballerina.data.sql.html#DB" title="ballerina.data.sql:DB">DB</a> dbType, <a href="#string">string</a> hostOrPath, <a href="#int">int</a> port, <a href="#string">string</a> dbName, <a href="#string">string</a> username, <a href="#string">string</a> password, <a href="ballerina.data.sql.html#ConnectionProperties" title="ballerina.data.sql:ConnectionProperties">ConnectionProperties</a> options)
+                        </h3>
+                        <p>The Client Connector for SQL databases.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>dbType</td><td><a href="ballerina.data.sql.html#DB" title="ballerina.data.sql:DB">DB</a></td><td>SQL database type</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>hostOrPath</td><td><a href="#string">string</a></td><td>Host name of the database or file path for file based database</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>port</td><td><a href="#int">int</a></td><td>Port of the database</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>dbName</td><td><a href="#string">string</a></td><td>Name of the database to connect</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>username</td><td><a href="#string">string</a></td><td>Username for the database connection</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>password</td><td><a href="#string">string</a></td><td>Password for the database connection</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>options</td><td><a href="ballerina.data.sql.html#ConnectionProperties" title="ballerina.data.sql:ConnectionProperties">ConnectionProperties</a></td><td>ConnectionProperties for the connection pool configuration</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <b>Actions:</b><br><br>  
+                        <h3 id="batchUpdateClientConnector">action batchUpdate(<a href="#string">string</a> query, <a href="#Parameter[][]">Parameter[][]</a> parameters)</h3>
+                        <p>The batchUpdate action implementation for SQL connector to batch data insert.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>SQL query to execute</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="#Parameter[][]">Parameter[][]</a></td><td>Parameter array used with the SQL query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int[]">int[]</a></td><td>Array of update counts</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="callClientConnector">action call(<a href="#string">string</a> query, <a href="#Parameter[]">Parameter[]</a> parameters, <a href="#type">type</a> structType)</h3>
+                        <p>The call action implementation for SQL connector to invoke stored procedures/functions.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>SQL query to execute</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td>Parameter array used with the SQL query</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>structType</td><td><a href="#type">type</a></td><td>query: SQL query to execute</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#datatable">datatable</a></td><td>Result set for the given query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="closeClientConnector">action close()</h3>
+                        <p>The close action implementation for SQL connector to shutdown the connection pool.</p>
+                        
+                          
+                        <h3 id="selectClientConnector">action select(<a href="#string">string</a> query, <a href="#Parameter[]">Parameter[]</a> parameters, <a href="#type">type</a> structType)</h3>
+                        <p>The select action implementation for SQL connector to select data from tables.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>SQL query to execute</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td>Parameter array used with the SQL query</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>structType</td><td><a href="#type">type</a></td><td>query: SQL query to execute</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#datatable">datatable</a></td><td>Result set for the given query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateClientConnector">action update(<a href="#string">string</a> query, <a href="#Parameter[]">Parameter[]</a> parameters)</h3>
+                        <p>The update action implementation for SQL connector to update data and schema of the database.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>SQL query to execute</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td>Parameter array used with the SQL query</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int">int</a></td><td>Updated row count</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <h3 id="updateWithGeneratedKeysClientConnector">action updateWithGeneratedKeys(<a href="#string">string</a> query, <a href="#Parameter[]">Parameter[]</a> parameters, <a href="#string[]">string[]</a> keyColumns)</h3>
+                        <p>The updateWithGeneratedKeys action implementation for SQL connector which returns the auto generated keys during the update action.</p>
+                        
+                        <p>
+                            <b>Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>query</td><td><a href="#string">string</a></td><td>SQL query to execute</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>parameters</td><td><a href="#Parameter[]">Parameter[]</a></td><td>Parameter array used with the SQL query</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>keyColumns</td><td><a href="#string[]">string[]</a></td><td>Names of auto generated columns for which the auto generated key values are returned</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        
+                        <p>
+                            <b>Return Parameters:</b>
+                            <table>
+                                <tr>
+                                    <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#int">int</a></td><td>Updated row count during the query exectuion</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td></td><td><a href="#string[]">string[]</a></td><td>Array of auto generated key values during the query execution</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                          
+                        <br> 
+                        
+                        <!-- Structs -->
+                        <h2>Structs of ballerina.data.sql package</h2>
+                         
+                        
+                        <h3 id="ConnectionProperties">public struct ConnectionProperties</h3>
+                        <p>ConnectionProperties structs represents the properties which are used to configure DB connection pool</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th>
+                                    <th>Data Type</th>
+                                    <th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>url</td><td><a href="#string">string</a></td><td>Platform independent DB access URL</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>dataSourceClassName</td><td><a href="#string">string</a></td><td>Name of the DataSource class provided by the JDBC driver</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectionTestQuery</td><td><a href="#string">string</a></td><td>Query that will be executed to validate that the connection to the database is still alive</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>poolName</td><td><a href="#string">string</a></td><td>User-defined name for the connection pool and appears mainly in logging</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>catalog</td><td><a href="#string">string</a></td><td>Catalog of connections created by this pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectionInitSql</td><td><a href="#string">string</a></td><td>SQL statement that will be executed after every new connection creation before adding it to the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>driverClassName</td><td><a href="#string">string</a></td><td>Fully qualified Java class name of the JDBC driver to be used</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>transactionIsolation</td><td><a href="#string">string</a></td><td>Transaction isolation level of connections returned from the pool. The supported values are TRANSACTION_READ_UNCOMMITTED, TRANSACTION_READ_COMMITTED, TRANSACTION_REPEATABLE_READ and TRANSACTION_SERIALIZABLE</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>autoCommit</td><td><a href="#boolean">boolean</a></td><td>Auto-commit behavior of connections returned from the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>isolateInternalQueries</td><td><a href="#boolean">boolean</a></td><td>Determines whether HikariCP isolates internal pool queries, such as the connection alive test, in their own transaction</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>allowPoolSuspension</td><td><a href="#boolean">boolean</a></td><td>Whether the pool can be suspended and resumed through JMX</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>readOnly</td><td><a href="#boolean">boolean</a></td><td>Whether Connections obtained from the pool are in read-only mode by default</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>isXA</td><td><a href="#boolean">boolean</a></td><td>Whether Connections are used for a distributed transaction</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>maximumPoolSize</td><td><a href="#int">int</a></td><td>Maximum size that the pool is allowed to reach, including both idle and in-use connections</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>connectionTimeout</td><td><a href="#int">int</a></td><td>Maximum number of milliseconds that a client will wait for a connection from the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>idleTimeout</td><td><a href="#int">int</a></td><td>Maximum amount of time that a connection is allowed to sit idle in the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>minimumIdle</td><td><a href="#int">int</a></td><td>Minimum number of idle connections that pool tries to maintain in the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>maxLifetime</td><td><a href="#int">int</a></td><td>Maximum lifetime of a connection in the pool</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>validationTimeout</td><td><a href="#int">int</a></td><td>Maximum amount of time that a connection will be tested for aliveness</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>leakDetectionThreshold</td><td><a href="#int">int</a></td><td>Amount of time that a connection can be out of the pool before a message is logged indicating a possible connection leak</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>datasourceProperties</td><td><a href="#map">map</a></td><td>Data source specific properties which are used along with the dataSourceClassName</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                         
+                        
+                        <h3 id="Parameter">public struct Parameter</h3>
+                        <p>Parameter struct represents a query parameter for the SQL queries specified in connector actions</p>
+                        
+                        <p>
+                            <b>Fields:</b>
+                            <table>
+                                <tr>
+                                    <th>Field Name</th>
+                                    <th>Data Type</th>
+                                    <th>Description</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>sqlType</td><td><a href="ballerina.data.sql.html#Type" title="ballerina.data.sql:Type">Type</a></td><td>The data type of the corresponding SQL parameter</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>value</td><td><a href="#any">any</a></td><td>Value of paramter pass into the SQL query</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>direction</td><td><a href="ballerina.data.sql.html#Direction" title="ballerina.data.sql:Direction">Direction</a></td><td>Direction of the SQL Parameter IN, OUT, or INOUT</td>
+                                </tr>
+                                
+                            </table>
+                        </p>
+                        
+                        <br> 
+                        
+                        </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                            <li>
+                                <span class="opener">Enums</span>
+                                <ul>
+                                    
+                                        <li><a href="#DB ">DB</a></li>
+                                    
+                                        <li><a href="#Direction ">Direction</a></li>
+                                    
+                                        <li><a href="#Type ">Type</a></li>
+                                    
+                                </ul>
+                            </li>
+                         
+                        
+                        <li>
+                            <span class="opener">Connectors</span>
+                            <ul>
+                                
+                                <li><a href="#ClientConnector ">ClientConnector (DB dbType, string hostOrPath, int port, string dbName, string username, string password, ConnectionProperties options)</a>
+                                    <ul>
+                                        
+                                        <li><a href="#batchUpdateClientConnector">batchUpdate(Parameter[][] parameters)</a></li>
+                                        
+                                        <li><a href="#callClientConnector">call(Parameter[] parameters, type structType)</a></li>
+                                        
+                                        <li><a href="#closeClientConnector">close()</a></li>
+                                        
+                                        <li><a href="#selectClientConnector">select(Parameter[] parameters, type structType)</a></li>
+                                        
+                                        <li><a href="#updateClientConnector">update(Parameter[] parameters)</a></li>
+                                        
+                                        <li><a href="#updateWithGeneratedKeysClientConnector">updateWithGeneratedKeys(Parameter[] parameters, string[] keyColumns)</a></li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li>
+                            <span class="opener">Structs</span>
+                            <ul>
+                                
+                                    <li><a href="#ConnectionProperties ">ConnectionProperties</a></li>
+                                
+                                    <li><a href="#Parameter ">Parameter</a></li>
+                                
+                            </ul>
+                        </li> 
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+
