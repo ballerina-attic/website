@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: Type Casting</title>
+    <title>Ballerina by Example: Constants</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -76,21 +76,17 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">any</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;Jungle cat&quot;</span><span class="p">;</span>
-    <span class="k">var</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">castErr</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">castErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-    <span class="p">}</span>    
+			  	<div class="highlight"><pre><span class="kd">const</span> <span class="kt">float</span> <span class="nx">PI</span> <span class="p">=</span> <span class="mf">3.14159</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="nx">circumference</span> <span class="p">=</span> <span class="mf">10.4</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="nx">diameter</span> <span class="p">=</span> <span class="nx">circumference</span> <span class="o">/</span> <span class="nx">PI</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Diameter of the circle: &quot;</span> <span class="o">+</span> <span class="nx">diameter</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
 		  	  </div>	
-              <div class="example" id="type-casting">
+              <div class="example" id="constants">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: Type Casting</h2>
+                      <h2><a href="./">Ballerina by Example</a>: Constants</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -103,12 +99,11 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Type casting allows you to look at a value as being of a different type than it’s original type.
-There are safe and unsafe casts. For unsafe casts, Ballerina compiler will enforce you to use multi-return cast expression.</p>
+                                  <p>The Ballerina supports value typed constants except for blob type.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">const</span> <span class="kt">float</span> <span class="nx">PI</span> <span class="p">=</span> <span class="mf">3.14159</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -116,31 +111,13 @@ There are safe and unsafe casts. For unsafe casts, Ballerina compiler will enfor
                           
                           <tr>
                               <td class="docs">
-                                  <p>Here we assign a &lsquo;string&rsquo; type value to a variable of type &lsquo;any&rsquo;.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">any</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;Jungle cat&quot;</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Here is how you can cast an &lsquo;any&rsquo; type variable to the &lsquo;string&rsquo; type.
-This cast is unsafe, because the value of the variable &lsquo;a&rsquo; is unknown till runtime.
-Therefore the compiler will enforce you to use multi-return type cast expression.
-This is a TypeCastError and it occurs during a Type Casting.</p>
-
+                                  
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="k">var</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">castErr</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="nx">a</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">castErr</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;error: &quot;</span> <span class="o">+</span> <span class="nx">castErr</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-    <span class="p">}</span>    
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="nx">circumference</span> <span class="p">=</span> <span class="mf">10.4</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="nx">diameter</span> <span class="p">=</span> <span class="nx">circumference</span> <span class="o">/</span> <span class="nx">PI</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Diameter of the circle: &quot;</span> <span class="o">+</span> <span class="nx">diameter</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -159,8 +136,8 @@ This is a TypeCastError and it occurs during a Type Casting.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run type-casting.bal
-<span class="go">Jungle cat</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run constants.bal
+<span class="go">Diameter of the circle: 3.310425612508316</span>
 </pre></div>
 
                               </td>
@@ -172,14 +149,14 @@ This is a TypeCastError and it occurs during a Type Casting.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="type-conversion">Type Conversion</a>.
+                          Next example: <a href="global-variables">Global Variables</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/type-casting">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/constants">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original

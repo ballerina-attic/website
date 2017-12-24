@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: WebSocket Proxy Server</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span><span class="nd">@ws:configuration {</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/proxy/ws&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleProxyServer</span> <span class="p">{</span>    <span class="kt">map</span> <span class="nx">clientConnMap</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="kt">string</span> <span class="nx">remoteUrl</span> <span class="p">=</span> <span class="s">&quot;wss://echo.websocket.org&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">remoteServerCallbackService</span> <span class="p">=</span> <span class="s">&quot;ClientService&quot;</span><span class="p">;</span>
+    <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">con</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">:</span><span class="nx">WsClient</span><span class="p">&gt;</span> <span class="nx">wsEndpoint</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">WsClient</span><span class="p">(</span><span class="nx">remoteUrl</span><span class="p">,</span> <span class="nx">remoteServerCallbackService</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">wsEndpoint</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="nx">parentConnectionID</span><span class="p">:</span><span class="nx">con</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">});</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+            <span class="nx">con</span><span class="p">.</span><span class="nx">cancelHandshake</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Cannot connect to remote server&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">con</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">]</span> <span class="p">=</span> <span class="nx">clientConn</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientCon</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientCon</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientConn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+        <span class="nx">clientConnMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nd">@ws:clientService {</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">ClientService</span> <span class="p">{</span>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+    <span class="p">}}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="websocket-proxy-server">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: WebSocket Proxy Server</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This example explains how ballerina can act as a simple WebSocket proxy server.
+ When new client is connected to the WebSocket endpoint, onHandshake new WebSocket client connection is created and stored in a map.
+ When the endpoint client sends a message, get the client connection for remote server from the map and send the same message to remote server.
+ That server will echo it back and it will be received to &ldquo;ClientService&rdquo; which will print the echoed message.
+ Then by the client connection from &ldquo;onTextMessage&rdquo; resource in &ldquo;ClientService&rdquo;, get the parent connection and send it.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="nd">@ws:configuration {</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/proxy/ws&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span><span class="mi">9090</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleProxyServer</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">map</span> <span class="nx">clientConnMap</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="kt">string</span> <span class="nx">remoteUrl</span> <span class="p">=</span> <span class="s">&quot;wss://echo.websocket.org&quot;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">remoteServerCallbackService</span> <span class="p">=</span> <span class="s">&quot;ClientService&quot;</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create a client connection to remote server from ballerina when new client connects to this service endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">con</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">:</span><span class="nx">WsClient</span><span class="p">&gt;</span> <span class="nx">wsEndpoint</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">WsClient</span><span class="p">(</span><span class="nx">remoteUrl</span><span class="p">,</span> <span class="nx">remoteServerCallbackService</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">wsEndpoint</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span><span class="nx">parentConnectionID</span><span class="p">:</span><span class="nx">con</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">});</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+            <span class="nx">con</span><span class="p">.</span><span class="nx">cancelHandshake</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Cannot connect to remote server&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">con</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">]</span> <span class="p">=</span> <span class="nx">clientConn</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientCon</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientCon</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientConn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">clientConn</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span><span class="p">)</span><span class="nx">clientConnMap</span><span class="p">[</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">()];</span>
+        <span class="nx">clientConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+        <span class="nx">clientConnMap</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Client service to receive frames from remote server</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="nd">@ws:clientService {</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">ClientService</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">parentConn</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getParentConnection</span><span class="p">();</span>
+        <span class="nx">parentConn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">,</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To run the program, put the code in <code>websocket-client-connector</code>
+ and use <code>ballerina run websocket-client-connector</code> command.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run websocket-proxy-server.bal
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Now that we can run this program using any WebSocket client with &ldquo;ws://localhost:9090/proxy/ws&rdquo;</p>
+
+                              </td>
+                              <td class="code empty leading">
+                                  
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check the sample, you can use Chrome or Firefox javascript console and run the below commands <br></p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> var <span class="nv">ws</span> <span class="o">=</span> new WebSocket<span class="o">(</span><span class="s2">&quot;ws://localhost:9090/proxy/ws&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="gp">$</span> ws.onmessage <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame.data<span class="o">)}</span><span class="p">;</span>
+<span class="gp">$</span> ws.onclose <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame<span class="o">)}</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To send messages</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;hello world&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To close the connection</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.close<span class="o">(</span>1000, <span class="s2">&quot;I want to go&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="passthrough">Passthrough</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/websocket-proxy-server">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>
