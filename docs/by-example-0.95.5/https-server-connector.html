@@ -9,7 +9,7 @@
   <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
     <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
-    <title>Ballerina by Example: HTTPS Server/Client Connectors</title>
+    <title>Ballerina by Example: HTTPS Server Connector</title>
     <!--GA-->
       <script>
          (function (i, s, o, g, r, a, m) {
@@ -76,7 +76,8 @@
       <div class="row cBallerinaBySampleRow">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
-			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span><span class="nd">@http:configuration {</span>
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="nd">@http:configuration {</span>
     <span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span>
     <span class="nx">httpsPort</span><span class="p">:</span><span class="mi">9095</span><span class="p">,</span>
     <span class="nx">keyStoreFile</span><span class="p">:</span><span class="s">&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;</span><span class="p">,</span>
@@ -91,31 +92,12 @@
         <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
-        <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://localhost:9095&quot;</span><span class="p">,</span> <span class="nx">getConnectorConfigs</span><span class="p">());</span>
-    <span class="p">}</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/hello/&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">());</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStringPayload</span><span class="p">());</span>
-<span class="p">}</span><span class="kd">function</span> <span class="nx">getConnectorConfigs</span><span class="p">()</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Options</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Options</span> <span class="nx">option</span> <span class="p">=</span> <span class="p">{</span>
-          <span class="nx">ssl</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nx">trustStoreFile</span><span class="p">:</span><span class="s">&quot;${ballerina.home}/bre/security/ballerinaTruststore.p12&quot;</span><span class="p">,</span>
-                 <span class="nx">trustStorePassword</span><span class="p">:</span><span class="s">&quot;ballerina&quot;</span>
-               <span class="p">},</span>
-          <span class="nx">followRedirects</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">};</span>
-    <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
-<span class="p">}</span>
 </pre></div>
 
 		  	  </div>	
-              <div class="example" id="https-server-client-connectors">
+              <div class="example" id="https-server-connector">
                   <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: HTTPS Server/Client Connectors</h2>
+                      <h2><a href="./">Ballerina by Example</a>: HTTPS Server Connector</h2>
                   </div>
                   <div class="col-xs-1 col-sm-1 col-md-1">
                       <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
@@ -128,7 +110,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>This example demonstrates how ballerina https client connector can be configured to connect to a https server through 1-way ssl connection (server is verified by the client). This example uses ballerina https server connector to host a service and https client connector will be sending requests for that server.</p>
+                                  <p>The HTTP Server Connector can be used to connect to and interact with a HTTP client. Https configurations can be given to server connector to expose a https connection.</p>
 
                               </td>
                               <td class="code leading">
@@ -140,7 +122,8 @@
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>Ballerina server connector can be used to connect to a https client. If client needs to verify server authenticity when establishing the connection, server needs to provide keyStoreFile, keyStorePassword and certificate password as given here.</p>
+
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="nd">@http:configuration {</span>
@@ -174,63 +157,11 @@
                               <td class="docs">
                                   
                               </td>
-                              <td class="code leading">
+                              <td class="code">
                                   <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Successful&quot;</span><span class="p">);</span>
         <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Ballerina client connector can be used to connect to the created https server. You have to run the service before running this main function. As this is a 1-way ssl connection, client needs to provide trustStoreFile and trustStorePassword.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
-        <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://localhost:9095&quot;</span><span class="p">,</span> <span class="nx">getConnectorConfigs</span><span class="p">());</span>
-    <span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  <p>Creates a request.</p>
-
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/hello/&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">());</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStringPayload</span><span class="p">());</span>
-<span class="p">}</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code">
-                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">getConnectorConfigs</span><span class="p">()</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Options</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Options</span> <span class="nx">option</span> <span class="p">=</span> <span class="p">{</span>
-          <span class="nx">ssl</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nx">trustStoreFile</span><span class="p">:</span><span class="s">&quot;${ballerina.home}/bre/security/ballerinaTruststore.p12&quot;</span><span class="p">,</span>
-                 <span class="nx">trustStorePassword</span><span class="p">:</span><span class="s">&quot;ballerina&quot;</span>
-               <span class="p">},</span>
-          <span class="nx">followRedirects</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">};</span>
-    <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -249,23 +180,29 @@
                                   <p>Run the service</p>
 
                               </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run https-server-client-connectors.bal -s
-<span class="go">ballerina: deploying service(s) in &#39;https-server-client-connectors.bal&#39;</span>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run https-server-connector.bal
+<span class="go">ballerina: deploying service(s) in &#39;https-server-connector.bal&#39;</span>
 <span class="go">ballerina: started HTTPS/WSS server connector http-9095</span>
 </pre></div>
 
                               </td>
                           </tr>
                           
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
                           <tr>
                               <td class="docs">
-                                  <p>Run the main function containing ballerina client</p>
+                                  <p>For the demonstration purpose curl -k command will be used to invoke the service.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run https-server-client-connectors.bal
-<span class="go">Response code: 200</span>
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -k https://localhost:9095/hello
 <span class="go">Response: Successful</span>
 </pre></div>
 
@@ -278,14 +215,14 @@
                       
                       
                       <p class="next">
-                          Next example: <a href="http-disable-chunking">HTTP Disable Chunking</a>.
+                          Next example: <a href="https-server-client-connectors">HTTPS Server/Client Connectors</a>.
                       </p>
                       
 
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
                       <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/https-server-client-connectors">source</a>
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/https-server-connector">source</a>
                       </p>
                       <p class="attrib">
                           This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
