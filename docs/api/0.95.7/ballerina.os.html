@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ballerina.os</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="docerina-theme/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="docerina-theme/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="docerina-theme/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>Ballerina</strong> API Documentation</a>
+                </header>
+
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        
+                        <!-- Enums -->
+                        
+                        
+                        <!-- Functions -->
+                        <h2>Functions of ballerina.os package</h2>
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getArchitecture">
+                                public function getArchitecture() (string)
+                            </h3>
+                            <p>Returns the architecture of the operating system.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>OS architecture if the OS can be identified, an empty string otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getEnv">
+                                public function getEnv(<a href="#string">string</a> name) (string)
+                            </h3>
+                            <p>Returns the environment variable value associated with the provided name.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the environment variable</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>Environment variable value if it exists, otherwise an empty string</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getMultivaluedEnv">
+                                public function getMultivaluedEnv(<a href="#string">string</a> name) (string[])
+                            </h3>
+                            <p>Splits the value of an environment variable using path separator and returns the separated values as an array.</p>
+
+                            
+                            
+                            <p>
+                                <b>Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Parameter Name</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>name</td><td><a href="#string">string</a></td><td>Name of the environment variable</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string[]">string[]</a></td><td>Environment variable values as an array if the provided environment variable exists, otherwise an empty array</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getName">
+                                public function getName() (string)
+                            </h3>
+                            <p>Returns the name of the operating system.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>OS name if the OS can be identified, an empty string otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                         
+                        
+                        <div style="padding-bottom: 30px;">
+                            <h3 id="getVersion">
+                                public function getVersion() (string)
+                            </h3>
+                            <p>Returns the version of the operating system.</p>
+
+                            
+                            
+                            
+                            <p>
+                                <b>Return Parameters:</b>
+                                <table>
+                                    <tr>
+                                        <th>Return Variable</th><th>Data Type</th><th>Description</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td></td><td><a href="#string">string</a></td><td>OS version if the OS can be identified, an empty string otherwise</td>
+                                    </tr>
+                                    
+                                </table>
+                            </p>
+                            
+                        </div>
+                        
+                        
+                        <p></p>
+                        <br> 
+                         
+                        
+                        
+                        </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu" style="overflow-x: auto">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        
+                        
+                        
+                        <li>
+                            <span class="opener">Functions</span>
+                            <ul>
+                            
+                                <li><a href="#getArchitecture">getArchitecture() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getEnv">getEnv(string name) (string )</a>
+                                </li>
+                            
+                                <li><a href="#getMultivaluedEnv">getMultivaluedEnv(string name) (string[] )</a>
+                                </li>
+                            
+                                <li><a href="#getName">getName() (string )</a>
+                                </li>
+                            
+                                <li><a href="#getVersion">getVersion() (string )</a>
+                                </li>
+                            
+                            </ul>
+                        </li>
+                         
+                          
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Copyright 2017 Ballerina API Documentation</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+    <script src="docerina-theme/js/skel.min.js"></script>
+    <script src="docerina-theme/js/util.js"></script>
+    <!--[if lte IE 8]><script src="docerina-theme/js/ie/respond.min.js"></script><![endif]-->
+    <script src="docerina-theme/js/main.js"></script>
+</body>
+</html>
+

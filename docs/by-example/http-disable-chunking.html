@@ -82,7 +82,7 @@
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sample</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">endPoint</span> <span class="p">{</span>
-            <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">enableChunking</span><span class="p">:</span><span class="kc">false</span><span class="p">});</span>
+            <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">chunking</span><span class="p">:</span><span class="s">&quot;never&quot;</span><span class="p">});</span>
         <span class="p">}</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">newReq</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">newReq</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">({</span><span class="s">&quot;hello&quot;</span><span class="p">:</span><span class="s">&quot;world!&quot;</span><span class="p">});</span>
@@ -123,7 +123,8 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Example depicts the method of changing ballerina http client connector chunking option. By default http client sends Transfer encoding chunked requests. But user can disable chunking using connector Options.</p>
+                                  <p>Example depicts the method of changing ballerina http client connector chunking option. By default http client sends content-length messages and if the message size is larger than the
+buffer size (8K) messages are chunked. But user can disable chunking using connector Options.</p>
 
                               </td>
                               <td class="code leading">
@@ -161,12 +162,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Config client connector chunking behaviour by adding boolean value to enableChunking option.</p>
+                                  <p>Config client connector chunking behaviour by adding auto (default value), always or never to chunking option.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">endPoint</span> <span class="p">{</span>
-            <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">enableChunking</span><span class="p">:</span><span class="kc">false</span><span class="p">});</span>
+            <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">chunking</span><span class="p">:</span><span class="s">&quot;never&quot;</span><span class="p">});</span>
         <span class="p">}</span>
 </pre></div>
 
