@@ -91,19 +91,20 @@
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
-    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Successful&quot;</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://localhost:9095&quot;</span><span class="p">,</span> <span class="nx">getConnectorConfigs</span><span class="p">());</span>
     <span class="p">}</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/hello/&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStringPayload</span><span class="p">());</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">getConnectorConfigs</span><span class="p">()</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Options</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">http</span><span class="p">:</span><span class="nx">Options</span> <span class="nx">option</span> <span class="p">=</span> <span class="p">{</span>
@@ -189,7 +190,8 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
 </pre></div>
 
                               </td>
@@ -213,7 +215,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+                                  <div class="highlight"><pre>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -242,10 +244,10 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/hello/&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">());</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response code: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Response: &quot;</span> <span class="o">+</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStringPayload</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: HTTP Client Connector</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+    <span class="p">}</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;POST: Hello World&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPOST request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+    <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="p">{</span><span class="nx">method</span><span class="p">:</span><span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">};</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">jsonMsg</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPUT request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+    <span class="kt">xml</span> <span class="nx">xmlMsg</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;request&gt;&lt;method&gt;PATCH&lt;/method&gt;&lt;payload&gt;Hello World!&lt;/payload&gt;&lt;/request&gt;`</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">xmlMsg</span><span class="p">);</span>
+    <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPATCH request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;DELETE: Hello World&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nDELETE request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;CUSTOM: Hello World&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span> <span class="nx">httpConn</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+    <span class="nx">bind</span> <span class="nx">httpConn</span> <span class="nx">with</span> <span class="nx">httpEndpoint</span><span class="p">;</span>
+    <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s">&quot;Sample-Name&quot;</span><span class="p">,</span> <span class="s">&quot;http-client-connector&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
+    <span class="nx">contentType</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nContent-Type: &quot;</span> <span class="o">+</span> <span class="nx">contentType</span><span class="p">);</span>    <span class="kt">int</span> <span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Status code: &quot;</span> <span class="o">+</span> <span class="nx">statusCode</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="http-client-connector">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: HTTP Client Connector</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The HTTP Client Connector can be used to connect to and interact with an HTTP server.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Send a GET request to the specified endpoint</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Set a string payload to the message to be sent to the endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;POST: Hello World&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/post&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPOST request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Set a JSON payload to the message to be sent to the endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">json</span> <span class="nx">jsonMsg</span> <span class="p">=</span> <span class="p">{</span><span class="nx">method</span><span class="p">:</span><span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">};</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">jsonMsg</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s">&quot;/put&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPUT request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Set an XML payload to the message to be sent to the endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">xml</span> <span class="nx">xmlMsg</span> <span class="p">=</span> <span class="kt">xml</span> <span class="s">`&lt;request&gt;&lt;method&gt;PATCH&lt;/method&gt;&lt;payload&gt;Hello World!&lt;/payload&gt;&lt;/request&gt;`</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setXmlPayload</span><span class="p">(</span><span class="nx">xmlMsg</span><span class="p">);</span>
+    <span class="kt">json</span> <span class="nx">j</span> <span class="p">=</span> <span class="p">{};</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Remove the json payload.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s">&quot;/patch&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nPATCH request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;DELETE: Hello World&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">delete</span><span class="p">(</span><span class="s">&quot;/delete&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nDELETE request:&quot;</span><span class="p">);</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">req</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;CUSTOM: Hello World&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The execute() action can be used if one needs to use custom HTTP verbs.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s">&quot;COPY&quot;</span><span class="p">,</span> <span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span> <span class="nx">httpConn</span> <span class="p">=</span> <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>bind statement can be used to bind new connections to existing endpoints.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">bind</span> <span class="nx">httpConn</span> <span class="nx">with</span> <span class="nx">httpEndpoint</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The messages and http packages provide various utility functions which are useful when dealing with HTTP requests/responses.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s">&quot;Sample-Name&quot;</span><span class="p">,</span> <span class="s">&quot;http-client-connector&quot;</span><span class="p">);</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">contentType</span><span class="p">;</span>
+    <span class="nx">contentType</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nContent-Type: &quot;</span> <span class="o">+</span> <span class="nx">contentType</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">getStatusCode</span><span class="p">();</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Status code: &quot;</span> <span class="o">+</span> <span class="nx">statusCode</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run http-client-connector.bal
+<span class="go">GET request:</span>
+<span class="go">{&quot;args&quot;:{&quot;test&quot;:&quot;123&quot;},&quot;headers&quot;:{&quot;host&quot;:&quot;postman-echo.com&quot;,&quot;user-agent&quot;:&quot;ballerina/0.92.1-SNAPSHOT&quot;,&quot;x-forwarded-port&quot;:&quot;443&quot;,&quot;x-forwarded-proto&quot;:&quot;https&quot;},&quot;url&quot;:&quot;https://postman-echo.com/get?test=123&quot;}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">POST request:</span>
+<span class="go">{&quot;args&quot;:{},&quot;data&quot;:&quot;POST: Hello World&quot;,&quot;files&quot;:{},&quot;form&quot;:{},&quot;headers&quot;:{&quot;host&quot;:&quot;postman-echo.com&quot;,&quot;content-length&quot;:&quot;17&quot;,&quot;content-type&quot;:&quot;text/plain&quot;,&quot;user-agent&quot;:&quot;ballerina/0.92.1-SNAPSHOT&quot;,&quot;x-forwarded-port&quot;:&quot;443&quot;,&quot;x-forwarded-proto&quot;:&quot;https&quot;},&quot;json&quot;:null,&quot;url&quot;:&quot;https://postman-echo.com/post&quot;}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">PUT request:</span>
+<span class="go">{&quot;args&quot;:{},&quot;data&quot;:{&quot;method&quot;:&quot;PUT&quot;,&quot;payload&quot;:&quot;Hello World&quot;},&quot;files&quot;:{},&quot;form&quot;:{},&quot;headers&quot;:{&quot;host&quot;:&quot;postman-echo.com&quot;,&quot;content-length&quot;:&quot;40&quot;,&quot;content-type&quot;:&quot;application/json&quot;,&quot;user-agent&quot;:&quot;ballerina/0.92.1-SNAPSHOT&quot;,&quot;x-forwarded-port&quot;:&quot;443&quot;,&quot;x-forwarded-proto&quot;:&quot;https&quot;},&quot;json&quot;:{&quot;method&quot;:&quot;PUT&quot;,&quot;payload&quot;:&quot;Hello World&quot;},&quot;url&quot;:&quot;https://postman-echo.com/put&quot;}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">PATCH request:</span>
+<span class="go">{&quot;args&quot;:{},&quot;data&quot;:&quot;&lt;request&gt;&lt;method&gt;PATCH&lt;/method&gt;&lt;payload&gt;Hello World!&lt;/payload&gt;&lt;/request&gt;&quot;,&quot;files&quot;:{},&quot;form&quot;:{},&quot;headers&quot;:{&quot;host&quot;:&quot;postman-echo.com&quot;,&quot;content-length&quot;:&quot;72&quot;,&quot;content-type&quot;:&quot;application/xml&quot;,&quot;user-agent&quot;:&quot;ballerina/0.92.1-SNAPSHOT&quot;,&quot;x-forwarded-port&quot;:&quot;443&quot;,&quot;x-forwarded-proto&quot;:&quot;https&quot;},&quot;json&quot;:null,&quot;url&quot;:&quot;https://postman-echo.com/patch&quot;}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="go">DELETE request:</span>
+<span class="go">{&quot;args&quot;:{},&quot;data&quot;:&quot;DELETE: Hello World&quot;,&quot;files&quot;:{},&quot;form&quot;:{},&quot;headers&quot;:{&quot;host&quot;:&quot;postman-echo.com&quot;,&quot;content-length&quot;:&quot;19&quot;,&quot;content-type&quot;:&quot;text/plain&quot;,&quot;user-agent&quot;:&quot;ballerina/0.92.1-SNAPSHOT&quot;,&quot;x-forwarded-port&quot;:&quot;443&quot;,&quot;x-forwarded-proto&quot;:&quot;https&quot;},&quot;json&quot;:null,&quot;url&quot;:&quot;https://postman-echo.com/delete&quot;}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="go">Content-Type: application/json; charset=utf-8</span>
+<span class="go">Status code: 200</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="http-trace-logs">HTTP Trace Logs</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/http-client-connector">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

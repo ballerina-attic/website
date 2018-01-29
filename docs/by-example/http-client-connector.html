@@ -79,8 +79,8 @@
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com&quot;</span><span class="p">,</span> <span class="p">{});</span>
-    <span class="p">}</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="p">}</span>    <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>
@@ -159,7 +159,7 @@
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">req</span> <span class="p">=</span> <span class="p">{};</span>
 </pre></div>
 
                               </td>
@@ -171,7 +171,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
+                                  <div class="highlight"><pre>    <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp</span> <span class="p">=</span> <span class="p">{};</span>
     <span class="nx">resp</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/get?test=123&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;GET request:&quot;</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">getJsonPayload</span><span class="p">());</span>

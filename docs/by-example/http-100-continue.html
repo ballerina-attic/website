@@ -82,14 +82,15 @@
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">helloWorld</span> <span class="p">{</span>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">path</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">expects100Continue</span><span class="p">())</span> <span class="p">{</span>
-            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send100Continue</span><span class="p">();</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respondContinue</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="kt">string</span> <span class="nx">payload</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getStringPayload</span><span class="p">();</span>
         <span class="nb">println</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!\n&quot;</span><span class="p">);</span>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!\n&quot;</span><span class="p">);</span>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -142,7 +143,7 @@
                                   <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">path</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -166,7 +167,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send100Continue</span><span class="p">();</span>
+                                  <div class="highlight"><pre>            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respondContinue</span><span class="p">();</span>
         <span class="p">}</span>
 </pre></div>
 
@@ -203,7 +204,8 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">res</span><span class="p">.</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!\n&quot;</span><span class="p">);</span>
 </pre></div>
 
@@ -215,7 +217,7 @@
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+                                  <div class="highlight"><pre>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

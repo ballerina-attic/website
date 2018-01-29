@@ -83,15 +83,15 @@
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/route&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">hbrResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">hbrResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">locationEP</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://www.mocky.io&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">weatherEP</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://samples.openweathermap.org&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
         <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -99,12 +99,13 @@
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">weatherEP</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;/data/2.5/weather?lat=35&amp;lon=139&amp;appid=b1b1&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>
         <span class="p">}</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">res</span><span class="p">.</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
             <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
-            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">clientResponse</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">clientResponse</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -159,7 +160,7 @@
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/route&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">hbrResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">hbrResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">locationEP</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://www.mocky.io&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
@@ -173,12 +174,12 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create new request and response to handle client call.</p>
+                                  <p>Create new outbound request and inbound response to handle client call.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
 </pre></div>
 
@@ -226,16 +227,17 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>Native function &ldquo;forward&rdquo; sends back the clientResponse to the caller if no any error is found.</p>
+                                  <p>Native function &ldquo;forward&rdquo; sends back the inbound clientResponse to the caller if no any error is found.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">res</span><span class="p">.</span><span class="nx">setStatusCode</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
             <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
-            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">clientResponse</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">clientResponse</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
