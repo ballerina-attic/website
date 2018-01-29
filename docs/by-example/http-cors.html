@@ -92,19 +92,21 @@
         <span class="nx">allowCredentials</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">allowHeaders</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;X-Content-Type-Options&quot;</span><span class="p">,</span> <span class="s">&quot;X-PINGOTHER&quot;</span><span class="p">]</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">companyInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">companyInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;middleware&quot;</span><span class="p">};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/lang&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">langInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">langInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;lang&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -169,10 +171,11 @@ Ballerina CORS supports for both simple and pre-flight requests.</p>
         <span class="nx">allowCredentials</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">allowHeaders</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;X-Content-Type-Options&quot;</span><span class="p">,</span> <span class="s">&quot;X-PINGOTHER&quot;</span><span class="p">]</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">companyInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">companyInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;middleware&quot;</span><span class="p">};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -189,10 +192,11 @@ Ballerina CORS supports for both simple and pre-flight requests.</p>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/lang&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">langInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Request</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">langInfo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="kt">json</span> <span class="nx">responseJson</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;lang&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -288,7 +292,7 @@ Ballerina CORS supports for both simple and pre-flight requests.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="log-api">Log API</a>.
+                          Next example: <a href="http-circuit-breaker">HTTP Circuit Breaker</a>.
                       </p>
                       
 
