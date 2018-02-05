@@ -66,7 +66,9 @@ public class BallerinaService {
             processArgs.add(Application.ballerinaPath.toString());
             processArgs.add("run");
             processArgs.add(path.toString());
-            processArgs.addAll(Arrays.asList(ballerinaContent.getArguments().split(";")));
+            if (ballerinaContent.getArguments() != null) {
+                processArgs.addAll(Arrays.asList(ballerinaContent.getArguments().split(";")));
+            }
             ProcessBuilder processBuilder = new ProcessBuilder(processArgs);
             processBuilder.environment().put("JAVA_HOME", System.getProperty("java.home"));
             processBuilder.redirectErrorStream(true);
