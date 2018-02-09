@@ -84,7 +84,7 @@
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">endPoint</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090/echo&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
-        <span class="kt">string</span> <span class="nx">method</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">();</span>
+        <span class="kt">string</span> <span class="nx">method</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">;</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
         <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">endPoint</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
@@ -172,7 +172,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">method</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">();</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">method</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">;</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
 </pre></div>

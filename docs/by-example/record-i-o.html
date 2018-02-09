@@ -84,16 +84,14 @@
     <span class="nx">io</span><span class="p">:</span><span class="nx">ByteChannel</span> <span class="nx">channel</span> <span class="p">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">openChannel</span><span class="p">(</span><span class="nx">permission</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">CharacterChannel</span> <span class="nx">characterChannel</span> <span class="p">=</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">toCharacterChannel</span><span class="p">(</span><span class="nx">encoding</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">textRecordChannel</span> <span class="p">=</span> <span class="nx">characterChannel</span><span class="p">.</span>
-                                             <span class="nx">toTextRecordChannel</span><span class="p">(</span><span class="nx">rs</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
+                                                             <span class="nx">toTextRecordChannel</span><span class="p">(</span><span class="nx">rs</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">textRecordChannel</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">process</span> <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">srcRecordChannel</span><span class="p">,</span>
                   <span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">dstRecordChannel</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="nx">numberOfFields</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">numberOfFields</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">string</span><span class="p">[]</span> <span class="nx">records</span> <span class="p">=</span> <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">readTextRecord</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">hasNextTextRecord</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">string</span><span class="p">[]</span> <span class="nx">records</span> <span class="p">=</span> <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">nextTextRecord</span><span class="p">();</span>
         <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">writeTextRecord</span><span class="p">(</span><span class="nx">records</span><span class="p">);</span>
-        <span class="nx">numberOfFields</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">records</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="nx">srcFileName</span> <span class="p">=</span> <span class="s">&quot;./files/sample.csv&quot;</span><span class="p">;</span>
@@ -185,7 +183,7 @@ to read content as records.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">textRecordChannel</span> <span class="p">=</span> <span class="nx">characterChannel</span><span class="p">.</span>
-                                             <span class="nx">toTextRecordChannel</span><span class="p">(</span><span class="nx">rs</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
+                                                             <span class="nx">toTextRecordChannel</span><span class="p">(</span><span class="nx">rs</span><span class="p">,</span> <span class="nx">fs</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">textRecordChannel</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -201,7 +199,6 @@ to read content as records.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre><span class="kd">function</span> <span class="nx">process</span> <span class="p">(</span><span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">srcRecordChannel</span><span class="p">,</span>
                   <span class="nx">io</span><span class="p">:</span><span class="nx">TextRecordChannel</span> <span class="nx">dstRecordChannel</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="nx">numberOfFields</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -213,7 +210,7 @@ to read content as records.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span><span class="nx">numberOfFields</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span><span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">hasNextTextRecord</span><span class="p">())</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -225,7 +222,7 @@ to read content as records.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">string</span><span class="p">[]</span> <span class="nx">records</span> <span class="p">=</span> <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">readTextRecord</span><span class="p">();</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span><span class="p">[]</span> <span class="nx">records</span> <span class="p">=</span> <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">nextTextRecord</span><span class="p">();</span>
 </pre></div>
 
                               </td>
@@ -238,7 +235,6 @@ to read content as records.</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">writeTextRecord</span><span class="p">(</span><span class="nx">records</span><span class="p">);</span>
-        <span class="nx">numberOfFields</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">records</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
