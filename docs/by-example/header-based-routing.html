@@ -93,7 +93,7 @@
         <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">newRequest</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientResponse</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
-        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">clientResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">locationEP</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/v2/594e12271100001f13d6d3a6&quot;</span><span class="p">,</span> <span class="nx">newRequest</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -192,7 +192,7 @@
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+                                  <div class="highlight"><pre>        <span class="kt">string</span> <span class="nx">nameString</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">nameString</span> <span class="o">==</span> <span class="s">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 

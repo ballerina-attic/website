@@ -102,7 +102,7 @@
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted row count:&quot;</span> <span class="o">+</span> <span class="nx">count</span><span class="p">);</span>
     <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Generated key:&quot;</span> <span class="o">+</span> <span class="nx">ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
     <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * FROM STUDENT WHERE AGE = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">table</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * FROM STUDENT WHERE AGE = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
     <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">p1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="nx">sql</span><span class="p">:</span><span class="nx">Type</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="mi">10</span><span class="p">};</span>
@@ -249,13 +249,13 @@ Similar to the update action, the inserted row count is also returned.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Select data using select action. Select action returns a datatable
-and see datatables section for more details on how to access data.</p>
+                                  <p>Select data using select action. Select action returns a table
+and see table section for more details on how to access data.</p>
 
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
-    <span class="kt">datatable</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * FROM STUDENT WHERE AGE = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">table</span> <span class="nx">dt</span> <span class="p">=</span> <span class="nx">testDB</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s">&quot;SELECT * FROM STUDENT WHERE AGE = ?&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
     <span class="k">var</span> <span class="nx">jsonRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;</span><span class="nx">dt</span><span class="p">;</span>
     <span class="nb">println</span><span class="p">(</span><span class="nx">jsonRes</span><span class="p">);</span>
 </pre></div>
@@ -381,7 +381,7 @@ used to specify in/out/inout parameters.</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="datatable">Datatable</a>.
+                          Next example: <a href="table">Table</a>.
                       </p>
                       
 
