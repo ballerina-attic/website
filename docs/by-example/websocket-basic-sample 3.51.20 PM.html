@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: WebSocket Basic Sample</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+<span class="nd">@ws:configuration {</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/basic/ws&quot;</span><span class="p">,</span>
+    <span class="nx">subProtocols</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="s">&quot;json&quot;</span><span class="p">],</span>
+    <span class="nx">idleTimeoutInSeconds</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span> <span class="mi">9090</span><span class="p">,</span>
+    <span class="nx">wssPort</span><span class="p">:</span> <span class="mi">9095</span><span class="p">,</span>
+    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;</span><span class="p">,</span>
+    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span><span class="p">,</span>
+    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>    <span class="kt">string</span> <span class="nx">ping</span> <span class="p">=</span> <span class="s">&quot;ping&quot;</span><span class="p">;</span>
+    <span class="kt">blob</span> <span class="nx">pingData</span> <span class="p">=</span> <span class="nx">ping</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
+        <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">upgradeHeaders</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
+        <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeaders</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onTextMessage</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;ping&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pinging...&quot;</span><span class="p">);</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">pingData</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;You asked me to close connection&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
+        <span class="kt">blob</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onPing</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PingFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pong</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onPong</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PongFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pong received&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Connection timeout&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">closeFrame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">printHeaders</span><span class="p">(</span><span class="kt">map</span> <span class="nx">headers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">headers</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">headerKeys</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="nx">headerKeys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">headers</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="websocket-basic-sample">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: WebSocket Basic Sample</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This program explains the basic functions of WebSocket server endpoint</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">ws</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This example gives you the basic idea of WebSocket endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="nd">@ws:configuration {</span>
+    <span class="nx">basePath</span><span class="p">:</span> <span class="s">&quot;/basic/ws&quot;</span><span class="p">,</span>
+    <span class="nx">subProtocols</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;xml&quot;</span><span class="p">,</span> <span class="s">&quot;json&quot;</span><span class="p">],</span>
+    <span class="nx">idleTimeoutInSeconds</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span> <span class="mi">9090</span><span class="p">,</span>
+    <span class="nx">wssPort</span><span class="p">:</span> <span class="mi">9095</span><span class="p">,</span>
+    <span class="nx">keyStoreFile</span><span class="p">:</span> <span class="s">&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;</span><span class="p">,</span>
+    <span class="nx">keyStorePassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span><span class="p">,</span>
+    <span class="nx">certPassword</span><span class="p">:</span> <span class="s">&quot;ballerina&quot;</span>
+<span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">ws</span><span class="p">&gt;</span> <span class="nx">SimpleSecureServer</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">ping</span> <span class="p">=</span> <span class="s">&quot;ping&quot;</span><span class="p">;</span>
+    <span class="kt">blob</span> <span class="nx">pingData</span> <span class="p">=</span> <span class="nx">ping</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is responsible for handling user logic on handshake time. Note that the connection is not yet established while this code is running.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onHandshake</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">HandshakeConnection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client is going to connect&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">connectionID</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secure: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;pre upgrade headers -&gt; &quot;</span><span class="p">);</span>
+        <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">upgradeHeaders</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered after a successful client connection.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onOpen</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew client connected&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection ID: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Negotiated Sub protocol: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getNegotiatedSubProtocol</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection open: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isOpen</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Is connection secured: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">isSecure</span><span class="p">());</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Connection header value: &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeader</span><span class="p">(</span><span class="s">&quot;Connection&quot;</span><span class="p">));</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Upgrade headers -&gt; &quot;</span> <span class="p">);</span>
+        <span class="nx">printHeaders</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getUpgradeHeaders</span><span class="p">());</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a new text frame is received from a client.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onTextMessage</span> <span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">TextFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\ntext message: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s">&quot; &amp; is final fragment: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">isFinalFragment</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="nx">text</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;ping&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pinging...&quot;</span><span class="p">);</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">pingData</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s">&quot;closeMe&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;You asked me to close connection&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nx">pushText</span><span class="p">(</span><span class="s">&quot;You said: &quot;</span> <span class="o">+</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a new binary frame is received from a client.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onBinaryMessage</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">BinaryFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nNew binary message received&quot;</span><span class="p">);</span>
+        <span class="kt">blob</span> <span class="nx">b</span> <span class="p">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;UTF-8 decoded binary message: &quot;</span> <span class="o">+</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pushBinary</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a ping message is received from the client. If this resource is not implemented then pong message will be sent automatically to the connected endpoint when a ping is received.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onPing</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PingFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">pong</span><span class="p">(</span><span class="nx">frame</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a pong message is received</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onPong</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">PongFrame</span> <span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Pong received&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a particular client reaches it&rsquo;s idle timeout defined in the ws:configuration annotation.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onIdleTimeout</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource will be triggered after 180 seconds if there is no activity in a given channel.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nReached idle timeout&quot;</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Closing connection &quot;</span> <span class="o">+</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">getID</span><span class="p">());</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">closeConnection</span><span class="p">(</span><span class="mi">1001</span><span class="p">,</span> <span class="s">&quot;Connection timeout&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This resource is triggered when a client connection is closed from the client side.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">onClose</span><span class="p">(</span><span class="nx">ws</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span><span class="nx">CloseFrame</span> <span class="nx">closeFrame</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nClient left with status code &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">+</span> <span class="s">&quot; because &quot;</span> <span class="o">+</span> <span class="nx">closeFrame</span><span class="p">.</span><span class="nx">reason</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">printHeaders</span><span class="p">(</span><span class="kt">map</span> <span class="nx">headers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="p">[]</span> <span class="nx">headerKeys</span> <span class="p">=</span> <span class="nx">headers</span><span class="p">.</span><span class="nx">keys</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">lengthof</span> <span class="nx">headerKeys</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">key</span> <span class="p">=</span> <span class="nx">headerKeys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">var</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="nx">headers</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+        <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To run the program, put the code in <code>websocket-basic-functions.bal</code>
+ and use <code>ballerina run websocket-basic-sample.bal</code> command.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run websocket-basic-sample.bal
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check the sample,use Chrome or Firefox javascript console and run the below commands <br>
+ change &ldquo;xml&rdquo; to another sub protocol to observe the behavior of WebSocket server.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> var <span class="nv">ws</span> <span class="o">=</span> new WebSocket<span class="o">(</span><span class="s2">&quot;ws://localhost:9090/basic/ws&quot;</span>, <span class="s2">&quot;xml&quot;</span>, <span class="s2">&quot;my-protocol&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.onmessage <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame.data<span class="o">)}</span><span class="p">;</span>
+<span class="gp">$</span> ws.onclose <span class="o">=</span> <span class="k">function</span><span class="o">(</span>frame<span class="o">)</span> <span class="o">{</span>console.log<span class="o">(</span>frame<span class="o">)}</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To send messages</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;hello world&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Use more advance client to check the ping pong since browser client does not have capability to send pings.
+ But to check the the behavior when server sends a ping message to the browser client use the following command</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;ping&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To close the connection</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.close<span class="o">(</span>1000, <span class="s2">&quot;I want to go&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To close connection from server side</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> ws.send<span class="o">(</span><span class="s2">&quot;closeMe&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To check the connection closure due to connection timeout wait for 120 seconds
+ or change the timeout in configuration annotation</p>
+
+                              </td>
+                              <td class="code empty">
+                                  
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="websocket-chat-application">WebSocket Chat Application</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/websocket-basic-sample">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

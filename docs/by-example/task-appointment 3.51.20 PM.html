@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: Task Appointment</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">task</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">math</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span><span class="kt">int</span> <span class="nx">app1Count</span><span class="p">;</span>
+<span class="kt">string</span> <span class="nx">app1Tid</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;------- Scheduling Appointments ----------------&quot;</span><span class="p">);</span>        <span class="kd">function</span> <span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="nx">onTriggerFunction</span><span class="p">;</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="nx">onErrorFunction</span><span class="p">;</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment1Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">app1Tid</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0/20 * * * * ?&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment2Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;15 0/2 * * * ?&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment3Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0/2 8-17 * * ?&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment4Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0/3 17-23 * * ?&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment5Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0 10am 1,15 * ?&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment6Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0,30 * * ? * MON-FRI&quot;</span><span class="p">);</span>
+        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment7Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0,30 * * ? * SAT,SUN&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment1Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#1 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="nx">app1Count</span> <span class="p">=</span> <span class="nx">app1Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">app1Count</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Stopping Appointment#1 cleanup task since it has run 5 times&quot;</span><span class="p">);</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">stopTask</span><span class="p">(</span><span class="nx">app1Tid</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment2Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#2 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment3Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#3 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment4Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#4 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment5Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#5 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment6Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#6 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">appointment7Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#7 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Cleaning up&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">math</span><span class="p">:</span><span class="nx">randomInRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span> <span class="p">=</span> <span class="p">{</span><span class="kt">message</span><span class="p">:</span><span class="s">&quot;Cleanup error&quot;</span><span class="p">};</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">cleanupError</span><span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printErrorCause</span><span class="p">(</span><span class="s">&quot;[ERROR] cleanup failed&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="task-appointment">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: Task Appointment</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>An appointment is a task that is executed on clock time. Cron syntax is used to define the time, and in
+ case of recurring appointments, the frequency of the appointment.
+ A trigger function is called when an appointment is due. If a failure occurs during
+ the execution of the trigger function, it will return an error. That error will be passed to the onError function.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">task</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">math</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kt">int</span> <span class="nx">app1Count</span><span class="p">;</span>
+<span class="kt">string</span> <span class="nx">app1Tid</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">worker</span> <span class="nx">w1</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;------- Scheduling Appointments ----------------&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="kd">function</span> <span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="nx">onTriggerFunction</span><span class="p">;</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="nx">onErrorFunction</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 1 will run every 20 seconds</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment1Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">app1Tid</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0/20 * * * * ?&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 2 will run every other minute (at 15 seconds past the minute)</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment2Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;15 0/2 * * * ?&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 3 will run every other minute but only between 8am and 5pm.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment3Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0/2 8-17 * * ?&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 4 will run every three minutes but only between 5pm and 11pm.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment4Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0/3 17-23 * * ?&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 5 will run at 10am on the 1st and 15th days of the month.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment5Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0 0 10am 1,15 * ?&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 6 will run every 30 seconds but only on Weekdays. (Monday through Friday)</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment6Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0,30 * * ? * MON-FRI&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>job 7 will run every 30 seconds but only on Weekends. (Saturday and Sunday)</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">onTriggerFunction</span> <span class="p">=</span> <span class="nx">appointment7Cleanup</span><span class="p">;</span>
+        <span class="nx">onErrorFunction</span> <span class="p">=</span> <span class="nx">cleanupError</span><span class="p">;</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleAppointment</span><span class="p">(</span><span class="nx">onTriggerFunction</span><span class="p">,</span> <span class="nx">onErrorFunction</span><span class="p">,</span>
+                                        <span class="s">&quot;0,30 * * ? * SAT,SUN&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment1Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#1 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="nx">app1Count</span> <span class="p">=</span> <span class="nx">app1Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">app1Count</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Stopping Appointment#1 cleanup task since it has run 5 times&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This is how you stop a task.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">task</span><span class="p">:</span><span class="nx">stopTask</span><span class="p">(</span><span class="nx">app1Tid</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment2Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#2 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment3Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#3 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment4Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#4 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment5Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#5 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment6Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#6 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">appointment7Cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Appointment#7 cleanup running...&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">cleanup</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">cleanup</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Cleaning up&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">math</span><span class="p">:</span><span class="nx">randomInRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span> <span class="p">=</span> <span class="p">{</span><span class="kt">message</span><span class="p">:</span><span class="s">&quot;Cleanup error&quot;</span><span class="p">};</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">cleanupError</span><span class="p">(</span><span class="nx">error</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">:</span><span class="nx">printErrorCause</span><span class="p">(</span><span class="s">&quot;[ERROR] cleanup failed&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run task-appointment.bal
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="config-api">Config API</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/task-appointment">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>
