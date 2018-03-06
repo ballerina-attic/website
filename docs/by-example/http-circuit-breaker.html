@@ -80,17 +80,24 @@
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">resiliency</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">runtime</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/cb&quot;</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">circuitBreakerDemo</span> <span class="p">{</span>
-    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">&gt;</span> <span class="nx">circuitBreakerEP</span> <span class="p">{</span>
-        <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">(</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">2000</span><span class="p">}),</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">20000</span><span class="p">);</span>
-    <span class="p">}</span>    <span class="nd">@http:resourceConfig {</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">circuitBreakerDemo</span> <span class="p">{</span>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">httpStatusCodes</span> <span class="p">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">500</span><span class="p">];</span>
+    <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreakerConfig</span> <span class="nx">circuitBreakerConfig</span> <span class="p">=</span> <span class="p">{</span>
+                                                               <span class="nx">failureThreshold</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span>
+                                                               <span class="nx">resetTimeout</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span>
+                                                               <span class="nx">httpStatusCodes</span><span class="p">:</span><span class="nx">httpStatusCodes</span>
+                                                           <span class="p">};</span>    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">&gt;</span> <span class="nx">circuitBreakerEP</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">(</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">,</span>
+                                              <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">2000</span><span class="p">}),</span> <span class="nx">circuitBreakerConfig</span><span class="p">);</span>
+        <span class="p">}</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientRes</span><span class="p">;</span>
         <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
-        <span class="nx">clientRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">circuitBreakerEP</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">clientRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">circuitBreakerEP</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">clientRes</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
@@ -105,18 +112,31 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">:</span><span class="mi">8080</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">helloWorld</span> <span class="p">{</span>    <span class="kt">int</span> <span class="nx">counter</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="nd">@http:resourceConfig {</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">helloWorld</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nx">counter</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">runtime</span><span class="p">:</span><span class="nx">sleepCurrentWorker</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Internal error occurred while processing the request.&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -164,18 +184,28 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The Circuit Breaker accepts an HTTP client connector as its first argument.
- The second and third arguments to the Circuit Breaker are the failure threshold (should be between 0 and 1, inclusive) and the reset timeout (in milli seconds) respectively.<br>
- * When the percentage of failed requests passes the specified threshold, the circuit trips and subsequent requests to the backend fails immediately.<br>
- * When the time specified in the reset timeout elapses, the circuit goes to &lsquo;half-open&rsquo; state.<br>
- * If a request comes when it is in half-open state, it is sent to the backend and if it does not result in an error, the circuit state goes to &lsquo;close&rsquo;.<br>
- * If it fails though, the circuit goes back to &lsquo;open&rsquo; state, and the above process repeats.<br></p>
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">httpStatusCodes</span> <span class="p">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">500</span><span class="p">];</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Holds the Circuit Breaker configurations, the failure threshold (should be between 0 and 1,
+ inclusive), the reset timeout (in milli seconds) and array of http status codes which needs to
+ threated as fault response.</p>
 
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">&gt;</span> <span class="nx">circuitBreakerEP</span> <span class="p">{</span>
-        <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">(</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">2000</span><span class="p">}),</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">20000</span><span class="p">);</span>
-    <span class="p">}</span>
+                                  <div class="highlight"><pre>    <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreakerConfig</span> <span class="nx">circuitBreakerConfig</span> <span class="p">=</span> <span class="p">{</span>
+                                                               <span class="nx">failureThreshold</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span>
+                                                               <span class="nx">resetTimeout</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span>
+                                                               <span class="nx">httpStatusCodes</span><span class="p">:</span><span class="nx">httpStatusCodes</span>
+                                                           <span class="p">};</span>
 </pre></div>
 
                               </td>
@@ -191,9 +221,6 @@
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientRes</span><span class="p">;</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
-        <span class="nx">clientRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">circuitBreakerEP</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -201,10 +228,22 @@
                           
                           <tr>
                               <td class="docs">
-                                  
+                                  <p>The Circuit Breaker accepts an HTTP client connector as its first argument.
+ - When the percentage of failed requests passes the specified threshold, the circuit trips and subsequent requests to the backend fails immediately.<br>
+ - When the time specified in the reset timeout elapses, the circuit goes to &lsquo;half-open&rsquo; state.<br>
+ - If a request comes when it is in half-open state, it is sent to the backend and if it does not result in an error, the circuit state goes to &lsquo;close&rsquo;.<br>
+ - If it fails though, the circuit goes back to &lsquo;open&rsquo; state, and the above process repeats.<br></p>
+
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                                  <div class="highlight"><pre>        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">&gt;</span> <span class="nx">circuitBreakerEP</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">CircuitBreaker</span><span class="p">(</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">,</span>
+                                              <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">2000</span><span class="p">}),</span> <span class="nx">circuitBreakerConfig</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">clientRes</span><span class="p">;</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
+        <span class="nx">clientRes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">circuitBreakerEP</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">req</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">clientRes</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
@@ -229,42 +268,33 @@
  This should be run separately from the circuitBreakerDemo service.</p>
 
                               </td>
-                              <td class="code leading">
+                              <td class="code">
                                   <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">:</span><span class="mi">8080</span><span class="p">}</span>
 <span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">helloWorld</span> <span class="p">{</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code leading">
-                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">counter</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-</pre></div>
-
-                              </td>
-                          </tr>
-                          
-                          <tr>
-                              <td class="docs">
-                                  
-                              </td>
-                              <td class="code">
-                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+    <span class="kt">int</span> <span class="nx">counter</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;GET&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">sayHello</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">runtime</span><span class="p">:</span><span class="nx">sleepCurrentWorker</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">500</span><span class="p">;</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Internal error occurred while processing the request.&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="nx">counter</span> <span class="p">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">res</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Hello World!!!&quot;</span><span class="p">);</span>
-        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -287,13 +317,21 @@
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run http-circuit-breaker.bal
 <span class="go">ballerina: deploying service(s) in &#39;http-circuit-breaker.bal&#39;</span>
 <span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:9090</span>
+<span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:8080</span>
 <span class="go">Hello World!!!</span>
 <span class="go">Hello World!!!</span>
+<span class="go">Internal error occurred while processing the request.</span>
+<span class="go">2018-03-04 11:56:24,644 INFO  [ballerina.net.http.resiliency] - CircuitBreaker failure threshold exceeded. Circuit trips from CLOSE to OPEN state.</span>
+<span class="go">{message:&quot;Upstream service unavailable. Requests to upstream service will be suspended for -4218 milliseconds.&quot;, cause:null, statusCode:0}</span>
+<span class="go">2018-03-04 11:56:42,703 INFO  [ballerina.net.http.resiliency] - CircuitBreaker reset timeout reached. Circuit switched from OPEN to HALF_OPEN state.</span>
+<span class="go">Hello World!!!</span>
+<span class="go">2018-03-04 11:56:52,713 INFO  [ballerina.net.http.resiliency] - CircuitBreaker trial run  was successful. Circuit switched from HALF_OPEN to CLOSE state.</span>
 <span class="go">{message:&quot;Idle timeout triggered before reading inbound response&quot;, cause:null, statusCode:504}</span>
-<span class="go">{message:&quot;Upstream service unavailable. Requests to upstream service will be suspended for 14061 milliseconds.&quot;, cause:null, statusCode:0}</span>
-<span class="go">{message:&quot;Upstream service unavailable. Requests to upstream service will be suspended for 5398 milliseconds.&quot;, cause:null, statusCode:0}</span>
-<span class="go">{message:&quot;Upstream service unavailable. Requests to upstream service will be suspended for 1753 milliseconds.&quot;, cause:null, statusCode:0}</span>
+<span class="go">2018-03-04 11:57:08,696 INFO  [ballerina.net.http.resiliency] - CircuitBreaker failure threshold exceeded. Circuit tripped from CLOSE to OPEN state.</span>
+<span class="go">{message:&quot;Upstream service unavailable. Requests to upstream service will be suspended for -3974 milliseconds.&quot;, cause:null, statusCode:0}</span>
+<span class="go">2018-03-04 11:57:25,913 INFO  [ballerina.net.http.resiliency] - CircuitBreaker reset timeout reached. Circuit switched from OPEN to HALF_OPEN state.</span>
 <span class="go">Hello World!!!</span>
+<span class="go">2018-03-04 11:57:27,281 INFO  [ballerina.net.http.resiliency] - CircuitBreaker trial run  was successful. Circuit switched from HALF_OPEN to CLOSE state.</span>
 <span class="go">Hello World!!!</span>
 </pre></div>
 
@@ -358,7 +396,8 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The third one times out, since our mock service times out when responding to every third request.</p>
+                                  <p>The third one responds with 500 Internal Server Error, since our mock service send 500 http status code
+ when responding to every third request.</p>
 
                               </td>
                               <td class="code leading">
@@ -373,10 +412,10 @@
 <span class="go">&lt; HTTP/1.1 500 Internal Server Error</span>
 <span class="go">&lt; Connection: Keep-Alive</span>
 <span class="go">&lt; Content-Type: text/plain</span>
-<span class="go">&lt; Content-Length: 54</span>
+<span class="go">&lt; Content-Length: 53</span>
 <span class="go">&lt;</span>
 <span class="go">* Connection #0 to host localhost left intact</span>
-<span class="go">Idle timeout triggered before reading inbound response</span>
+<span class="go">Internal error occurred while processing the request.</span>
 </pre></div>
 
                               </td>
@@ -453,6 +492,84 @@
 <span class="go">&lt;</span>
 <span class="go">* Connection #0 to host localhost left intact</span>
 <span class="go">Upstream service unavailable. Requests to upstream service will be suspended for 1753 milliseconds</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The request sent immediately after the timeout period expires is the trial request, to see if the backend service is back to normal.
+ If this succeeds, the circuit is set to &lsquo;close&rsquo; and normal functionality resumes.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/cb
+<span class="go">*   Trying 127.0.0.1...</span>
+<span class="go">* Connected to localhost (127.0.0.1) port 9090 (#0)</span>
+<span class="gp">&gt;</span> GET /cb HTTP/1.1
+<span class="gp">&gt;</span> Host: localhost:9090
+<span class="gp">&gt;</span> User-Agent: curl/7.47.0
+<span class="gp">&gt;</span> Accept: */*
+<span class="gp">&gt;</span>
+<span class="go">&lt; HTTP/1.1 200 OK</span>
+<span class="go">&lt; Content-Length: 14</span>
+<span class="go">&lt; Content-Type: text/plain</span>
+<span class="go">&lt;</span>
+<span class="go">* Connection #0 to host localhost left intact</span>
+<span class="go">Hello World!!!</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>The fifth one times out, since our mock service times out when responding to every fifth request.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/cb
+<span class="go">*   Trying 127.0.0.1...</span>
+<span class="go">* Connected to localhost (127.0.0.1) port 9090 (#0)</span>
+<span class="gp">&gt;</span> GET /cb HTTP/1.1
+<span class="gp">&gt;</span> Host: localhost:9090
+<span class="gp">&gt;</span> User-Agent: curl/7.47.0
+<span class="gp">&gt;</span> Accept: */*
+<span class="gp">&gt;</span>
+<span class="go">&lt; HTTP/1.1 500 Internal Server Error</span>
+<span class="go">&lt; Connection: Keep-Alive</span>
+<span class="go">&lt; Content-Type: text/plain</span>
+<span class="go">&lt; Content-Length: 54</span>
+<span class="go">&lt;</span>
+<span class="go">* Connection #0 to host localhost left intact</span>
+<span class="go">Idle timeout triggered before reading inbound response</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Subsequent requests fail immediately since the reset timeout period has not elapsed.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/cb
+<span class="go">*   Trying 127.0.0.1...</span>
+<span class="go">* Connected to localhost (127.0.0.1) port 9090 (#0)</span>
+<span class="gp">&gt;</span> GET /cb HTTP/1.1
+<span class="gp">&gt;</span> Host: localhost:9090
+<span class="gp">&gt;</span> User-Agent: curl/7.47.0
+<span class="gp">&gt;</span> Accept: */*
+<span class="gp">&gt;</span>
+<span class="go">&lt; HTTP/1.1 500 Internal Server Error</span>
+<span class="go">&lt; Connection: Keep-Alive</span>
+<span class="go">&lt; Content-Type: text/plain</span>
+<span class="go">&lt; Content-Length: 100</span>
+<span class="go">&lt;</span>
+<span class="go">* Connection #0 to host localhost left intact</span>
+<span class="go">Upstream service unavailable. Requests to upstream service will be suspended for 14061 milliseconds</span>
 </pre></div>
 
                               </td>

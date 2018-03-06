@@ -78,13 +78,13 @@
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">mime</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">:</span><span class="mi">9092</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">port</span><span class="p">:</span><span class="mi">9092</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">multiparts</span> <span class="p">{</span>
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/multiparts&quot;</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/encoder&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">encodeMultiparts</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
@@ -107,7 +107,7 @@
         <span class="nx">xmlBodyPart</span><span class="p">.</span><span class="nx">setXml</span><span class="p">(</span><span class="nx">xmlContent</span><span class="p">);</span>
         <span class="nx">mime</span><span class="p">:</span><span class="nx">Entity</span><span class="p">[]</span> <span class="nx">bodyParts</span> <span class="p">=</span> <span class="p">[</span><span class="nx">xmlBodyPart</span><span class="p">,</span> <span class="nx">xmlFilePart</span><span class="p">,</span> <span class="nx">jsonBodyPart</span><span class="p">];</span>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">request</span> <span class="p">=</span> <span class="p">{};</span>
         <span class="nx">request</span><span class="p">.</span><span class="nx">setMultiparts</span><span class="p">(</span><span class="nx">bodyParts</span><span class="p">,</span> <span class="nx">mime</span><span class="p">:</span><span class="nx">MULTIPART_FORM_DATA</span><span class="p">);</span>        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp1</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">resp1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/foo/receivableParts&quot;</span><span class="p">,</span> <span class="nx">request</span><span class="p">);</span>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">resp1</span><span class="p">);</span>
+        <span class="nx">resp1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/multiparts/receivableParts&quot;</span><span class="p">,</span> <span class="nx">request</span><span class="p">);</span>        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">resp1</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span><span class="kd">function</span> <span class="nx">getContentDispositionForFormData</span><span class="p">(</span><span class="kt">string</span> <span class="nx">partName</span><span class="p">)</span> <span class="p">(</span><span class="nx">mime</span><span class="p">:</span><span class="nx">ContentDisposition</span><span class="p">){</span>
     <span class="nx">mime</span><span class="p">:</span><span class="nx">ContentDisposition</span> <span class="nx">contentDisposition</span> <span class="p">=</span> <span class="p">{};</span>
@@ -151,13 +151,13 @@ that needs to be send out and then set those body parts to the outbound request.
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">:</span><span class="mi">9092</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">port</span><span class="p">:</span><span class="mi">9092</span><span class="p">}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">multiparts</span> <span class="p">{</span>
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
-        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/multiparts&quot;</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/encoder&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">encodeMultiparts</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">httpEndpoint</span> <span class="p">{</span>
             <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090&quot;</span><span class="p">,</span> <span class="p">{});</span>
         <span class="p">}</span>
@@ -168,7 +168,7 @@ that needs to be send out and then set those body parts to the outbound request.
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a json body part</p>
+                                  <p>Create a json body part.</p>
 
                               </td>
                               <td class="code leading">
@@ -184,7 +184,7 @@ that needs to be send out and then set those body parts to the outbound request.
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a xml body part as a file upload</p>
+                                  <p>Create a xml body part as a file upload.</p>
 
                               </td>
                               <td class="code leading">
@@ -201,7 +201,7 @@ that needs to be send out and then set those body parts to the outbound request.
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create a xml body part</p>
+                                  <p>Create a xml body part.</p>
 
                               </td>
                               <td class="code leading">
@@ -218,7 +218,7 @@ that needs to be send out and then set those body parts to the outbound request.
                           
                           <tr>
                               <td class="docs">
-                                  <p>Create an array to hold all the body parts</p>
+                                  <p>Create an array to hold all the body parts.</p>
 
                               </td>
                               <td class="code leading">
@@ -243,7 +243,7 @@ that needs to be send out and then set those body parts to the outbound request.
                               <td class="docs">
                                   <p>Set body parts to request. Here the content-type is set as multipart form data. This also works with any other
 multipart media type. eg:- multipart/mixed, multipart/related etc&hellip; Just pass the content type that suit
-your requirement</p>
+your requirement.</p>
 
                               </td>
                               <td class="code leading">
@@ -259,7 +259,7 @@ your requirement</p>
                               </td>
                               <td class="code leading">
                                   <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">resp1</span> <span class="p">=</span> <span class="p">{};</span>
-        <span class="nx">resp1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/foo/receivableParts&quot;</span><span class="p">,</span> <span class="nx">request</span><span class="p">);</span>
+        <span class="nx">resp1</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">httpEndpoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/multiparts/receivableParts&quot;</span><span class="p">,</span> <span class="nx">request</span><span class="p">);</span>
 </pre></div>
 
                               </td>
@@ -324,7 +324,7 @@ your requirement</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl -X POST http://localhost:9092/foo/multiparts
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -X POST http://localhost:9092/multiparts/encoder
 </pre></div>
 
                               </td>
@@ -336,7 +336,7 @@ your requirement</p>
                       
                       
                       <p class="next">
-                          Next example: <a href="http-redirects">HTTP Redirects</a>.
+                          Next example: <a href="encode-nested-bodyparts-in-multipart">Encode Nested BodyParts in Multipart</a>.
                       </p>
                       
 

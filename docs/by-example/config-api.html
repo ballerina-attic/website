@@ -101,7 +101,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The &lsquo;ballerina.config&rsquo; package provides an API for reading configurations from various sources such as files, env variables and CLI params</p>
+                                  <p>The &lsquo;ballerina.config&rsquo; package provides an API for reading configurations from various sources such as files, environment variables and CLI parameters.</p>
 
                               </td>
                               <td class="code leading">
@@ -126,12 +126,13 @@
                           <tr>
                               <td class="docs">
                                   <p>Ballerina config API provides a mechanism for developers to look-up values from config files, CLI parameters,
- environment variables etc. The precedence order for config lookup is as follows: <br>
+ environment variables, etc. The precedence order for config lookup is as follows: <br>
  * CLI parameters <br>
  * Environment variables <br>
- * Config file <br><br>
- If a particular config defined in the file is also defined as an environment variable, the env variable takes
- precedence. Similarly, if the same is set as a CLI param, it replaces the env variable value. <br>
+ * Config files <br><br>
+ If a particular config defined in the file is also defined as an environment variable, the environment
+ variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the environment
+ variable value. <br>
  The configs are simply arbitrary key/value pairs with slight structure to it.</p>
 
                               </td>
@@ -164,7 +165,7 @@
  access.rights=RW <br>
  [peter] <br>
  access.rights=R <br><br>
- The same configs can be set using CLI params as follows: <br>
+ The same configs can be set using CLI parameters as follows: <br>
  -Busername.instances=john,peter -B[john].access.rights=RW -B[peter].access.rights=R <br></p>
 
                               </td>
@@ -200,7 +201,7 @@
                           
                           <tr>
                               <td class="docs">
-                                  <p>The same configs given through a config file can also be given through CLI params as shown.
+                                  <p>The same configs given through a config file can also be given through CLI parameters as shown.
  Notice how the instance config keys are prefixed with the instance tag. <br>
  i.e: [john].access.rights</p>
 

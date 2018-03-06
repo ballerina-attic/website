@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: Strings</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>    <span class="kt">string</span> <span class="nx">statement</span> <span class="p">=</span> <span class="s">&quot;Lion in Town. Catch the Lion &quot;</span><span class="p">;</span>    <span class="kt">string</span> <span class="nx">s1</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ToUpper: &quot;</span> <span class="o">+</span> <span class="nx">s1</span><span class="p">);</span>    <span class="kt">string</span> <span class="nx">s2</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ToLower: &quot;</span> <span class="o">+</span> <span class="nx">s2</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="nx">isEqual</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">equalsIgnoreCase</span><span class="p">(</span><span class="s">&quot;lion in town. catch the lion &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;EqualsIgnoreCase: &quot;</span> <span class="o">+</span> <span class="nx">isEqual</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s3</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">subString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SubString: &quot;</span> <span class="o">+</span> <span class="nx">s3</span><span class="p">);</span>    <span class="kt">boolean</span> <span class="nx">contains</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Contains: &quot;</span> <span class="o">+</span> <span class="nx">contains</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">index</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s">&quot;on&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;IndexOf: &quot;</span> <span class="o">+</span> <span class="nx">index</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">lastIndex</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s">&quot;on&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;LastIndexOf: &quot;</span> <span class="o">+</span> <span class="nx">lastIndex</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="nx">value</span> <span class="p">=</span> <span class="mf">5.8</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">s4</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ValueOf: &quot;</span> <span class="o">+</span> <span class="nx">s4</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s5</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replaceFirst</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">,</span> <span class="s">&quot;Tiger&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ReplaceFirst: &quot;</span> <span class="o">+</span> <span class="nx">s5</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s6</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">,</span> <span class="s">&quot;Tiger&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Replace: &quot;</span> <span class="o">+</span> <span class="nx">s6</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s7</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replaceAll</span><span class="p">(</span><span class="s">&quot;[o]+&quot;</span><span class="p">,</span> <span class="s">&quot;0&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ReplaceAll: &quot;</span> <span class="o">+</span> <span class="nx">s7</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nx">length</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Length: &quot;</span> <span class="o">+</span> <span class="nx">length</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s8</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Trim: &quot;</span> <span class="o">+</span> <span class="nx">s8</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="nx">hasSuffix</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">hasSuffix</span><span class="p">(</span><span class="s">&quot;Lion &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;HasSuffix: &quot;</span> <span class="o">+</span> <span class="nx">hasSuffix</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="nx">hasPrefix</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">hasPrefix</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;HasPreffix: &quot;</span> <span class="o">+</span> <span class="nx">hasPrefix</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s9</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">unescape</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Unescape: &quot;</span> <span class="o">+</span> <span class="nx">s9</span><span class="p">);</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="nx">array</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="kt">blob</span> <span class="nx">blobValue</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s10</span> <span class="p">=</span> <span class="nx">blobValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Blob: &quot;</span> <span class="o">+</span> <span class="nx">s10</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="strings">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: Strings</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Ballerina contains a comprehensive set of string manipulation functions.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">statement</span> <span class="p">=</span> <span class="s">&quot;Lion in Town. Catch the Lion &quot;</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s1</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ToUpper: &quot;</span> <span class="o">+</span> <span class="nx">s1</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s2</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ToLower: &quot;</span> <span class="o">+</span> <span class="nx">s2</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Compares two strings, ignoring the case. Returns True if the strings are equal; false otherwise.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">isEqual</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">equalsIgnoreCase</span><span class="p">(</span><span class="s">&quot;lion in town. catch the lion &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;EqualsIgnoreCase: &quot;</span> <span class="o">+</span> <span class="nx">isEqual</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns a new string that is the substring of the specified string. The original string, starting index and
+ending index should be specified.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s3</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">subString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SubString: &quot;</span> <span class="o">+</span> <span class="nx">s3</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">contains</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Contains: &quot;</span> <span class="o">+</span> <span class="nx">contains</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns the first index of the first occurrence of the substring within the specified string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">index</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s">&quot;on&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;IndexOf: &quot;</span> <span class="o">+</span> <span class="nx">index</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns the first index of the last occurrence of the substring within the specified string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">lastIndex</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s">&quot;on&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;LastIndexOf: &quot;</span> <span class="o">+</span> <span class="nx">lastIndex</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Converts a float type into a string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">float</span> <span class="nx">value</span> <span class="p">=</span> <span class="mf">5.8</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">s4</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ValueOf: &quot;</span> <span class="o">+</span> <span class="nx">s4</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Replaces the first instance of the replacePattern with the replaceWith string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s5</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replaceFirst</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">,</span> <span class="s">&quot;Tiger&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ReplaceFirst: &quot;</span> <span class="o">+</span> <span class="nx">s5</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This replaces the replacePattern string with the replacement string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s6</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">,</span> <span class="s">&quot;Tiger&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Replace: &quot;</span> <span class="o">+</span> <span class="nx">s6</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Replaces each substring of the replacePattern that matches the given regular expression with the replacement string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s7</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">replaceAll</span><span class="p">(</span><span class="s">&quot;[o]+&quot;</span><span class="p">,</span> <span class="s">&quot;0&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;ReplaceAll: &quot;</span> <span class="o">+</span> <span class="nx">s7</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns the length of the string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">length</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Length: &quot;</span> <span class="o">+</span> <span class="nx">length</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Remove any leading and trailing white spaces</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s8</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Trim: &quot;</span> <span class="o">+</span> <span class="nx">s8</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Tests if this string ends with the specified suffix.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">hasSuffix</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">hasSuffix</span><span class="p">(</span><span class="s">&quot;Lion &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;HasSuffix: &quot;</span> <span class="o">+</span> <span class="nx">hasSuffix</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Tests if this string starts with the specified prefix.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">hasPrefix</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">hasPrefix</span><span class="p">(</span><span class="s">&quot;Lion&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;HasPreffix: &quot;</span> <span class="o">+</span> <span class="nx">hasPrefix</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Returns an unescaped string by omitting the escape characters of the original string.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s9</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">unescape</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Unescape: &quot;</span> <span class="o">+</span> <span class="nx">s9</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Splits the string with the given regular expression to produce a string array.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">string</span><span class="p">[]</span> <span class="nx">array</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Split: &quot;</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Converts string to a BLOB.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">blob</span> <span class="nx">blobValue</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Converts the BLOB to the string.</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s10</span> <span class="p">=</span> <span class="nx">blobValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Blob: &quot;</span> <span class="o">+</span> <span class="nx">s10</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run strings.bal
+<span class="go">ToUpper: LION IN TOWN. CATCH THE LION</span>
+<span class="go">ToLower: lion in town. catch the lion</span>
+<span class="go">EqualsIgnoreCase: true</span>
+<span class="go">SubString: Lion</span>
+<span class="go">Contains: true</span>
+<span class="go">IndexOf: 2</span>
+<span class="go">LastIndexOf: 26</span>
+<span class="go">ValueOf: 5.8</span>
+<span class="go">ReplaceFirst: Tiger in Town. Catch the Lion</span>
+<span class="go">Replace: Tiger in Town. Catch the Tiger</span>
+<span class="go">ReplaceAll: Li0n in T0wn. Catch the Li0n</span>
+<span class="go">Length: 29</span>
+<span class="go">Trim: Lion in Town. Catch the Lion</span>
+<span class="go">HasSuffix: true</span>
+<span class="go">HasPreffix: true</span>
+<span class="go">Unescape: Lion in Town. Catch the Lion</span>
+<span class="go">Split: Lion</span>
+<span class="go">Split: in</span>
+<span class="go">Split: Town.</span>
+<span class="go">Blob: Lion in Town. Catch the Lion</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="blob-type">Blob Type</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/strings">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

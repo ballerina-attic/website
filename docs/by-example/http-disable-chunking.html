@@ -96,8 +96,8 @@
     <span class="p">}</span>
     <span class="kd">resource</span> <span class="nx">echoResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">string</span> <span class="nx">value</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Length&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">value</span> <span class="p">=</span> <span class="s">&quot;Lenght-&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Length&quot;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;content-length&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">value</span> <span class="p">=</span> <span class="s">&quot;Lenght-&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;content-length&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">value</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Transfer-Encoding&quot;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -226,8 +226,8 @@ buffer size (8K) messages are chunked. But user can disable chunking using conne
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Length&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">value</span> <span class="p">=</span> <span class="s">&quot;Lenght-&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Length&quot;</span><span class="p">);</span>
+                                  <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;content-length&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">value</span> <span class="p">=</span> <span class="s">&quot;Lenght-&quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;content-length&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">value</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Transfer-Encoding&quot;</span><span class="p">);</span>
         <span class="p">}</span>

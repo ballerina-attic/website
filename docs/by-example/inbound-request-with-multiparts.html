@@ -78,14 +78,12 @@
 			  <div class="FullCode">
 			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">mime</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">multiparts</span> <span class="p">{</span>
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/receivableParts&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">receiveMultiparts</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">mime</span><span class="p">:</span><span class="nx">Entity</span><span class="p">[]</span> <span class="nx">bodyParts</span> <span class="p">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getMultiparts</span><span class="p">();</span>
         <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;CONTENT TYPE OF TOP LEVEL ENTITY &gt; &quot;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">));</span>
         <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">lengthof</span> <span class="nx">bodyParts</span><span class="p">)</span> <span class="p">{</span>
@@ -156,7 +154,6 @@ this array to handle the received body parts according to your requirement.</p>
                                   <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">mime</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
 </pre></div>
 
                               </td>
@@ -167,13 +164,12 @@ this array to handle the received body parts according to your requirement.</p>
                                   
                               </td>
                               <td class="code leading">
-                                  <div class="highlight"><pre><span class="nd">@http:configuration {</span><span class="nx">basePath</span><span class="p">:</span><span class="s">&quot;/foo&quot;</span><span class="p">}</span>
-<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+                                  <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">multiparts</span> <span class="p">{</span>
     <span class="nd">@http:resourceConfig {</span>
         <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">],</span>
         <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/receivableParts&quot;</span>
     <span class="p">}</span>
-    <span class="kd">resource</span> <span class="nx">echo</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">resource</span> <span class="nx">receiveMultiparts</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
 </pre></div>
 
                               </td>
@@ -181,7 +177,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Extract multiparts from the inbound request</p>
+                                  <p>Extract multiparts from the inbound request.</p>
 
                               </td>
                               <td class="code leading">
@@ -232,7 +228,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Handling body part content logic varies according to user&rsquo;s requirement</p>
+                                  <p>Handling body part content logic varies according to user&rsquo;s requirement.</p>
 
                               </td>
                               <td class="code leading">
@@ -246,7 +242,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Extract xml data from body part and print</p>
+                                  <p>Extract xml data from body part and print.</p>
 
                               </td>
                               <td class="code leading">
@@ -259,7 +255,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Extract json data from body part and print</p>
+                                  <p>Extract json data from body part and print.</p>
 
                               </td>
                               <td class="code leading">
@@ -272,7 +268,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Extract text data from body part and print</p>
+                                  <p>Extract text data from body part and print.</p>
 
                               </td>
                               <td class="code leading">
@@ -285,7 +281,7 @@ this array to handle the received body parts according to your requirement.</p>
                           
                           <tr>
                               <td class="docs">
-                                  <p>Get a byte channel from body part and write content to a file</p>
+                                  <p>Get a byte channel from body part and write content to a file.</p>
 
                               </td>
                               <td class="code leading">
@@ -362,7 +358,7 @@ this array to handle the received body parts according to your requirement.</p>
                                   
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre><span class="gp">$</span> curl -v -F <span class="nv">key1</span><span class="o">=</span>value1 -F <span class="nv">upload</span><span class="o">=</span>/home/User/Downloads/samplefile.txt http://localhost:9090/foo/receivableParts
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v -F <span class="nv">key1</span><span class="o">=</span>value1 -F <span class="nv">upload</span><span class="o">=</span>/home/User/Downloads/samplefile.txt http://localhost:9090/multiparts/receivableParts
 </pre></div>
 
                               </td>

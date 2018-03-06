@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: HTTP Failover</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">resiliency</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">runtime</span><span class="p">;</span><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">failoverService</span> <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="nx">failoverHttpStatusCodes</span> <span class="p">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">500</span><span class="p">];</span>
+    <span class="nx">resiliency</span><span class="p">:</span><span class="nx">FailoverConfig</span> <span class="nx">errorCode</span> <span class="p">=</span> <span class="p">{</span><span class="nx">failoverCodes</span><span class="p">:</span><span class="nx">failoverHttpStatusCodes</span><span class="p">};</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>    <span class="kd">resource</span> <span class="nx">failoverPostResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">endPoint</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">Failover</span><span class="p">(</span>
+                    <span class="p">[</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:23456/mock&quot;</span><span class="p">,</span> <span class="p">{}),</span>
+                     <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090/echo&quot;</span><span class="p">,</span>
+                                    <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">5000</span><span class="p">}),</span>
+                     <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090/mock&quot;</span><span class="p">,</span> <span class="p">{})],</span>
+                     <span class="nx">errorCode</span><span class="p">);</span>
+        <span class="p">}</span>        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">inResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">outRequest</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="kt">json</span> <span class="nx">requestPayload</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
+        <span class="nx">outRequest</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">requestPayload</span><span class="p">);</span>
+        <span class="nx">inResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">endPoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="nx">outRequest</span><span class="p">);</span>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">outResponse</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">err</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">;</span>
+            <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="kt">message</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">inResponse</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}}</span>
+<span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">echoResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">runtime</span><span class="p">:</span><span class="nx">sleepCurrentWorker</span><span class="p">(</span><span class="mi">30000</span><span class="p">);</span>
+        <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Resource is invoked&quot;</span><span class="p">);</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">mock</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">mockResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Mock Resource is Invoked.&quot;</span><span class="p">);</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="http-failover">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: HTTP Failover</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Ballerina users can configure multiple connectors in a given failover group so that if one of the connectors (dependencies) fails, Ballerina will automatically failover to another endpoint.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">resiliency</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">runtime</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">failoverService</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Set of Http Status codes needs to be failover.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span><span class="p">[]</span> <span class="nx">failoverHttpStatusCodes</span> <span class="p">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">500</span><span class="p">];</span>
+    <span class="nx">resiliency</span><span class="p">:</span><span class="nx">FailoverConfig</span> <span class="nx">errorCode</span> <span class="p">=</span> <span class="p">{</span><span class="nx">failoverCodes</span><span class="p">:</span><span class="nx">failoverHttpStatusCodes</span><span class="p">};</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Requests which contain any HTTP method will be directed to failoverPostResource resource.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kd">resource</span> <span class="nx">failoverPostResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Failover Connector takes the input as an array of HttpClient connectors and FailoverConfig struct.
+ The FailoverConfig struct should contain int array of HTTP status codes and interval of failover in  milliseconds.
+      struct FailoverConfig {
+             int[] failoverCodes;
+             int interval;
+      }</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">&gt;</span> <span class="nx">endPoint</span> <span class="p">{</span>
+            <span class="nx">create</span> <span class="nx">resiliency</span><span class="p">:</span><span class="nx">Failover</span><span class="p">(</span>
+                    <span class="p">[</span><span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:23456/mock&quot;</span><span class="p">,</span> <span class="p">{}),</span>
+                     <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090/echo&quot;</span><span class="p">,</span>
+                                    <span class="p">{</span><span class="nx">endpointTimeout</span><span class="p">:</span><span class="mi">5000</span><span class="p">}),</span>
+                     <span class="nx">create</span> <span class="nx">http</span><span class="p">:</span><span class="nx">HttpClient</span><span class="p">(</span><span class="s">&quot;http://localhost:9090/mock&quot;</span><span class="p">,</span> <span class="p">{})],</span>
+                     <span class="nx">errorCode</span><span class="p">);</span>
+        <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">InResponse</span> <span class="nx">inResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">HttpConnectorError</span> <span class="nx">err</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutRequest</span> <span class="nx">outRequest</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="kt">json</span> <span class="nx">requestPayload</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;Ballerina&quot;</span><span class="p">};</span>
+        <span class="nx">outRequest</span><span class="p">.</span><span class="nx">setJsonPayload</span><span class="p">(</span><span class="nx">requestPayload</span><span class="p">);</span>
+        <span class="nx">inResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">endPoint</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="nx">outRequest</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">outResponse</span><span class="p">.</span><span class="nx">statusCode</span> <span class="p">=</span> <span class="nx">err</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">;</span>
+            <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="kt">message</span><span class="p">);</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">inResponse</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Below sample services are used to mock backend services which include timeouts.
+ Mock services are run separately from the Failover Service.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">echo</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">echoResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">runtime</span><span class="p">:</span><span class="nx">sleepCurrentWorker</span><span class="p">(</span><span class="mi">30000</span><span class="p">);</span>
+        <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Resource is invoked&quot;</span><span class="p">);</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="kd">service</span><span class="p">&lt;</span><span class="nx">http</span><span class="p">&gt;</span> <span class="nx">mock</span> <span class="p">{</span>
+    <span class="nd">@http:resourceConfig {</span>
+        <span class="nx">methods</span><span class="p">:[</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="s">&quot;GET&quot;</span><span class="p">],</span>
+        <span class="nx">path</span><span class="p">:</span><span class="s">&quot;/&quot;</span>
+    <span class="p">}</span>
+    <span class="kd">resource</span> <span class="nx">mockResource</span> <span class="p">(</span><span class="nx">http</span><span class="p">:</span><span class="nx">Connection</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">http</span><span class="p">:</span><span class="nx">InRequest</span> <span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">http</span><span class="p">:</span><span class="nx">OutResponse</span> <span class="nx">outResponse</span> <span class="p">=</span> <span class="p">{};</span>
+        <span class="nx">outResponse</span><span class="p">.</span><span class="nx">setStringPayload</span><span class="p">(</span><span class="s">&quot;Mock Resource is Invoked.&quot;</span><span class="p">);</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="nx">outResponse</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To run the service, put the code in <code>http-failover.bal</code>
+ and execute the following command from <code>$BALLERINA_HOME/bin</code>.</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run http-failover.bal
+<span class="go">ballerina: deploying service(s) in &#39;http-failover.bal&#39;</span>
+<span class="go">ballerina: started HTTP/WS server connector 0.0.0.0:9090</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>To invoke the Failover Service, use following curl command.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="gp">$</span> curl -v http://localhost:9090/failoverService
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Once you invoke the Failover service, Failover connector will failover the request to the configured
+ HttpClient connectors. In this example third connector will give a success response.
+ Server response:</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="go">Mock Resource is Invoked.</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="http-load-balancer">HTTP Load Balancer</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/http-failover">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>

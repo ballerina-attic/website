@@ -102,8 +102,8 @@
     <span class="nx">process</span><span class="p">(</span><span class="nx">srcRecordChannel</span><span class="p">,</span> <span class="nx">dstRecordChannel</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Processing completed. The processed file could be located in &quot;</span>
             <span class="o">+</span> <span class="nx">dstFileName</span><span class="p">);</span>
-    <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">closeTextRecordChannel</span><span class="p">();</span>
-    <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">closeTextRecordChannel</span><span class="p">();</span>
+    <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">closeDelimitedRecordChannel</span><span class="p">();</span>
+    <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">closeDelimitedRecordChannel</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -288,8 +288,8 @@ is new line and field separator is pipe.</p>
 
                               </td>
                               <td class="code">
-                                  <div class="highlight"><pre>    <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">closeTextRecordChannel</span><span class="p">();</span>
-    <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">closeTextRecordChannel</span><span class="p">();</span>
+                                  <div class="highlight"><pre>    <span class="nx">srcRecordChannel</span><span class="p">.</span><span class="nx">closeDelimitedRecordChannel</span><span class="p">();</span>
+    <span class="nx">dstRecordChannel</span><span class="p">.</span><span class="nx">closeDelimitedRecordChannel</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 

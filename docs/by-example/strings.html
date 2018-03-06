@@ -114,6 +114,8 @@
     <span class="kt">blob</span> <span class="nx">blobValue</span> <span class="p">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="kt">string</span> <span class="nx">s10</span> <span class="p">=</span> <span class="nx">blobValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Blob: &quot;</span> <span class="o">+</span> <span class="nx">s10</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="nx">s11</span> <span class="p">=</span> <span class="nx">io</span><span class="p">:</span><span class="nx">sprintf</span><span class="p">(</span><span class="s">&quot;%s %f&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">value</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Sprintf: &quot;</span> <span class="o">+</span> <span class="nx">s11</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -404,9 +406,22 @@ ending index should be specified.</p>
                                   <p>Converts the BLOB to the string.</p>
 
                               </td>
-                              <td class="code">
+                              <td class="code leading">
                                   <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s10</span> <span class="p">=</span> <span class="nx">blobValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Blob: &quot;</span> <span class="o">+</span> <span class="nx">s10</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Format string according to format arguments</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="kt">string</span> <span class="nx">s11</span> <span class="p">=</span> <span class="nx">io</span><span class="p">:</span><span class="nx">sprintf</span><span class="p">(</span><span class="s">&quot;%s %f&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">value</span><span class="p">]);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Sprintf: &quot;</span> <span class="o">+</span> <span class="nx">s11</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -446,6 +461,7 @@ ending index should be specified.</p>
 <span class="go">Split: in</span>
 <span class="go">Split: Town.</span>
 <span class="go">Blob: Lion in Town. Catch the Lion</span>
+<span class="go">Sprintf: Lion 5.8</span>
 </pre></div>
 
                               </td>

@@ -85,7 +85,7 @@
     <span class="p">}</span>
     <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB2</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3308</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
         <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
     <span class="p">}</span>
     <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE CUSTOMER (ID INT AUTO_INCREMENT PRIMARY KEY,</span>
@@ -188,7 +188,7 @@ sql:ClientConnector should be true.</p>
                               <td class="code leading">
                                   <div class="highlight"><pre>    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB2</span> <span class="p">{</span>
         <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
-        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3308</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
         <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
     <span class="p">}</span>
 </pre></div>
@@ -341,9 +341,12 @@ salary info to the second DB along with the key generated in the first DB.</p>
                                   <div class="highlight"><pre><span class="gp">$</span> ballerina run distributed-transactions.bal
 <span class="go">CUSTOMER table create status in first DB:0</span>
 <span class="go">SALARY table create status in second DB:0</span>
+<span class="go">2018-03-03 11:36:08,163 INFO  [ballerina.transactions.coordinator] - Created transaction: 79d3396039da44fbadb233955f695256</span>
 <span class="go">Inserted count to CUSTOMER table:1</span>
 <span class="go">Generated key for the inserted row:1</span>
 <span class="go">Inserted count to SALARY table:1</span>
+<span class="go">2018-03-03 11:36:08,206 INFO  [ballerina.transactions.coordinator] - Committing transaction: 79d3396039da44fbadb233955f695256</span>
+<span class="go">2018-03-03 11:36:08,207 INFO  [ballerina.transactions.coordinator] - Running 2-phase commit for transaction: 79d3396039da44fbadb233955f695256</span>
 <span class="go">Transaction committed</span>
 <span class="go">CUSTOMER table drop status:0</span>
 <span class="go">SALARY table drop status:0</span>
