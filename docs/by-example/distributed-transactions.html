@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:url"                content="https://ballerinalang.org" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Flexible. Powerful. Beautiful." />
+  <meta property="og:description"        content="Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. Check out the first example or browse the full list below. " />
+  <meta property="og:image"              content="http://ballerinalang.org/img/ballerina-fb.jpg" />
+    <link rel="shortcut icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://ballerinalang.org/img/favicon.ico" type="image/x-icon">
+    <title>Ballerina by Example: Distributed Transactions</title>
+    <!--GA-->
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-92163714-1', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || [];
+         w[l].push({'gtm.start':
+                     new Date().getTime(), event: 'gtm.js'});
+         var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+         j.async = true;
+         j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+         f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-KW2LLTW');
+      </script>
+      <!-- End Google Tag Manager -->
+      <!-- Hotjar Tracking Code for https://ballerinalang.org/ --> 
+      <script>
+         (function (h, o, t, j, a, r) {
+             h.hj = h.hj || function () {
+                 (h.hj.q = h.hj.q || []).push(arguments)
+             };
+             h._hjSettings = {hjid: 442732, hjsv: 5};
+             a = o.getElementsByTagName('head')[0];
+             r = o.createElement('script');
+             r.async = 1;
+             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+             a.appendChild(r);
+         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      </script>
+    
+     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
+      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
+      
+      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
+<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
+    <link rel=stylesheet href="site.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
+    
+    
+  </head>
+  <body>
+        <div class="row cBallerinaNav" id="iBallerinaNavigation">
+
+        </div>
+      <div class="row cBallerinaBySampleRow">
+          <div class="container cBallerinaBySampleContainer">
+			  <div class="FullCode">
+			  	<div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB1</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb1&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
+    <span class="p">}</span>
+    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB2</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3308</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE CUSTOMER (ID INT AUTO_INCREMENT PRIMARY KEY,</span>
+<span class="s">                                    NAME VARCHAR(30))&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;CUSTOMER table create status in first DB:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE SALARY (ID INT, VALUE FLOAT)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SALARY table create status in second DB:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>    <span class="kt">boolean</span> <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">transaction</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">insertCount</span><span class="p">,</span> <span class="nx">generatedID</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">updateWithGeneratedKeys</span><span class="p">(</span><span class="s">&quot;INSERT INTO</span>
+<span class="s">                                     CUSTOMER(NAME) VALUES (&#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">returnedKey</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">generatedID</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count to CUSTOMER table:&quot;</span> <span class="o">+</span> <span class="nx">insertCount</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Generated key for the inserted row:&quot;</span> <span class="o">+</span> <span class="nx">returnedKey</span><span class="p">);</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="nx">sql</span><span class="p">:</span><span class="nx">Type</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="nx">returnedKey</span><span class="p">};</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
+        <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, VALUE) VALUES (?, 2500)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count to SALARY table:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">transactionSuccess</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;DROP TABLE CUSTOMER&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;CUSTOMER table drop status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;DROP TABLE SALARY&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SALARY table drop status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">testDB1</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">testDB2</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+		  	  </div>	
+              <div class="example" id="distributed-transactions">
+                  <div class="col-xs-11 col-sm-11 col-md-11">
+                      <h2><a href="./">Ballerina by Example</a>: Distributed Transactions</h2>
+                  </div>
+                  <div class="col-xs-1 col-sm-1 col-md-1">
+                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Ballerina distributed transactions are used when the transaction is happening over
+ two or more databases or JMS endpoints. This sample use two MySQL DBs and before
+ running the sample copy the MySQL JDBC driver to the BALLERINA_HOME/bre/lib folder
+ and change the DB connection properties as required.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sql</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nx">ballerina</span><span class="p">.</span><span class="nx">io</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre><span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create an endpoint for the first database named testdb1. Since this endpoint is
+participated in a distributed transaction, the isXA property of the
+sql:ClientConnector should be true.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB1</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;testdb1&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create an endpoint for the second database named testdb2. Since this endpoint is
+participated in a distributed transaction, the isXA property of the
+sql:ClientConnector should be true.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">endpoint</span><span class="p">&lt;</span><span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">&gt;</span> <span class="nx">testDB2</span> <span class="p">{</span>
+        <span class="nx">create</span> <span class="nx">sql</span><span class="p">:</span><span class="nx">ClientConnector</span><span class="p">(</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">DB</span><span class="p">.</span><span class="nx">MYSQL</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">3308</span><span class="p">,</span> <span class="s">&quot;testdb2&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="nx">maximumPoolSize</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">isXA</span><span class="p">:</span><span class="kc">true</span><span class="p">});</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create the table named CUSTOMER in the first database.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">int</span> <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE CUSTOMER (ID INT AUTO_INCREMENT PRIMARY KEY,</span>
+<span class="s">                                    NAME VARCHAR(30))&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;CUSTOMER table create status in first DB:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Create the table named SALARY in the second database.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;CREATE TABLE SALARY (ID INT, VALUE FLOAT)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SALARY table create status in second DB:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="kt">boolean</span> <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Begins the transaction.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">transaction</span> <span class="p">{</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This is the first action participate in the transaction which insert customer
+name to the first DB and get the generated key.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="k">var</span> <span class="nx">insertCount</span><span class="p">,</span> <span class="nx">generatedID</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">updateWithGeneratedKeys</span><span class="p">(</span><span class="s">&quot;INSERT INTO</span>
+<span class="s">                                     CUSTOMER(NAME) VALUES (&#39;Anne&#39;)&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">returnedKey</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="nx">generatedID</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count to CUSTOMER table:&quot;</span> <span class="o">+</span> <span class="nx">insertCount</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Generated key for the inserted row:&quot;</span> <span class="o">+</span> <span class="nx">returnedKey</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>This is the second action participate in the transaction which insert the
+salary info to the second DB along with the key generated in the first DB.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span> <span class="nx">para1</span> <span class="p">=</span> <span class="p">{</span><span class="nx">sqlType</span><span class="p">:</span><span class="nx">sql</span><span class="p">:</span><span class="nx">Type</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span><span class="nx">returnedKey</span><span class="p">};</span>
+        <span class="nx">sql</span><span class="p">:</span><span class="nx">Parameter</span><span class="p">[]</span> <span class="nx">params</span> <span class="p">=</span> <span class="p">[</span><span class="nx">para1</span><span class="p">];</span>
+        <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;INSERT INTO SALARY (ID, VALUE) VALUES (?, 2500)&quot;</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Inserted count to SALARY table:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="nx">failed</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction failed&quot;</span><span class="p">);</span>
+        <span class="nx">transactionSuccess</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">transactionSuccess</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Transaction committed&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Drop the tables created for this sample.</p>
+
+                              </td>
+                              <td class="code leading">
+                                  <div class="highlight"><pre>    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;DROP TABLE CUSTOMER&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;CUSTOMER table drop status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+    <span class="nx">ret</span> <span class="p">=</span> <span class="nx">testDB2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s">&quot;DROP TABLE SALARY&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;SALARY table drop status:&quot;</span> <span class="o">+</span> <span class="nx">ret</span><span class="p">);</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td class="docs">
+                                  <p>Close the connection pool.</p>
+
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre>    <span class="nx">testDB1</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">testDB2</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+
+                      <table>
+                          
+                          <tr>
+                              <td class="docs">
+                                  
+                              </td>
+                              <td class="code">
+                                  <div class="highlight"><pre><span class="gp">$</span> ballerina run distributed-transactions.bal
+<span class="go">CUSTOMER table create status in first DB:0</span>
+<span class="go">SALARY table create status in second DB:0</span>
+<span class="go">2018-03-03 11:36:08,163 INFO  [ballerina.transactions.coordinator] - Created transaction: 79d3396039da44fbadb233955f695256</span>
+<span class="go">Inserted count to CUSTOMER table:1</span>
+<span class="go">Generated key for the inserted row:1</span>
+<span class="go">Inserted count to SALARY table:1</span>
+<span class="go">2018-03-03 11:36:08,206 INFO  [ballerina.transactions.coordinator] - Committing transaction: 79d3396039da44fbadb233955f695256</span>
+<span class="go">2018-03-03 11:36:08,207 INFO  [ballerina.transactions.coordinator] - Running 2-phase commit for transaction: 79d3396039da44fbadb233955f695256</span>
+<span class="go">Transaction committed</span>
+<span class="go">CUSTOMER table drop status:0</span>
+<span class="go">SALARY table drop status:0</span>
+</pre></div>
+
+                              </td>
+                          </tr>
+                          
+                      </table>
+					 
+
+                      
+                      
+                      <p class="next">
+                          Next example: <a href="transformers">Transformers</a>.
+                      </p>
+                      
+
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
+                      <p class="footer">
+                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/distributed-transactions">source</a>
+                      </p>
+                      <p class="attrib">
+                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
+                      </p>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <div class="row cBallerinaFooter" id="iBallerinaFooter">
+      </div>
+	    
+  </body>
+</html>
