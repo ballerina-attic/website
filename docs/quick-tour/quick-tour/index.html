@@ -182,12 +182,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Let's take a look at what the sample looks like in the Ballerina programming language:</p>
 <pre><code>function main (string[] args) {
   println(&quot;Hello, World!&quot;);
-}
 </code></pre>
 
 <p>The HelloWorld sample doesn't take any specific input, so simply running it will cause it to print "Hello, World!" at the command line.</p>
 <p>At the command prompt, navigate to the <code>&lt;ballerina_home&gt;/samples/helloWorld</code> directory and enter the following line:</p>
-<pre><code>ballerina run helloworld.bal
+<pre><code class="bash">ballerina run helloworld.bal
 </code></pre>
 
 <p>You will see the following response:</p>
@@ -209,33 +208,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>The welcome page of Ballerina Composer appears. </p>
 </li>
 </ol>
-<p><img alt="alt text" src="../images/ComposerNew.png" title="Welcome page" /></p>
-<pre><code>Let's open a sample and take a look around.
-</code></pre>
+<p><img alt="alt text" src="../images/ComposerNew1.png" title="Welcome page" /></p>
+<p>Let's open a sample and take a look around. </p>
 <h2 id="explore-the-ballerina-composer">Explore the Ballerina Composer</h2>
 <p>Once you have accessed the composer, you can have a look around using the available samples in the welcome page of the Ballerina Composer.</p>
 <ol>
 <li>
-<p>Click <strong>echoService</strong>.</p>
+<p>Click <strong>Echo Service</strong>.</p>
 <p>The Echo Service program displays in the Composer.</p>
-<p><img alt="alt text" src="../images/echoServiceNew.png" title="Echo Service program" /></p>
-<p>Notice that on the left you have a tool palette containing the various constructs that you'll use to build your integration. On the right, you have a visual editor with a canvas onto which you drag those constructs. This is where you build your sequence diagrams that define your integration logic. </p>
-<p><img alt="alt text" src="../images/ConstructsNew.png" title="Constructs" /></p>
+<p><img alt="alt text" src="../images/echoServiceNew1.png" title="Echo Service program" /></p>
+<p>Notice that on the top you have an add button containing the various constructs that you'll use to build your integration. When you select a construct it is drawn in the canvas. This is where you build your sequence diagrams that define your integration logic.</p>
+<p><img alt="alt text" src="../images/ConstructsNew1.png" title="Constructs" /></p>
 <p>Some constructs have a <strong>life line</strong> of execution where you program the statements to be executed. This defines the flow of execution. The life line is represented by a vertical line in the default program or any other construct of the <strong>echoService</strong>.</p>
-<p><img alt="alt text" src="../images/LifelineNew.png" title="Ballerina construct life line" /></p>
-<p>There are packages called <strong>Connectors</strong> and <strong>Libraries</strong> that are available to be used by your Ballerina program. By default, the Composer imports few commonly used packages to this section. If you add an import to a different package, it is added to this section. Hovering over these packages provides a link to the documentation for each of these libraries, including the available functions and their usage. Click the eye icon to view more connectors and libraries.</p>
-<p><img alt="alt text" src="../images/Libraries.png" title="Ballerina connectors and libraries" /></p>
+<p><img alt="alt text" src="../images/LifelineNew1.png" title="Ballerina construct life line" /></p>
+<p>There are packages called <strong>Connectors</strong> and <strong>Libraries</strong> that are available to be used by your Ballerina program. By default, the Composer imports few commonly used packages to this section. If you add an import to a different package, it is added to this section. Click on the plus icon on the right of the diagram and select Endpoint to see the list of connectors.</p>
+<p><img alt="alt text" src="../images/Connectors.png" title="Ballerina connectors and libraries" /></p>
 <p>Notice the <strong>Source View</strong> button and the <strong>Split View</strong> button in the lower right corner. Also note the <strong>Swagger Source</strong> button associated with the service.</p>
-<p><img alt="alt text" src="../images/SourceSwaggerButtons.png" title="Source and Swagger buttons" /></p>
+<p><img alt="alt text" src="../images/SourceSwaggerButtons1.png" title="Source and Swagger buttons" /></p>
 </li>
 <li>
 <p>Click <strong>Source View</strong>. </p>
-<p><img alt="alt text" src="../images/EchoSourceNew.png" title="Source view" /></p>
+<p><img alt="alt text" src="../images/EchoSourceNew1.png" title="Source view" /></p>
 <p>You'll see the source code editor that represents the sequence diagram as code in the Ballerina language. You can go back and forth between the visual editor and the source code and make your edits in either place. This can be done by clicking <strong>Design View</strong> in the lower right corner.</p>
 </li>
 <li>
 <p>Click <strong>Swagger View</strong>. </p>
-<p><img alt="alt text" src="../images/EchoSwaggerNew.png" title="Swagger view" /></p>
+<p><img alt="alt text" src="../images/EchoSwaggerNew1.png" title="Swagger view" /></p>
 <p>If your Ballerina program contains services and resources, you can view the generated Swagger definition for your program by switching to the Swagger view. This editor allows you to write Swagger definitions to create services. All the changes made on the Swagger definition will reflect on the Ballerina program when you switch back to Source or Design view.</p>
 </li>
 <li>
@@ -243,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </li>
 <li>
 <p>You can run your program from the Composer itself. Click the <strong>Run</strong> button on the left of the Composer and choose whether you want to run your program as an <strong>Application</strong> or a <strong>Service</strong>. You can stop the application by clicking <strong>Stop Application</strong>.</p>
-<p><img alt="alt text" src="../images/BallerinaRunNew.png" title="Run application" /></p>
+<p><img alt="alt text" src="../images/BallerinaRunNew1.png" title="Run application" /></p>
 </li>
 <li>
 <p>Click the "x" to the right of "echoService.bal" in the tab title to close this sample, and click <strong>Don't Save</strong> when prompted.</p>
