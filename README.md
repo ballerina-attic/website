@@ -26,3 +26,5 @@ $ docker build -t ballerinalang-website .
 Now, open your browser, and head over to <http://localhost:8080>.
 
 Test away, and send in your changes as pull requests.
+
+Contributions in the improvement of the repo are most welcome!
