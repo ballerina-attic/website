@@ -1,3 +1,5 @@
+This is a very interesting project i want to make projects like this.
+
 # Ballerina Website
 
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
