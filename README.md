@@ -1,4 +1,4 @@
-# Ballerina Website
+# Ballerina Website is really good
 
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
 
