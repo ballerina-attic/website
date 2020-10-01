@@ -1,4 +1,4 @@
-# Ballerina Website-An amazing project 
+# Ballerina Website-An amazing approach 
 
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
 
