@@ -1,4 +1,4 @@
-# Ballerina Website
+# Ballerina - A open source programming language and platform for developer.
 
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
 
