@@ -1,4 +1,5 @@
 # Ballerina Website
+this is a repo website
 
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
 
@@ -25,4 +26,4 @@ $ docker build -t ballerinalang-website .
 
 Now, open your browser, and head over to <http://localhost:8080>.
 
-Test away, and send in your changes as pull requests.
+Test away, and send your changes as pull requests.
