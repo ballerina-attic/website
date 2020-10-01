@@ -19,7 +19,7 @@ $ cd website
 //do important stuff
 $ docker build -t ballerinalang-website .
 ```
-* Now, run the Docker image
+* Now, run the Docker image.
 
 `$ docker run -d -p 8080:80 --name my-ballerina ballerina-website:latest`
 
