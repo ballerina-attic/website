@@ -1,12 +1,12 @@
-# Ballerina Website
+# An Amazing Ballerina Website
 
-This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
+This repository hosts the sources of the Ballerina Website at <http://ballerinalang.org>.
 
-## How to test?
+## How to Test?
 
 The website is built as a PHP app but it mostly has client-side HTML content.
 
-You can use the Dockerfile that can be found at repo root folder to test it. Follow the below instructions to build and run it.
+You can use the Dockerfile that can be found at repository root folder to test it. Follow the instructions below to build and run it.
 
 * Clone the Ballerina Website Git repository
 
@@ -26,3 +26,5 @@ $ docker build -t ballerinalang-website .
 Now, open your browser, and head over to <http://localhost:8080>.
 
 Test away, and send in your changes as pull requests.
+
+---------end----------
