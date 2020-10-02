@@ -3,6 +3,7 @@
 This repo hosts the sources of the Ballerina website at <http://ballerinalang.org>.
 
 ## How to test?
+## How to use ballerina website
 
 The website is built as a PHP app but it mostly has client-side HTML content.
 
